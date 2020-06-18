@@ -1,6 +1,7 @@
 module ForemanPuppetEnc
   class Engine < ::Rails::Engine
     engine_name 'foreman_puppet_enc'
+    isolate_namespace ForemanPuppetEnc
 
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
@@ -27,7 +28,6 @@ module ForemanPuppetEnc
                                                  :'foreman_puppet_enc/react' => [:index] }
         end
 
-        # Add a new role called 'Discovery' if it doesn't exist
         role 'ForemanPuppetEnc', [:view_foreman_puppet_enc]
 
         # add menu entry
