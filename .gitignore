@@ -1,0 +1,15 @@
+.bundle/
+log/*.log
+pkg/
+test/dummy/db/*.sqlite3
+test/dummy/log/*.log
+test/dummy/tmp/
+test/dummy/.sass-cache
+locale/*.mo
+locale/*/*.edit.po
+locale/*/*.po.time_stamp
+locale/*/*.pox
+node_modules
+package-lock.json
+Gemfile.lock
+coverage
