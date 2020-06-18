@@ -10,6 +10,7 @@ module ForemanPuppetEnc
       has_many :config_groups, through: :config_group_classes
 
       accepts_nested_attributes_for :class_params, reject_if: ->(a) { a[:key].blank? }, allow_destroy: true
+
       alias_attribute :smart_class_parameters, :class_params
       alias_attribute :smart_class_parameter_ids, :class_param_ids
 

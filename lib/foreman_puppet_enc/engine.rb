@@ -66,6 +66,7 @@ module ForemanPuppetEnc
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
+      EnvironmentClass.include ForemanPuppetEnc::EnvironmentClassDecorations
       Puppetclass.include ForemanPuppetEnc::PuppetclassDecorations
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
     end
