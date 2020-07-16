@@ -35,11 +35,11 @@ module ForemanPuppetEnc
           lookup_values_for_key = lookup_values_cache.select { |i| i.lookup_key_id == key.id }
           sorted_lookup_values = sort_lookup_values(key, lookup_values_for_key)
           value = nil
-          if key.merge_overrides
-            value = merged_value(key, sorted_lookup_values, options)
-          else
-            value = update_generic_matcher(sorted_lookup_values, options)
-          end
+          value = if key.merge_overrides
+                    merged_value(key, sorted_lookup_values, options)
+                  else
+                    update_generic_matcher(sorted_lookup_values, options)
+                  end
 
           value
         end
@@ -47,12 +47,12 @@ module ForemanPuppetEnc
         def merged_value(key, sorted_lookup_values, options)
           default = key.merge_default ? key.default_value : nil
           case key.key_type
-            when "array"
-              value = update_array_matcher(default, key.avoid_duplicates, sorted_lookup_values, options)
-            when "hash"
-              value = update_hash_matcher(default, sorted_lookup_values, options)
-            else
-              raise "merging enabled for non mergeable key #{key.key}"
+          when 'array'
+            value = update_array_matcher(default, key.avoid_duplicates, sorted_lookup_values, options)
+          when 'hash'
+            value = update_hash_matcher(default, sorted_lookup_values, options)
+          else
+            raise "merging enabled for non mergeable key #{key.key}"
           end
 
           value
@@ -96,7 +96,7 @@ module ForemanPuppetEnc
           computed_lookup_value = nil
           lookup_values.each do |lookup_value|
             element, element_name = get_element_and_element_name(lookup_value)
-            next if (options[:skip_fqdn] && element == "fqdn")
+            next if options[:skip_fqdn] && element == 'fqdn'
             computed_lookup_value = compute_lookup_value(lookup_value, element, element_name)
             computed_lookup_value[:managed] = lookup_value.omit if lookup_value.lookup_key.puppet?
             break
@@ -105,7 +105,7 @@ module ForemanPuppetEnc
         end
 
         def compute_lookup_value(lookup_value, element, element_name)
-          value_method = %w(yaml json).include?(lookup_value.lookup_key.key_type) ? :value_before_type_cast : :value
+          value_method = %w[yaml json].include?(lookup_value.lookup_key.key_type) ? :value_before_type_cast : :value
           {
             :value => lookup_value.send(value_method),
             :element => element,
@@ -125,12 +125,12 @@ module ForemanPuppetEnc
             values = accumulate_value(values, lookup_value, should_avoid_duplicates)
           end
 
-          return nil unless values.present?
-          {:value => values, :element => elements, :element_name => element_names}
+          return nil if values.blank?
+          { :value => values, :element => elements, :element_name => element_names }
         end
 
         def skip_value?(element, lookup_value, options)
-          ((options[:skip_fqdn] && element == "fqdn") || lookup_value.omit)
+          ((options[:skip_fqdn] && element == 'fqdn') || lookup_value.omit)
         end
 
         def accumulate_value(values, lookup_value, should_avoid_duplicates)
@@ -145,7 +145,7 @@ module ForemanPuppetEnc
         def set_defaults(default, empty_value)
           return [empty_value, [], []] if default.nil?
 
-          [default, [s_("LookupKey|Default value")], [s_("LookupKey|Default value")]]
+          [default, [s_('LookupKey|Default value')], [s_('LookupKey|Default value')]]
         end
 
         def update_hash_matcher(default, lookup_values, options)
@@ -161,8 +161,8 @@ module ForemanPuppetEnc
             values.deep_merge!(lookup_value.value)
           end
 
-          return nil unless values.present?
-          {:value => values, :element => elements, :element_name => element_names}
+          return nil if values.blank?
+          { :value => values, :element => elements, :element_name => element_names }
         end
       end
     end

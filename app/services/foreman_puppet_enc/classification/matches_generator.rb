@@ -18,11 +18,10 @@ module ForemanPuppetEnc
           match = generate_match(rule)
           matches << match.join(LookupKey::KEY_DELM)
           LookupKey::MATCHERS_INHERITANCE.each do |element|
-            if add_inherited_matches?(element, rule)
-              inherited_matches(element).each do |inherited_match|
-                match[match.index { |m| m =~ /#{element}\s*=/ }] = inherited_match
-                matches << match.join(LookupKey::KEY_DELM)
-              end
+            next unless add_inherited_matches?(element, rule)
+            inherited_matches(element).each do |inherited_match|
+              match[match.index { |m| m =~ /#{element}\s*=/ }] = inherited_match
+              matches << match.join(LookupKey::KEY_DELM)
             end
           end
         end
@@ -71,8 +70,8 @@ module ForemanPuppetEnc
         matches = []
         if host.send(element)
           path = host.send(element).to_label
-          while path.include?("/")
-            path = path[0..path.rindex("/") - 1]
+          while path.include?('/')
+            path = path[0..path.rindex('/') - 1]
             matches << "#{element}#{LookupKey::EQ_DELM}#{path}"
           end
         end

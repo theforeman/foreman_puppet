@@ -33,10 +33,10 @@ module ForemanPuppetEnc
       def extract_value(key)
         key_hash = key_hash(key)
         if key_hash
-          {:value => key_hash[:value], :managed => key_hash[:managed] }
+          { :value => key_hash[:value], :managed => key_hash[:managed] }
         else
-          default_value_method = %w(yaml json).include?(key.key_type) ? :default_value_before_type_cast : :default_value
-          {:value => key.send(default_value_method), :managed => key.omit}
+          default_value_method = %w[yaml json].include?(key.key_type) ? :default_value_before_type_cast : :default_value
+          { :value => key.send(default_value_method), :managed => key.omit }
         end
       end
 
