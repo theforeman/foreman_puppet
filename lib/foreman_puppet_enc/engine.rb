@@ -35,6 +35,7 @@ module ForemanPuppetEnc
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
+      LookupKey.include ForemanPuppetEnc::Classification
     end
 
     rake_tasks do
