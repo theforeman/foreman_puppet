@@ -36,3 +36,9 @@ Style/FrozenStringLiteralComment:
 # Support both ruby19 and hash_rockets
 Style/HashSyntax:
   Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
