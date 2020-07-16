@@ -1,4 +1,4 @@
-require 'test_plugin_helper'
+require 'test_puppet_enc_helper'
 
 class ForemanPuppetEncTest < ActiveSupport::TestCase
   setup do
