@@ -42,6 +42,12 @@ module ForemanPuppetEnc
       end
     end
 
+    initializer 'foreman_puppet_enc.apipie' do
+      p = Foreman::Plugin.find(:foreman_puppet_enc)
+      p.apipie_documented_controllers(["#{ForemanPuppetEnc::Engine.root}/app/controllers/foreman_puppet_enc/api/v2/*.rb"])
+      Apipie.configuration.checksum_path += ['/foreman_puppet_enc/api/']
+    end
+
     # Include concerns in this config.to_prepare block
     config.to_prepare do
       Host::Managed.include ForemanPuppetEnc::HostExtensions
