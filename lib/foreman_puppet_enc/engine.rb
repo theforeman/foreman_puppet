@@ -24,6 +24,8 @@ module ForemanPuppetEnc
         # add menu entry
 
         # add dashboard widget
+
+        register_info_provider(ForemanPuppetEnc::HostInfoProviders::PuppetInfo)
       end
     end
 
