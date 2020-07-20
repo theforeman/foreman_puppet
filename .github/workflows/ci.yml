@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        foreman-core-branch: [2.1-stable, develop]
+        foreman-core-branch: [develop]
         ruby-version: [2.5, 2.6]
         node-version: [12]
     steps:
@@ -50,7 +50,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version:  ${{ matrix.node-version }}
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-fgems-${{ matrix.ruby-version }}-${{ hashFiles('Gemfile.lock') }}
