@@ -66,8 +66,11 @@ module ForemanPuppetEnc
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
+      # Temporary
       EnvironmentClass.include ForemanPuppetEnc::EnvironmentClassDecorations
       Puppetclass.include ForemanPuppetEnc::PuppetclassDecorations
+      # To stay
+      LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
     end
 
