@@ -3,6 +3,10 @@ module ForemanPuppetEnc
     engine_name 'foreman_puppet_enc'
     isolate_namespace ForemanPuppetEnc
 
+    if Gem::Dependency.new('', '>= 2.2').match?('', SETTINGS[:version])
+      config.paths['db/migrate'] << 'db/migrate_foreman'
+    end
+
     # Add any db migrations
     initializer 'foreman_puppet_enc.load_app_instance_data' do |app|
       ForemanPuppetEnc::Engine.paths['db/migrate'].existent.each do |path|
