@@ -23,20 +23,24 @@
   "peerDependencies": {
     "@theforeman/vendor": ">= 4.0.2"
   },
-  "dependencies": {
-    "react-intl": "^2.8.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.7.0",
     "@theforeman/builder": "^4.0.2",
-    "@theforeman/eslint-plugin-foreman": "^4.0.2",
     "@theforeman/stories": "^4.0.2",
     "@theforeman/test": "^4.0.2",
     "@theforeman/vendor-dev": "^4.0.2",
-    "babel-eslint": "^10.0.3",
+    "@theforeman/eslint-plugin-foreman": "^4.0.2",
+    "babel-eslint": "^10.0.0",
     "eslint": "^6.7.2",
+    "eslint-plugin-spellcheck": "^0.0.17",
     "prettier": "^1.13.5",
+    "raf": "^3.4.0",
+    "stylelint": "^9.3.0",
     "stylelint-config-standard": "^18.0.0",
-    "stylelint": "^9.3.0"
+    "surge": "^0.20.3"
+  },
+  "dependencies": {
+    "jed": "^1.1.1",
+    "react-intl": "^2.8.0"
   }
 }

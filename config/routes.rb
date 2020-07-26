@@ -1,7 +1,7 @@
 ForemanPuppetEnc::Engine.routes.draw do
   get 'new_action', to: 'foreman_puppet_enc/hosts#new_action'
   get 'foreman_puppet_enc', to: 'foreman_puppet_enc/react#index'
-  resources :config_groups, except: :show do
+  resources :config_groups, except: [:show] do
     collection do
       get 'help', action: :welcome
       get 'auto_complete_search'
@@ -16,5 +16,5 @@ ForemanPuppetEnc::Engine.routes.draw do
 end
 
 Foreman::Application.routes.draw do
-  mount ForemanPuppetEnc::Engine, at: '/foreman_puppet'
+  mount ForemanPuppetEnc::Engine, at: '/foreman_puppet_enc'
 end

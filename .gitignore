@@ -13,3 +13,6 @@ node_modules
 package-lock.json
 Gemfile.lock
 coverage
+.idea/
+.eslintignore
+
