@@ -38,6 +38,8 @@ ForemanPuppetEnc::Engine.routes.draw do
         end
 
         resources :smart_class_parameters, except: %i[new edit create destroy]
+
+        resources :config_groups, except: %i[new edit]
       end
     end
   end
