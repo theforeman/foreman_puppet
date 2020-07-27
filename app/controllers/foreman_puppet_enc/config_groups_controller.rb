@@ -1,7 +1,7 @@
 module ForemanPuppetEnc
   class ConfigGroupsController < ::ApplicationController
     include Foreman::Controller::AutoCompleteSearch
-    include Foreman::Controller::Parameters::ConfigGroup
+    include ForemanPuppetEnc::Controller::Parameters::ConfigGroup
 
     before_action :find_resource, :only => %i[edit update destroy]
 

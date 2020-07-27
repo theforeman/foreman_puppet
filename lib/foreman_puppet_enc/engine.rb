@@ -28,14 +28,14 @@ module ForemanPuppetEnc
         # Add permissions
         security_block :foreman_puppet_enc do
           permission :view_config_groups, { :config_groups => %i[index auto_complete_search welcome],
-                                            :"api/v2/config_groups" => %i[index show],
+                                            :"foreman_puppet_enc/api/v2/config_groups" => %i[index show],
                                             :'foreman_puppet_enc/react' => [:index] }
           permission :create_config_groups, { :config_groups => %i[new create],
-                                              :"api/v2/config_groups" => [:create] }
+                                              :"foreman_puppet_enc/api/v2/config_groups" => [:create] }
           permission :edit_config_groups, { :config_groups => %i[edit update],
-                                            :"api/v2/config_groups" => [:update] }
+                                            :"foreman_puppet_enc/api/v2/config_groups" => [:update] }
           permission :destroy_config_groups, { :config_groups => [:destroy],
-                                               :"api/v2/config_groups" => [:destroy] }
+                                               :"foreman_puppet_enc/api/v2/config_groups" => [:destroy] }
         end
 
         role 'ForemanPuppetEnc', [:view_foreman_puppet_enc]
@@ -84,7 +84,7 @@ module ForemanPuppetEnc
     config.to_prepare do
       EnvironmentClass.include ForemanPuppetEnc::EnvironmentClassDecorations
       Puppetclass.include ForemanPuppetEnc::PuppetclassDecorations
-      HostsHelper.include ForemanPuppetEnc::HostsHelperExtensions
+      # HostsHelper.include ForemanPuppetEnc::HostsHelperExtensions
       HostsController.include ForemanPuppetEnc::Concerns::Puppet::HostsControllerExtensions
     end
 
