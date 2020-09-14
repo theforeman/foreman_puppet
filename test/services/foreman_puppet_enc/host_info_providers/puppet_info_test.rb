@@ -1113,7 +1113,7 @@ module ForemanPuppetEnc
         HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters[puppetclass.name][key.key]
       end
 
-      key.update_attribute :default_value, '<%= "b" %>'
+      key.update(default_value: '<%= "b" %>')
       assert_equal 'b', HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters[puppetclass.name][key.key]
 
       as_admin do

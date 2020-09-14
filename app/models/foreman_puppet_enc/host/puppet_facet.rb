@@ -10,10 +10,9 @@ module ForemanPuppetEnc
       include_in_clone :config_groups, :host_config_groups
 
       def clear_puppetinfo
-        unless environment
-          self.puppetclasses = []
-          self.config_groups = []
-        end
+        return if environment
+        self.puppetclasses = []
+        self.config_groups = []
       end
 
       def parent_config_groups
