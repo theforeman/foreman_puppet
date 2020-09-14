@@ -5,7 +5,7 @@ module ForemanPuppetEnc
     extend ActiveSupport::Concern
 
     included do
-      has_many :host_config_groups, :as => :host
+      has_many :host_config_groups, :as => :host, :dependent => :destroy
       has_many :config_groups, :through => :host_config_groups
       has_many :config_group_classes, :through => :config_groups
       has_many :group_puppetclasses, :through => :config_groups, :source => :puppetclasses

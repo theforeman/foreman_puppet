@@ -24,6 +24,10 @@ Layout/LineLength:
 Rails:
   Enabled: true
 
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'db/migrate/**/*.rb'
+
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
