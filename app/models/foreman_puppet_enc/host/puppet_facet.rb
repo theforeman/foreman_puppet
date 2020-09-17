@@ -1,7 +1,7 @@
 module ForemanPuppetEnc
   module Host
     class PuppetFacet < ApplicationRecord
-      audited :associated_with => :host
+      audited associated_with: :host
       self.table_name = 'host_puppet_facets'
       include ForemanPuppetEnc::HostCommon
       include Facets::Base

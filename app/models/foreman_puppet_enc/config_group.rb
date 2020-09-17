@@ -8,16 +8,16 @@ module ForemanPuppetEnc
 
     validates_lengths_from_database
 
-    has_many :config_group_classes, :dependent => :destroy
-    has_many :puppetclasses, :through => :config_group_classes
-    has_many :host_config_groups, :dependent => :destroy
-    has_many_hosts :through => :host_config_groups, :source => :host, :source_type => 'Host::Managed'
-    has_many :hostgroups, :through => :host_config_groups, :source => :host, :source_type => 'Hostgroup'
+    has_many :config_group_classes, dependent: :destroy
+    has_many :puppetclasses, through: :config_group_classes
+    has_many :host_config_groups, dependent: :destroy
+    has_many_hosts through: :host_config_groups, source: :host, source_type: 'Host::Managed'
+    has_many :hostgroups, through: :host_config_groups, source: :host, source_type: 'Hostgroup'
 
-    validates :name, :presence => true, :uniqueness => true
+    validates :name, presence: true, uniqueness: true
 
-    scoped_search :on => :name, :complete_value => true
-    scoped_search :relation => :puppetclasses, :on => :name, :complete_value => true, :rename => :class, :only_explicit => true, :operators => ['= ', '~ ']
+    scoped_search on: :name, complete_value: true
+    scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :class, only_explicit: true, operators: ['= ', '~ ']
 
     default_scope -> { order('config_groups.name') }
 

@@ -5,10 +5,10 @@ module ForemanPuppetEnc
     extend ActiveSupport::Concern
 
     included do
-      has_many :host_config_groups, :as => :host, :dependent => :destroy
-      has_many :config_groups, :through => :host_config_groups
-      has_many :config_group_classes, :through => :config_groups
-      has_many :group_puppetclasses, :through => :config_groups, :source => :puppetclasses
+      has_many :host_config_groups, as: :host, dependent: :destroy
+      has_many :config_groups, through: :host_config_groups
+      has_many :config_group_classes, through: :config_groups
+      has_many :group_puppetclasses, through: :config_groups, source: :puppetclasses
     end
 
     class_methods do
@@ -18,7 +18,7 @@ module ForemanPuppetEnc
                  else
                    hostgroup ? hostgroup.path.each.map(&:config_group_ids).flatten.uniq : []
                  end
-        ConfigGroupClass.where(:config_group_id => (config_group_ids + cg_ids)).pluck(:puppetclass_id)
+        ConfigGroupClass.where(config_group_id: (config_group_ids + cg_ids)).pluck(:puppetclass_id)
       end
 
       def hg_class_ids
@@ -27,7 +27,7 @@ module ForemanPuppetEnc
                  elsif hostgroup
                    hostgroup.path_ids
                  end
-        HostgroupClass.where(:hostgroup_id => hg_ids).pluck(:puppetclass_id)
+        HostgroupClass.where(hostgroup_id: hg_ids).pluck(:puppetclass_id)
       end
 
       def host_class_ids

@@ -19,14 +19,14 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
 Layout/LineLength:
-  Enabled: 111 # TODO: discuss and set this
+  Enabled: 110
 
 Rails:
   Enabled: true
 
 Rails/SkipsModelValidations:
   Exclude:
-    - 'db/migrate/**/*.rb'
+    - 'db/migrate/*.rb'
 
 Style/Alias:
   EnforcedStyle: prefer_alias_method
@@ -41,7 +41,7 @@ Style/FrozenStringLiteralComment:
 
 # Support both ruby19 and hash_rockets
 Style/HashSyntax:
-  Enabled: false
+  EnforcedStyle: 'ruby19_no_mixed_keys'
 
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
