@@ -31,6 +31,10 @@ Rails/SkipsModelValidations:
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/concerns/**/parameters/*.rb'
+
 # Don't enforce documentation
 Style/Documentation:
   Enabled: false
