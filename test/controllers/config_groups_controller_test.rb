@@ -16,7 +16,7 @@ class ConfigGroupsControllerTest < ActionController::TestCase
   end
 
   test 'should create config_group' do
-    assert_difference('ConfigGroup.count') do
+    assert_difference('ForemanPuppetEnc::ConfigGroup.count') do
       post :create, params: { config_group: { name: 'Custom Dev Group' } }, session: set_session_user
     end
     assert_redirected_to config_groups_path
@@ -33,7 +33,7 @@ class ConfigGroupsControllerTest < ActionController::TestCase
   end
 
   test 'should destroy config_group' do
-    assert_difference('ConfigGroup.count', -1) do
+    assert_difference('ForemanPuppetEnc::ConfigGroup.count', -1) do
       delete :destroy, params: { id: config_groups(:three) }, session: set_session_user
     end
     assert_redirected_to config_groups_path
