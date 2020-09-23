@@ -20,6 +20,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version:  ${{ matrix.node-version }}
+      - name: restore node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-modules-${{ matrix.node-version }}-${{ hashFiles('package-json.lock') }}
+          restore-keys: ${{ runner.os }}-fgems-${{ matrix.ruby-version }}-
       - name: Npm install
         run: npm install
       - name: Run plugin linter
