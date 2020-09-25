@@ -5,7 +5,7 @@ import componentRegistry from 'foremanReact/components/componentRegistry';
 import { registerReducer } from 'foremanReact/common/MountingService';
 import reducers from './src/reducers';
 import ForemanPuppetEnc from './src/ForemanPuppetEnc';
-import * as classEditor from './assets/javascripts/foreman_class_edit.js';
+import * as classEditor from './src/foreman_class_edit.js';
 
 Object.assign(window.tfm, { classEditor });
 
