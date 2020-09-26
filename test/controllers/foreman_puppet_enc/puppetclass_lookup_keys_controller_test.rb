@@ -9,18 +9,17 @@ module ForemanPuppetEnc
 
     let(:lookup_key) { FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, puppetclass: puppetclasses(:one), override: true) }
 
-    # basic_pagination_rendered_test
-    # basic_pagination_per_page_test
+    basic_pagination_rendered_test
+    basic_pagination_per_page_test
 
     test "should get index" do
-      skip 'no templates'
+      lookup_key # we dont want to render welcome
       get :index, session: set_session_user
       assert_response :success
       assert_not_nil assigns(:lookup_keys)
     end
 
     test "should get edit" do
-      skip 'no templates'
       get :edit, params: { id: lookup_key.to_param }, session: set_session_user
       assert_response :success
     end
@@ -46,7 +45,6 @@ module ForemanPuppetEnc
     end
 
     test 'user with viewer rights should succeed in viewing external variables' do
-      skip 'no templates'
       setup_user
       get :index, session: set_session_user(:one)
       assert_response :success
