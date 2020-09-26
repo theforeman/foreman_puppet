@@ -11,6 +11,17 @@ module ForemanPuppetEnc
         # Add Global JS file for extending foreman-core components and routes
         register_global_js_file 'fills'
 
+        # Remove core permissions
+        %i[view_config_groups create_config_groups edit_config_groups destroy_config_groups
+           view_external_parameters create_external_parameters edit_external_parameters
+           destroy_external_parameters].each do |perm_name|
+          p = Foreman::AccessControl.permission(perm_name)
+          Foreman::AccessControl.remove_permission(p)
+        end
+
+        delete_menu_item(:top_menu, :config_groups)
+        delete_menu_item(:top_menu, :puppetclass_lookup_keys)
+
         # Add permissions
         security_block :foreman_puppet_enc do
           permission :view_config_groups, { config_groups: %i[index auto_complete_search welcome],
@@ -22,10 +33,24 @@ module ForemanPuppetEnc
                                             "foreman_puppet_enc/api/v2/config_groups": [:update] }
           permission :destroy_config_groups, { config_groups: [:destroy],
                                                "foreman_puppet_enc/api/v2/config_groups": [:destroy] }
-        end
 
-        delete_menu_item(:top_menu, :config_groups)
-        delete_menu_item(:top_menu, :puppetclass_lookup_keys)
+          permission :view_external_parameters, { 'foreman_puppet_enc/puppetclass_lookup_keys': %i[index show auto_complete_search welcome],
+                                                  lookup_values: [:index],
+                                                  'foreman_puppet_enc/api/v2/smart_class_parameters': %i[index show],
+                                                  'foreman_puppet_enc/api/v2/override_values': %i[index show] }
+          permission :create_external_parameters, { 'foreman_puppet_enc/puppetclass_lookup_keys': %i[new create],
+                                                    lookup_values: [:create],
+                                                    'foreman_puppet_enc/api/v2/smart_class_parameters': [:create],
+                                                    'foreman_puppet_enc/api/v2/override_values': [:create] }
+          permission :edit_external_parameters, { 'foreman_puppet_enc/puppetclass_lookup_keys': %i[edit update],
+                                                  lookup_values: %i[create update destroy],
+                                                  'foreman_puppet_enc/api/v2/smart_class_parameters': [:update],
+                                                  'foreman_puppet_enc/api/v2/override_values': %i[create update destroy] }
+          permission :destroy_external_parameters, { 'foreman_puppet_enc/puppetclass_lookup_keys': [:destroy],
+                                                     lookup_values: [:destroy],
+                                                     'foreman_puppet_enc/api/v2/smart_class_parameters': [:destroy],
+                                                     'foreman_puppet_enc/api/v2/override_values': %i[create update destroy] }
+        end
 
         # add puppet ENC divider
         divider :top_menu, parent: :configure_menu, caption: N_('Puppet ENC')
