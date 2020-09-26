@@ -15,8 +15,4 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_development_dependency 'rdoc'
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'rubocop-minitest', '~> 0.9.0'
-  s.add_development_dependency 'rubocop-performance', '~> 1.5.2'
-  s.add_development_dependency 'rubocop-rails', '~> 2.5.2'
 end

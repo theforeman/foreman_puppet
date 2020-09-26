@@ -13,7 +13,8 @@ module ForemanPuppetEnc
       @config_group = ForemanPuppetEnc::ConfigGroup.new
     end
 
-    def edit; end
+    def edit
+    end
 
     def create
       @config_group = ForemanPuppetEnc::ConfigGroup.new(config_group_params)

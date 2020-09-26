@@ -43,7 +43,8 @@ module ForemanPuppetEnc
         end
       end
 
-      def select_multiple_environment; end
+      def select_multiple_environment
+      end
 
       def update_multiple_environment
         # simple validations
@@ -153,13 +154,15 @@ module ForemanPuppetEnc
         end
       end
 
-      def select_multiple_puppet_proxy; end
+      def select_multiple_puppet_proxy
+      end
 
       def update_multiple_puppet_proxy
         update_multiple_proxy(_('Puppet'), :puppet_proxy=)
       end
 
-      def select_multiple_puppet_ca_proxy; end
+      def select_multiple_puppet_ca_proxy
+      end
 
       def update_multiple_puppet_ca_proxy
         update_multiple_proxy(_('Puppet CA'), :puppet_ca_proxy=)
