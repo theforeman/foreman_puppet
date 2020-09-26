@@ -7,9 +7,9 @@ ForemanPuppetEnc::Engine.routes.draw do
     end
   end
 
-  constraints(:id => /[^\/]+/) do
-    resources :puppetclass_lookup_keys, except: %i[show, new, create] do
-      resources :lookup_values, only: %i[index, create, update, destroy]
+  constraints(id: %r{[^/]+}) do
+    resources :puppetclass_lookup_keys, except: %i[show new create] do
+      resources :lookup_values, only: %i[index create update destroy]
       collection do
         get 'help', action: :welcome
         get 'auto_complete_search'

@@ -76,8 +76,7 @@ Naming/PredicateName:
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'app/controllers/concerns/foreman_puppet_enc/extensions/hosts_controller_extensions.rb'
-    - 'app/controllers/concerns/foreman_puppet_enc/parameters/config_group.rb'
+    - 'app/controllers/concerns/foreman_puppet_enc/parameters/*.rb'
 
 # Offense count: 1
 # Configuration parameters: MinBodyLength.
