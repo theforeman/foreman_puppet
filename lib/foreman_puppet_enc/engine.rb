@@ -24,14 +24,22 @@ module ForemanPuppetEnc
                                                "foreman_puppet_enc/api/v2/config_groups": [:destroy] }
         end
 
-        # add puppet ENC divider
-        divider :top_menu, parent: :configure_menu, after: :configure, caption: N_('Puppet ENC')
+        delete_menu_item(:top_menu, :config_groups)
+        delete_menu_item(:top_menu, :puppetclass_lookup_keys)
 
-        # add menu entry
-        add_menu_item :top_menu, :puppet_enc, {
-          caption: 'Config Groups',
-          engine: ForemanPuppetEnc::Engine, parent: :configure_menu, after: :ansible,
+        # add puppet ENC divider
+        divider :top_menu, parent: :configure_menu, caption: N_('Puppet ENC')
+
+        # add menu entries
+        add_menu_item :top_menu, :config_groups, {
+          caption: N_('Config Groups'),
+          engine: ForemanPuppetEnc::Engine, parent: :configure_menu,
           url_hash: { controller: 'foreman_puppet_enc/config_groups', action: :index }
+        }
+        add_menu_item :top_menu, :puppetclass_lookup_keys, {
+          caption: N_('Smart Class Parameters'),
+          engine: ForemanPuppetEnc::Engine, parent: :configure_menu,
+          url_hash: { controller: 'foreman_puppet_enc/puppetclass_lookup_keys', action: :index }
         }
 
         register_info_provider(ForemanPuppetEnc::HostInfoProviders::PuppetInfo)
