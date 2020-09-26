@@ -36,6 +36,8 @@ Metrics/AbcSize:
 # ExcludedMethods: refine
 Metrics/BlockLength:
   Max: 32
+  Exclude:
+    - 'lib/foreman_puppet_enc/engine.rb'
 
 # Offense count: 1
 # Configuration parameters: CountComments, CountAsOne.
