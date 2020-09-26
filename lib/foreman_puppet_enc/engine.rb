@@ -24,32 +24,40 @@ module ForemanPuppetEnc
 
         # Add permissions
         security_block :foreman_puppet_enc do
-          permission :view_config_groups, { config_groups: %i[index auto_complete_search welcome],
-                                            "foreman_puppet_enc/api/v2/config_groups": %i[index show],
-                                            'foreman_puppet_enc/react': [:index] }
-          permission :create_config_groups, { config_groups: %i[new create],
-                                              "foreman_puppet_enc/api/v2/config_groups": [:create] }
-          permission :edit_config_groups, { config_groups: %i[edit update],
-                                            "foreman_puppet_enc/api/v2/config_groups": [:update] }
-          permission :destroy_config_groups, { config_groups: [:destroy],
-                                               "foreman_puppet_enc/api/v2/config_groups": [:destroy] }
+          permission :view_config_groups, { 'foreman_puppet_enc/config_groups': %i[index auto_complete_search welcome],
+                                            'foreman_puppet_enc/api/v2/config_groups': %i[index show],
+                                            'foreman_puppet_enc/react': [:index] },
+            resource_type: 'ForemanPuppetEnc::ConfigGroup'
+          permission :create_config_groups, { 'foreman_puppet_enc/config_groups': %i[new create],
+                                              'foreman_puppet_enc/api/v2/config_groups': [:create] },
+            resource_type: 'ForemanPuppetEnc::ConfigGroup'
+          permission :edit_config_groups, { 'foreman_puppet_enc/config_groups': %i[edit update],
+                                            'foreman_puppet_enc/api/v2/config_groups': [:update] },
+            resource_type: 'ForemanPuppetEnc::ConfigGroup'
+          permission :destroy_config_groups, { 'foreman_puppet_enc/config_groups': [:destroy],
+                                               'foreman_puppet_enc/api/v2/config_groups': [:destroy] },
+            resource_type: 'ForemanPuppetEnc::ConfigGroup'
 
           permission :view_external_parameters, { 'foreman_puppet_enc/puppetclass_lookup_keys': %i[index show auto_complete_search welcome],
                                                   lookup_values: [:index],
                                                   'foreman_puppet_enc/api/v2/smart_class_parameters': %i[index show],
-                                                  'foreman_puppet_enc/api/v2/override_values': %i[index show] }
+                                                  'foreman_puppet_enc/api/v2/override_values': %i[index show] },
+            resource_type: 'ForemanPuppetEnc::PuppetclassLookupKey'
           permission :create_external_parameters, { 'foreman_puppet_enc/puppetclass_lookup_keys': %i[new create],
                                                     lookup_values: [:create],
                                                     'foreman_puppet_enc/api/v2/smart_class_parameters': [:create],
-                                                    'foreman_puppet_enc/api/v2/override_values': [:create] }
+                                                    'foreman_puppet_enc/api/v2/override_values': [:create] },
+            resource_type: 'ForemanPuppetEnc::PuppetclassLookupKey'
           permission :edit_external_parameters, { 'foreman_puppet_enc/puppetclass_lookup_keys': %i[edit update],
                                                   lookup_values: %i[create update destroy],
                                                   'foreman_puppet_enc/api/v2/smart_class_parameters': [:update],
-                                                  'foreman_puppet_enc/api/v2/override_values': %i[create update destroy] }
+                                                  'foreman_puppet_enc/api/v2/override_values': %i[create update destroy] },
+            resource_type: 'ForemanPuppetEnc::PuppetclassLookupKey'
           permission :destroy_external_parameters, { 'foreman_puppet_enc/puppetclass_lookup_keys': [:destroy],
                                                      lookup_values: [:destroy],
                                                      'foreman_puppet_enc/api/v2/smart_class_parameters': [:destroy],
-                                                     'foreman_puppet_enc/api/v2/override_values': %i[create update destroy] }
+                                                     'foreman_puppet_enc/api/v2/override_values': %i[create update destroy] },
+            resource_type: 'ForemanPuppetEnc::PuppetclassLookupKey'
         end
 
         # add puppet ENC divider
