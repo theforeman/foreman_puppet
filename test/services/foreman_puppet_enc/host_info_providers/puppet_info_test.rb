@@ -119,8 +119,8 @@ module ForemanPuppetEnc
       yaml_value = classparam[yaml_lkey]
       json_value = classparam[json_lkey]
 
-      assert_equal yaml_value, { 'a' => 'b' }
-      assert_equal json_value, { 'a' => 'b' }
+      assert_equal({ 'a' => 'b' }, yaml_value)
+      assert_equal({ 'a' => 'b' }, json_value)
     end
 
     test 'smart class parameter of array with avoid_duplicates should return lookup_value array without duplicates' do

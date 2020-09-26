@@ -1,57 +1,12 @@
+inherit_gem:
+  theforeman-rubocop:
+    - edge.yml
+
 inherit_from: .rubocop_todo.yml
-
-require:
-  - rubocop-performance
-  - rubocop-rails
-  - rubocop-minitest
-
-AllCops:
-  TargetRubyVersion: 2.5
-  TargetRailsVersion: 6.0
-  Exclude:
-    - 'node_modules/**/*'
 
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
   IndentationWidth: 2
-
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
-
-Layout/LineLength:
-  Enabled: 110
-
-Rails:
-  Enabled: true
-
-Rails/SkipsModelValidations:
-  Exclude:
-    - 'db/migrate/*.rb'
-
-Style/Alias:
-  EnforcedStyle: prefer_alias_method
-
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'app/controllers/concerns/**/parameters/*.rb'
-
-# Don't enforce documentation
-Style/Documentation:
-  Enabled: false
-
-# Don't enforce frozen string literals
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-# Support both ruby19 and hash_rockets
-Style/HashSyntax:
-  EnforcedStyle: 'ruby19_no_mixed_keys'
-
-Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: comma
-
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: comma
 
 Style/FormatStringToken:
   Enabled: false
