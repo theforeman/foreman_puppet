@@ -2,16 +2,15 @@ module ForemanPuppetEnc
   module Api
     module V2
       class LookupsCommonController < ::Api::V2::BaseController
-        before_action :find_environment, :if => :environment_id?
-        before_action :find_puppetclass, :if => :puppetclass_id?
-        before_action :find_host, :if => :host_id?
-        before_action :find_hostgroup, :if => :hostgroup_id?
+        before_action :find_environment, if: :environment_id?
+        before_action :find_puppetclass, if: :puppetclass_id?
+        before_action :find_host, if: :host_id?
+        before_action :find_hostgroup, if: :hostgroup_id?
 
         before_action :find_smart_class_parameters
         before_action :find_smart_class_parameter
-        before_action :return_if_smart_mismatch, :only => [:show, :update, :destroy]
-        before_action :cast_default_value, :only => [:create, :update]
-
+        before_action :return_if_smart_mismatch, only: %i[show update destroy]
+        before_action :cast_default_value, only: %i[create update]
 
         def show
         end
@@ -45,11 +44,11 @@ module ForemanPuppetEnc
 
         def find_smart_class_parameter
           id = params.key?('smart_class_parameter_id') ? params['smart_class_parameter_id'] : params['id']
-          @smart_class_parameter = PuppetclassLookupKey.authorized(:view_external_parameters).smart_class_parameters.find_by_id(id.to_i) if id.to_i > 0
+          @smart_class_parameter = PuppetclassLookupKey.authorized(:view_external_parameters).smart_class_parameters.find_by(id: id.to_i) if id.to_i > 0
           @smart_class_parameter ||= begin
                                        puppet_cond = { 'environment_classes.puppetclass_id' => @puppetclass.id } if @puppetclass
                                        env_cond = { 'environment_classes.environment_id' => @environment.id } if @environment
-                                       PuppetclassLookupKey.authorized(:view_external_parameters).smart_class_parameters.where(puppet_cond).where(env_cond).where(:key => id).first
+                                       PuppetclassLookupKey.authorized(:view_external_parameters).smart_class_parameters.where(puppet_cond).where(env_cond).where(key: id).first
                                      end
           @smart_class_parameter
         end
@@ -80,10 +79,9 @@ module ForemanPuppetEnc
         end
 
         def return_if_smart_mismatch
-          if @smart_class_parameters && (!smart_param_exists? || !@smart_class_parameter)
-            id = params.key?('smart_class_parameter_id') ? params['smart_variable_id'] : params['id']
-            not_found "Smart class parameter not found by id '#{id}''"
-          end
+          return unless @smart_class_parameters && (!smart_param_exists? || !@smart_class_parameter)
+          id = params.key?('smart_class_parameter_id') ? params['smart_variable_id'] : params['id']
+          not_found "Smart class parameter not found by id '#{id}''"
         end
 
         def cast_default_value
@@ -100,14 +98,13 @@ module ForemanPuppetEnc
         private
 
         def smart_param_exists?
-          @smart_class_parameter && @smart_class_parameters.find_by_id(@smart_class_parameter.id)
+          @smart_class_parameter && @smart_class_parameters.find_by(id: @smart_class_parameter.id)
         end
 
         def model_not_found(model)
-          error_message = (
-            _("%{model} with id '%{id}' was not found") %
-            { :id => params["#{model}_id"], :model => model.capitalize })
-          not_found(:error => { :message => error_message })
+          error_message =
+            format(_("%{model} with id '%{id}' was not found"), id: params["#{model}_id"], model: model.capitalize)
+          not_found(error: { message: error_message })
         end
       end
     end
