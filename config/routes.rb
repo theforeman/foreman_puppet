@@ -18,28 +18,47 @@ ForemanPuppetEnc::Engine.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     scope '(:apiv)', module: :v2, defaults: { apiv: 'v2' }, apiv: /v1|v2/, constraints: ApiConstraints.new(version: 2, default: true) do
       constraints(id: %r{[^/]+}) do
+        resources :config_groups, except: %i[new edit]
+
         resources :hosts, only: [] do
-          resources :smart_class_parameters, except: %i[new edit create]
-        end
-
-        resources :hostgroup, only: [] do
-          resources :smart_class_parameters, except: %i[new edit create]
-        end
-
-        resources :environments, only: [] do
-          resources :smart_class_parameters, except: %i[new edit create]
-        end
-
-        resources :puppetclasses, only: [] do
-          resources :smart_class_parameters, except: %i[new edit create]
-          resources :environments, only: [] do
-            resources :smart_class_parameters, except: %i[new edit create]
+          resources :smart_class_parameters, except: %i[new edit create] do
+            resources :override_values, except: %i[new edit]
           end
         end
 
-        resources :smart_class_parameters, except: %i[new edit create destroy]
+        resources :hostgroup, only: [] do
+          resources :smart_class_parameters, except: %i[new edit create] do
+            resources :override_values, except: %i[new edit]
+          end
+        end
 
-        resources :config_groups, except: %i[new edit]
+        resources :environments, only: [] do
+          resources :smart_class_parameters, except: %i[new edit create] do
+            resources :override_values, except: %i[new edit]
+          end
+          resources :puppetclasses, only: [] do
+            resources :smart_class_parameters, except: %i[new edit create] do
+              resources :override_values, except: %i[new edit destroy]
+            end
+          end
+        end
+
+        resources :puppetclasses, only: [] do
+          resources :smart_class_parameters, except: %i[new edit create] do
+            resources :override_values, except: %i[new edit]
+          end
+          resources :environments, only: [] do
+            resources :smart_class_parameters, except: %i[new edit create] do
+              resources :override_values, except: %i[new edit]
+            end
+          end
+        end
+
+        resources :smart_class_parameters, except: %i[new edit create destroy] do
+          resources :override_values, except: %i[new edit]
+        end
+
+        resources :override_values, only: %i[update destroy]
       end
     end
   end
