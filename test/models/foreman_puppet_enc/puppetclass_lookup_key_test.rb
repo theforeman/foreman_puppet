@@ -1,4 +1,4 @@
-require_relative '../../test_puppet_enc_helper'
+require 'test_puppet_enc_helper'
 
 module ForemanPuppetEnc
   class PuppetclassLookupKeyTest < ActiveSupport::TestCase
@@ -46,13 +46,13 @@ module ForemanPuppetEnc
         FactoryBot.create(:environment_class, puppetclass: puppetclass, environment: env2, puppetclass_lookup_key: lookup_key)
 
         puppetclass.destroy
-        assert_not PuppetclassLookupKey.where(key: lookup_key.key).present?
+        assert_not ForemanPuppetEnc::PuppetclassLookupKey.where(key: lookup_key.key).present?
       end
 
       test 'deleting only environment a smart class parameters is in should delete the parameter' do
         lookup_key
         environment.destroy
-        assert_not PuppetclassLookupKey.where(key: lookup_key.key).present?
+        assert_not ForemanPuppetEnc::PuppetclassLookupKey.where(key: lookup_key.key).present?
       end
 
       test 'deleting only one environment a smart class parameters is in should not delete the parameter' do
@@ -60,12 +60,12 @@ module ForemanPuppetEnc
         FactoryBot.create(:environment_class, puppetclass: puppetclass, environment: env2, puppetclass_lookup_key: lookup_key)
 
         environment.destroy
-        assert PuppetclassLookupKey.where(key: lookup_key.key).present?
+        assert ForemanPuppetEnc::PuppetclassLookupKey.where(key: lookup_key.key).present?
       end
     end
 
     test 'should have auditable_type as PuppetclassLookupKey and not LookupKey' do
-      PuppetclassLookupKey.create(key: 'test_audit_parameter', default_value: 'test123')
+      ForemanPuppetEnc::PuppetclassLookupKey.create(key: 'test_audit_parameter', default_value: 'test123')
       assert_equal 'ForemanPuppetEnc::PuppetclassLookupKey', Audit.unscoped.last.auditable_type
     end
   end

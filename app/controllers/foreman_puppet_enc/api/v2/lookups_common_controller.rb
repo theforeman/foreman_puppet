@@ -24,15 +24,15 @@ module ForemanPuppetEnc
         def destroy
         end
 
-        [Puppetclass, Environment, Host::Base, Hostgroup].each do |model|
-          model_string = model.to_s.split('::').first.downcase
+        ['Puppetclass', 'Environment', 'Host::Base', 'Hostgroup'].each do |klass|
+          model_string = klass.split('::').first.downcase
 
           define_method("#{model_string}_id?") do
             params.key?("#{model_string}_id")
           end
 
           define_method("find_#{model_string}") do
-            scope = model.authorized(:"view_#{model_string.pluralize}")
+            scope = klass.constantize.authorized(:"view_#{model_string.pluralize}")
             begin
               instance_variable_set("@#{model_string}",
                 resource_finder(scope, params["#{model_string}_id"]))
