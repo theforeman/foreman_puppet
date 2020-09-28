@@ -87,8 +87,8 @@ module ForemanPuppetEnc
     end
 
     test '#values_hash should treat yaml and json parameters as string' do
-      env = FactoryBot.build(:environment)
-      pc = FactoryBot.build(:puppetclass, environments: [env])
+      env = FactoryBot.create(:environment)
+      pc = FactoryBot.create(:puppetclass, environments: [env])
       yaml_lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_override,
         puppetclass: pc, key_type: 'yaml', default_value: '',
         overrides: { 'comment=override' => 'a: b' })
@@ -107,8 +107,8 @@ module ForemanPuppetEnc
     end
 
     test 'ClassificationResult should correctly typecast JSON and YAML default values' do
-      env = FactoryBot.build(:environment)
-      pc = FactoryBot.build(:puppetclass, environments: [env])
+      env = FactoryBot.create(:environment)
+      pc = FactoryBot.create(:puppetclass, environments: [env])
       yaml_lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, override: true,
                                                                                     puppetclass: pc, key_type: 'yaml', default_value: 'a: b')
       json_lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, override: true,
