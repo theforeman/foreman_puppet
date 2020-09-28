@@ -70,3 +70,9 @@ jobs:
       - name: Run plugin tests
         run: |
           bundle exec rake test:foreman_puppet_enc
+      - name: Upload test.log
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: log
+          path: log/test.log
