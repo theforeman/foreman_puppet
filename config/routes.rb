@@ -1,5 +1,4 @@
 ForemanPuppetEnc::Engine.routes.draw do
-  get 'foreman_puppet_enc', to: 'foreman_puppet_enc/react#index'
   resources :config_groups, except: [:show] do
     collection do
       get 'help', action: :welcome
@@ -9,7 +8,6 @@ ForemanPuppetEnc::Engine.routes.draw do
 
   constraints(id: %r{[^/]+}) do
     resources :puppetclass_lookup_keys, except: %i[show new create] do
-      resources :lookup_values, only: %i[index create update destroy]
       collection do
         get 'help', action: :welcome
         get 'auto_complete_search'
