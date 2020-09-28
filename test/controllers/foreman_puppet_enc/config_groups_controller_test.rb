@@ -6,19 +6,16 @@ module ForemanPuppetEnc
       @routes = ForemanPuppetEnc::Engine.routes
     end
 
-    # skip 'Needs template, so needs to be enabled in UI PR'
-    # basic_pagination_per_page_test
-    # basic_pagination_rendered_test
+    basic_pagination_per_page_test
+    basic_pagination_rendered_test
 
     test 'should get index' do
-      skip 'Needs template, so needs to be enabled in UI PR'
       get :index, session: set_session_user
       assert_response :success
       assert_not_empty assigns(:config_groups)
     end
 
     test 'should get new' do
-      skip 'Needs template, so needs to be enabled in UI PR'
       get :new, session: set_session_user
       assert_response :success
     end
@@ -31,7 +28,6 @@ module ForemanPuppetEnc
     end
 
     test 'should get edit' do
-      skip 'Needs template, so needs to be enabled in UI PR'
       get :edit, params: { id: config_groups(:one) }, session: set_session_user
       assert_response :success
     end
