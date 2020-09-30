@@ -15,7 +15,7 @@ module ForemanPuppetEnc
 
       scope :all_parameters_for_class, lambda { |puppetclasses_ids, environment_id|
         where(puppetclass_id: puppetclasses_ids, environment_id: environment_id)
-          .where('puppetclass_lookup_key_id is NOT NULL')
+          .where.not(puppetclass_lookup_key_id: nil)
           .includes(:puppetclass_lookup_key)
       }
 

@@ -4,7 +4,7 @@ module ForemanPuppetEnc
 
     included do
       # param classes
-      has_many :class_params, -> { where('environment_classes.puppetclass_lookup_key_id is NOT NULL').distinct },
+      has_many :class_params, -> { where.not('environment_classes.puppetclass_lookup_key_id' => nil).distinct },
         through: :environment_classes, source: :puppetclass_lookup_key
       has_many :config_group_classes, dependent: :destroy
       has_many :config_groups, through: :config_group_classes

@@ -20,7 +20,7 @@ module ForemanPuppetEnc
     scope :smart_class_parameters, -> { joins(:environment_classes).readonly(false) }
 
     def editable_by_user?
-      PuppetclassLookupKey.authorized(:edit_external_parameters).where(id: id).exists?
+      PuppetclassLookupKey.authorized(:edit_external_parameters).exists?(id: id)
     end
 
     def param_class
