@@ -11,5 +11,6 @@ Layout/ArgumentAlignment:
 Style/FormatStringToken:
   Enabled: false
 
-Style/HashSyntax:
-  EnforcedStyle: ruby19_no_mixed_keys
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/foreman_puppet_enc/register.rb'
