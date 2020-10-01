@@ -24,19 +24,19 @@ module ForemanPuppetEnc
       hostgroup_name = RFauxFactory.gen_alpha
       puppetclass = FactoryBot.create(:puppetclass)
       environment = FactoryBot.create(:environment)
-      hostgroup = FactoryBot.create(:hostgroup, name: hostgroup_name, :environment => environment, puppetclasses: [puppetclass])
+      hostgroup = FactoryBot.create(:hostgroup, name: hostgroup_name, environment: environment, puppetclasses: [puppetclass])
       match = "hostgroup=#{hostgroup_name}"
       match_value = RFauxFactory.gen_alpha
-      lookup_key = FactoryBot.create(:puppetclass_lookup_key, :default_value => 'list', :puppetclass => FactoryBot.create(:puppetclass))
-      FactoryBot.create(:lookup_value, :lookup_key => lookup_key, :value => match_value, :match => match)
+      lookup_key = FactoryBot.create(:puppetclass_lookup_key, default_value: 'list', puppetclass: FactoryBot.create(:puppetclass))
+      FactoryBot.create(:lookup_value, lookup_key: lookup_key, value: match_value, match: match)
       lookup_key = LookupKey.unscoped.find_by(id: lookup_key.id)
       assert_equal lookup_key.override_values.first.match, match
       assert_equal lookup_key.override_values.first.value, match_value
       hostgroup.destroy
       lookup_key.reload
-      assert_equal lookup_key.override_values.length, 0
-      hostgroup = FactoryBot.create(:hostgroup, :name => hostgroup_name, :environment => environment, puppetclasses: [puppetclass])
-      assert_equal lookup_key.override_values.count, 0
+      assert_equal(0, lookup_key.override_values.length)
+      FactoryBot.create(:hostgroup, name: hostgroup_name, environment: environment, puppetclasses: [puppetclass])
+      assert_equal(0, lookup_key.override_values.count)
     end
 
     context 'when key is a boolean and default_value is a string' do

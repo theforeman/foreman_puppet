@@ -15,7 +15,7 @@ attributes :description, :override, :parameter_type, :hidden_value?,
   :merge_default, :avoid_duplicates, :override_value_order, :created_at, :updated_at
 
 node do
-  partial('api/v2/common/show_hidden', :locals => { :value => :default_value }, :object => @object)
+  partial('api/v2/common/show_hidden', locals: { value: :default_value }, object: @object)
 end
 
 node :puppetclass_name do |lk|
