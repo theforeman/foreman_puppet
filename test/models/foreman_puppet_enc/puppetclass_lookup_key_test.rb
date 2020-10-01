@@ -3,28 +3,31 @@ require 'test_puppet_enc_helper'
 module ForemanPuppetEnc
   class PuppetclassLookupKeyTest < ActiveSupport::TestCase
     test 'should not update default value unless override is true' do
-      lookup_key = FactoryBot.create(:puppetclass_lookup_key, default_value: 'test123')
+      lookup_key = FactoryBot.create(:puppetclass_lookup_key, override: false, default_value: 'test123')
       assert_not lookup_key.override
       lookup_key.default_value = '33333'
       assert_not lookup_key.valid?
     end
 
     test 'default_value is only validated if omit is false' do
-      lookup_key = FactoryBot.create(:puppetclass_lookup_key, :boolean, override: true, default_value: 'whatever', omit: true)
+      lookup_key = FactoryBot.create(:puppetclass_lookup_key, :boolean, override: true, omit: true)
+      lookup_key.default_value = 'whatever'
       assert lookup_key.valid?
       lookup_key.omit = false
       assert_not lookup_key.valid?
     end
 
     test 'should update description when override is false' do
-      lookup_key = FactoryBot.create(:puppetclass_lookup_key, default_value: 'test123', description: 'description')
+      lookup_key = FactoryBot.create(:puppetclass_lookup_key, override: false, description: 'description')
       assert_not lookup_key.override
       lookup_key.description = 'new_description'
       assert lookup_key.valid?
     end
 
     test 'should save without changes when override is false' do
-      lookup_key = FactoryBot.create(:puppetclass_lookup_key, default_value: 'test123', description: 'description')
+      lookup_key = FactoryBot.create(:puppetclass_lookup_key, override: false,
+                                                              default_value: 'test123',
+                                                              description: 'description')
       assert_not lookup_key.override
       assert lookup_key.valid?
     end
@@ -39,7 +42,7 @@ module ForemanPuppetEnc
     context 'delete params with class' do
       let(:environment) { FactoryBot.create(:environment) }
       let(:puppetclass) { FactoryBot.create(:puppetclass, environments: [environment]) }
-      let(:lookup_key) { FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, puppetclass: puppetclass, override: true) }
+      let(:lookup_key) { FactoryBot.create(:puppetclass_lookup_key, puppetclass: puppetclass, override: true) }
 
       test 'deleting puppetclass should delete smart class parameters' do
         env2 = FactoryBot.create(:environment)
