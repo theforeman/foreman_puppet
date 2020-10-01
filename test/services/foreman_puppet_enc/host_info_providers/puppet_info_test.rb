@@ -5,6 +5,15 @@ module ForemanPuppetEnc
     let(:environment) { FactoryBot.create(:environment) }
     let(:puppetclass) { FactoryBot.create(:puppetclass, environments: [environment]) }
     let(:puppetclass_two) { FactoryBot.create(:puppetclass, environments: [environment]) }
+    let(:key_lookup_path) { "fqdn\norganization,location\nhostgroup\nos" }
+    let(:puppetclass_lookup_key) do
+      FactoryBot.create(
+        :puppetclass_lookup_key,
+        puppetclass: puppetclass,
+        default_value: 'secret',
+        path: key_lookup_path
+      )
+    end
 
     def setup
       @host = FactoryBot.build(:host,
@@ -13,28 +22,28 @@ module ForemanPuppetEnc
         operatingsystem: operatingsystems(:redhat),
         puppetclasses: [puppetclass],
         environment: environment)
-      @smart_class_parameter = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, puppetclass: puppetclass, override: true, default_value: 'secret', path: "fqdn\norganization,location\nhostgroup\nos")
+      puppetclass_lookup_key
     end
 
     test 'enc_should_return_param_default_value' do
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
-      assert_equal 'secret', enc[puppetclass.name][@smart_class_parameter.key]
+      assert_equal 'secret', enc[puppetclass.name][puppetclass_lookup_key.key]
     end
 
     test 'enc_should_return_updated_cluster_param' do
-      assert_equal "fqdn\norganization,location\nhostgroup\nos", @smart_class_parameter.path
+      assert_equal "fqdn\norganization,location\nhostgroup\nos", puppetclass_lookup_key.path
       assert_equal taxonomies(:location1), @host.location
       assert_equal taxonomies(:organization1), @host.organization
 
       value = as_admin do
-        LookupValue.create! lookup_key_id: @smart_class_parameter.id,
+        LookupValue.create! lookup_key_id: puppetclass_lookup_key.id,
                             match: "organization=#{taxonomies(:organization1)},location=#{taxonomies(:location1)}",
                             value: 'test',
                             omit: false
       end
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
 
-      assert_equal value.value, enc[puppetclass.name][@smart_class_parameter.key]
+      assert_equal value.value, enc[puppetclass.name][puppetclass_lookup_key.key]
     end
 
     test '#enc should return hash of class to nil for classes without parameters' do
@@ -51,13 +60,13 @@ module ForemanPuppetEnc
 
     test '#enc should return default value of class parameters without lookup_values' do
       pc = FactoryBot.create(:puppetclass, environments: [environment])
-      lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, puppetclass: pc, override: true, default_value: 'test')
+      lkey = FactoryBot.create(:puppetclass_lookup_key, puppetclass: pc, default_value: 'test')
       assert_equal({ pc.name => { lkey.key => lkey.default_value } }, get_classparam(environment, pc).puppetclass_parameters)
     end
 
     test '#enc should return override value of class parameters' do
       pc = FactoryBot.create(:puppetclass, :with_parameters, environments: [environment])
-      lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_override, puppetclass: pc)
+      lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override, puppetclass: pc)
       classparam = get_classparam(environment, pc)
       host = classparam.send(:host)
       host.expects(:comment).returns('override')
@@ -65,7 +74,7 @@ module ForemanPuppetEnc
     end
 
     test "#values_hash should contain element's name" do
-      lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_override, puppetclass: puppetclass)
+      lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override, puppetclass: puppetclass)
       host = FactoryBot.build_stubbed(:host, environment: environment, puppetclasses: [puppetclass])
       Classification::MatchesGenerator.any_instance.expects(:attr_to_value).with('comment').returns('override')
 
@@ -89,10 +98,10 @@ module ForemanPuppetEnc
     test '#values_hash should treat yaml and json parameters as string' do
       env = FactoryBot.create(:environment)
       pc = FactoryBot.create(:puppetclass, environments: [env])
-      yaml_lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_override,
+      yaml_lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override,
         puppetclass: pc, key_type: 'yaml', default_value: '',
         overrides: { 'comment=override' => 'a: b' })
-      json_lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_override,
+      json_lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override,
         puppetclass: pc, key_type: 'json', default_value: '',
         overrides: { 'comment=override' => '{"a": "b"}' })
 
@@ -109,10 +118,14 @@ module ForemanPuppetEnc
     test 'ClassificationResult should correctly typecast JSON and YAML default values' do
       env = FactoryBot.create(:environment)
       pc = FactoryBot.create(:puppetclass, environments: [env])
-      yaml_lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, override: true,
-                                                                                    puppetclass: pc, key_type: 'yaml', default_value: 'a: b')
-      json_lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, override: true,
-                                                                                    puppetclass: pc, key_type: 'json', default_value: '{"a": "b"}')
+      yaml_lkey = FactoryBot.create(:puppetclass_lookup_key, override: true,
+                                                             puppetclass: pc,
+                                                             key_type: 'yaml',
+                                                             default_value: 'a: b')
+      json_lkey = FactoryBot.create(:puppetclass_lookup_key, override: true,
+                                                             puppetclass: pc,
+                                                             key_type: 'json',
+                                                             default_value: '{"a": "b"}')
       host = FactoryBot.build_stubbed(:host, environment: env, puppetclasses: [pc])
       classparam = Classification::ClassificationResult.new(host, {})
 
@@ -124,8 +137,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of array with avoid_duplicates should return lookup_value array without duplicates' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'array', merge_overrides: true,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        key_type: 'array', merge_overrides: true,
         default_value: [], path: "organization\nlocation", avoid_duplicates: true,
         puppetclass: puppetclass)
 
@@ -149,8 +162,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of array without avoid_duplicates should return lookup_value array with duplicates' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'array', merge_overrides: true,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        key_type: 'array', merge_overrides: true,
         default_value: [], path: "organization\nlocation",
         puppetclass: puppetclass)
 
@@ -175,8 +188,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash with merge_overrides should return lookup_value hash with array of elements' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'hash', merge_overrides: true,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        key_type: 'hash', merge_overrides: true,
         default_value: {}, path: "organization\nlocation",
         puppetclass: puppetclass)
 
@@ -201,8 +214,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash with merge_overrides should return lookup_value hash with one element' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'hash', merge_overrides: true,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        key_type: 'hash', merge_overrides: true,
         default_value: {}, path: "organization\nos\nlocation",
         puppetclass: puppetclass)
 
@@ -226,8 +239,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash with merge_overrides and priority should obey priority' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'hash', merge_overrides: true,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        key_type: 'hash', merge_overrides: true,
         default_value: {}, path: "organization\nos\nlocation",
         puppetclass: puppetclass)
 
@@ -259,8 +272,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash with merge_overrides and priority should return lookup_value hash with array of elements' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'hash', merge_overrides: true,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        key_type: 'hash', merge_overrides: true,
         default_value: {}, path: "organization\nos\nlocation",
         puppetclass: puppetclass)
 
@@ -291,8 +304,7 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter with omit on specific matcher does not send a value to puppet' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'string',
+      key = FactoryBot.create(:puppetclass_lookup_key,
         default_value: '123', path: "organization\nos\nlocation",
         puppetclass: puppetclass)
 
@@ -308,9 +320,9 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of array with avoid_duplicates should return lookup_value array without duplicates' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, key_type: 'array', merge_overrides: true,
-                                                                              default_value: [], path: "organization\nlocation", avoid_duplicates: true,
-                                                                              puppetclass: puppetclass)
+      key = FactoryBot.create(:puppetclass_lookup_key, key_type: 'array', merge_overrides: true,
+                                                       default_value: [], path: "organization\nlocation", avoid_duplicates: true,
+                                                       puppetclass: puppetclass)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -330,9 +342,9 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of array without avoid_duplicates should return lookup_value array with duplicates' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, key_type: 'array',
-                                                                              merge_overrides: true, default_value: [], path: "organization\nlocation",
-                                                                              puppetclass: puppetclass)
+      key = FactoryBot.create(:puppetclass_lookup_key, key_type: 'array',
+                                                       merge_overrides: true, default_value: [], path: "organization\nlocation",
+                                                       puppetclass: puppetclass)
 
       value = as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -353,9 +365,9 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash in hash with merge_overrides should return lookup_value hash with array of elements' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, key_type: 'hash',
-                                                                              merge_overrides: true, default_value: {}, path: "organization\nlocation",
-                                                                              puppetclass: puppetclass)
+      key = FactoryBot.create(:puppetclass_lookup_key, key_type: 'hash',
+                                                       merge_overrides: true, default_value: {}, path: "organization\nlocation",
+                                                       puppetclass: puppetclass)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -376,9 +388,9 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash with merge_overrides and priority should obey priority' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, key_type: 'hash',
-                                                                              merge_overrides: true, default_value: {}, path: "organization\nos\nlocation",
-                                                                              puppetclass: puppetclass)
+      key = FactoryBot.create(:puppetclass_lookup_key, key_type: 'hash',
+                                                       merge_overrides: true, default_value: {}, path: "organization\nos\nlocation",
+                                                       puppetclass: puppetclass)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -405,9 +417,9 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash with merge_overrides and priority should return lookup_value hash with array of elements' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, key_type: 'hash',
-                                                                              merge_overrides: true, default_value: {}, path: "organization\nos\nlocation",
-                                                                              puppetclass: puppetclass)
+      key = FactoryBot.create(:puppetclass_lookup_key, key_type: 'hash',
+                                                       merge_overrides: true, default_value: {}, path: "organization\nos\nlocation",
+                                                       puppetclass: puppetclass)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -429,9 +441,9 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash without merge_default should not merge with default value' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, key_type: 'hash',
-                                                                              merge_overrides: true, default_value: { default: 'example' },
-                                                                              path: "organization\nos\nlocation", puppetclass: puppetclass)
+      key = FactoryBot.create(:puppetclass_lookup_key, key_type: 'hash',
+                                                       merge_overrides: true, default_value: { default: 'example' },
+                                                       path: "organization\nos\nlocation", puppetclass: puppetclass)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -447,8 +459,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter of hash with merge_overrides and merge_default should return merge all values' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'hash', merge_overrides: true, merge_default: true,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        key_type: 'hash', merge_overrides: true, merge_default: true,
         default_value: { default: 'default' }, path: "organization\nlocation",
         puppetclass: puppetclass)
 
@@ -471,7 +483,7 @@ module ForemanPuppetEnc
     end
 
     test '#enc should not return class parameters when default value should use puppet default' do
-      lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_override, :with_omit,
+      lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override, :with_omit,
         puppetclass: puppetclass)
 
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
@@ -479,7 +491,7 @@ module ForemanPuppetEnc
     end
 
     test '#enc should not return class parameters when lookup_value should use puppet default' do
-      lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_override, :with_omit,
+      lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override, :with_omit,
         puppetclass: puppetclass, path: "location\ncomment")
       as_admin do
         LookupValue.create! lookup_key_id: lkey.id,
@@ -494,8 +506,9 @@ module ForemanPuppetEnc
     end
 
     test '#enc should return class parameters when default value and lookup_values should not use puppet default' do
-      lkey = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_override, omit: false,
-                                                                                               puppetclass: puppetclass, path: "location\ncomment")
+      lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override, omit: false,
+                                                                        puppetclass: puppetclass,
+                                                                        path: "location\ncomment")
       lvalue = as_admin do
         LookupValue.create! lookup_key_id: lkey.id,
                             match: "location=#{taxonomies(:location1)}",
@@ -509,10 +522,10 @@ module ForemanPuppetEnc
     end
 
     test '#enc should not return class parameters when merged lookup_values and default are all using puppet default' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'hash', merge_overrides: true,
-                                                                              default_value: {}, path: "organization\nos\nlocation",
-                                                                              puppetclass: puppetclass)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       key_type: 'hash', merge_overrides: true,
+                                                       default_value: {}, path: "organization\nos\nlocation",
+                                                       puppetclass: puppetclass)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -543,10 +556,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'array', merge_overrides: true,
-                                                                              path: "organization\nhostgroup\nlocation",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       key_type: 'array', merge_overrides: true,
+                                                       path: "organization\nhostgroup\nlocation",
+                                                       puppetclass: puppetclass_two)
 
       parent_hostgroup = FactoryBot.create(:hostgroup,
         puppetclasses: [puppetclass_two],
@@ -576,10 +589,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'array', merge_overrides: true,
-                                                                              path: "location\norganization\nhostgroup",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       key_type: 'array', merge_overrides: true,
+                                                       path: "location\norganization\nhostgroup",
+                                                       puppetclass: puppetclass_two)
 
       parent_org = taxonomies(:organization1)
       child_org = taxonomies(:organization2)
@@ -607,10 +620,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'array', merge_overrides: true,
-                                                                              path: "organization\nhostgroup\nlocation",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       key_type: 'array', merge_overrides: true,
+                                                       path: "organization\nhostgroup\nlocation",
+                                                       puppetclass: puppetclass_two)
 
       parent_loc = taxonomies(:location1)
       child_loc = taxonomies(:location2)
@@ -638,10 +651,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'array', merge_overrides: true,
-                                                                              path: "organization\nhostgroup\nlocation",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       key_type: 'array', merge_overrides: true,
+                                                       path: "organization\nhostgroup\nlocation",
+                                                       puppetclass: puppetclass_two)
 
       parent_hostgroup = FactoryBot.create(:hostgroup,
         puppetclasses: [puppetclass_two],
@@ -675,10 +688,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'array', merge_overrides: true,
-                                                                              path: "location\norganization\nhostgroup",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       key_type: 'array', merge_overrides: true,
+                                                       path: "location\norganization\nhostgroup",
+                                                       puppetclass: puppetclass_two)
 
       parent_org = taxonomies(:organization1)
       child_org = taxonomies(:organization2)
@@ -710,10 +723,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'array', merge_overrides: true,
-                                                                              path: "organization\nhostgroup\nlocation",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       key_type: 'array', merge_overrides: true,
+                                                       path: "organization\nhostgroup\nlocation",
+                                                       puppetclass: puppetclass_two)
 
       parent_loc = taxonomies(:location1)
       child_loc = taxonomies(:location2)
@@ -745,10 +758,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'string', merge_overrides: false,
-                                                                              path: "organization\nhostgroup\nlocation",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       merge_overrides: false,
+                                                       path: "organization\nhostgroup\nlocation",
+                                                       puppetclass: puppetclass_two)
 
       parent_hostgroup = FactoryBot.create(:hostgroup,
         puppetclasses: [puppetclass_two],
@@ -782,10 +795,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'string', merge_overrides: false,
-                                                                              path: "location\norganization\nhostgroup",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       merge_overrides: false,
+                                                       path: "location\norganization\nhostgroup",
+                                                       puppetclass: puppetclass_two)
 
       parent_org = taxonomies(:organization1)
       child_org = taxonomies(:organization2)
@@ -818,10 +831,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'string', merge_overrides: false,
-                                                                              path: "organization\nlocation\nhostgroup",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       merge_overrides: false,
+                                                       path: "organization\nlocation\nhostgroup",
+                                                       puppetclass: puppetclass_two)
 
       parent_loc = taxonomies(:location1)
       child_loc = taxonomies(:location2)
@@ -854,10 +867,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'string', merge_overrides: false,
-                                                                              path: "organization\nhostgroup\nlocation",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       merge_overrides: false,
+                                                       path: "organization\nhostgroup\nlocation",
+                                                       puppetclass: puppetclass_two)
 
       parent_hostgroup = FactoryBot.create(:hostgroup,
         puppetclasses: [puppetclass_two],
@@ -890,10 +903,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'string', merge_overrides: false,
-                                                                              path: "organization\nhostgroup\nlocation",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       merge_overrides: false,
+                                                       path: "organization\nhostgroup\nlocation",
+                                                       puppetclass: puppetclass_two)
 
       parent_org = taxonomies(:organization1)
       child_org = taxonomies(:organization2)
@@ -925,10 +938,10 @@ module ForemanPuppetEnc
       FactoryBot.create(:setting,
         name: 'matchers_inheritance',
         value: true)
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'string', merge_overrides: false,
-                                                                              path: "location\norganization\nhostgroup",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       merge_overrides: false,
+                                                       path: "location\norganization\nhostgroup",
+                                                       puppetclass: puppetclass_two)
 
       parent_loc = taxonomies(:location1)
       child_loc = taxonomies(:location2)
@@ -957,8 +970,8 @@ module ForemanPuppetEnc
     end
 
     test 'enc should return correct values for multi-key matchers' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'string', default_value: '',
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        default_value: '',
         path: "organization\norganization,location\nlocation",
         puppetclass: puppetclass)
 
@@ -979,8 +992,8 @@ module ForemanPuppetEnc
     end
 
     test 'enc should return correct values for multi-key matchers with more specific first' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'string', default_value: '',
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        default_value: '',
         path: "organization,location\norganization",
         puppetclass: puppetclass)
 
@@ -1002,10 +1015,10 @@ module ForemanPuppetEnc
     end
 
     test 'enc should return correct values for multi-key matchers with hostgroup inheritance' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, omit: true,
-                                                                              override: true, key_type: 'string', merge_overrides: false,
-                                                                              path: "hostgroup,organization\nlocation",
-                                                                              puppetclass: puppetclass_two)
+      key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
+                                                       merge_overrides: false,
+                                                       path: "hostgroup,organization\nlocation",
+                                                       puppetclass: puppetclass_two)
 
       parent_hostgroup = FactoryBot.create(:hostgroup,
         puppetclasses: [puppetclass_two],
@@ -1042,8 +1055,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter should accept string with erb for arrays and evaluate it properly' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'array', merge_overrides: false,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        key_type: 'array', merge_overrides: false,
         default_value: '<%= [1,2] %>', path: "organization\nos\nlocation",
         puppetclass: puppetclass)
       assert_equal [1, 2], HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters[puppetclass.name][key.key]
@@ -1080,8 +1093,8 @@ module ForemanPuppetEnc
     test 'enc should return correct values for multi-key matchers' do
       hostgroup = FactoryBot.build(:hostgroup)
 
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param, :with_omit,
-        override: true, key_type: 'string', merge_overrides: false,
+      key = FactoryBot.create(:puppetclass_lookup_key, :with_omit,
+        merge_overrides: false,
         path: "hostgroup,organization\nlocation",
         puppetclass: puppetclass_two)
 
@@ -1103,8 +1116,8 @@ module ForemanPuppetEnc
     end
 
     test 'smart class parameter with erb values is validated after erb is evaluated' do
-      key = FactoryBot.create(:puppetclass_lookup_key, :as_smart_class_param,
-        override: true, key_type: 'string', merge_overrides: false,
+      key = FactoryBot.create(:puppetclass_lookup_key,
+        merge_overrides: false,
         default_value: '<%= "a" %>', path: "organization\nos\nlocation",
         puppetclass: puppetclass,
         validator_type: 'list', validator_rule: 'b')
