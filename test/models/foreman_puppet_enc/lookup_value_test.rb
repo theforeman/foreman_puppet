@@ -20,7 +20,7 @@ module ForemanPuppetEnc
       assert_not lookup_value.valid?
     end
 
-    test "impact parameter delete attribute" do
+    test 'impact parameter delete attribute' do
       hostgroup_name = RFauxFactory.gen_alpha
       puppetclass = FactoryBot.create(:puppetclass)
       environment = FactoryBot.create(:environment)
