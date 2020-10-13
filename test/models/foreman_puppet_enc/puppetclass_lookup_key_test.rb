@@ -33,10 +33,16 @@ module ForemanPuppetEnc
     end
 
     test 'should allow to uncheck override' do
-      lookup_key = FactoryBot.create(:puppetclass_lookup_key, default_value: 'test123', override: true)
+      lookup_key = FactoryBot.create(:puppetclass_lookup_key, override: true)
 
       lookup_key.override = false
       assert lookup_key.valid?
+    end
+
+    test 'should be smart class parameter #puppet? => true' do
+      assert_not_deprecated do
+        assert FactoryBot.create(:puppetclass_lookup_key).puppet?
+      end
     end
 
     context 'delete params with class' do
