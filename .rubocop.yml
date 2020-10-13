@@ -8,6 +8,11 @@ Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
   IndentationWidth: 2
 
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'db/migrate/**/*'
+    - 'db/migrate_foreman/**/*'
+
 Style/FormatStringToken:
   Enabled: false
 
