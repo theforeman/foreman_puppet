@@ -157,7 +157,9 @@ Foreman::Plugin.register :foreman_puppet_enc do
       template_compatibility_properties :environment_id
     end
     configure_hostgroup(ForemanPuppetEnc::HostgroupPuppetFacet) do
+      extend_model ForemanPuppetEnc::Extensions::Hostgroup
       api_view single: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/main'
+      template_compatibility_properties :environment_id
     end
   end
 

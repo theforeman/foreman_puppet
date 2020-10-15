@@ -6,7 +6,13 @@ module ForemanPuppetEnc
     include ForemanPuppetEnc::HostCommon
     include Facets::HostgroupFacet
 
-    scoped_search relation: :config_groups, on: :name, complete_value: true, rename: :config_group, only_explicit: true, operators: ['= ', '~ '], ext_method: :search_by_config_group
+    # nested_attribute_for :environment_id
+    scoped_search relation: :config_groups, on: :name,
+                  complete_value: true,
+                  rename: :config_group,
+                  only_explicit: true,
+                  operators: ['= ', '~ '],
+                  ext_method: :search_by_config_group
 
     def self.search_by_config_group(_key, operator, value)
       conditions = sanitize_sql_for_conditions(["config_groups.name #{operator} ?", value_to_sql(operator, value)])
