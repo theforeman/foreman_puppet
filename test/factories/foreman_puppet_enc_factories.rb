@@ -4,6 +4,7 @@ FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass) if Fac
 FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass_lookup_key) if FactoryBot.factories.registered?(:puppetclass_lookup_key)
 
 FactoryBot.define do
+<<<<<<< HEAD
   factory :common_puppet_facet do
   end
 
@@ -23,7 +24,7 @@ FactoryBot.define do
     end
   end
 
-  factory :environment do
+  factory :environment, class: 'ForemanPuppetEnc::Environment' do
     sequence(:name) { |n| "environment#{n}" }
     organizations { [Organization.first || create(:organization)] }
     locations { [Location.first || create(:location)] }
@@ -45,7 +46,7 @@ FactoryBot.define do
     end
   end
 
-  factory :environment_class do
+  factory :environment_class, class: 'ForemanPuppetEnc::EnvironmentClass' do
     environment
     puppetclass
   end
