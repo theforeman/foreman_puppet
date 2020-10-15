@@ -152,7 +152,9 @@ Foreman::Plugin.register :foreman_puppet_enc do
   # register host and hostgroup facet
   register_facet ForemanPuppetEnc::HostPuppetFacet, :puppet do
     configure_host do
+      extend_model ForemanPuppetEnc::Extensions::Host
       api_view single: 'foreman_puppet_enc/api/v2/host_puppet_facets/main'
+      template_compatibility_properties :environment_id
     end
     configure_hostgroup(ForemanPuppetEnc::HostgroupPuppetFacet) do
       api_view single: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/main'
