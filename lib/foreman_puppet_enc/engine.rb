@@ -23,6 +23,7 @@ module ForemanPuppetEnc
     config.to_prepare do
       # To stay
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
+      Nic::Managed.include ForemanPuppetEnc::Extensions::NicManaged
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
       HostgroupsController.include ForemanPuppetEnc::Extensions::HostgroupsControllerExtensions
 
