@@ -25,6 +25,7 @@ module ForemanPuppetEnc
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
       Nic::Managed.include ForemanPuppetEnc::Extensions::NicManaged
       Report.include ForemanPuppetEnc::Extensions::Report
+      Taxonomy.include ForemanPuppetEnc::Extensions::Taxonomy
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
       HostgroupsController.include ForemanPuppetEnc::Extensions::HostgroupsControllerExtensions
 
