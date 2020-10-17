@@ -1,0 +1,88 @@
+foreman_path = ['../foreman', '../../foreman', '../../../foreman'].map { |p| File.expand_path(p, __dir__) }
+foreman_path = foreman_path.detect { |path| File.exist?(File.join(path, 'Gemfile')) }
+$LOAD_PATH.unshift(File.join(foreman_path, 'test'))
+$LOAD_PATH.unshift(File.join(foreman_path, 'lib'))
+$LOAD_PATH.unshift(File.expand_path('../test', __dir__))
+
+ENV['RAILS_ENV'] ||= 'test'
+require File.join(foreman_path, 'config', 'environment')
+abort('The Rails environment is running in production mode!') if Rails.env.production?
+
+require 'rspec/rails'
+require 'factory_bot_rails'
+require 'database_cleaner'
+
+FactoryBot.definition_file_paths.unshift(File.join(foreman_path, 'test', 'factories'))
+FactoryBot.reload
+
+module ViewExampleGroupExtensions
+  extend ActiveSupport::Concern
+
+  included do
+    helper(LayoutHelper, AuthorizeHelper, PaginationHelper, ReactjsHelper)
+
+    before do
+      path = _controller_path
+      controller.class.define_method(:controller_name) do
+        path
+      end
+    end
+  end
+
+  def _controller_path
+    case _path_parts[1]
+    when 'environments'
+      _path_parts[1..-2].join('/')
+    else
+      super
+    end
+  end
+
+  def as_paginatable(arry)
+    arry.stubs(:total_entries).returns(arry.size)
+    arry
+  end
+end
+
+::ActionView::TestCase::TestController.include(FindCommon)
+
+RSpec.configure do |config|
+  config.color = true
+  config.fail_fast = ENV['FAIL_FAST'] || false
+  config.infer_spec_type_from_file_location!
+  config.mock_with :mocha
+  config.raise_errors_for_deprecations!
+
+  # If you're not using ActiveRecord, or you'd prefer not to run each of your
+  # examples within a transaction, comment the following line or assign false
+  # instead of true.
+  config.use_transactional_fixtures = true
+  config.fixture_path = "#{foreman_path}/test/fixtures"
+  config.global_fixtures = %i[auth_sources users]
+
+  config.before :each do
+    Rails.cache.clear
+  end
+
+  config.before :each do
+    Setting.create!(name: 'bcrypt_cost', value: 5, default: 8, description: 'Cost of bcrypt')
+    User.current = users(:admin)
+  end
+
+  config.include ViewExampleGroupExtensions, type: :view
+
+  # Clean out the database state before the tests run
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  # Wrap all db isolated tests in a transaction
+  config.around(db: :isolate) do |example|
+    DatabaseCleaner.cleaning(&example)
+  end
+
+  config.around do |example|
+    Timeout.timeout(20, &example)
+  end
+end

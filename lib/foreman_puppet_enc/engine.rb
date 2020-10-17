@@ -7,11 +7,6 @@ module ForemanPuppetEnc
 
     initializer 'foreman_puppet_enc.register_plugin', before: :finisher_hook do |_app|
       require 'foreman_puppet_enc/register'
-    end
-
-    initializer 'foreman_puppet_enc.apipie' do
-      p = Foreman::Plugin.find(:foreman_puppet_enc)
-      p.apipie_documented_controllers(["#{ForemanPuppetEnc::Engine.root}/app/controllers/foreman_puppet_enc/api/v2/*.rb"])
       Apipie.configuration.checksum_path += ['/foreman_puppet_enc/api/']
     end
 
