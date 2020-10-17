@@ -9,6 +9,7 @@ require File.join(foreman_path, 'config', 'environment')
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 
 require 'rspec/rails'
+require 'capybara/rspec'
 require 'factory_bot_rails'
 require 'database_cleaner'
 
@@ -19,7 +20,7 @@ module ViewExampleGroupExtensions
   extend ActiveSupport::Concern
 
   included do
-    helper(LayoutHelper, AuthorizeHelper, PaginationHelper, ReactjsHelper)
+    helper(LayoutHelper, AuthorizeHelper, TaxonomyHelper, PaginationHelper, ReactjsHelper)
 
     before do
       path = _controller_path
@@ -58,7 +59,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   config.fixture_path = "#{foreman_path}/test/fixtures"
-  config.global_fixtures = %i[auth_sources users]
+  config.global_fixtures = %i[auth_sources permissions users]
 
   config.before :each do
     Rails.cache.clear
