@@ -1,7 +1,20 @@
+FactoryBot.factories.instance_variable_get('@items').delete(:environment) if FactoryBot.factories.registered?(:environment)
+FactoryBot.factories.instance_variable_get('@items').delete(:environment_class) if FactoryBot.factories.registered?(:environment_class)
 FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass) if FactoryBot.factories.registered?(:puppetclass)
 FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass_lookup_key) if FactoryBot.factories.registered?(:puppetclass_lookup_key)
 
 FactoryBot.define do
+  factory :environment do
+    sequence(:name) { |n| "environment#{n}" }
+    organizations { [Organization.first || create(:organization)] }
+    locations { [Location.first || create(:location)] }
+  end
+
+  factory :environment_class do
+    environment
+    puppetclass
+  end
+
   factory :puppetclass do
     sequence(:name) { |n| "class#{n}" }
 

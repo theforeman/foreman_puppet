@@ -7,6 +7,8 @@ env:
 jobs:
   rubocop:
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_FOREMAN: '0'
     steps:
       - uses: actions/checkout@v2
       - name: Setup Ruby
@@ -16,9 +18,56 @@ jobs:
       - name: Setup
         run: |
           gem install bundler
+          bundle config set without development test
           bundle install --jobs=3 --retry=3
       - name: Run rubocop
         run: bundle exec rubocop
+  view_specs:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: './foreman_puppet_enc'
+    needs: rubocop
+    services:
+      postgres:
+        image: postgres:12.1
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - uses: actions/checkout@v2
+        with:
+          repository: ezr-ondrej/foreman
+          ref: plugin_base_rake
+          path: foreman
+      - uses: actions/checkout@v2
+        with:
+          path: foreman_puppet_enc
+      - uses: actions/cache@v2
+        with:
+          path: ${{env.working-directory}}/vendor/bundle
+          key: ${{ runner.os }}-puppet_enc_fgems-${{ matrix.ruby-version }}-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-puppet_enc_fgems-${{ matrix.ruby-version }}-
+      - name: Setup Bundler
+        working-directory: ${{env.working-directory}}
+        run: |
+          echo "gem 'foreman_puppet_enc', path: '../foreman_puppet_enc'" > ../foreman/bundler.d/foreman_puppet_enc.local.rb
+          gem install bundler
+          bundle config set without journald console libvirt
+          bundle config set path vendor/bundle
+      - name: Prepare test env
+        working-directory: ${{env.working-directory}}
+        run: |
+          bundle install --jobs=3 --retry=3
+          bundle exec rake app:db:create
+          bundle exec rake app:db:migrate
+      - name: Run view specs
+        working-directory: ${{env.working-directory}}
+        run: bundle exec rake spec
   test_ruby:
     runs-on: ubuntu-latest
     needs: rubocop

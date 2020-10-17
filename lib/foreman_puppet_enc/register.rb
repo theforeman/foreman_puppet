@@ -3,6 +3,8 @@ Foreman::Plugin.register :foreman_puppet_enc do
   # Add Global JS file for extending foreman-core components and routes
   register_global_js_file 'fills'
 
+  apipie_documented_controllers(["#{ForemanPuppetEnc::Engine.root}/app/controllers/foreman_puppet_enc/api/v2/*.rb"])
+
   # Remove core permissions
   %i[view_config_groups create_config_groups edit_config_groups destroy_config_groups
      view_external_parameters create_external_parameters edit_external_parameters
