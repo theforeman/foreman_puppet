@@ -23,6 +23,8 @@ module ForemanPuppetEnc
         define_action_permission MULTIPLE_EDIT_ACTIONS, :edit
 
         set_callback :set_class_variables, :after, :set_puppet_class_variables
+
+        helper ForemanPuppetEnc::HostsHelper
       end
 
       def hostgroup_or_environment_selected
