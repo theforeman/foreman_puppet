@@ -19,7 +19,6 @@ module ForemanPuppetEnc
     config.to_prepare do
       # Temporary
       EnvironmentClass.include ForemanPuppetEnc::EnvironmentClassDecorations
-      Puppetclass.include ForemanPuppetEnc::PuppetclassDecorations
       # To stay
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
