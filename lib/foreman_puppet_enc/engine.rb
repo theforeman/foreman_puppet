@@ -4,6 +4,7 @@ module ForemanPuppetEnc
     isolate_namespace ForemanPuppetEnc
 
     config.paths['db/migrate'] << 'db/migrate_foreman' if ForemanPuppetEnc.extracted_from_core?
+    config.paths['config/routes.rb'].unshift('config/api_routes.rb')
 
     initializer 'foreman_puppet_enc.register_plugin', before: :finisher_hook do |_app|
       require 'foreman_puppet_enc/register'
