@@ -168,14 +168,18 @@ Foreman::Plugin.register :foreman_puppet_enc do
     configure_host do
       # extend_model ForemanPuppetEnc::Extensions::Host
       api_view single: 'foreman_puppet_enc/api/v2/host_puppet_facets/main'
-      template_compatibility_properties :environment_id, :environment
+      template_compatibility_properties :environment, :environment_id, :environment_name
       set_dependent_action :destroy
     end
     configure_hostgroup(ForemanPuppetEnc::HostgroupPuppetFacet) do
       api_view single: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/main'
-      template_compatibility_properties :environment_id, :environment
+      template_compatibility_properties :environment, :environment_id, :environment_name
       set_dependent_action :destroy
     end
+  end
+
+  add_controller_action_scope('Api::V2::HostsController', :index) do |base_scope|
+    base_scope.preload(puppet: :environment)
   end
 
   unless ForemanPuppetEnc.extracted_from_core?
