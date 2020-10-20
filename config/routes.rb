@@ -41,7 +41,9 @@ ForemanPuppetEnc::Engine.routes.draw do
           end
         end
 
-        resources :environments, only: [] do
+        resources :environments, except: %i[new edit] do
+          resources :locations, only: %i[index show]
+          resources :organizations, only: %i[index show]
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end
@@ -50,13 +52,14 @@ ForemanPuppetEnc::Engine.routes.draw do
               resources :override_values, except: %i[new edit destroy]
             end
           end
+          resources :hosts, only: %i[index show], controller: 'hosts'
         end
 
         resources :puppetclasses, only: [] do
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end
-          resources :environments, only: [] do
+          resources :environments, only: %i[index show] do
             resources :smart_class_parameters, except: %i[new edit create] do
               resources :override_values, except: %i[new edit]
             end
@@ -68,6 +71,22 @@ ForemanPuppetEnc::Engine.routes.draw do
         end
 
         resources :override_values, only: %i[update destroy]
+
+        resources :locations, only: [] do
+          resources :environments, only: %i[index show]
+
+          resources :organizations, only: [] do
+            resources :environments, only: %i[index show]
+          end
+        end
+
+        resources :organizations, only: [] do
+          resources :environments, only: %i[index show]
+
+          resources :locations, only: [] do
+            resources :environments, only: %i[index show]
+          end
+        end
       end
     end
   end
