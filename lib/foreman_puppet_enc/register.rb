@@ -5,16 +5,19 @@ Foreman::Plugin.register :foreman_puppet_enc do
 
   apipie_documented_controllers(["#{ForemanPuppetEnc::Engine.root}/app/controllers/foreman_puppet_enc/api/v2/*.rb"])
 
-  # Remove core permissions
-  %i[view_config_groups create_config_groups edit_config_groups destroy_config_groups
-     view_external_parameters create_external_parameters edit_external_parameters
-     destroy_external_parameters].each do |perm_name|
-    p = Foreman::AccessControl.permission(perm_name)
-    Foreman::AccessControl.remove_permission(p)
-  end
+  unless ForemanPuppetEnc.extracted_from_core?
+    # Remove core permissions
+    %i[view_config_groups create_config_groups edit_config_groups destroy_config_groups
+       view_external_parameters create_external_parameters edit_external_parameters
+       destroy_external_parameters].each do |perm_name|
+      p = Foreman::AccessControl.permission(perm_name)
+      Foreman::AccessControl.remove_permission(p)
+    end
 
-  delete_menu_item(:top_menu, :config_groups)
-  delete_menu_item(:top_menu, :puppetclass_lookup_keys)
+    delete_menu_item(:top_menu, :config_groups)
+    delete_menu_item(:top_menu, :puppetclass_lookup_keys)
+    delete_menu_item(:top_menu, :environments)
+  end
 
   # Add permissions
   security_block :puppet_config_groups do
@@ -79,16 +82,15 @@ Foreman::Plugin.register :foreman_puppet_enc do
   divider :top_menu, parent: :configure_menu, caption: N_('Puppet ENC')
 
   # add menu entries
-  add_menu_item :top_menu, :config_groups, {
-    caption: N_('Config Groups'),
-    engine: ForemanPuppetEnc::Engine, parent: :configure_menu,
-    url_hash: { controller: 'foreman_puppet_enc/config_groups', action: :index }
-  }
-  add_menu_item :top_menu, :puppetclass_lookup_keys, {
-    caption: N_('Smart Class Parameters'),
-    engine: ForemanPuppetEnc::Engine, parent: :configure_menu,
-    url_hash: { controller: 'foreman_puppet_enc/puppetclass_lookup_keys', action: :index }
-  }
+  add_menu_item :top_menu, :environments, caption: N_('Environments'),
+                                          engine: ForemanPuppetEnc::Engine,
+                                          parent: :configure_menu
+  add_menu_item :top_menu, :config_groups, caption: N_('Config Groups'),
+                                           engine: ForemanPuppetEnc::Engine,
+                                           parent: :configure_menu
+  add_menu_item :top_menu, :puppetclass_lookup_keys, caption: N_('Smart Class Parameters'),
+                                                     engine: ForemanPuppetEnc::Engine,
+                                                     parent: :configure_menu
 
   register_info_provider(ForemanPuppetEnc::HostInfoProviders::PuppetInfo)
 
