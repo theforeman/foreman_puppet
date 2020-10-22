@@ -7,9 +7,11 @@ Foreman::Plugin.register :foreman_puppet_enc do
 
   unless ForemanPuppetEnc.extracted_from_core?
     # Remove core permissions
-    %i[view_config_groups create_config_groups edit_config_groups destroy_config_groups
-       view_external_parameters create_external_parameters edit_external_parameters
-       destroy_external_parameters].each do |perm_name|
+    cfgs = %i[view_config_groups create_config_groups edit_config_groups destroy_config_groups]
+    plks = %i[view_external_parameters create_external_parameters edit_external_parameters
+              destroy_external_parameters]
+    pcls = %i[view_puppetclasses create_puppetclasses edit_puppetclasses destroy_puppetclasses import_puppetclasses]
+    (cfgs | plks | pcls).each do |perm_name|
       p = Foreman::AccessControl.permission(perm_name)
       Foreman::AccessControl.remove_permission(p)
     end
@@ -17,6 +19,20 @@ Foreman::Plugin.register :foreman_puppet_enc do
     delete_menu_item(:top_menu, :config_groups)
     delete_menu_item(:top_menu, :puppetclass_lookup_keys)
     delete_menu_item(:top_menu, :environments)
+  end
+
+  # TODO: maybe this would not be necessary if we rething the form
+  if ForemanPuppetEnc.extracted_from_core?
+    %i[create_hostgroups edit_hostgroups].each do |perm|
+      p = Foreman::AccessControl.permission(perm)
+      p.actions << 'hostgroups/puppetclass_parameters'
+      p.actions << 'puppetclasses/parameters'
+    end
+    %i[create_hosts edit_hosts].each do |perm|
+      p = Foreman::AccessControl.permission(perm)
+      p.actions << 'hosts/puppetclass_parameters'
+      p.actions << 'puppetclasses/parameters'
+    end
   end
 
   # Add permissions
@@ -76,6 +92,27 @@ Foreman::Plugin.register :foreman_puppet_enc do
                                        'foreman_puppet_enc/api/v2/environments': %i[import_puppetclasses],
                                        'api/v2/smart_proxies': %i[import_puppetclasses] },
       resource_type: 'ForemanPuppetEnc::Environment'
+  end
+
+  security_block :puppetclasses do
+    permission :view_puppetclasses,   { 'foreman_puppet_enc/puppetclasses' => %i[index show auto_complete_search],
+                                        'foreman_puppet_enc/api/v2/puppetclasses' => %i[index show],
+                                        'foreman_puppet_enc/api/v2/smart_class_parameters' => %i[index show] },
+      resource_type: 'Puppetclass'
+    permission :create_puppetclasses, { 'foreman_puppet_enc/puppetclasses' => %i[new create],
+                                        'foreman_puppet_enc/api/v2/puppetclasses' => [:create] },
+      resource_type: 'Puppetclass'
+    permission :edit_puppetclasses,   { 'foreman_puppet_enc/puppetclasses' => %i[edit update override],
+                                        'foreman_puppet_enc/api/v2/puppetclasses' => [:update],
+                                        'foreman_puppet_enc/api/v2/smart_class_parameters' => %i[create update destroy] },
+      resource_type: 'Puppetclass'
+    permission :destroy_puppetclasses, { 'foreman_puppet_enc/puppetclasses' => [:destroy],
+                                         'foreman_puppet_enc/api/v2/puppetclasses' => [:destroy] },
+      resource_type: 'Puppetclass'
+    permission :import_puppetclasses, { 'foreman_puppet_enc/puppetclasses' => %i[import_environments obsolete_and_new],
+                                        'foreman_puppet_enc/api/v2/environments' => [:import_puppetclasses],
+                                        'api/v2/smart_proxies' => [:import_puppetclasses] },
+      resource_type: 'Puppetclass'
   end
 
   # add puppet ENC divider
