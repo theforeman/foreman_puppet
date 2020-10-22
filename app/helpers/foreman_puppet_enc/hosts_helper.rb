@@ -6,7 +6,7 @@ module ForemanPuppetEnc
 
     def puppet_host_multiple_actions
       if ForemanPuppetEnc.extracted_from_core?
-        [{ action: [_('Change Environment'), select_multiple_environment_hosts_path], priority: 200 }]
+        [{ action: [_('Change Environment'), foreman_puppet_enc.select_multiple_environment_hosts_path], priority: 200 }]
       else
         []
       end

@@ -23,6 +23,13 @@ ForemanPuppetEnc::Engine.routes.draw do
       end
     end
   end
+
+  resources :hosts, only: [], controller: '/hosts' do
+    collection do
+      match 'select_multiple_environment', via: %i[get post]
+      post 'update_multiple_environment'
+    end
+  end
 end
 
 Foreman::Application.routes.draw do
