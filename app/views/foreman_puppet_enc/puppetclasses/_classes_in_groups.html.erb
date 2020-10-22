@@ -1,0 +1,5 @@
+<li id="selected_puppetclass_<%= klass.id %>" class="<%= dom_class(klass, 'selected') %>">
+  <%= link_to klass.name, "#", rel: "twipsy", data: { 'original-title': _('belongs to config group'),
+                                                      id: klass.id, 'class-id': klass.id,
+                                                      'group-class-id': klass.id, 'host-id': obj.id } %>
+</li>

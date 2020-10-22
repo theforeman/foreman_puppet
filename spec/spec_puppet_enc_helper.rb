@@ -32,7 +32,7 @@ module ViewExampleGroupExtensions
 
   def _controller_path
     case _path_parts[1]
-    when 'nothing_atm'
+    when 'puppetclasses'
       _path_parts[1..-2].join('/')
     else
       super

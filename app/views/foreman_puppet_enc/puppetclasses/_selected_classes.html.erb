@@ -1,0 +1,4 @@
+<%= content_tag :li, id: "selected_puppet_class_#{klass.id}", class: [dom_class(klass, 'selected'), cycle('even', 'odd'), ('unavailable' unless klass.environments.include?(@environment))] do %>
+  <%= link_to_remove_puppetclass(klass, obj) %>
+  <%= hidden_field_tag "#{resource_type}[puppetclass_ids][]", klass.id %>
+<% end %>

@@ -2,7 +2,7 @@
   <%= base_errors_for @config_group %>
 
   <%= text_f f, :name %>
-  <%= render 'puppetclasses/class_selection', :obj => @config_group %>
+  <%= render 'foreman_puppet_enc/puppetclasses/class_selection', :obj => @config_group, resource_type: :config_group %>
 
   <%= submit_or_cancel f %>
 

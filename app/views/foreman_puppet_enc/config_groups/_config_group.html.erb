@@ -2,7 +2,7 @@
   <%= hidden_field_tag("#{type}[config_group_ids][]", config_group.id) if added == 'manually' %>
   <span>
    <%= link_to(icon_text('plus', config_group.name), '#', :rel=>'twipsy', :class => 'config_group_name',
-           :onclick => "tfm.classEditor.expandClassList($(this), '#cgroup_#{config_group.id}')",
+           :onclick => "tfm.classEditor.expandClassList(this, '#cgroup_#{config_group.id}')",
            :data => {:puppetclass_ids => config_group.puppetclass_ids,
                     :'group-id' => config_group.id,
                     :id => config_group.id,
@@ -20,7 +20,7 @@
                    }
              ) unless obj.parent_config_groups.include?(config_group) %>
 
-  <ul class='hide' id='<%= "cgroup_" + config_group.id.to_s %>'>
+  <ul class="hide" id="cgroup_<%= config_group.id %>">
     <% config_group.puppetclasses.each do |cg_puppetclass|%>
           <% css_class = class_in_environment?(obj.try(:environment),cg_puppetclass) ? '' : 'lightgray' %>
           <% tip = css_class == 'lightgray' ? (_("%s is not in environment") % (cg_puppetclass.name)) : '' %>

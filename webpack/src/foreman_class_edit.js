@@ -12,6 +12,7 @@
 /* eslint-disable jquery/no-each */
 /* eslint-disable jquery/no-in-array */
 /* eslint-disable jquery/no-closest */
+/* eslint-disable jquery/no-data */
 
 import $ from 'jquery';
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
@@ -121,6 +122,10 @@ export function removePuppetClass(item) {
   return false;
 }
 
+function _getInheritedIds() {
+  return $('#inherited_ids').data('inherited-puppetclass-ids') || [];
+}
+
 export function addConfigGroup(item) {
   const id = $(item).attr('data-group-id');
   const type = $(item).attr('data-type');
@@ -150,9 +155,7 @@ export function addConfigGroup(item) {
     .hide();
 
   const puppetclassIds = $.parseJSON($(item).attr('data-puppetclass-ids'));
-  const inheritedIds = $.parseJSON(
-    $('#inherited_ids').attr('data-inherited-puppetclass-ids')
-  );
+  const inheritedIds = _getInheritedIds();
 
   $.each(puppetclassIds, (index, puppetclassId) => {
     const pc = $(`li#puppetclass_${puppetclassId}`);
@@ -180,9 +183,7 @@ export function removeConfigGroup(item) {
   $(`#selected_config_group_${id}`).remove();
 
   const puppetclassIds = $.parseJSON($(item).attr('data-puppetclass-ids'));
-  const inheritedIds = $.parseJSON(
-    $('#inherited_ids').attr('data-inherited-puppetclass-ids')
-  );
+  const inheritedIds = _getInheritedIds();
 
   $.each(puppetclassIds, (index, puppetclassId) => {
     const pc = $(`#selected_puppetclass_${puppetclassId}`);
@@ -204,10 +205,12 @@ function findElementsForRemoveIcon(element) {
   removeIconIfEmpty(clickedElement, ulId);
 }
 
-export function expandClassList(clickedElement, toggleElement) {
-  $(toggleElement).fadeToggle();
-  clickedElement.find('i').toggleClass('glyphicon-plus glyphicon-minus');
-  removeIconIfEmpty(clickedElement, toggleElement);
+export function expandClassList(clickedElement, toggleSelector) {
+  $(toggleSelector).fadeToggle();
+  $(clickedElement)
+    .find('i')
+    .toggleClass('glyphicon-plus glyphicon-minus');
+  removeIconIfEmpty($(clickedElement), toggleSelector);
 }
 
 function removeIconIfEmpty(element, ulId) {

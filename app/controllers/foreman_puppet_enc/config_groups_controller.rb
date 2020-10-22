@@ -5,6 +5,8 @@ module ForemanPuppetEnc
 
     before_action :find_resource, only: %i[edit update destroy]
 
+    helper PuppetclassesHelper
+
     def index
       @config_groups = resource_base_search_and_page
     end
