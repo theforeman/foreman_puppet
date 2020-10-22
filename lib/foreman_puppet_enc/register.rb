@@ -22,19 +22,21 @@ Foreman::Plugin.register :foreman_puppet_enc do
   end
 
   # TODO: maybe this would not be necessary if we rething the form
-  if ForemanPuppetEnc.extracted_from_core?
-    %i[create_hostgroups edit_hostgroups].each do |perm|
-      p = Foreman::AccessControl.permission(perm)
+  %i[create_hostgroups edit_hostgroups].each do |perm|
+    p = Foreman::AccessControl.permission(perm)
+    if ForemanPuppetEnc.extracted_from_core?
       p.actions << 'hostgroups/environment_selected'
       p.actions << 'hostgroups/puppetclass_parameters'
-      p.actions << 'puppetclasses/parameters'
     end
-    %i[create_hosts edit_hosts].each do |perm|
-      p = Foreman::AccessControl.permission(perm)
+    p.actions << 'foreman_puppet_enc/puppetclasses/parameters'
+  end
+  %i[create_hosts edit_hosts].each do |perm|
+    p = Foreman::AccessControl.permission(perm)
+    if ForemanPuppetEnc.extracted_from_core?
       p.actions << 'hosts/hostgroup_or_environment_selected'
       p.actions << 'hosts/puppetclass_parameters'
-      p.actions << 'puppetclasses/parameters'
     end
+    p.actions << 'foreman_puppet_enc/puppetclasses/parameters'
   end
 
   # Add permissions

@@ -39,22 +39,26 @@ FactoryBot.define do
 
     transient do
       environments { [] }
-    end
-    after(:create) do |pc, evaluator|
-      evaluator.environments.each do |env|
-        FactoryBot.create :environment_class, puppetclass: pc, environment: env unless env.nil?
-      end
+      parameter_count { 0 }
     end
 
     trait :with_parameters do
       transient do
+        environments { [create(:environment)] }
         parameter_count { 1 }
       end
-      after(:create) do |pc, evaluator|
+    end
+
+    after(:create) do |pc, evaluator|
+      if evaluator.parameter_count.positive?
         evaluator.parameter_count.times do
           evaluator.environments.each do |env|
             FactoryBot.create :puppetclass_lookup_key, override: false, puppetclass: pc, environment: env
           end
+        end
+      else
+        evaluator.environments.each do |env|
+          FactoryBot.create :environment_class, puppetclass: pc, environment: env unless env.nil?
         end
       end
     end
@@ -67,6 +71,7 @@ FactoryBot.define do
       puppetclass { create(:puppetclass) }
       environment { nil }
     end
+
     after(:create) do |lkey, evaluator|
       environment = evaluator.environment || evaluator.puppetclass.environments.first
       environment ||= FactoryBot.create(:environment)
