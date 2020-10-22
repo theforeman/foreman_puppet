@@ -1,0 +1,8 @@
+<%= render 'hosts/selected_hosts', hosts: @hosts %>
+
+<%= form_for :environment, url: foreman_puppet_enc.update_multiple_environment_hosts_path(host_ids: params[:host_ids]) do |f| %>
+    <%= selectable_f f, :id, [[_('Select environment'), 'disabled'],
+                        [_('*Clear environment*'), '' ],
+                        [_('*Inherit from host group*'), 'inherit']] + Environment.all.map{|e| [e.name, e.id]}, {},
+                     label: _('Environment'), onchange: 'tfm.hosts.table.toggleMultipleOkButton(this)' %>
+<% end %>

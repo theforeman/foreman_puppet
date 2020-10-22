@@ -68,6 +68,7 @@ module ForemanPuppetEnc
         redirect_back_or_to hosts_path
       end
 
+      # TODO: seems to be useless
       def environment_from_param
         # simple validations
         if params[:environment].nil? || (id = params['environment']['id']).nil?
