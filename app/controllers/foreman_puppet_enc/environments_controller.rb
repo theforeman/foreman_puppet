@@ -2,7 +2,7 @@ module ForemanPuppetEnc
   class EnvironmentsController < ApplicationController
     include Foreman::Controller::Environments
     include Foreman::Controller::AutoCompleteSearch
-    include Foreman::Controller::Parameters::Environment
+    include ForemanPuppetEnc::Parameters::Environment
 
     before_action :find_resource, only: %i[edit update destroy]
 
@@ -11,11 +11,11 @@ module ForemanPuppetEnc
     end
 
     def new
-      @environment = Environment.new
+      @environment = model_of_controller.new
     end
 
     def create
-      @environment = Environment.new(environment_params)
+      @environment = model_of_controller.new(environment_params)
       if @environment.save
         process_success
       else
@@ -44,7 +44,11 @@ module ForemanPuppetEnc
 
     # TEMPORARY until the model PR gets in
     def model_of_controller
-      @model_of_controller ||= ::Environment
+      if ForemanPuppetEnc.extracted_from_core?
+        super
+      else
+        @model_of_controller ||= ::Environment
+      end
     end
   end
 end
