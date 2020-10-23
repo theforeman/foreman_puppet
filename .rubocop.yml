@@ -1,6 +1,6 @@
 inherit_gem:
   theforeman-rubocop:
-    - edge.yml
+    - strictest.yml
 
 inherit_from: .rubocop_todo.yml
 
