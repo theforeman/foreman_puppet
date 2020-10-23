@@ -19,4 +19,4 @@ end
 
 gemspec
 
-gem 'theforeman-rubocop', '~> 0.0.4'
+gem 'theforeman-rubocop', '~> 0.0.5'
