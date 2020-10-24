@@ -3,8 +3,7 @@
     <h3>
       <%= _('Included Config Groups') %><br />
     </h3>
-    <%= obj = controller_name == "hosts" ? host : hostgroup %>
-    <%= hidden_field_tag "#{type}[config_group_ids][]" %>
+    <%= hidden_field_tag "#{resource_type}[config_group_ids][]" %>
     <ul id="selected_config_groups">
       <% (obj.config_groups - obj.parent_config_groups).each do |config_group| %>
         <%= render 'config_groups/config_group', :obj => obj, :config_group => config_group, :added => 'manually', :css_class => '' %>

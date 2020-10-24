@@ -143,17 +143,17 @@ Foreman::Plugin.register :foreman_puppet_enc do
     end
   end
 
-  # extend host form with puppet ENC Tab
-  extend_page('hosts/_form') do |context|
-    context.add_pagelet :main_tabs,
-      name: N_('Puppet ENC'),
-      partial: 'foreman_puppet_enc/config_groups/config_groups_selection'
-  end
-
-  # extend hostgroup form with puppet ENC Tab
-  extend_page('hostgroups/_form') do |context|
-    context.add_pagelet :main_tabs,
-      name: N_('Puppet ENC'),
-      partial: 'foreman_puppet_enc/config_groups/config_groups_selection'
+  # extend host(group) form with puppet ENC Tab
+  %i[host hostgroup].each do |resource_type|
+    host_onlyif = ->(host, context) { context.send(:accessible_resource, host, :smart_proxy, :name, association: :puppet_proxy).present? }
+    extend_page("#{resource_type}s/_form") do |context|
+      context.add_pagelet :main_tabs,
+        id: :puppet_klasses,
+        name: N_('Puppet ENC'),
+        partial: 'hosts/form_puppet_enc_tab',
+        resource_type: resource_type,
+        priority: 100,
+        onlyif: (host_onlyif if resource_type == :host)
+    end
   end
 end

@@ -3,19 +3,19 @@ require 'integration_test_helper'
 
 module ForemanPuppetEnc
   class HostJSTest < IntegrationTestWithJavascript
-    setup do
-      @entries = Setting[:entries_per_page]
-      hosts
-    end
+    describe 'hosts index multiple actions' do
+      setup do
+        @entries = Setting[:entries_per_page]
+        hosts
+      end
 
-    teardown do
-      Setting[:entries_per_page] = @entries
-    end
+      teardown do
+        Setting[:entries_per_page] = @entries
+      end
 
-    let(:environment) { FactoryBot.create(:environment) }
-    let(:hosts) { FactoryBot.create_list(:host, 3) }
+      let(:environment) { FactoryBot.create(:environment) }
+      let(:hosts) { FactoryBot.create_list(:host, 3) }
 
-    describe 'multiple hosts selection' do
       test 'apply bulk action, change environment on all hosts' do
         environment
         Setting[:entries_per_page] = 3
@@ -28,9 +28,7 @@ module ForemanPuppetEnc
         find('button', text: /\ASubmit\z/).click
         assert page.has_text?(:all, 'Updated hosts: changed environment')
       end
-    end
 
-    describe 'hosts index multiple actions' do
       test 'redirect js' do
         visit hosts_path
         check 'check_all'
@@ -46,6 +44,31 @@ module ForemanPuppetEnc
         assert_current_path(foreman_puppet_enc.select_multiple_environment_hosts_path, ignore_query: true)
 
         assert page.has_selector?('td', text: hosts.first.name)
+      end
+    end
+
+    describe 'Puppet Classes tab' do
+      context 'has inherited Puppetclasses' do
+        setup do
+          @hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
+          @host = FactoryBot.create(:host, hostgroup: @hostgroup, environment: @hostgroup.environment)
+
+          visit edit_host_path(@host)
+          page.find(:link, 'Puppet Classes', href: '#puppet_klasses').click
+        end
+
+        test 'it mentions the hostgroup by name in the tooltip' do
+          page.find('#puppet_klasses .panel h3 a').click
+          class_element = page.find('#inherited_ids>li')
+
+          assert_equal @hostgroup.puppetclasses.first.name, class_element.text
+        end
+
+        test 'it shows a header mentioning the hostgroup inherited from' do
+          header_element = page.find('#puppet_klasses .panel h3 a')
+
+          assert header_element.text =~ /#{@hostgroup.name}$/
+        end
       end
     end
   end
