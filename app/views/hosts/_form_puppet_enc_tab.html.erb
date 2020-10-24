@@ -1,0 +1,14 @@
+<% obj = local_assigns[pagelet.opts[:resource_type]] %>
+<% if @environment.present? || obj.environment.present? %>
+  <% if accessible_resource_records(:config_group).exists? %>
+    <%= render 'foreman_puppet_enc/config_groups/config_groups_selection', obj: obj, resource_type: pagelet.opts[:resource_type] %>
+  <% end %>
+
+  <%= render 'foreman_puppet_enc/puppetclasses/class_selection', obj: obj, resource_type: pagelet.opts[:resource_type] %>
+<% else %>
+  <%= alert(class: alert_class(:info),
+            header: _('Notice'),
+            text: _('Please select an environment first')) %>
+<% end %>
+
+
