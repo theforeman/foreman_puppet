@@ -8,6 +8,8 @@ module ForemanPuppetEnc
 
     def index
       @environments = resource_base_search_and_page
+      # AuthorizerHelper#authorizer uses controller_name as variable name, but it fails with namespaces
+      @authorizer = Authorizer.new(User.current, collection: @environments)
     end
 
     def new
