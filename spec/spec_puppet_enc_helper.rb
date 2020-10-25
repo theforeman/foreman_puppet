@@ -32,7 +32,7 @@ module ViewExampleGroupExtensions
 
   def _controller_path
     case _path_parts[1]
-    when 'environments'
+    when 'nothing_atm'
       _path_parts[1..-2].join('/')
     else
       super
@@ -46,6 +46,24 @@ module ViewExampleGroupExtensions
 end
 
 ::ActionView::TestCase::TestController.include(FindCommon)
+::ActionView::TestCase::TestController.class_eval do
+  helper_method :resource_path
+
+  def resource_path(type)
+    return '' if type.nil?
+
+    path = "#{type.pluralize.underscore}_path"
+    prefix, suffix = path.split('/', 2)
+    if path.include?('/') && Rails.application.routes.mounted_helpers.method_defined?(prefix)
+      # handle mounted engines
+      engine = send(prefix)
+      engine.send(suffix) if engine.respond_to?(suffix)
+    else
+      path = path.tr('/', '_')
+      send(path) if respond_to?(path)
+    end
+  end
+end
 
 RSpec.configure do |config|
   config.color = true
@@ -81,9 +99,5 @@ RSpec.configure do |config|
   # Wrap all db isolated tests in a transaction
   config.around(db: :isolate) do |example|
     DatabaseCleaner.cleaning(&example)
-  end
-
-  config.around do |example|
-    Timeout.timeout(20, &example)
   end
 end

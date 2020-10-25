@@ -2,7 +2,7 @@
 <% content_for(:search_bar) { } %>
 <% title _('Config Groups') %>
 
-<% title_actions new_link(_('Create Config Group')), help_button %>
+<% title_actions new_link(_('Create Config Group'), engine: foreman_puppet_enc), help_button %>
 
 <table class="<%= table_css_classes 'table-fixed' %>">
   <thead>
