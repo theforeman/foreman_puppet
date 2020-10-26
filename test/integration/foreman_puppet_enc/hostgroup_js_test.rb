@@ -4,56 +4,97 @@ require 'integration_test_helper'
 module ForemanPuppetEnc
   class HostJSTest < IntegrationTestWithJavascript
     let(:hostgroup) { FactoryBot.create(:hostgroup, :with_puppetclass) }
+    let(:environment) { FactoryBot.create(:environment) }
 
-    describe 'edit form' do
+    describe 'create new page' do
+      test 'create new page' do
+        environment
+        assert_new_button(hostgroups_path, 'Create Host Group', new_hostgroup_path)
+        fill_in 'hostgroup_name', with: 'staging'
+        select2 environment.name, from: 'hostgroup_environment_id'
+        assert_submit_button(hostgroups_path)
+        assert_equal environment.id,
+          Hostgroup.find_by(name: 'staging').environment_id,
+          'Hostgroup not created or environment not set'
+      end
+    end
+
+    describe 'edit page' do
       setup do
         @another_puppetclass = FactoryBot.create(:puppetclass)
       end
 
-      context 'puppet classes are not available in the environment' do
+      describe 'changing the environment' do
         setup do
-          hostgroup.puppetclasses << @another_puppetclass
-          visit edit_hostgroup_path(hostgroup)
+          @another_environment = environment
+          @hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
+          visit hostgroups_path
+          click_link @hostgroup.name
         end
 
-        describe 'Puppet classes tab' do
-          test 'it shows a warning' do
-            click_link 'Puppet Classes'
-            wait_for_ajax
+        test 'preserves the puppetclasses' do
+          puppetclasses = @hostgroup.puppetclasses.all
 
-            assert page.has_selector?('#puppetclasses_unavailable_warning')
-          end
+          select2 @another_environment.name, from: 'hostgroup_environment_id'
+          assert_submit_button(hostgroups_path)
 
-          test 'it marks selected classes as unavailable' do
-            click_link 'Puppet Classes'
-            wait_for_ajax
+          assert_equal puppetclasses, @hostgroup.puppetclasses.all
+        end
+      end
 
-            assert page.has_selector?('.selected_puppetclass.unavailable')
-          end
+      context 'has inherited Puppetclasses' do
+        test 'has the parent group inherited parameters visible' do
+          child_hostgroup = FactoryBot.create(:hostgroup, parent: hostgroup)
+
+          visit edit_hostgroup_path(child_hostgroup)
+          switch_form_tab('Puppet ENC')
+
+          header_element = page.find('#puppet_enc_tab .panel h3 a')
+          assert header_element.text =~ /#{hostgroup.name}$/
+          header_element.click
+
+          class_element = page.find('#inherited_ids > li')
+          assert_equal hostgroup.puppetclasses.first.name, class_element.text
+        end
+      end
+
+      test 'shows errors on invalid lookup values' do
+        lookup_key = FactoryBot.create(:puppetclass_lookup_key, :integer,
+          path: 'hostgroup', puppetclass: hostgroup.puppetclasses.first,
+          overrides: { hostgroup.lookup_value_matcher => 2 })
+
+        visit edit_hostgroup_path(hostgroup)
+        switch_form_tab('Puppet ENC')
+        assert page.has_no_selector?('#puppet_klasses_parameters .input-group.has-error')
+        fill_in "hostgroup_lookup_values_attributes_#{lookup_key.id}_value", with: 'invalid'
+        click_button('Submit')
+        assert page.has_selector?('#puppet_klasses_parameters td.has-error')
+      end
+
+      context 'puppet classes are not available in the environment' do
+        test 'it shows a warning and marks as unavailable' do
+          hostgroup.puppetclasses << @another_puppetclass
+          visit edit_hostgroup_path(hostgroup)
+
+          switch_form_tab('Puppet ENC')
+
+          assert page.has_selector?('#puppetclasses_unavailable_warning')
+          assert page.has_selector?('.selected_puppetclass.unavailable')
         end
       end
     end
 
-    describe 'Form Puppet Classes tab' do
-      context 'has inherited Puppetclasses' do
-        setup do
-          @child_hostgroup = FactoryBot.create(:hostgroup, parent: hostgroup)
+    describe 'clone page' do
+      test 'clones lookup values' do
+        group = FactoryBot.create(:hostgroup, :with_puppetclass)
+        lookup_key = FactoryBot.create(:puppetclass_lookup_key, path: "hostgroup\ncomment",
+                                                                puppetclass: group.puppetclasses.first,
+                                                                overrides: { group.lookup_value_matcher => 'abc' })
 
-          visit edit_hostgroup_path(@child_hostgroup)
-          page.find(:link, 'Puppet Classes', href: '#puppet_klasses').click
-        end
-
-        test 'it mentions the parent hostgroup by name in the tooltip' do
-          page.find('#puppet_klasses .panel h3 a').click
-          class_element = page.find('#inherited_ids>li')
-
-          assert_equal hostgroup.puppetclasses.first.name, class_element.text
-        end
-
-        test 'it shows a header mentioning the hostgroup inherited from' do
-          header_element = page.find('#puppet_klasses .panel h3 a')
-          assert header_element.text =~ /#{hostgroup.name}$/
-        end
+        visit clone_hostgroup_path(group)
+        switch_form_tab('Puppet ENC')
+        a = page.find("#hostgroup_lookup_values_attributes_#{lookup_key.id}_value")
+        assert_equal 'abc', a.value
       end
     end
   end

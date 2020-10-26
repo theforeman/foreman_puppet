@@ -26,8 +26,17 @@ ForemanPuppetEnc::Engine.routes.draw do
 
   resources :hosts, only: [], controller: '/hosts' do
     collection do
+      post 'hostgroup_or_environment_selected'
+      post 'puppetclass_parameters'
       match 'select_multiple_environment', via: %i[get post]
       post 'update_multiple_environment'
+    end
+  end
+
+  resources :hostgroups, only: [], controller: '/hostgroups' do
+    collection do
+      post 'environment_selected'
+      post 'puppetclass_parameters'
     end
   end
 end

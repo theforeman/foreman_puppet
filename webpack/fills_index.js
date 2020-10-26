@@ -1,15 +1,30 @@
-// This example for extanding foreman-core's component via slot&fill
+import $ from 'jquery';
 
-/*
-import React from 'react';
-import { addGlobalFill } from 'foremanReact/components/common/Fill/GlobalFill';
+import * as classEditor from './src/foreman_class_edit';
+import * as hostForm from './src/foreman_puppet_host_form';
 
-addGlobalFill('slotId', 'fillId', <SomeComponent key="some-key" />, 300);
+window.tfm = Object.assign(window.tfm || {}, {
+  classEditor,
+  puppetEnc: {
+    hostForm,
+  },
+});
 
-addGlobalFill(
-  'slotId',
-  'fillId',
-  { someProp: 'this is an override prop' },
-  300
-);
-*/
+// TODO: the checkForUnavailablePuppetclasses is very nasty
+$(document)
+  .on('change', '.hostgroup-select', evt => {
+    const form = $('form.host-form')[0];
+    if (form && form.dataset.id) hostForm.updatePuppetclasses(evt.target);
+  })
+  .on('change', '.interface_domain', evt => {
+    hostForm.reloadPuppetclassParams();
+  })
+  .on('change', '.host-architecture-os-select', evt => {
+    hostForm.reloadPuppetclassParams();
+  })
+  .on('ContentLoad', evt => {
+    hostForm.checkForUnavailablePuppetclasses();
+  });
+$(window).on('load', evt => {
+  hostForm.checkForUnavailablePuppetclasses();
+});

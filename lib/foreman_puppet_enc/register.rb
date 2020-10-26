@@ -143,17 +143,32 @@ Foreman::Plugin.register :foreman_puppet_enc do
     end
   end
 
+  unless ForemanPuppetEnc.extracted_from_core?
+    Rails.application.config.after_initialize do
+      list = Pagelets::Manager.instance.instance_variable_get(:@pagelets)['hosts/_form'][:main_tabs]
+      core_pagelet = list.detect { |pagelet| pagelet.opts[:id] == :puppet_klasses }
+      list.delete(core_pagelet)
+    end
+  end
+
   # extend host(group) form with puppet ENC Tab
   %i[host hostgroup].each do |resource_type|
     host_onlyif = ->(host, context) { context.send(:accessible_resource, host, :smart_proxy, :name, association: :puppet_proxy).present? }
     extend_page("#{resource_type}s/_form") do |context|
       context.add_pagelet :main_tabs,
-        id: :puppet_klasses,
+        id: :puppet_enc_tab,
         name: N_('Puppet ENC'),
         partial: 'hosts/form_puppet_enc_tab',
         resource_type: resource_type,
         priority: 100,
         onlyif: (host_onlyif if resource_type == :host)
+
+      if ForemanPuppetEnc.extracted_from_core?
+        context.add_pagelet :main_tab_fields,
+          partial: 'hosts/foreman_puppet_enc/form_main_tab_fields',
+          resource_type: resource_type,
+          priority: 100
+      end
     end
   end
 end

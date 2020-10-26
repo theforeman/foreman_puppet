@@ -26,6 +26,7 @@ module ForemanPuppetEnc
       # To stay
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
+      HostgroupsController.include ForemanPuppetEnc::Extensions::HostgroupsControllerExtensions
     end
 
     rake_tasks do

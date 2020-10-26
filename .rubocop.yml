@@ -4,13 +4,16 @@ inherit_gem:
 
 inherit_from: .rubocop_todo.yml
 
+inherit_mode:
+  merge:
+    - Exclude
+
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
   IndentationWidth: 2
 
 Rails/SkipsModelValidations:
   Exclude:
-    - 'db/migrate/**/*'
     - 'db/migrate_foreman/**/*'
 
 Style/FormatStringToken:

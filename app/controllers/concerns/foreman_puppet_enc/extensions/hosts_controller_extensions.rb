@@ -24,7 +24,7 @@ module ForemanPuppetEnc
 
         set_callback :set_class_variables, :after, :set_puppet_class_variables
 
-        helper ForemanPuppetEnc::HostsHelper
+        helper ForemanPuppetEnc::HostsAndHostgroupsHelper
       end
 
       def hostgroup_or_environment_selected
@@ -32,7 +32,7 @@ module ForemanPuppetEnc
         set_class_variables(@host)
         Taxonomy.as_taxonomy @organization, @location do
           if @environment || @hostgroup
-            render partial: 'puppetclasses/class_selection', locals: { obj: @host, resource_type: :host }
+            render partial: 'hosts/form_puppet_enc_tab', locals: { obj: @host, resource_type: :host }
           else
             logger.info 'environment_id or hostgroup_id is required to render puppetclasses'
           end
@@ -41,7 +41,7 @@ module ForemanPuppetEnc
 
       def puppetclass_parameters
         Taxonomy.as_taxonomy @organization, @location do
-          render partial: 'puppetclasses/classes_parameters', locals: { obj: refresh_host }
+          render partial: 'foreman_puppet_enc/puppetclasses/classes_parameters', locals: { obj: refresh_host }
         end
       end
 
