@@ -46,16 +46,16 @@ export function addPuppetClass(item) {
     `<input id='${type}_puppetclass_ids_' name='${type}[puppetclass_ids][]' type='hidden' value=${id}>`
   );
 
-  const link = content.children('a');
+  const linkIcon = content.children('a.glyphicon');
   const links = content.find('a');
 
   links.attr('onclick', 'tfm.classEditor.removePuppetClass(this)');
   links.attr(
     'data-original-title',
-    sprintf(__('Click to remove %s'), link.data('class-name'))
+    sprintf(__('Click to remove %s'), linkIcon.data('class-name'))
   );
   links.tooltip();
-  link.removeClass('glyphicon-plus-sign').addClass('glyphicon-minus-sign');
+  linkIcon.removeClass('glyphicon-plus-sign').addClass('glyphicon-minus-sign');
 
   $('#selected_classes').append(content);
 
@@ -64,8 +64,8 @@ export function addPuppetClass(item) {
     .addClass('selected-marker')
     .hide();
   findElementsForRemoveIcon($(`#puppetclass_${id}`));
-  // trigger load_puppet_class_parameters in host_edit.js which is fired by custom event handler called 'AddedClass'
-  $(document.body).trigger('AddedClass', link);
+
+  window.tfm.puppetEnc.hostForm.loadPuppetClassParameters(linkIcon);
 }
 
 function addGroupPuppetClass(item) {
@@ -78,12 +78,12 @@ function addGroupPuppetClass(item) {
   content.children('span').tooltip();
   content.val('');
 
-  const link = content.children('a');
+  const linkIcon = content.children('a.glyphicon');
   const links = content.find('a');
   links.attr('onclick', '');
   links.attr('data-original-title', __('belongs to config group'));
   links.tooltip();
-  link.removeClass('glyphicon-plus-sign');
+  linkIcon.removeClass('glyphicon-plus-sign');
 
   $('#selected_classes').append(content);
 
@@ -91,9 +91,9 @@ function addGroupPuppetClass(item) {
   $(`#puppetclass_${id}`)
     .addClass('selected-marker')
     .hide();
+  findElementsForRemoveIcon($(`#puppetclass_${id}`));
 
-  // trigger load_puppet_class_parameters in host_edit.js which is fired by custom event handler called 'AddedClass'
-  $(document.body).trigger('AddedClass', link);
+  window.tfm.puppetEnc.hostForm.loadPuppetClassParameters(linkIcon);
 }
 
 export function removePuppetClass(item) {
@@ -115,9 +115,9 @@ export function removePuppetClass(item) {
   $(`#selected_puppetclass_${id}`).remove();
   $(`#puppetclass_${id}_params_loading`).remove();
   $(`[id^="puppetclass_${id}_params\\["]`).remove();
-  $('#params-tab').removeClass('tab-error');
-  if ($('#params').find('.form-group.error').length > 0)
-    $('#params-tab').addClass('tab-error');
+  $('a[href="#puppet_enc_tab"]').removeClass('tab-error');
+  if ($('#puppet_enc_tab').find('.form-group.error').length > 0)
+    $('a[href="#puppet_enc_tab"]').addClass('tab-error');
 
   return false;
 }
@@ -140,7 +140,7 @@ export function addConfigGroup(item) {
   $(`#config_group_${id}`)
     .addClass('selected-marker')
     .hide();
-  const link = content.children('a');
+  const link = content.children('a.glyphicon');
   const links = content.find('a');
   link.attr('onclick', 'tfm.classEditor.removeConfigGroup(this)');
   link.attr('data-original-title', __('Click to remove config group'));
@@ -159,13 +159,13 @@ export function addConfigGroup(item) {
 
   $.each(puppetclassIds, (index, puppetclassId) => {
     const pc = $(`li#puppetclass_${puppetclassId}`);
-    const pcLink = $(`a[data-class-id='${puppetclassId}']`);
+    const pcLink = $(`#puppetclass_${puppetclassId} > a.glyphicon`);
     if (
       pcLink.length > 0 &&
       pc.length > 0 &&
       $.inArray(puppetclassId, inheritedIds) === -1
     ) {
-      if (!($(`#selected_puppetclass_${puppetclassId}`).length > 0)) {
+      if ($(`#selected_puppetclass_${puppetclassId}`).length <= 0) {
         addGroupPuppetClass(pcLink);
       }
     }
@@ -187,9 +187,11 @@ export function removeConfigGroup(item) {
 
   $.each(puppetclassIds, (index, puppetclassId) => {
     const pc = $(`#selected_puppetclass_${puppetclassId}`);
-    const pcLink = $(`a[data-class-id='${puppetclassId}']`);
+    const pcLink = $(`#puppetclass_${puppetclassId} > a.glyphicon`);
+    // do not remove if manually added - having minus icon
     if (
       pcLink.length > 0 &&
+      !pcLink.hasClass('glyphicon-minus-sign') &&
       pc.length > 0 &&
       $.inArray(puppetclassId, inheritedIds) === -1
     ) {
@@ -208,13 +210,15 @@ function findElementsForRemoveIcon(element) {
 export function expandClassList(clickedElement, toggleSelector) {
   $(toggleSelector).fadeToggle();
   $(clickedElement)
-    .find('i')
+    .find('.glyphicon')
     .toggleClass('glyphicon-plus glyphicon-minus');
   removeIconIfEmpty($(clickedElement), toggleSelector);
 }
 
 function removeIconIfEmpty(element, ulId) {
   if ($(ulId).children(':visible').length === 0) {
-    element.find('i').hide();
+    element.find('.glyphicon').hide();
+  } else {
+    element.find('.glyphicon').show();
   }
 }
