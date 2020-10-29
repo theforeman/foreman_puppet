@@ -4,6 +4,25 @@ FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass) if Fac
 FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass_lookup_key) if FactoryBot.factories.registered?(:puppetclass_lookup_key)
 
 FactoryBot.define do
+  factory :common_puppet_facet do
+  end
+
+  factory :host_puppet_facet, parent: :common_puppet_facet, class: 'ForemanPuppetEnc::HostPuppetFacet' do
+    host
+
+    trait :with_config_group do
+      config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [host.environment])] }
+    end
+  end
+
+  factory :hostgroup_puppet_facet, parent: :common_puppet_facet, class: 'ForemanPuppetEnc::HostgroupPuppetFacet' do
+    hostgroup
+
+    trait :with_config_group do
+      config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [hostgroup.environment])] }
+    end
+  end
+
   factory :environment do
     sequence(:name) { |n| "environment#{n}" }
     organizations { [Organization.first || create(:organization)] }

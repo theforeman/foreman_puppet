@@ -57,7 +57,7 @@ jobs:
         run: |
           echo "gem 'foreman_puppet_enc', path: '../foreman_puppet_enc'" > ../foreman/bundler.d/foreman_puppet_enc.local.rb
           gem install bundler
-          bundle config set without journald console libvirt
+          bundle config set without journald development console libvirt
           bundle config set path vendor/bundle
       - name: Prepare test env
         working-directory: ${{env.working-directory}}
@@ -79,14 +79,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        foreman-core-branch: [develop]
+        foreman-core-branch: [add_hostgroup_api_facets]
         ruby-version: [2.5, 2.6]
         node-version: [12]
     steps:
       - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
       - uses: actions/checkout@v2
         with:
-          repository: theforeman/foreman
+          repository: ezr-ondrej/foreman
           ref: ${{ matrix.foreman-core-branch }}
       - uses: actions/checkout@v2
         with:

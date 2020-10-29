@@ -62,20 +62,20 @@ Foreman::Plugin.register :foreman_puppet_enc do
   security_block :puppet_environments do
     permission :view_environments, { 'foreman_puppet_enc/environments': %i[index show auto_complete_search welcome],
                                      'foreman_puppet_enc/api/v2/environments': %i[index show] },
-      resource_type: 'ForemanPuppetEnc::Environment'
+      resource_type: 'Environment'
     permission :create_environments, { 'foreman_puppet_enc/environments': %i[new create],
                                        'foreman_puppet_enc/api/v2/environments': %i[create] },
-      resource_type: 'ForemanPuppetEnc::Environment'
+      resource_type: 'Environment'
     permission :edit_environments, { 'foreman_puppet_enc/environments': %i[edit update],
                                      'foreman_puppet_enc/api/v2/environments': %i[update] },
-      resource_type: 'ForemanPuppetEnc::Environment'
+      resource_type: 'Environment'
     permission :destroy_environments, { 'foreman_puppet_enc/environments': %i[destroy],
                                         'foreman_puppet_enc/api/v2/environments': %i[destroy] },
-      resource_type: 'ForemanPuppetEnc::Environment'
+      resource_type: 'Environment'
     permission :import_environments, { 'foreman_puppet_enc/environments': %i[import_environments obsolete_and_new],
                                        'foreman_puppet_enc/api/v2/environments': %i[import_puppetclasses],
                                        'api/v2/smart_proxies': %i[import_puppetclasses] },
-      resource_type: 'ForemanPuppetEnc::Environment'
+      resource_type: 'Environment'
   end
 
   # add puppet ENC divider
@@ -95,10 +95,14 @@ Foreman::Plugin.register :foreman_puppet_enc do
   register_info_provider(ForemanPuppetEnc::HostInfoProviders::PuppetInfo)
 
   # register host and hostgroup facet
-  # register_facet ForemanPuppetEnc::Host::PuppetFacet, :puppet_facet do
-  #   configure_host
-  #   configure_hostgroup(::ForemanPuppetEnc::Hostgroup::PuppetFacet)
-  # end
+  register_facet ForemanPuppetEnc::HostPuppetFacet, :puppet do
+    configure_host do
+      api_view single: 'foreman_puppet_enc/api/v2/host_puppet_facets/main'
+    end
+    configure_hostgroup(ForemanPuppetEnc::HostgroupPuppetFacet) do
+      api_view single: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/main'
+    end
+  end
 
   # extend host form with puppet ENC Tab
   extend_page('hosts/_form') do |context|

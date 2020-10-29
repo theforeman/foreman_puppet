@@ -10,10 +10,10 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'rspec/rails'
 require 'capybara/rspec'
-require 'factory_bot_rails'
 require 'database_cleaner'
-
+require 'factory_bot'
 FactoryBot.definition_file_paths.unshift(File.join(foreman_path, 'test', 'factories'))
+require 'factory_bot_rails'
 FactoryBot.reload
 
 module ViewExampleGroupExtensions
