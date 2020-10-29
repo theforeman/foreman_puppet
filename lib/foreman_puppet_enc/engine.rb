@@ -11,6 +11,14 @@ module ForemanPuppetEnc
       Apipie.configuration.checksum_path += ['/foreman_puppet_enc/api/']
     end
 
+    initializer 'foreman_puppet_enc.migrate_by_default' do |app|
+      unless Object.const_defined?(:APP_RAKEFILE)
+        paths['db/migrate'].existent.each do |path|
+          app.config.paths['db/migrate'] << path
+        end
+      end
+    end
+
     # Include concerns in this config.to_prepare block
     config.to_prepare do
       # Temporary
