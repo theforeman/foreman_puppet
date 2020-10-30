@@ -22,7 +22,7 @@
 
   <ul class="hide" id="cgroup_<%= config_group.id %>">
     <% config_group.puppetclasses.each do |cg_puppetclass|%>
-          <% css_class = class_in_environment?(obj.try(:environment),cg_puppetclass) ? '' : 'lightgray' %>
+          <% css_class = puppetclass_in_environment?(obj.try(:environment), cg_puppetclass) ? '' : 'lightgray' %>
           <% tip = css_class == 'lightgray' ? (_("%s is not in environment") % (cg_puppetclass.name)) : '' %>
           <li>
             <%= content_tag(:span, :class => css_class, :'data-original-title' => tip, :rel => "twipsy") do %>

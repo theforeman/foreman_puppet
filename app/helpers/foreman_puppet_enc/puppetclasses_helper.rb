@@ -7,6 +7,11 @@ module ForemanPuppetEnc
       puppetclass.class_params.present? && puppetclass.class_params.map(&:override).all?
     end
 
+    def puppetclass_in_environment?(environment, puppetclass)
+      return false unless environment
+      environment.puppetclasses.map(&:id).include?(puppetclass.id)
+    end
+
     def puppetclass_group_with_icon(list, selected)
       css_options = if (list.last - selected).empty?
                       { class: 'hide' }
