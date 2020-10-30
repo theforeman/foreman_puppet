@@ -130,6 +130,9 @@ Foreman::Plugin.register :foreman_puppet_enc do
   add_menu_item :top_menu, :environments, caption: N_('Environments'),
                                           engine: ForemanPuppetEnc::Engine,
                                           parent: :configure_menu
+  add_menu_item :top_menu, :puppetclasses, caption: N_('Classes'),
+                                           engine: ForemanPuppetEnc::Engine,
+                                           parent: :configure_menu
   add_menu_item :top_menu, :config_groups, caption: N_('Config Groups'),
                                            engine: ForemanPuppetEnc::Engine,
                                            parent: :configure_menu
