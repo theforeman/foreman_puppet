@@ -1,25 +1,8 @@
 module ForemanPuppetEnc
   module HostsAndHostgroupsHelper
-    UI.register_host_description do
-      multiple_actions_provider :puppet_host_multiple_actions
-    end
-
     # TODO: remove me - prevents the puppetclass tab duplication
+    # unless ForemanPuppetEnc.extracted_from_core?
     def puppetclasses_tab(puppetclasses_receiver)
-    end
-
-    def puppet_host_multiple_actions
-      if ForemanPuppetEnc.extracted_from_core?
-        actions = [{ action: [_('Change Environment'), foreman_puppet_enc.select_multiple_environment_hosts_path], priority: 200 }]
-        if authorized_for(controller: :hosts, action: :edit)
-          if SmartProxy.unscoped.authorized.with_features('Puppet').exists?
-            actions << { action: [_('Change Puppet Master'), foreman_puppet_enc.select_multiple_puppet_proxy_hosts_path], priority: 1050 }
-          end
-        end
-        actions
-      else
-        []
-      end
     end
 
     def host_puppet_environment_field(form, select_options = {}, html_options = {})

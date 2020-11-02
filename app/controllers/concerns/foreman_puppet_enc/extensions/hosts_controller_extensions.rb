@@ -24,7 +24,9 @@ module ForemanPuppetEnc
 
         set_callback :set_class_variables, :after, :set_puppet_class_variables
 
+        helper ForemanPuppetEnc::HostsHelper
         helper ForemanPuppetEnc::HostsAndHostgroupsHelper
+        helper ForemanPuppetEnc::PuppetclassLookupKeysHelper
       end
 
       def hostgroup_or_environment_selected

@@ -9,6 +9,8 @@ module ForemanPuppetEnc
     before_action :find_resource, only: %i[edit update destroy override]
     before_action :setup_search_options, only: :index
 
+    helper ForemanPuppetEnc::PuppetclassLookupKeysHelper
+
     def index
       @puppetclasses = resource_base_search_and_page
       @hostgroups_authorizer = Authorizer.new(User.current, collection: HostgroupClass.where(puppetclass_id: @puppetclasses.map(&:id)).distinct.pluck(:hostgroup_id))

@@ -8,7 +8,7 @@ module ForemanPuppetEnc
     include HostFinders
     include HostOrchestrationStubs
 
-    let(:host) { FactoryBot.create(:host, :with_puppet, :managed) }
+    let(:host) { FactoryBot.create(:host, :with_puppet_enc, :managed) }
     let(:org) { Organization.find_by(name: 'Organization 1') }
     let(:loc) { Location.find_by(name: 'Location 1') }
 
@@ -108,7 +108,7 @@ module ForemanPuppetEnc
         env1 = FactoryBot.create(:environment, organizations: [org], locations: [loc])
         env2 = FactoryBot.create(:environment, organizations: [org], locations: [loc])
         hg = FactoryBot.create(:hostgroup, environment: env2)
-        host = FactoryBot.create(:host, :with_puppet, hostgroup: hg)
+        host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hg)
         visit edit_host_path(host)
 
         select2 env1.name, from: 'host_environment_id'
@@ -164,7 +164,7 @@ module ForemanPuppetEnc
       end
 
       describe 'Puppetclass Params' do
-        let(:host) { FactoryBot.create(:host, :with_puppet, :with_puppetclass) }
+        let(:host) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass) }
 
         test 'shows errors on invalid lookup values' do
           lookup_key = FactoryBot.create(:puppetclass_lookup_key,
@@ -276,7 +276,6 @@ module ForemanPuppetEnc
         end
 
         test 'selecting domain updates puppetclass parameters' do
-          skip 'Needs PuppetInfo extracted properly' unless ForemanPuppetEnc.extracted_from_core?
           disable_orchestration
           domain = FactoryBot.create(:domain)
           FactoryBot.create(:puppetclass_lookup_key, path: "fqdn\ndomain\ncomment",

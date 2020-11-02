@@ -13,6 +13,7 @@ module ForemanPuppetEnc
         before_action :taxonomy_scope_for_puppet_hostgroup_extensions, only: PUPPET_AJAX_REQUESTS
 
         helper ForemanPuppetEnc::HostsAndHostgroupsHelper
+        helper ForemanPuppetEnc::PuppetclassLookupKeysHelper
       end
 
       def environment_selected

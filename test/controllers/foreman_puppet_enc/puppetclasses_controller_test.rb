@@ -2,7 +2,7 @@ require 'test_puppet_enc_helper'
 
 module ForemanPuppetEnc
   class PuppetclassesControllerTest < ActionController::TestCase
-    include ::LookupKeysHelper
+    include PuppetclassLookupKeysHelper
 
     setup do
       @routes = ForemanPuppetEnc::Engine.routes
@@ -55,101 +55,99 @@ module ForemanPuppetEnc
       assert_response :success
     end
 
-    test 'new db rows are not added to HostClass when POST to parameters' do
-      host = FactoryBot.create(:host, :with_puppetclass)
-      host_puppetclass_ids = host.host_classes.pluck(:puppetclass_id)
-      params = {  id: puppetclass.id,
-                  host_id: host.id,
-                  host: { puppetclass_ids: (host_puppetclass_ids + [puppetclass.id]) } }
-      assert_difference('HostClass.count', 0) do
-        post :parameters, params: params, session: set_session_user
+    describe '#parameters' do
+      setup { puppetclass.class_params.each { |plk| plk.update(override: true) } }
+
+      test 'new db rows are not added to HostClass when POST to parameters' do
+        host = FactoryBot.create(:host, :with_puppetclass)
+        host_puppetclass_ids = host.host_classes.pluck(:puppetclass_id)
+        params = {  id: puppetclass.id,
+                    host_id: host.id,
+                    host: { puppetclass_ids: (host_puppetclass_ids + [puppetclass.id]) } }
+        assert_difference('HostClass.count', 0) do
+          post :parameters, params: params, session: set_session_user
+        end
       end
-    end
 
-    test 'new db rows are not added to HostgroupClass when POST to parameters' do
-      hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
-      hostgroup_puppetclass_ids = hostgroup.hostgroup_classes.pluck(:puppetclass_id)
-      params = {  id: puppetclass.id,
-                  host_id: hostgroup.id,
-                  hostgroup: { puppetclass_ids: (hostgroup_puppetclass_ids + [puppetclass.id]) } }
-      assert_difference('HostgroupClass.count', 0) do
-        post :parameters, params: params, session: set_session_user
+      test 'new db rows are not added to HostgroupClass when POST to parameters' do
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
+        hostgroup_puppetclass_ids = hostgroup.hostgroup_classes.pluck(:puppetclass_id)
+        params = {  id: puppetclass.id,
+                    host_id: hostgroup.id,
+                    hostgroup: { puppetclass_ids: (hostgroup_puppetclass_ids + [puppetclass.id]) } }
+        assert_difference('HostgroupClass.count', 0) do
+          post :parameters, params: params, session: set_session_user
+        end
       end
-    end
 
-    # NOTES: for tests below testing ajax POST to method parameters
-    # puppetclass(:two) has an overridable lookup key custom_class_param.
-    # custom_class_param is a smart_class_param for production environment only AND is marked as :override => TRUE
-    test 'puppetclass lookup keys are added to partial _class_parameters on EXISTING host form through ajax POST to parameters' do
-      skip 'We need correct the overridable_lookup_keys' unless ForemanPuppetEnc.extracted_from_core?
-      host = FactoryBot.create(:host, environment: environment)
-      existing_host_attributes = host_attributes(host)
-      post :parameters, params: { id: puppetclass.id, host_id: host.id,
-                                  host: existing_host_attributes }, session: set_session_user
-      assert_response :success
-      lookup_keys_added = overridable_lookup_keys(puppetclass, host)
-      assert_equal 1, lookup_keys_added.count
-      assert_includes lookup_keys_added.map(&:key), puppetclass.class_params.first.key
-    end
-
-    test 'puppetclass smart class parameters are NOT added if environment does not match' do
-      skip 'We need correct the overridable_lookup_keys' unless ForemanPuppetEnc.extracted_from_core?
-      # below is the same test as above, except environment is changed from production to global_puppetmaster, so custom_class_param is NOT added
-      host = FactoryBot.create(:host, environment: environment)
-      existing_host_attributes = host_attributes(host)
-      existing_host_attributes['environment_id'] = FactoryBot.create(:environment).id
-      post :parameters, params: { id: puppetclass.id, host_id: host.id,
-                                  host: existing_host_attributes }, session: set_session_user
-      assert_response :success
-      as_admin do
-        lookup_keys_added = overridable_lookup_keys(puppetclass, host)
-        assert_equal 0, lookup_keys_added.count
-        assert_not lookup_keys_added.map(&:key).include?(puppetclass.class_params.first.key)
-      end
-    end
-
-    test 'puppetclass lookup keys are added to partial _class_parameters on EXISTING hostgroup form through ajax POST to parameters' do
-      skip 'We need correct the overridable_lookup_keys' unless ForemanPuppetEnc.extracted_from_core?
-      hostgroup = FactoryBot.create(:hostgroup, environment: environment)
-      existing_hostgroup_attributes = hostgroup_attributes(hostgroup)
-      # host_id is posted instead of hostgroup_id per host_edit.js#load_puppet_class_parameters
-      post :parameters, params: { id: puppetclass.id, host_id: hostgroup.id,
-                                  hostgroup: existing_hostgroup_attributes }, session: set_session_user
-      assert_response :success
-      as_admin do
-        lookup_keys_added = overridable_lookup_keys(puppetclass, hostgroup)
+      # NOTES: for tests below testing ajax POST to method parameters
+      # puppetclass(:two) has an overridable lookup key custom_class_param.
+      # custom_class_param is a smart_class_param for production environment only AND is marked as :override => TRUE
+      test 'puppetclass lookup keys are added to partial _class_parameters on EXISTING host form through ajax POST to parameters' do
+        host = FactoryBot.create(:host, environment: environment)
+        existing_host_attributes = host_attributes(host)
+        post :parameters, params: { id: puppetclass.id, host_id: host.id,
+                                    host: existing_host_attributes }, session: set_session_user
+        assert_response :success
+        lookup_keys_added = overridable_puppet_lookup_keys(puppetclass, host)
         assert_equal 1, lookup_keys_added.count
         assert_includes lookup_keys_added.map(&:key), puppetclass.class_params.first.key
       end
-    end
 
-    test 'puppetclass lookup keys are added to partial _class_parameters on NEW host form through ajax POST to parameters' do
-      skip 'We need correct the overridable_lookup_keys' unless ForemanPuppetEnc.extracted_from_core?
-      host = Host::Managed.new(name: 'new_host', environment_id: environment.id)
-      new_host_attributes = host_attributes(host)
-      post :parameters, params: { id: puppetclass.id, host_id: 'undefined',
-                                  host: new_host_attributes }, session: set_session_user
-      assert_response :success
-      as_admin do
-        lookup_keys_added = overridable_lookup_keys(puppetclass, host)
-        assert_equal 1, lookup_keys_added.count
-        assert_includes lookup_keys_added.map(&:key), puppetclass.class_params.first.key
+      test 'puppetclass smart class parameters are NOT added if environment does not match' do
+        # below is the same test as above, except environment is changed from production to global_puppetmaster, so custom_class_param is NOT added
+        host = FactoryBot.create(:host, environment: environment)
+        existing_host_attributes = host_attributes(host)
+        existing_host_attributes['environment_id'] = FactoryBot.create(:environment).id
+        post :parameters, params: { id: puppetclass.id, host_id: host.id,
+                                    host: existing_host_attributes }, session: set_session_user
+        assert_response :success
+        as_admin do
+          lookup_keys_added = overridable_puppet_lookup_keys(puppetclass, assigns(:obj))
+          assert_equal 0, lookup_keys_added.count
+          assert_not lookup_keys_added.map(&:key).include?(puppetclass.class_params.first.key)
+        end
       end
-    end
 
-    test 'puppetclass lookup keys are added to partial _class_parameters on NEW hostgroup form through ajax POST to parameters' do
-      skip 'We need correct the overridable_lookup_keys' unless ForemanPuppetEnc.extracted_from_core?
-      hostgroup = Hostgroup.new(name: 'new_hostgroup', environment_id: environments(:production).id)
-      new_hostgroup_attributes = hostgroup_attributes(hostgroup)
-      puppetclass = puppetclasses(:two)
-      # host_id is posted instead of hostgroup_id per host_edit.js#load_puppet_class_parameters
-      post :parameters, params: { id: puppetclass.id, host_id: 'undefined',
-                                  hostgroup: new_hostgroup_attributes }, session: set_session_user
-      assert_response :success
-      as_admin do
-        lookup_keys_added = overridable_lookup_keys(puppetclass, hostgroup)
-        assert_equal 1, lookup_keys_added.count
-        assert_includes lookup_keys_added.map(&:key), puppetclass.class_params.first.key
+      test 'puppetclass lookup keys are added to partial _class_parameters on EXISTING hostgroup form through ajax POST to parameters' do
+        hostgroup = FactoryBot.create(:hostgroup, environment: environment)
+        existing_hostgroup_attributes = hostgroup_attributes(hostgroup)
+        # host_id is posted instead of hostgroup_id per host_edit.js#load_puppet_class_parameters
+        post :parameters, params: { id: puppetclass.id, host_id: hostgroup.id,
+                                    hostgroup: existing_hostgroup_attributes }, session: set_session_user
+        assert_response :success
+        as_admin do
+          lookup_keys_added = overridable_puppet_lookup_keys(puppetclass, hostgroup)
+          assert_equal 1, lookup_keys_added.count
+          assert_includes lookup_keys_added.map(&:key), puppetclass.class_params.first.key
+        end
+      end
+
+      test 'puppetclass lookup keys are added to partial _class_parameters on NEW host form through ajax POST to parameters' do
+        host = Host::Managed.new(name: 'new_host', environment_id: environment.id)
+        new_host_attributes = host_attributes(host)
+        post :parameters, params: { id: puppetclass.id, host_id: 'undefined',
+                                    host: new_host_attributes }, session: set_session_user
+        assert_response :success
+        as_admin do
+          lookup_keys_added = overridable_puppet_lookup_keys(puppetclass, host)
+          assert_equal 1, lookup_keys_added.count
+          assert_includes lookup_keys_added.map(&:key), puppetclass.class_params.first.key
+        end
+      end
+
+      test 'puppetclass lookup keys are added to partial _class_parameters on NEW hostgroup form through ajax POST to parameters' do
+        hostgroup = Hostgroup.new(name: 'new_hostgroup', environment_id: environment.id)
+        new_hostgroup_attributes = hostgroup_attributes(hostgroup)
+        # host_id is posted instead of hostgroup_id per host_edit.js#load_puppet_class_parameters
+        post :parameters, params: { id: puppetclass.id, host_id: 'undefined',
+                                    hostgroup: new_hostgroup_attributes }, session: set_session_user
+        assert_response :success
+        as_admin do
+          lookup_keys_added = overridable_puppet_lookup_keys(puppetclass, hostgroup)
+          assert_equal 1, lookup_keys_added.count
+          assert_includes lookup_keys_added.map(&:key), puppetclass.class_params.first.key
+        end
       end
     end
 
@@ -175,7 +173,7 @@ module ForemanPuppetEnc
 
     def test_override_enable
       puppetclass.class_params.first.update(override: false)
-      assert_changes -> { puppetclass.class_params.first.override }, from: false, to: true do
+      assert_changes -> { puppetclass.class_params.first.reload.override }, from: false, to: true do
         post :override, params: { id: puppetclass.to_param, enable: 'true' }, session: set_session_user
       end
       assert_match(/overridden all parameters/, flash[:success])

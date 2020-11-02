@@ -1,4 +1,4 @@
-<% lookup_keys = overridable_lookup_keys(puppetclass, obj) %>
+<% lookup_keys = overridable_puppet_lookup_keys(puppetclass, obj) %>
 <% lookup_keys.each_with_index do |lookup_key, index| %>
   <% lookup_value = lookup_value(obj, lookup_key) %>
     <%
@@ -20,18 +20,18 @@
     </td>
     <td <%= "class=has-error" if error.present? %>>
       <div class="input-group">
-        <%= lookup_key_with_diagnostic(obj, lookup_key, lookup_value) %>
+        <%= puppet_lookup_key_with_diagnostic(obj, lookup_key, lookup_value) %>
         <span class="input-group-btn">
           <%= hidden_toggle(lookup_key.hidden_value?, 'font', 'font', true) if lookup_key.hidden_value? %>
           <%= fullscreen_button("$(this).parent().prev()") unless lookup_key.key_type == "boolean" %>
-          <%= override_toggle(overridden) %>
+          <%= puppet_override_toggle(overridden) %>
         </span>
       </div>
       <%= content_tag(:span, error.full_messages.to_sentence, :class => "help-block") if error.present? %>
     </td>
     <td class="ca">
-      <%= omit_check_box(lookup_key, lookup_value, !overridden) %>
-      <%= hidden_lookup_value_fields(lookup_key, lookup_value, !overridden) %>
+      <%= omit_puppet_lookup_check_box(lookup_key, lookup_value, !overridden) %>
+      <%= hidden_puppet_lookup_value_fields(lookup_key, lookup_value, !overridden) %>
     </td>
   </tr>
 <% end %>
