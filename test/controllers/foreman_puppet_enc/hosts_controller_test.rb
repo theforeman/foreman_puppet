@@ -18,8 +18,8 @@ module ForemanPuppetEnc
     let(:environment2) { FactoryBot.create(:environment, organizations: [org], locations: [loc]) }
     let(:hostgroup) { FactoryBot.create(:hostgroup, environment: environment2, organizations: [org], locations: [loc]) }
     let(:host_defaults) { { hostgroup: hostgroup, environment: environment1, organization: org, location: loc } }
-    let(:host1) { FactoryBot.create(:host, :with_puppetclass, host_defaults) }
-    let(:host2) { FactoryBot.create(:host, :with_puppetclass, host_defaults) }
+    let(:host1) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass, host_defaults) }
+    let(:host2) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass, host_defaults) }
 
     test 'user with edit host rights with update environments should change environments' do
       @request.env['HTTP_REFERER'] = '/hosts'
@@ -114,6 +114,41 @@ module ForemanPuppetEnc
 
         # if this was escaped during refresh_host the value in response.body after unescapeHTML would include "[\\\"c\\\",\\\"d\\\"]"
         assert_includes CGI.unescapeHTML(response.body), '["c","d"]'
+      end
+    end
+
+    describe 'setting puppet proxy on multiple hosts' do
+      test 'should change the puppet proxy' do
+        proxy = FactoryBot.create(:puppet_smart_proxy)
+
+        @request.env['HTTP_REFERER'] = '/hosts'
+        params = { host_ids: [host1.id, host2.id], proxy: { proxy_id: proxy.id } }
+
+        setup_user 'edit', 'hosts'
+        post :update_multiple_puppet_proxy, params: params, session: set_session_user(:one)
+
+        assert_empty flash[:error]
+
+        set_admin
+        [host1, host2].each do |host|
+          assert_equal proxy, host.reload.puppet_proxy
+        end
+      end
+
+      test 'should clear the puppet proxy of multiple hosts' do
+        @request.env['HTTP_REFERER'] = '/hosts'
+
+        params = { host_ids: [host1.id, host2.id], proxy: { proxy_id: '' } }
+
+        setup_user 'edit', 'hosts'
+        post :update_multiple_puppet_proxy, params: params, session: set_session_user(:one)
+
+        assert_empty flash[:error]
+
+        set_admin
+        [host1, host2].each do |host|
+          assert_nil host.reload.puppet_proxy
+        end
       end
     end
   end
