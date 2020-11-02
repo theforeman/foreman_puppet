@@ -27,6 +27,13 @@ module ForemanPuppetEnc
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
       HostgroupsController.include ForemanPuppetEnc::Extensions::HostgroupsControllerExtensions
+
+      SmartProxiesHelper::TABBED_FEATURES << 'Puppet'
+
+      if !ForemanPuppetEnc.extracted_from_core? && (old_status = 'ProxyStatus::Puppet'.safe_constantize)
+        ::ProxyStatus.status_registry.delete(old_status)
+      end
+      ::ProxyStatus.status_registry.add(ForemanPuppetEnc::ProxyStatus::Puppet)
     end
 
     rake_tasks do

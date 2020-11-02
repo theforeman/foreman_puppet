@@ -38,10 +38,15 @@ Foreman::Plugin.register :foreman_puppet_enc do
       if perm == 'edit_hosts'
         p.actions << 'hosts/select_multiple_environment'
         p.actions << 'hosts/update_multiple_environment'
+        p.actions << 'hosts/select_multiple_puppet_proxy'
+        p.actions << 'hosts/update_multiple_puppet_proxy'
       end
     end
     p.actions << 'foreman_puppet_enc/puppetclasses/parameters'
   end
+  p = Foreman::AccessControl.permission(:view_smart_proxies)
+  p.actions << 'foreman_puppet_enc/puppet_smart_proxies/dashboard'
+  p.actions << 'foreman_puppet_enc/puppet_smart_proxies/environments'
 
   # Add permissions
   security_block :puppet_config_groups do

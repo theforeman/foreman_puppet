@@ -13,3 +13,14 @@ class ActionController::TestCase
   end
 end
 # rubocop:enable Style/ClassAndModuleChildren
+
+module ForemanPuppetEnc
+  module StubPuppetProxyFeature
+    def stub_smart_proxy_v2_features_and_statuses
+      super
+      ForemanPuppetEnc::ProxyStatus::Puppet.any_instance.stubs(:environment_stats).returns({})
+    end
+  end
+end
+
+ActiveSupport::TestCase.prepend(ForemanPuppetEnc::StubPuppetProxyFeature)

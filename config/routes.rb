@@ -39,6 +39,13 @@ ForemanPuppetEnc::Engine.routes.draw do
     end
   end
 
+  resources :puppet_smart_proxies, only: [] do
+    member do
+      get 'environments'
+      get 'dashboard'
+    end
+  end
+
   # TODO: should we patch the core routes?
   resources :hosts, only: [], controller: '/hosts' do
     collection do
@@ -46,6 +53,8 @@ ForemanPuppetEnc::Engine.routes.draw do
       post 'puppetclass_parameters'
       match 'select_multiple_environment', via: %i[get post]
       post 'update_multiple_environment'
+      post 'select_multiple_puppet_proxy'
+      post 'update_multiple_puppet_proxy'
     end
 
     constraints(host_id: %r{[^/]+}) do
