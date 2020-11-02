@@ -2,6 +2,9 @@
 /* eslint-disable jquery/no-class */
 /* eslint-disable jquery/no-html */
 /* eslint-disable jquery/no-data */
+/* eslint-disable jquery/no-show */
+/* eslint-disable jquery/no-hide */
+/* eslint-disable jquery/no-closest */
 
 import $ from 'jquery';
 
@@ -110,4 +113,25 @@ export function checkForUnavailablePuppetclasses() {
     puppetEncTab.find('#puppetclasses_unavailable_warning').remove();
     tab.find('.pficon-warning-triangle-o').remove();
   }
+}
+
+export function overridePuppetclassParam(item) {
+  const remove = $(item).data('tag') === 'remove';
+  const row = $(item)
+    .closest('tr')
+    .toggleClass('overridden');
+  const value = row.find('textarea') || row.find('select');
+  row
+    .find('[type=checkbox]')
+    .prop('checked', false)
+    .toggle();
+  row.find('input, textarea').prop('disabled', remove);
+  row.find('input, select').prop('disabled', remove);
+  row.find('.send_to_remove').prop('disabled', false);
+  row.find('.destroy').val(remove);
+  value.val(value.attr('data-inherited-value'));
+  $(item)
+    .hide()
+    .siblings('.btn-override')
+    .show();
 }
