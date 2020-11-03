@@ -2,6 +2,14 @@ ForemanPuppetEnc::Engine.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     scope '(:apiv)', module: :v2, defaults: { apiv: 'v2' }, apiv: /v1|v2/, constraints: ApiConstraints.new(version: 2, default: true) do
       constraints(id: %r{[^/]+}) do
+        resources :puppet_smart_proxies, only: [] do
+          post :import_puppetclasses, on: :member, controller: 'environments'
+
+          resources :environments, only: [] do
+            post :import_puppetclasses, on: :member
+          end
+        end
+
         resources :config_groups, except: %i[new edit]
 
         resources :hosts, only: [] do

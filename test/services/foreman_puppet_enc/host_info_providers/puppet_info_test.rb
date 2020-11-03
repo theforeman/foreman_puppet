@@ -1,4 +1,4 @@
-require_relative '../../../test_puppet_enc_helper'
+require 'test_puppet_enc_helper'
 
 module ForemanPuppetEnc
   class PuppetInfoTest < ActiveSupport::TestCase
@@ -65,8 +65,8 @@ module ForemanPuppetEnc
     end
 
     test '#enc should return override value of class parameters' do
-      pc = FactoryBot.create(:puppetclass, :with_parameters, environments: [environment])
-      lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override, puppetclass: pc)
+      pc = FactoryBot.create(:puppetclass, :with_parameters, environments: [environment]).reload
+      lkey = FactoryBot.create(:puppetclass_lookup_key, puppetclass: pc, path: 'comment', overrides: { 'comment=override' => 'overridden value' })
       classparam = get_classparam(environment, pc)
       host = classparam.send(:host)
       host.expects(:comment).returns('override')

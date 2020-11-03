@@ -1,8 +1,8 @@
 module ForemanPuppetEnc
   module Api
     module V2
-      class EnvironmentsController < ::Api::V2::BaseController
-        include ::Api::ImportPuppetclassesCommonController
+      class EnvironmentsController < BaseController
+        include ForemanPuppetEnc::Api::ImportPuppetclassesCommonController
         include Foreman::Controller::Parameters::Environment
 
         resource_description do

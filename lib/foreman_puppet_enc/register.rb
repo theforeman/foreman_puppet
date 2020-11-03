@@ -102,8 +102,7 @@ Foreman::Plugin.register :foreman_puppet_enc do
                                         'foreman_puppet_enc/api/v2/environments': %i[destroy] },
       resource_type: 'Environment'
     permission :import_environments, { 'foreman_puppet_enc/environments': %i[import_environments obsolete_and_new],
-                                       'foreman_puppet_enc/api/v2/environments': %i[import_puppetclasses],
-                                       'api/v2/smart_proxies': %i[import_puppetclasses] },
+                                       'foreman_puppet_enc/api/v2/environments': %i[import_puppetclasses] },
       resource_type: 'Environment'
   end
 
@@ -123,8 +122,7 @@ Foreman::Plugin.register :foreman_puppet_enc do
                                          'foreman_puppet_enc/api/v2/puppetclasses' => [:destroy] },
       resource_type: 'Puppetclass'
     permission :import_puppetclasses, { 'foreman_puppet_enc/puppetclasses' => %i[import_environments obsolete_and_new],
-                                        'foreman_puppet_enc/api/v2/environments' => [:import_puppetclasses],
-                                        'api/v2/smart_proxies' => [:import_puppetclasses] },
+                                        'foreman_puppet_enc/api/v2/environments' => [:import_puppetclasses] },
       resource_type: 'Puppetclass'
   end
 
