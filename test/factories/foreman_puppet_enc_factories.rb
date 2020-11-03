@@ -89,9 +89,11 @@ FactoryBot.define do
     end
 
     after(:create) do |lkey, evaluator|
-      environment = evaluator.environment || evaluator.puppetclass.environments.first
-      environment ||= FactoryBot.create(:environment)
-      FactoryBot.create :environment_class, puppetclass: evaluator.puppetclass, environment: environment, puppetclass_lookup_key_id: lkey.id
+      environments = evaluator.puppetclass.environments.to_a + [evaluator.environment].compact
+      environments = [FactoryBot.create(:environment)] unless environments.any?
+      environments.each do |env|
+        FactoryBot.create :environment_class, puppetclass: evaluator.puppetclass, environment: env, puppetclass_lookup_key_id: lkey.id
+      end
     end
   end
 end

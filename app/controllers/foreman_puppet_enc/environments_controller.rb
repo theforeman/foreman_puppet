@@ -1,7 +1,7 @@
 module ForemanPuppetEnc
   class EnvironmentsController < ApplicationController
-    include Foreman::Controller::Environments
     include Foreman::Controller::AutoCompleteSearch
+    include ForemanPuppetEnc::EnvironmentsImport
     include ForemanPuppetEnc::Parameters::Environment
 
     before_action :find_resource, only: %i[edit update destroy]
