@@ -5,12 +5,14 @@ ForemanPuppetEnc::Engine.routes.draw do
         resources :config_groups, except: %i[new edit]
 
         resources :hosts, only: [] do
+          resources :puppetclasses, except: %i[new edit]
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end
         end
 
-        resources :hostgroup, only: [] do
+        resources :hostgroups, only: [] do
+          resources :puppetclasses, except: %i[new edit]
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end
@@ -22,7 +24,7 @@ ForemanPuppetEnc::Engine.routes.draw do
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end
-          resources :puppetclasses, only: [] do
+          resources :puppetclasses, except: %i[new edit] do
             resources :smart_class_parameters, except: %i[new edit create] do
               resources :override_values, except: %i[new edit destroy]
             end
@@ -30,7 +32,7 @@ ForemanPuppetEnc::Engine.routes.draw do
           resources :hosts, only: %i[index show], controller: '/api/v2/hosts'
         end
 
-        resources :puppetclasses, only: [] do
+        resources :puppetclasses, except: %i[new edit] do
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end

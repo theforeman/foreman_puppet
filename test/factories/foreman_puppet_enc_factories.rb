@@ -27,6 +27,22 @@ FactoryBot.define do
     sequence(:name) { |n| "environment#{n}" }
     organizations { [Organization.first || create(:organization)] }
     locations { [Location.first || create(:location)] }
+
+    transient do
+      puppetclasses { [] }
+    end
+
+    trait :with_puppetclass do
+      transient do
+        puppetclasses { [create(:puppetclass)] }
+      end
+    end
+
+    after(:create) do |environment, evaluator|
+      evaluator.puppetclasses.each do |pc|
+        create(:environment_class, environment: environment, puppetclass: pc)
+      end
+    end
   end
 
   factory :environment_class do
