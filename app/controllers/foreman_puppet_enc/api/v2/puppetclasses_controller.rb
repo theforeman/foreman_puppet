@@ -2,7 +2,7 @@ module ForemanPuppetEnc
   module Api
     module V2
       class PuppetclassesController < BaseController
-        include Foreman::Controller::Parameters::Puppetclass
+        include ForemanPuppetEnc::Parameters::Puppetclass
 
         before_action :find_optional_nested_object
         before_action :find_resource, only: %w[show update destroy]

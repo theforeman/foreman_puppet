@@ -1,10 +1,10 @@
 module ForemanPuppetEnc
   class PuppetclassesController < ApplicationController
-    include Foreman::Controller::Environments
     include Foreman::Controller::AutoCompleteSearch
     include Foreman::Controller::Parameters::Host
     include Foreman::Controller::Parameters::Hostgroup
-    include Foreman::Controller::Parameters::Puppetclass
+    include ForemanPuppetEnc::Parameters::Environment
+    include ForemanPuppetEnc::Parameters::Puppetclass
 
     before_action :find_resource, only: %i[edit update destroy override]
     before_action :setup_search_options, only: :index
