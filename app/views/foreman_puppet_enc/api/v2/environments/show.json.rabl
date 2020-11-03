@@ -7,7 +7,7 @@ child :template_combinations do
 end
 
 child :puppetclasses do
-  extends 'api/v2/puppetclasses/base'
+  extends 'foreman_puppet_enc/api/v2/puppetclasses/base'
 end
 
 node do |environment|

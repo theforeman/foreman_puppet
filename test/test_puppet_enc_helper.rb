@@ -11,6 +11,10 @@ class ActionController::TestCase
   def root_url
     '/'
   end
+
+  def json_response
+    ActiveSupport::JSON.decode(@response.body)
+  end
 end
 # rubocop:enable Style/ClassAndModuleChildren
 

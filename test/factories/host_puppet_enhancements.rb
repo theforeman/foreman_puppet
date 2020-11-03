@@ -1,5 +1,10 @@
 FactoryBot.modify do
   factory :host do
+    trait :with_puppetclass do
+      environment
+      puppetclasses { [FactoryBot.create(:puppetclass, environments: [environment])] }
+    end
+
     trait :with_puppet_enc do
       environment
       puppet { association :host_puppet_facet, :with_config_group }
@@ -10,6 +15,11 @@ FactoryBot.modify do
   end
 
   factory :hostgroup do
+    trait :with_puppetclass do
+      environment
+      puppetclasses { [FactoryBot.create(:puppetclass, environments: [environment])] }
+    end
+
     trait :with_puppet_enc do
       environment
       puppet { association :hostgroup_puppet_facet, :with_config_group }
