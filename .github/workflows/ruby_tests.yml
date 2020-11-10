@@ -95,27 +95,34 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: foreman_puppet_enc
+      - name: Install chromedriver
+        uses: nanasess/setup-chromedriver@master
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
-      - uses: nanasess/setup-chromedriver@master
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version:  ${{ matrix.node-version }}
-      - uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-fgems-${{ matrix.ruby-version }}-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-fgems-${{ matrix.ruby-version }}-
       - name: Setup Bundler
         run: |
           echo "gem 'foreman_puppet_enc', path: './foreman_puppet_enc'" > bundler.d/foreman_puppet_enc.local.rb
           gem install bundler
           bundle config set without journald development console libvirt
           bundle config set path vendor/bundle
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version:  ${{ matrix.node-version }}
+      - name: Restore Gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-fgems-${{ matrix.ruby-version }}-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-fgems-${{ matrix.ruby-version }}-
+      - name: Restore NPMs
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-modules-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
       - name: Prepare test env
         run: |
           bundle install --jobs=3 --retry=3
