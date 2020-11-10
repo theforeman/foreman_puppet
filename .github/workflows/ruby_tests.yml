@@ -1,5 +1,9 @@
 name: Ruby Testing
-on: [pull_request]
+on:
+  pull_request:
+  push:
+    branches:
+    - master
 env:
   RAILS_ENV: test
   DATABASE_URL: postgresql://postgres:@localhost/test
