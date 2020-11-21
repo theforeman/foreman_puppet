@@ -83,7 +83,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        foreman-core-branch: [add_hostgroup_api_facets]
+        foreman-core-branch: [hostgroup_facet-tempate_input]
         ruby-version: [2.5, 2.6]
         node-version: [12]
     steps:
