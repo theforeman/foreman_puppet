@@ -3,6 +3,8 @@ require 'integration_test_helper'
 
 module ForemanPuppetEnc
   class EnvironmentJSTest < IntegrationTestWithJavascript
+    include ForemanPuppetEnc::Engine.routes.url_helpers
+
     test 'index page' do
       assert_index_page(environments_path, 'Environments', 'Create Puppet Environment')
     end
