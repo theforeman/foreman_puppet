@@ -35,18 +35,21 @@ module ForemanPuppet
 
         context 'with taxonomy given' do
           test 'index should return puppetclasses only in Organization' do
+            puppetclass
             get :index, params: { organization_id: default_organization.id }
             assert_include json_response['results'].map { |_, v| v[0]['id'] }, puppetclass.id
             assert_response :success
           end
 
           test 'index should return puppetclasses only in Organization' do
+            puppetclass
             get :index, params: { location_id: default_location.id }
             assert_include json_response['results'].map { |_, v| v[0]['id'] }, puppetclass.id
             assert_response :success
           end
 
           test 'index should return puppetclasses only in Organization' do
+            puppetclass
             get :index, params: { location_id: default_location.id, organization_id: default_organization.id }
             assert_include json_response['results'].map { |_, v| v[0]['id'] }, puppetclass.id
             assert_response :success

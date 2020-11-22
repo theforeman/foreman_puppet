@@ -9,7 +9,10 @@ module ForemanPuppet
     basic_pagination_per_page_test
     basic_pagination_rendered_test
 
+    let(:config_group) { FactoryBot.create(:config_group) }
+
     test 'should get index' do
+      config_group
       get :index, session: set_session_user
       assert_response :success
       assert_not_empty assigns(:config_groups)
@@ -28,18 +31,19 @@ module ForemanPuppet
     end
 
     test 'should get edit' do
-      get :edit, params: { id: config_groups(:one) }, session: set_session_user
+      get :edit, params: { id: config_group }, session: set_session_user
       assert_response :success
     end
 
     test 'should update config_group' do
-      put :update, params: { id: config_groups(:one), config_group: { name: 'new name' } }, session: set_session_user
+      put :update, params: { id: config_group, config_group: { name: 'new name' } }, session: set_session_user
       assert_redirected_to config_groups_path
     end
 
     test 'should destroy config_group' do
+      config_group
       assert_difference('ForemanPuppet::ConfigGroup.count', -1) do
-        delete :destroy, params: { id: config_groups(:three) }, session: set_session_user
+        delete :destroy, params: { id: config_group }, session: set_session_user
       end
       assert_redirected_to config_groups_path
     end

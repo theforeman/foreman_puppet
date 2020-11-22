@@ -60,23 +60,22 @@ module ForemanPuppet
 
       test 'new db rows are not added to HostClass when POST to parameters' do
         host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
-        host_puppetclass_ids = host.host_classes.pluck(:puppetclass_id)
+        host_puppetclass_ids = host.puppet.host_classes.pluck(:puppetclass_id)
         params = {  id: puppetclass.id,
                     host_id: host.id,
-                    host: { puppetclass_ids: (host_puppetclass_ids + [puppetclass.id]) } }
-        assert_difference('HostClass.count', 0) do
+                    host: { puppet: { puppetclass_ids: (host_puppetclass_ids + [puppetclass.id]) } } }
+        assert_difference(-> { ForemanPuppet::HostClass.count }, 0) do
           post :parameters, params: params, session: set_session_user
         end
       end
 
       test 'new db rows are not added to HostgroupClass when POST to parameters' do
-        skip 'dont know how to achieve for now' unless ForemanPuppet.extracted_from_core?
         hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
         hostgroup_puppetclass_ids = hostgroup.puppet.hostgroup_classes.pluck(:puppetclass_id)
         params = {  id: puppetclass.id,
                     host_id: hostgroup.id,
-                    hostgroup: { puppetclass_ids: (hostgroup_puppetclass_ids + [puppetclass.id]) } }
-        assert_difference('ForemanPuppet::HostgroupClass.count', 0) do
+                    hostgroup: { puppet: { puppetclass_ids: (hostgroup_puppetclass_ids + [puppetclass.id]) } } }
+        assert_difference(-> { ForemanPuppet::HostgroupClass.count }, 0) do
           post :parameters, params: params, session: set_session_user
         end
       end

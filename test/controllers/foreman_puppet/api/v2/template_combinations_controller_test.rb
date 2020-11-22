@@ -64,8 +64,8 @@ module ForemanPuppet
                                    environment_id: template_combination.environment.id, id: template_combination.id }
 
             json_response = ActiveSupport::JSON.decode(@response.body)
-            assert_equal(json_response['environment_id'], environment.id)
-            assert_equal(json_response['hostgroup_id'], hostgroups(:common).id)
+            assert_equal(environment.id, json_response['environment_id'])
+            assert_equal(hostgroups(:common).id, json_response['hostgroup_id'])
             assert_response :success
           end
 

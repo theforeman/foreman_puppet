@@ -170,7 +170,7 @@ module ForemanPuppet
 
       test 'user with viewer rights should fail to edit an environment' do
         setup_user
-        get :edit, params: { id: environments(:production).name }, session: set_session_user.merge(user: users(:one).id)
+        get :edit, params: { id: FactoryBot.create(:environment).name }, session: set_session_user.merge(user: users(:one).id)
         assert_equal(403, @response.status)
       end
 

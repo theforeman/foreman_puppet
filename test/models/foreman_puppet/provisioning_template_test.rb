@@ -37,7 +37,7 @@ module ForemanPuppet
       assert_equal [], tmplt.template_combinations
     end
 
-    describe 'Association cascading' do
+    describe '#find_template by template_combinations' do
       setup do
         @arch = FactoryBot.create(:architecture)
         medium = FactoryBot.create(:medium, name: 'combo_medium', path: 'http://www.example.com/m')
@@ -74,7 +74,7 @@ module ForemanPuppet
         @ctd.os_default_templates.create(operatingsystem: @os1, template_kind_id: @ctd.template_kind_id)
       end
 
-      test 'find_template finds a matching template with hg and env' do
+      test 'finds a matching template with hg and env' do
         assert_equal @ct1.name,
           ProvisioningTemplate.find_template({ kind: @tk.name,
                                                operatingsystem_id: @os1.id,
@@ -82,14 +82,14 @@ module ForemanPuppet
                                                environment_id: @ev1.id }).name
       end
 
-      test 'find_template finds a matching template with hg only' do
+      test 'finds a matching template with hg only' do
         assert_equal @ct2.name,
           ProvisioningTemplate.find_template({ kind: @tk.name,
                                                operatingsystem_id: @os1.id,
                                                hostgroup_id: @hg1.id }).name
       end
 
-      test 'find_template finds a matching template with hg and mismatched env' do
+      test 'finds a matching template with hg and mismatched env' do
         assert_equal @ct2.name,
           ProvisioningTemplate.find_template({ kind: @tk.name,
                                                operatingsystem_id: @os1.id,
@@ -97,14 +97,14 @@ module ForemanPuppet
                                                environment_id: @ev3.id }).name
       end
 
-      test 'find_template finds a matching template with env only' do
+      test 'finds a matching template with env only' do
         assert_equal @ct3.name,
           ProvisioningTemplate.find_template({ kind: @tk.name,
                                                operatingsystem_id: @os1.id,
                                                environment_id: @ev1.id }).name
       end
 
-      test 'find_template finds a matching template with env and mismatched hg' do
+      test 'finds a matching template with env and mismatched hg' do
         assert_equal @ct3.name,
           ProvisioningTemplate.find_template({ kind: @tk.name,
                                                operatingsystem_id: @os1.id,
@@ -112,7 +112,7 @@ module ForemanPuppet
                                                environment_id: @ev1.id }).name
       end
 
-      test 'find_template finds the default template when hg and env do not match' do
+      test 'finds the default template when hg and env do not match' do
         assert_equal @ctd.name,
           ProvisioningTemplate.find_template({ kind: @tk.name,
                                                operatingsystem_id: @os1.id,
