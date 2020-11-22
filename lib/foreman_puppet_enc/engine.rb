@@ -21,6 +21,8 @@ module ForemanPuppetEnc
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
+      # Temporary
+      ::Puppetclass.include ForemanPuppetEnc::PuppetclassDecorations
       # To stay
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
       Nic::Managed.include ForemanPuppetEnc::Extensions::NicManaged

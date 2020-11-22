@@ -3,7 +3,7 @@ module ForemanPuppetEnc
     module V2
       class EnvironmentsController < BaseController
         include ForemanPuppetEnc::Api::ImportPuppetclassesCommonController
-        include Foreman::Controller::Parameters::Environment
+        include ForemanPuppetEnc::Parameters::Environment
 
         resource_description do
           api_version '2'

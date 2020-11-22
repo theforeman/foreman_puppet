@@ -11,6 +11,17 @@ module ForemanPuppetEnc
 
     helper ForemanPuppetEnc::PuppetclassLookupKeysHelper
 
+    # TODO: extracted_from_core?
+    def host_params(top_level_hash = controller_name.singularize)
+      filter = self.class.host_params_filter
+      filter.permit(puppet_attributes: {})
+      filter.filter_params(params, parameter_filter_context, top_level_hash).tap do |normalized|
+        if parameter_filter_context.ui? && normalized['compute_attributes'] && normalized['compute_attributes']['scsi_controllers']
+          normalize_scsi_attributes(normalized['compute_attributes'])
+        end
+      end
+    end
+
     def index
       @puppetclasses = resource_base_search_and_page
       @hostgroups_authorizer = Authorizer.new(User.current, collection: HostgroupClass.where(puppetclass_id: @puppetclasses.map(&:id)).distinct.pluck(:hostgroup_id))

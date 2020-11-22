@@ -16,7 +16,7 @@ module ForemanPuppetEnc
     let(:loc) { users(:one).locations.first }
     let(:environment1) { FactoryBot.create(:environment, organizations: [org], locations: [loc]) }
     let(:environment2) { FactoryBot.create(:environment, organizations: [org], locations: [loc]) }
-    let(:hostgroup) { FactoryBot.create(:hostgroup, environment: environment2, organizations: [org], locations: [loc]) }
+    let(:hostgroup) { FactoryBot.create(:hostgroup, :with_puppet_enc, environment: environment2, organizations: [org], locations: [loc]) }
     let(:host_defaults) { { hostgroup: hostgroup, environment: environment1, organization: org, location: loc } }
     let(:host1) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass, host_defaults) }
     let(:host2) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass, host_defaults) }
@@ -28,8 +28,8 @@ module ForemanPuppetEnc
       post :update_multiple_environment, params: { host_ids: [host1.id, host2.id],
                                                    environment: { id: environment2.id } },
                                          session: set_session_user(:one)
-      assert_equal environment2.id, host1.reload.environment_id
-      assert_equal environment2.id, host2.reload.environment_id
+      assert_equal environment2.id, host1.reload.puppet.environment_id
+      assert_equal environment2.id, host2.reload.puppet.environment_id
       assert_equal 'Updated hosts: changed environment', flash[:success]
     end
 
@@ -62,13 +62,15 @@ module ForemanPuppetEnc
     end
 
     describe '#hostgroup_or_environment_selected' do
-      let(:hostgroup) { FactoryBot.create(:hostgroup, organizations: [org], locations: [loc]) }
+      let(:hostgroup) { FactoryBot.create(:hostgroup, :with_puppet_enc, organizations: [org], locations: [loc]) }
 
       test 'choosing only one of hostgroup or environment renders classes' do
         post :hostgroup_or_environment_selected, params: {
           host_id: nil,
           host: {
-            environment_id: environment1.id,
+            puppet_attributes: {
+              environment_id: environment1.id,
+            },
           },
         }, session: set_session_user, xhr: true
         assert_response :success
@@ -79,8 +81,10 @@ module ForemanPuppetEnc
         post :hostgroup_or_environment_selected, params: {
           host_id: host1.id,
           host: {
-            environment_id: environment1.id,
             hostgroup_id: hostgroup.id,
+            puppet_attributes: {
+              environment_id: environment1.id,
+            },
           },
         }, session: set_session_user, xhr: true
         assert_response :success
@@ -88,7 +92,7 @@ module ForemanPuppetEnc
       end
 
       test 'should not escape lookup values on environment change' do
-        host = FactoryBot.create(:host, :with_environment, :with_puppetclass)
+        host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
 
         host.environment.locations = [host.location]
         host.environment.organizations = [host.organization]

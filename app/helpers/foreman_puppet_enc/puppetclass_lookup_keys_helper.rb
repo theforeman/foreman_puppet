@@ -9,7 +9,7 @@ module ForemanPuppetEnc
     # ------ Host(group) Form Helpers -----
 
     def overridable_puppet_lookup_keys(klass, obj)
-      klass.class_params.override.where(environment_classes: { environment_id: obj.environment })
+      klass.class_params.override.where(environment_classes: { environment_id: obj.environment_id })
     end
 
     def hidden_puppet_lookup_value_fields(lookup_key, lookup_value, disabled)

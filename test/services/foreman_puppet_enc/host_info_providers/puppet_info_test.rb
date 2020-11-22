@@ -16,7 +16,7 @@ module ForemanPuppetEnc
     end
 
     def setup
-      @host = FactoryBot.build(:host,
+      @host = FactoryBot.build(:host, :with_puppet_enc,
         location: taxonomies(:location1),
         organization: taxonomies(:organization1),
         operatingsystem: operatingsystems(:redhat),
@@ -75,7 +75,7 @@ module ForemanPuppetEnc
 
     test "#values_hash should contain element's name" do
       lkey = FactoryBot.create(:puppetclass_lookup_key, :with_override, puppetclass: puppetclass)
-      host = FactoryBot.build_stubbed(:host, environment: environment, puppetclasses: [puppetclass])
+      host = FactoryBot.build_stubbed(:host, :with_puppet_enc, environment: environment, puppetclasses: [puppetclass])
       Classification::MatchesGenerator.any_instance.expects(:attr_to_value).with('comment').returns('override')
 
       assert_equal(
@@ -126,7 +126,7 @@ module ForemanPuppetEnc
                                                              puppetclass: pc,
                                                              key_type: 'json',
                                                              default_value: '{"a": "b"}')
-      host = FactoryBot.build_stubbed(:host, environment: env, puppetclasses: [pc])
+      host = FactoryBot.build_stubbed(:host, :with_puppet_enc, environment: env, puppetclasses: [pc])
       classparam = Classification::ClassificationResult.new(host, {})
 
       yaml_value = classparam[yaml_lkey]
@@ -561,13 +561,13 @@ module ForemanPuppetEnc
                                                        path: "organization\nhostgroup\nlocation",
                                                        puppetclass: puppetclass_two)
 
-      parent_hostgroup = FactoryBot.create(:hostgroup,
+      parent_hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc,
         puppetclasses: [puppetclass_two],
         environment: environment)
-      child_hostgroup = FactoryBot.build(:hostgroup, parent: parent_hostgroup)
+      child_hostgroup = FactoryBot.build(:hostgroup, :with_puppet_enc, parent: parent_hostgroup)
 
-      host = FactoryBot.create(:host, environment: environment, organization: taxonomies(:organization1),
-                                      puppetclasses: [puppetclass], hostgroup: child_hostgroup)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment, organization: taxonomies(:organization1),
+                                                        puppetclasses: [puppetclass], hostgroup: child_hostgroup)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -598,7 +598,10 @@ module ForemanPuppetEnc
       child_org = taxonomies(:organization2)
       child_org.update(parent: parent_org)
 
-      host = FactoryBot.create(:host, environment: environment, puppetclasses: [puppetclass_two], organization: child_org, location: taxonomies(:location1))
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment,
+                                                        puppetclasses: [puppetclass_two],
+                                                        organization: child_org,
+                                                        location: taxonomies(:location1))
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -629,7 +632,10 @@ module ForemanPuppetEnc
       child_loc = taxonomies(:location2)
       child_loc.update(parent: parent_loc)
 
-      host = FactoryBot.create(:host, environment: environment, puppetclasses: [puppetclass_two], organization: taxonomies(:organization1), location: child_loc)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment,
+                                                        puppetclasses: [puppetclass_two],
+                                                        organization: taxonomies(:organization1),
+                                                        location: child_loc)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -656,13 +662,13 @@ module ForemanPuppetEnc
                                                        path: "organization\nhostgroup\nlocation",
                                                        puppetclass: puppetclass_two)
 
-      parent_hostgroup = FactoryBot.create(:hostgroup,
+      parent_hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc,
         puppetclasses: [puppetclass_two],
         environment: environment)
-      child_hostgroup = FactoryBot.build(:hostgroup, parent: parent_hostgroup)
+      child_hostgroup = FactoryBot.build(:hostgroup, :with_puppet_enc, parent: parent_hostgroup)
 
-      host = FactoryBot.create(:host, environment: environment, organization: taxonomies(:organization1),
-                                      puppetclasses: [puppetclass], hostgroup: child_hostgroup)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment, organization: taxonomies(:organization1),
+                                                        puppetclasses: [puppetclass], hostgroup: child_hostgroup)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -697,7 +703,10 @@ module ForemanPuppetEnc
       child_org = taxonomies(:organization2)
       child_org.update(parent: parent_org)
 
-      host = FactoryBot.create(:host, environment: environment, puppetclasses: [puppetclass_two], organization: child_org, location: taxonomies(:location1))
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment,
+                                                        puppetclasses: [puppetclass_two],
+                                                        organization: child_org,
+                                                        location: taxonomies(:location1))
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -732,7 +741,10 @@ module ForemanPuppetEnc
       child_loc = taxonomies(:location2)
       child_loc.update(parent: parent_loc)
 
-      host = FactoryBot.create(:host, environment: environment, puppetclasses: [puppetclass_two], organization: taxonomies(:organization1), location: child_loc)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment,
+                                                        puppetclasses: [puppetclass_two],
+                                                        organization: taxonomies(:organization1),
+                                                        location: child_loc)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -763,13 +775,13 @@ module ForemanPuppetEnc
                                                        path: "organization\nhostgroup\nlocation",
                                                        puppetclass: puppetclass_two)
 
-      parent_hostgroup = FactoryBot.create(:hostgroup,
+      parent_hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc,
         puppetclasses: [puppetclass_two],
         environment: environment)
-      child_hostgroup = FactoryBot.build(:hostgroup, parent: parent_hostgroup)
+      child_hostgroup = FactoryBot.build(:hostgroup, :with_puppet_enc, parent: parent_hostgroup)
 
-      host = FactoryBot.create(:host, environment: environment, organization: taxonomies(:organization1),
-                                      puppetclasses: [puppetclass], hostgroup: child_hostgroup)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment, organization: taxonomies(:organization1),
+                                                        puppetclasses: [puppetclass], hostgroup: child_hostgroup)
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -804,8 +816,8 @@ module ForemanPuppetEnc
       child_org = taxonomies(:organization2)
       child_org.update(parent: parent_org)
 
-      host = FactoryBot.create(:host, environment: environment, organization: child_org,
-                                      puppetclasses: [puppetclass_two], location: taxonomies(:location1))
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment, organization: child_org,
+                                                        puppetclasses: [puppetclass_two], location: taxonomies(:location1))
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -840,8 +852,8 @@ module ForemanPuppetEnc
       child_loc = taxonomies(:location2)
       child_loc.update(parent: parent_loc)
 
-      host = FactoryBot.create(:host, environment: environment, organization: taxonomies(:organization1),
-                                      puppetclasses: [puppetclass_two], location: child_loc)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment, organization: taxonomies(:organization1),
+                                                        puppetclasses: [puppetclass_two], location: child_loc)
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -877,7 +889,7 @@ module ForemanPuppetEnc
         environment: environment)
       child_hostgroup = FactoryBot.build(:hostgroup, parent: parent_hostgroup)
 
-      host = FactoryBot.create(:host, environment: environment, puppetclasses: [puppetclass], hostgroup: child_hostgroup)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment, puppetclasses: [puppetclass], hostgroup: child_hostgroup)
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -912,7 +924,10 @@ module ForemanPuppetEnc
       child_org = taxonomies(:organization2)
       child_org.update(parent: parent_org)
 
-      host = FactoryBot.create(:host, environment: environment, puppetclasses: [puppetclass_two], organization: child_org, location: taxonomies(:location1))
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment,
+                                                        puppetclasses: [puppetclass_two],
+                                                        organization: child_org,
+                                                        location: taxonomies(:location1))
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -947,7 +962,10 @@ module ForemanPuppetEnc
       child_loc = taxonomies(:location2)
       child_loc.update(parent: parent_loc)
 
-      host = FactoryBot.create(:host, environment: environment, puppetclasses: [puppetclass_two], organization: taxonomies(:organization1), location: child_loc)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment,
+                                                        puppetclasses: [puppetclass_two],
+                                                        organization: taxonomies(:organization1),
+                                                        location: child_loc)
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -1020,14 +1038,14 @@ module ForemanPuppetEnc
                                                        path: "hostgroup,organization\nlocation",
                                                        puppetclass: puppetclass_two)
 
-      parent_hostgroup = FactoryBot.create(:hostgroup,
+      parent_hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc,
         puppetclasses: [puppetclass_two],
         environment: environment)
-      child_hostgroup = FactoryBot.build(:hostgroup, parent: parent_hostgroup)
+      child_hostgroup = FactoryBot.build(:hostgroup, :with_puppet_enc, parent: parent_hostgroup)
 
-      host = FactoryBot.create(:host, environment: environment,
-                                      location: taxonomies(:location1), organization: taxonomies(:organization1),
-                                      puppetclasses: [puppetclass], hostgroup: child_hostgroup)
+      host = FactoryBot.create(:host, :with_puppet_enc, environment: environment,
+                                                        location: taxonomies(:location1), organization: taxonomies(:organization1),
+                                                        puppetclasses: [puppetclass], hostgroup: child_hostgroup)
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
@@ -1091,14 +1109,14 @@ module ForemanPuppetEnc
     end
 
     test 'enc should return correct values for multi-key matchers' do
-      hostgroup = FactoryBot.build(:hostgroup)
+      hostgroup = FactoryBot.build(:hostgroup, :with_puppet_enc)
 
       key = FactoryBot.create(:puppetclass_lookup_key, :with_omit,
         merge_overrides: false,
         path: "hostgroup,organization\nlocation",
         puppetclass: puppetclass_two)
 
-      parent_hostgroup = FactoryBot.create(:hostgroup,
+      parent_hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc,
         puppetclasses: [puppetclass_two],
         environment: environment)
       hostgroup.update(parent: parent_hostgroup)
@@ -1107,8 +1125,10 @@ module ForemanPuppetEnc
       lv = FactoryBot.create(:lookup_value, lookup_key_id: key.id, match: "hostgroup=#{hostgroup},organization=#{taxonomies(:organization1)}")
       FactoryBot.build(:lookup_value, lookup_key_id: key.id, match: "location=#{taxonomies(:location1)}")
 
-      host = FactoryBot.build_stubbed(:host, environment: environment,
-                                             location: taxonomies(:location1), organization: taxonomies(:organization1), hostgroup: hostgroup)
+      host = FactoryBot.build_stubbed(:host, :with_puppet_enc, hostgroup: hostgroup,
+                                                               environment: environment,
+                                                               location: taxonomies(:location1),
+                                                               organization: taxonomies(:organization1))
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
       key.reload
@@ -1165,7 +1185,7 @@ module ForemanPuppetEnc
     def get_classparam(env, classes)
       host = Host.new
       host.expects(:classes).returns(Array.wrap(classes))
-      host.expects(:environment_id).returns(env.id)
+      host.expects(:puppet).returns(OpenStruct.new(environment: env, environment_id: env.id))
       host.expects(:puppetclass_ids).returns(Array.wrap(classes).map(&:id))
       HostInfoProviders::PuppetInfo.new(host)
     end

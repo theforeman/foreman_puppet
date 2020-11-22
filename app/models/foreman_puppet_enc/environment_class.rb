@@ -4,7 +4,7 @@ module ForemanPuppetEnc
 
     belongs_to :environment
     belongs_to :puppetclass, inverse_of: :environment_classes
-    belongs_to :puppetclass_lookup_key, inverse_of: :environment_classes
+    belongs_to :puppetclass_lookup_key, inverse_of: :environment_classes, class_name: 'ForemanPuppetEnc::PuppetclassLookupKey'
     validates :puppetclass_lookup_key_id, uniqueness: { scope: %i[environment_id puppetclass_id] }
     validates :puppetclass_id, :environment_id, presence: true
     after_destroy :delete_orphaned_lookup_keys

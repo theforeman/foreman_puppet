@@ -12,7 +12,7 @@ module ForemanPuppetEnc
         if User.current.admin?
           # Admin users can also see Environments that do not have any organization or location, even when
           # organizations and locations are enabled.
-          untaxed_environments = Environment.unscoped.where.not(id: TaxableTaxonomy.where(taxable_type: 'Environment').distinct.select(:taxable_id)).pluck(:name)
+          untaxed_environments = Environment.unscoped.where.not(id: TaxableTaxonomy.where(taxable_type: 'ForemanPuppetEnc::Environment').distinct.select(:taxable_id)).pluck(:name)
           result += untaxed_environments
         end
         result

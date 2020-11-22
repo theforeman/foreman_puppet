@@ -26,13 +26,21 @@ module ForemanPuppetEnc
 
         helper ForemanPuppetEnc::HostsHelper
         helper ForemanPuppetEnc::HostsAndHostgroupsHelper
+        helper ForemanPuppetEnc::PuppetclassesHelper
         helper ForemanPuppetEnc::PuppetclassLookupKeysHelper
+      end
+
+      # params facets fix:
+      def host_params(top_level_hash = controller_name.singularize)
+        filter = self.class.host_params_filter
+        filter.permit(puppet_attributes: {})
+        filter.filter_params(params, parameter_filter_context, top_level_hash)
       end
 
       def hostgroup_or_environment_selected
         refresh_host
         set_class_variables(@host)
-        Taxonomy.as_taxonomy @organization, @location do
+        ::Taxonomy.as_taxonomy @organization, @location do
           if @environment || @hostgroup
             render partial: 'hosts/form_puppet_enc_tab', locals: { obj: @host, resource_type: :host }
           else
@@ -42,7 +50,7 @@ module ForemanPuppetEnc
       end
 
       def puppetclass_parameters
-        Taxonomy.as_taxonomy @organization, @location do
+        ::Taxonomy.as_taxonomy @organization, @location do
           render partial: 'foreman_puppet_enc/puppetclasses/classes_parameters', locals: { obj: refresh_host }
         end
       end
@@ -62,7 +70,8 @@ module ForemanPuppetEnc
 
         # update the hosts
         @hosts.each do |host|
-          host.environment = id == 'inherit' && host.hostgroup.present? ? host.hostgroup.environment : ev
+          puppet = host.puppet || host.build_puppet
+          puppet.environment = id == 'inherit' && host.hostgroup.present? ? host.hostgroup.puppet&.environment : ev
           host.save(validate: false)
         end
 
@@ -109,7 +118,7 @@ module ForemanPuppetEnc
           return false
         end
 
-        if proxy_id.present? && !SmartProxy.find_by(id: proxy_id)
+        if proxy_id.present? && !::SmartProxy.find_by(id: proxy_id)
           error _('Invalid proxy selected!')
           redirect_to(redirect_path)
           false
@@ -174,7 +183,7 @@ module ForemanPuppetEnc
       end
 
       def set_puppet_class_variables
-        @environment = @host.environment
+        @environment = @host.puppet&.environment
       end
 
       def taxonomy_scope_for_puppet_host_extensions

@@ -255,10 +255,8 @@ module ForemanPuppetEnc
             end
 
             test 'should render templates according to api version 2' do
-              as_admin do
-                post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
-                assert_template 'api/v2/import_puppetclasses/index'
-              end
+              post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
+              assert_template 'foreman_puppet_enc/api/v2/import_puppetclasses/index'
             end
 
             test 'should import puppetclasses for specified environment only' do
@@ -273,9 +271,9 @@ module ForemanPuppetEnc
             test 'should import puppetclasses for all environments if none specified' do
               assert_difference('Puppetclass.unscoped.count', 2) do
                 post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
-                assert_includes Puppetclass.pluck(:name), 'a'
-                assert_includes Puppetclass.pluck(:name), 'b'
               end
+              assert_includes Puppetclass.pluck(:name), 'a'
+              assert_includes Puppetclass.pluck(:name), 'b'
               assert_response :success
             end
 

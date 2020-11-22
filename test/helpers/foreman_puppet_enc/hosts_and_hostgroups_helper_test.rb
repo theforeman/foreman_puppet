@@ -11,14 +11,19 @@ module ForemanPuppetEnc
     describe 'puppet environment field' do
       setup do
         @host = mock('host')
+        puppet = mock('puppet')
         @host.stubs(:hostgroup)
+        @host.stubs(:puppet).returns(puppet)
         @host.stubs(:id).returns(999)
         @f = mock('f')
         @f.stubs(:object).returns(@host)
+        @fields = mock('fields')
+        @fields.stubs(:object).returns(puppet)
+        @f.stubs(:fields_for).yields(@fields)
       end
 
       test 'it adds new first level attributes' do
-        @f.expects(:collection_select).with do |*attrs|
+        @fields.expects(:collection_select).with do |*attrs|
           select_options, html_options = extract_collection_options(attrs)
           select_options[:test_select_option] == 'test_value1' &&
             html_options[:test_html_option] == 'test_value2'
@@ -28,7 +33,7 @@ module ForemanPuppetEnc
       end
 
       test 'it adds new data attributes' do
-        @f.expects(:collection_select).with do |*attrs|
+        @fields.expects(:collection_select).with do |*attrs|
           select_options, html_options = extract_collection_options(attrs)
           select_options[:test_select_option] == 'test_value1' &&
             html_options[:data][:test] == 'test_value2'
@@ -38,7 +43,7 @@ module ForemanPuppetEnc
       end
 
       test 'it overrides existing attributes' do
-        @f.expects(:collection_select).with do |*attrs|
+        @fields.expects(:collection_select).with do |*attrs|
           html_options = attrs.pop
           html_options[:data][:test] == 'some_test_value' &&
             html_options[:data][:url] == '/test/url'

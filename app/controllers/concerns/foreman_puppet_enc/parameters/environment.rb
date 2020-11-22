@@ -6,7 +6,7 @@ module ForemanPuppetEnc
 
       class_methods do
         def environment_params_filter
-          Foreman::ParameterFilter.new(::Environment).tap do |filter|
+          Foreman::ParameterFilter.new(ForemanPuppetEnc::Environment).tap do |filter|
             filter.permit :name
             add_taxonomix_params_filter(filter)
           end

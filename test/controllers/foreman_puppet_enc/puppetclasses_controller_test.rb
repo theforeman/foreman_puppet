@@ -59,7 +59,7 @@ module ForemanPuppetEnc
       setup { puppetclass.class_params.each { |plk| plk.update(override: true) } }
 
       test 'new db rows are not added to HostClass when POST to parameters' do
-        host = FactoryBot.create(:host, :with_puppetclass)
+        host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
         host_puppetclass_ids = host.host_classes.pluck(:puppetclass_id)
         params = {  id: puppetclass.id,
                     host_id: host.id,
@@ -70,7 +70,7 @@ module ForemanPuppetEnc
       end
 
       test 'new db rows are not added to HostgroupClass when POST to parameters' do
-        hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
         hostgroup_puppetclass_ids = hostgroup.hostgroup_classes.pluck(:puppetclass_id)
         params = {  id: puppetclass.id,
                     host_id: hostgroup.id,
@@ -84,7 +84,7 @@ module ForemanPuppetEnc
       # puppetclass(:two) has an overridable lookup key custom_class_param.
       # custom_class_param is a smart_class_param for production environment only AND is marked as :override => TRUE
       test 'puppetclass lookup keys are added to partial _class_parameters on EXISTING host form through ajax POST to parameters' do
-        host = FactoryBot.create(:host, environment: environment)
+        host = FactoryBot.create(:host, :with_puppet_enc, environment: environment)
         existing_host_attributes = host_attributes(host)
         post :parameters, params: { id: puppetclass.id, host_id: host.id,
                                     host: existing_host_attributes }, session: set_session_user
@@ -96,9 +96,9 @@ module ForemanPuppetEnc
 
       test 'puppetclass smart class parameters are NOT added if environment does not match' do
         # below is the same test as above, except environment is changed from production to global_puppetmaster, so custom_class_param is NOT added
-        host = FactoryBot.create(:host, environment: environment)
+        host = FactoryBot.create(:host, :with_puppet_enc, environment: environment)
         existing_host_attributes = host_attributes(host)
-        existing_host_attributes['environment_id'] = FactoryBot.create(:environment).id
+        existing_host_attributes['puppet_attributes'] = { 'environment_id' => FactoryBot.create(:environment).id }
         post :parameters, params: { id: puppetclass.id, host_id: host.id,
                                     host: existing_host_attributes }, session: set_session_user
         assert_response :success
@@ -110,7 +110,7 @@ module ForemanPuppetEnc
       end
 
       test 'puppetclass lookup keys are added to partial _class_parameters on EXISTING hostgroup form through ajax POST to parameters' do
-        hostgroup = FactoryBot.create(:hostgroup, environment: environment)
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, environment: environment)
         existing_hostgroup_attributes = hostgroup_attributes(hostgroup)
         # host_id is posted instead of hostgroup_id per host_edit.js#load_puppet_class_parameters
         post :parameters, params: { id: puppetclass.id, host_id: hostgroup.id,
@@ -124,7 +124,7 @@ module ForemanPuppetEnc
       end
 
       test 'puppetclass lookup keys are added to partial _class_parameters on NEW host form through ajax POST to parameters' do
-        host = Host::Managed.new(name: 'new_host', environment_id: environment.id)
+        host = Host::Managed.new(name: 'new_host', puppet_attributes: { environment_id: environment.id })
         new_host_attributes = host_attributes(host)
         post :parameters, params: { id: puppetclass.id, host_id: 'undefined',
                                     host: new_host_attributes }, session: set_session_user
@@ -137,7 +137,7 @@ module ForemanPuppetEnc
       end
 
       test 'puppetclass lookup keys are added to partial _class_parameters on NEW hostgroup form through ajax POST to parameters' do
-        hostgroup = Hostgroup.new(name: 'new_hostgroup', environment_id: environment.id)
+        hostgroup = Hostgroup.new(name: 'new_hostgroup', puppet_attributes: { environment_id: environment.id })
         new_hostgroup_attributes = hostgroup_attributes(hostgroup)
         # host_id is posted instead of hostgroup_id per host_edit.js#load_puppet_class_parameters
         post :parameters, params: { id: puppetclass.id, host_id: 'undefined',

@@ -7,6 +7,8 @@ module ForemanPuppetEnc
     include ForemanPuppetEnc::HostCommon
     include ::SelectiveClone
 
+    has_many :puppetclasses, through: :host
+
     validates :environment_id, presence: true, unless: ->(facet) { facet.host.puppet_proxy_id.blank? }
 
     after_validation :ensure_puppet_associations
@@ -29,8 +31,8 @@ module ForemanPuppetEnc
       host.puppet_proxy ||= source_proxy
     end
 
-    def self.inherited_attributes(new_hostgroup, _attributes)
-      { 'environment_id' => new_hostgroup.puppet.inherited_environment_id }
+    def self.inherited_attributes(new_hostgroup, attributes)
+      { 'environment_id' => new_hostgroup.puppet&.inherited_environment_id }.merge(attributes)
     end
 
     def clear_puppetinfo
@@ -48,7 +50,7 @@ module ForemanPuppetEnc
       status = validate_association_taxonomy(:environment)
       return status unless environment
 
-      puppetclasses.where.not(id: environment.puppetclasses).find_each do |puppetclass|
+      puppetclasses.where.not(id: environment.puppetclasses.reorder(nil)).find_each do |puppetclass|
         errors.add(
           :puppetclasses,
           format(_('%{puppetclass} does not belong to the %{environment} environment'), puppetclass: puppetclass, environment: environment)
