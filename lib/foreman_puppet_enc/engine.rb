@@ -3,7 +3,7 @@ module ForemanPuppetEnc
     engine_name 'foreman_puppet_enc'
     isolate_namespace ForemanPuppetEnc
 
-    config.paths['db/migrate'] << 'db/migrate_foreman' if ForemanPuppetEnc.extracted_from_core?
+    config.paths['db/migrate'] << 'db/migrate_foreman' if Gem::Dependency.new('', ">= #{ForemanPuppetEnc::FOREMAN_EXTRACTION_VERSION}").match?('', SETTINGS[:version])
     config.paths['config/routes.rb'].unshift('config/api_routes.rb')
 
     initializer 'foreman_puppet_enc.register_plugin', before: :finisher_hook do |_app|

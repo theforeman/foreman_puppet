@@ -2,7 +2,7 @@ require 'test_puppet_enc_helper'
 require 'integration_test_helper'
 
 module ForemanPuppetEnc
-  class HostJSTest < IntegrationTestWithJavascript
+  class HostgroupJSTest < IntegrationTestWithJavascript
     let(:hostgroup) { FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass) }
     let(:environment) { FactoryBot.create(:environment) }
 

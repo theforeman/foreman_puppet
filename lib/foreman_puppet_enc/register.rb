@@ -36,7 +36,7 @@ Foreman::Plugin.register :foreman_puppet_enc do
     if ForemanPuppetEnc.extracted_from_core?
       p.actions << 'hosts/hostgroup_or_environment_selected'
       p.actions << 'hosts/puppetclass_parameters'
-      if perm == 'edit_hosts'
+      if perm == :edit_hosts
         p.actions << 'hosts/select_multiple_environment'
         p.actions << 'hosts/update_multiple_environment'
         p.actions << 'hosts/select_multiple_puppet_proxy'

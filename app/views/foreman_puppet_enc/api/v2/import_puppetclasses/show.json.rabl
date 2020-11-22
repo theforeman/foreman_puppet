@@ -19,18 +19,18 @@ node(:updated_puppetclasses, if: ->(environment) { @changed['updated'][environme
   JSON.parse(@changed['updated'][environment.name]).keys
 end
 
-node(:obsolete_puppetclasses, if: ->(environment) { @changed['obsolete'][environment.name].present? && !@changed['obsolete'][environment.name].includ?('_destroy_') }) do |environment|
+node(:obsolete_puppetclasses, if: ->(environment) { @changed['obsolete'][environment.name].present? && @changed['obsolete'][environment.name].exclude?('_destroy_') }) do |environment|
   JSON.parse(@changed['obsolete'][environment.name])
 end
 
-node(:ignored_puppetclasses, if: ->(environment) { @changed['ignored'][environment.name].present? && !@changed['ignored'][environment.name].includ?('_ignored_') }) do |environment|
+node(:ignored_puppetclasses, if: ->(environment) { @changed['ignored'][environment.name].present? && @changed['ignored'][environment.name].exclude?('_ignored_') }) do |environment|
   JSON.parse(@changed['ignored'][environment.name])
 end
 
-node(:removed_environment, if: ->(environment) { @changed['obsolete'][environment.name].present? && @changed['obsolete'][environment.name].includ?('_destroy_') }) do |environment|
+node(:removed_environment, if: ->(environment) { @changed['obsolete'][environment.name].present? && @changed['obsolete'][environment.name].include?('_destroy_') }) do |environment|
   environment.name
 end
 
-node(:ignored_environment, if: ->(environment) { @changed['ignored'][environment.name].present? && @changed['ignored'][environment.name].includ?('_ignored_') }) do |environment|
+node(:ignored_environment, if: ->(environment) { @changed['ignored'][environment.name].present? && @changed['ignored'][environment.name].include?('_ignored_') }) do |environment|
   environment.name
 end

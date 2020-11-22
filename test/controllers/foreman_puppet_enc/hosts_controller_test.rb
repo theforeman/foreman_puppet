@@ -49,12 +49,11 @@ module ForemanPuppetEnc
 
       test 'lookup value and description should be html escaped' do
         skip 'Needs complete migration to be done' unless ForemanPuppetEnc.extracted_from_core?
-        host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
         FactoryBot.create(:puppetclass_lookup_key,
           default_value: "<script>alert('hacked!');</script>",
           description: "<script>alert('hacked!');</script>",
           puppetclass: host1.puppet.puppetclasses.first)
-        get :edit, params: { id: host.to_param }, session: set_session_user
+        get :edit, params: { id: host1.to_param }, session: set_session_user
         assert_not response.body.include?('<script>alert(')
         assert_includes response.body, '&lt;script&gt;alert('
         assert_equal 2, response.body.scan('&lt;script&gt;alert(').count

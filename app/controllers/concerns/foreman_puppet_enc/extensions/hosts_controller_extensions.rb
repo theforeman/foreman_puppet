@@ -31,6 +31,11 @@ module ForemanPuppetEnc
         helper ForemanPuppetEnc::PuppetclassLookupKeysHelper
       end
 
+      # TODO: unless ForemanPuppetEnc.extracted_from_core?
+      def select_multiple_puppet_proxy_hosts_path(*args)
+        foreman_puppet_enc.select_multiple_puppet_proxy_hosts_path(*args)
+      end
+
       # params facets fix:
       def host_params(top_level_hash = controller_name.singularize)
         filter = self.class.host_params_filter
@@ -63,7 +68,7 @@ module ForemanPuppetEnc
         # simple validations
         if params[:environment].nil? || (id = params['environment']['id']).nil?
           error _('No environment selected!')
-          redirect_to(select_multiple_environment_hosts_path)
+          redirect_to(foreman_puppet_enc.select_multiple_environment_hosts_path)
           return
         end
 
@@ -116,7 +121,7 @@ module ForemanPuppetEnc
         # simple validations
         if params[:environment].nil? || (id = params['environment']['id']).nil?
           error _('No environment selected!')
-          redirect_to(select_multiple_environment_hosts_path)
+          redirect_to(foreman_puppet_enc.select_multiple_environment_hosts_path)
           return
         end
 
@@ -136,7 +141,7 @@ module ForemanPuppetEnc
       end
 
       def validate_multiple_puppet_proxy
-        validate_multiple_proxy(select_multiple_puppet_proxy_hosts_path)
+        validate_multiple_proxy(foreman_puppet_enc.select_multiple_puppet_proxy_hosts_path)
       end
 
       def validate_multiple_puppet_ca_proxy
