@@ -14,8 +14,10 @@ module ForemanPuppetEnc
 
     has_many :environment_classes, dependent: :destroy
     has_many :puppetclasses, -> { distinct }, through: :environment_classes
-    has_many_hosts
-    has_many :hostgroups
+    has_many :host_puppet_facets, dependent: :destroy
+    has_many :hostgroup_puppet_facets, dependent: :destroy
+    has_many_hosts through: :host_puppet_facet
+    has_many :hostgroups, through: :hostgroup_puppet_facet
 
     validates :name, uniqueness: true, presence: true, alphanumeric: true
     has_many :template_combinations, dependent: :destroy
