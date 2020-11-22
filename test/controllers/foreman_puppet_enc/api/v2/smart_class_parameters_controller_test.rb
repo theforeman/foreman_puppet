@@ -36,7 +36,7 @@ module ForemanPuppetEnc
         end
 
         test 'should get smart class parameters for a specific host' do
-          host = FactoryBot.create(:host, puppetclasses: [puppetclass], environment: environment)
+          host = FactoryBot.create(:host, :with_puppet_enc, puppetclasses: [puppetclass], environment: environment)
           get :index, params: { host_id: host.to_param }
           assert_response :success
           assert_not_nil assigns(:smart_class_parameters)
@@ -54,7 +54,7 @@ module ForemanPuppetEnc
         end
 
         test 'should get smart class parameters for a specific hostgroup' do
-          hostgroup = FactoryBot.create(:hostgroup, puppetclasses: [puppetclass], environment: environment)
+          hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, puppetclasses: [puppetclass], environment: environment)
           get :index, params: { hostgroup_id: hostgroup.to_param }
           assert_response :success
           assert_not_nil assigns(:smart_class_parameters)

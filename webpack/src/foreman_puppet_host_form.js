@@ -107,8 +107,10 @@ export function checkForUnavailablePuppetclasses() {
     </span>`;
 
   if (unavailableClasses.size() > 0) {
-    tab.prepend('<span class="pficon pficon-warning-triangle-o"></span> ');
-    puppetEncTab.prepend(warning);
+    if (puppetEncTab.find('#puppetclasses_unavailable_warning').length <= 0) {
+      tab.prepend('<span class="pficon pficon-warning-triangle-o"></span> ');
+      puppetEncTab.prepend(warning);
+    }
   } else {
     puppetEncTab.find('#puppetclasses_unavailable_warning').remove();
     tab.find('.pficon-warning-triangle-o').remove();

@@ -111,14 +111,14 @@ module ForemanPuppetEnc
         end
 
         test 'should show puppetclass for host' do
-          host = FactoryBot.create(:host, :with_puppetclass)
+          host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
           get :show, params: { host_id: host.to_param, id: host.puppetclasses.first.id }
           assert_response :success
           assert_not_empty json_response
         end
 
         test 'should show puppetclass for hostgroup' do
-          hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
+          hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
           get :show, params: { hostgroup_id: hostgroup.to_param, id: hostgroup.puppetclasses.first.id }
           assert_response :success
           assert_not_empty json_response

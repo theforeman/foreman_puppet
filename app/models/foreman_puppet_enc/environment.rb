@@ -16,8 +16,8 @@ module ForemanPuppetEnc
     has_many :puppetclasses, -> { distinct }, through: :environment_classes
     has_many :host_puppet_facets, dependent: :destroy
     has_many :hostgroup_puppet_facets, dependent: :destroy
-    has_many_hosts through: :host_puppet_facet
-    has_many :hostgroups, through: :hostgroup_puppet_facet
+    has_many_hosts through: :host_puppet_facets
+    has_many :hostgroups, through: :hostgroup_puppet_facets
 
     validates :name, uniqueness: true, presence: true, alphanumeric: true
     has_many :template_combinations, dependent: :destroy
@@ -48,6 +48,16 @@ module ForemanPuppetEnc
           end]]
         end]
       end
+    end
+
+    private
+
+    def taxonomy_foreign_conditions
+      HostPuppetFacet.arel_table[:environment_id].eq(id)
+    end
+
+    def used_taxonomy_ids(type)
+      Host::Managed.joins(:puppet).where(taxonomy_foreign_conditions).distinct.pluck(type).compact
     end
   end
 end

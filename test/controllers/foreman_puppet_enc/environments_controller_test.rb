@@ -7,14 +7,14 @@ module ForemanPuppetEnc
       @model = FactoryBot.create(:environment)
     end
 
-    basic_index_test
+    basic_index_test(:environments)
     basic_new_test
-    basic_edit_test
+    basic_edit_test(:environment)
     basic_pagination_per_page_test
     basic_pagination_rendered_test
 
     test 'should create new environment' do
-      assert_difference 'Environment.unscoped.count' do
+      assert_difference -> { ForemanPuppetEnc::Environment.unscoped.count } do
         post :create, params: { commit: 'Create', environment: { name: 'some_environment' } }, session: set_session_user
       end
       assert_redirected_to environments_path
@@ -116,7 +116,7 @@ module ForemanPuppetEnc
         as_admin do
           host = FactoryBot.create(:host)
           Environment.find_by(name: 'env1').puppetclasses += [puppetclasses(:one)]
-          host.environment_id = Environment.find_by(name: 'env1').id
+          host.attributes = { puppet_attributes: { environment_id: Environment.find_by(name: 'env1').id } }
           assert host.save!
           assert_empty host.errors
           assert Environment.find_by(name: 'env1').hosts.count.positive?

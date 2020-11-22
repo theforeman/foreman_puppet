@@ -13,7 +13,7 @@ module ForemanPuppetEnc
       end
 
       def puppetclass_parameters
-        keys = ForemanPuppetEnc::PuppetclassLookupKey.includes(:environment_classes).parameters_for_class(host.puppetclass_ids, host.environment_id)
+        keys = ForemanPuppetEnc::PuppetclassLookupKey.includes(:environment_classes).parameters_for_class(host.puppetclass_ids, host.puppet&.environment_id)
         key_hash = hashed_class_keys(keys)
         values = keys.values_hash(host)
 
@@ -25,7 +25,7 @@ module ForemanPuppetEnc
       end
 
       def inherited_puppetclass_parameters
-        keys = ForemanPuppetEnc::PuppetclassLookupKey.includes(:environment_classes).parameters_for_class(host.puppetclass_ids, host.environment_id)
+        keys = ForemanPuppetEnc::PuppetclassLookupKey.includes(:environment_classes).parameters_for_class(host.puppetclass_ids, host.puppet&.environment_id)
 
         keys.inherited_values(host).raw
       end
@@ -37,7 +37,7 @@ module ForemanPuppetEnc
         # maybe these should be moved to the common parameters, leaving them in for now
         params['puppetmaster'] = host.puppetmaster
         params['puppet_ca']    = host.puppet_ca_server if ca_defined?
-        params['foreman_env']  = host.environment.to_s if has_environment?
+        params['foreman_env']  = host.puppet&.environment.to_s if has_environment?
 
         params.merge! networking_params if Setting[:ignore_puppet_facts_for_provisioning]
 
@@ -49,7 +49,7 @@ module ForemanPuppetEnc
       end
 
       def has_environment?
-        host.environment&.name
+        host.puppet&.environment&.name
       end
 
       def networking_params
@@ -61,7 +61,7 @@ module ForemanPuppetEnc
       end
 
       def classes_info_hash
-        return [] if host.environment.nil?
+        return [] unless has_environment?
         puppetclass_parameters
       end
 

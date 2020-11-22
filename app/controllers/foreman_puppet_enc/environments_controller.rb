@@ -44,13 +44,8 @@ module ForemanPuppetEnc
       end
     end
 
-    # TEMPORARY until the model PR gets in
-    def model_of_controller
-      if ForemanPuppetEnc.extracted_from_core?
-        super
-      else
-        @model_of_controller ||= ::Environment
-      end
+    def resource_class
+      model_of_controller
     end
   end
 end

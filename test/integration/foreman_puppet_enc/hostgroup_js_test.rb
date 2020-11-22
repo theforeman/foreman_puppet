@@ -3,7 +3,7 @@ require 'integration_test_helper'
 
 module ForemanPuppetEnc
   class HostJSTest < IntegrationTestWithJavascript
-    let(:hostgroup) { FactoryBot.create(:hostgroup, :with_puppetclass) }
+    let(:hostgroup) { FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass) }
     let(:environment) { FactoryBot.create(:environment) }
 
     describe 'create new page' do
@@ -11,7 +11,7 @@ module ForemanPuppetEnc
         environment
         assert_new_button(hostgroups_path, 'Create Host Group', new_hostgroup_path)
         fill_in 'hostgroup_name', with: 'staging'
-        select2 environment.name, from: 'hostgroup_environment_id'
+        select2 environment.name, from: 'hostgroup_puppet_attributes_environment_id'
         assert_submit_button(hostgroups_path)
         assert_equal environment.id,
           Hostgroup.find_by(name: 'staging').environment_id,
@@ -26,8 +26,8 @@ module ForemanPuppetEnc
 
       describe 'changing the environment' do
         setup do
-          @another_environment = environment
-          @hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
+          environment
+          @hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc)
           visit hostgroups_path
           click_link @hostgroup.name
         end
@@ -35,7 +35,7 @@ module ForemanPuppetEnc
         test 'preserves the puppetclasses' do
           puppetclasses = @hostgroup.puppetclasses.all
 
-          select2 @another_environment.name, from: 'hostgroup_environment_id'
+          select2 environment.name, from: 'hostgroup_puppet_attributes_environment_id'
           assert_submit_button(hostgroups_path)
 
           assert_equal puppetclasses, @hostgroup.puppetclasses.all
@@ -86,12 +86,11 @@ module ForemanPuppetEnc
 
     describe 'clone page' do
       test 'clones lookup values' do
-        group = FactoryBot.create(:hostgroup, :with_puppetclass)
         lookup_key = FactoryBot.create(:puppetclass_lookup_key, path: "hostgroup\ncomment",
-                                                                puppetclass: group.puppetclasses.first,
-                                                                overrides: { group.lookup_value_matcher => 'abc' })
+                                                                puppetclass: hostgroup.puppetclasses.first,
+                                                                overrides: { hostgroup.lookup_value_matcher => 'abc' })
 
-        visit clone_hostgroup_path(group)
+        visit clone_hostgroup_path(hostgroup)
         switch_form_tab('Puppet ENC')
         a = page.find("#hostgroup_lookup_values_attributes_#{lookup_key.id}_value")
         assert_equal 'abc', a.value

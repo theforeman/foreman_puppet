@@ -91,19 +91,19 @@ Foreman::Plugin.register :foreman_puppet_enc do
   security_block :puppet_environments do
     permission :view_environments, { 'foreman_puppet_enc/environments': %i[index show auto_complete_search welcome],
                                      'foreman_puppet_enc/api/v2/environments': %i[index show] },
-      resource_type: 'Environment'
+      resource_type: 'ForemanPuppetEnc::Environment'
     permission :create_environments, { 'foreman_puppet_enc/environments': %i[new create],
                                        'foreman_puppet_enc/api/v2/environments': %i[create] },
-      resource_type: 'Environment'
+      resource_type: 'ForemanPuppetEnc::Environment'
     permission :edit_environments, { 'foreman_puppet_enc/environments': %i[edit update],
                                      'foreman_puppet_enc/api/v2/environments': %i[update] },
-      resource_type: 'Environment'
+      resource_type: 'ForemanPuppetEnc::Environment'
     permission :destroy_environments, { 'foreman_puppet_enc/environments': %i[destroy],
                                         'foreman_puppet_enc/api/v2/environments': %i[destroy] },
-      resource_type: 'Environment'
+      resource_type: 'ForemanPuppetEnc::Environment'
     permission :import_environments, { 'foreman_puppet_enc/environments': %i[import_environments obsolete_and_new],
                                        'foreman_puppet_enc/api/v2/environments': %i[import_puppetclasses] },
-      resource_type: 'Environment'
+      resource_type: 'ForemanPuppetEnc::Environment'
   end
 
   security_block :puppetclasses do
@@ -154,12 +154,12 @@ Foreman::Plugin.register :foreman_puppet_enc do
     configure_host do
       extend_model ForemanPuppetEnc::Extensions::Host
       api_view single: 'foreman_puppet_enc/api/v2/host_puppet_facets/main'
-      template_compatibility_properties :environment_id
+      template_compatibility_properties :environment_id, :environment
     end
     configure_hostgroup(ForemanPuppetEnc::HostgroupPuppetFacet) do
       extend_model ForemanPuppetEnc::Extensions::Hostgroup
       api_view single: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/main'
-      template_compatibility_properties :environment_id
+      template_compatibility_properties :environment_id, :environment
     end
   end
 

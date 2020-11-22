@@ -3,6 +3,20 @@ FactoryBot.factories.instance_variable_get('@items').delete(:environment_class) 
 FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass) if FactoryBot.factories.registered?(:puppetclass)
 FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass_lookup_key) if FactoryBot.factories.registered?(:puppetclass_lookup_key)
 
+def factory_set_environment_taxonomies(puppet_facet, environment = puppet_facet.environment)
+  if puppet_facet.is_a? ForemanPuppetEnc::HostgroupPuppetFacet
+    organizations = puppet_facet.hostgroup.organizations
+    locations = puppet_facet.hostgroup.locations
+  else
+    organizations = [puppet_facet.host.organization].compact
+    locations = [puppet_facet.host.location].compact
+  end
+  return if environment.nil? || (organizations.empty? && locations.empty?)
+  environment.organizations = (environment.organizations + organizations).uniq
+  environment.locations = (environment.locations + locations).uniq
+  environment.save unless environment.new_record?
+end
+
 FactoryBot.define do
   factory :common_puppet_facet do
     environment
@@ -14,6 +28,10 @@ FactoryBot.define do
     trait :with_config_group do
       config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [host.environment])] }
     end
+
+    after(:build) do |facet|
+      factory_set_environment_taxonomies(facet)
+    end
   end
 
   factory :hostgroup_puppet_facet, parent: :common_puppet_facet, class: 'ForemanPuppetEnc::HostgroupPuppetFacet' do
@@ -21,6 +39,10 @@ FactoryBot.define do
 
     trait :with_config_group do
       config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [hostgroup.environment])] }
+    end
+
+    after(:build) do |facet|
+      factory_set_environment_taxonomies(facet)
     end
   end
 

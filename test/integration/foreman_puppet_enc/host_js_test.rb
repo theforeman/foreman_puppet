@@ -15,22 +15,22 @@ module ForemanPuppetEnc
     describe 'new host page' do
       test 'choosing a hostgroup overrides other host attributes' do
         original_hostgroup = FactoryBot
-                             .create(:hostgroup, environment: FactoryBot.create(:environment))
+                             .create(:hostgroup, :with_puppet_enc, environment: FactoryBot.create(:environment))
         overridden_hostgroup = FactoryBot
-                               .create(:hostgroup, environment: FactoryBot.create(:environment))
+                               .create(:hostgroup, :with_puppet_enc, environment: FactoryBot.create(:environment))
 
         visit new_host_path
         select2(original_hostgroup.name, from: 'host_hostgroup_id')
         wait_for_ajax
-        click_on_inherit('environment')
+        click_on_inherit('puppet_attributes_environment')
         select2(overridden_hostgroup.name, from: 'host_hostgroup_id')
-        assert page.find('#s2id_host_environment_id .select2-chosen').has_text? overridden_hostgroup.environment.name
+        assert page.find('#s2id_host_puppet_attributes_environment_id .select2-chosen').has_text? overridden_hostgroup.puppet.environment.name
       end
 
       test 'sets fields to "inherit" when hostgroup is selected' do
         env1 = FactoryBot.create(:environment, organizations: [org], locations: [loc])
         env2 = FactoryBot.create(:environment, organizations: [org], locations: [loc])
-        hg = FactoryBot.create(:hostgroup, environment: env2)
+        hg = FactoryBot.create(:hostgroup, :with_puppet_enc, environment: env2)
         os = FactoryBot.create(:ubuntu14_10, :with_associations)
         disable_orchestration
         visit new_host_path
@@ -40,7 +40,7 @@ module ForemanPuppetEnc
         wait_for_ajax
         select2 'Location 1', from: 'host_location_id'
         wait_for_ajax
-        select2 env1.name, from: 'host_environment_id'
+        select2 env1.name, from: 'host_puppet_attributes_environment_id'
         select2 hg.name, from: 'host_hostgroup_id'
         wait_for_ajax
 
@@ -64,7 +64,7 @@ module ForemanPuppetEnc
         click_on_submit
 
         host = Host::Managed.search_for('name ~ "myhost1"').first
-        assert_equal env2.name, host.environment.name
+        assert_equal env2.name, host.puppet.environment.name
       end
 
       test 'saves correct values for inherited fields without hostgroup' do
@@ -78,7 +78,7 @@ module ForemanPuppetEnc
         wait_for_ajax
         select2 'Location 1', from: 'host_location_id'
         wait_for_ajax
-        select2 env.name, from: 'host_environment_id'
+        select2 env.name, from: 'host_puppet_attributes_environment_id'
 
         click_link 'Operating System'
         wait_for_ajax
@@ -99,7 +99,7 @@ module ForemanPuppetEnc
         find('#host-show') # wait for host details page
 
         host = Host::Managed.search_for('name ~ "myhost1"').first
-        assert_equal env.name, host.environment.name
+        assert_equal env.name, host.puppet.environment.name
       end
     end
 
@@ -107,21 +107,22 @@ module ForemanPuppetEnc
       test 'environment is not inherited on edit' do
         env1 = FactoryBot.create(:environment, organizations: [org], locations: [loc])
         env2 = FactoryBot.create(:environment, organizations: [org], locations: [loc])
-        hg = FactoryBot.create(:hostgroup, environment: env2)
+        hg = FactoryBot.create(:hostgroup, :with_puppet_enc, environment: env2)
         host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hg)
         visit edit_host_path(host)
 
-        select2 env1.name, from: 'host_environment_id'
+        select2 env1.name, from: 'host_puppet_attributes_environment_id'
         click_on_submit
+        assert_current_path(host_path(host), ignore_query: true)
 
         host.reload
-        assert_equal env1.name, host.environment.name
+        assert_equal env1.name, host.puppet.environment.name
       end
 
       test 'choosing a hostgroup does not override other host attributes' do
         original_hostgroup = FactoryBot
-                             .create(:hostgroup, environment: FactoryBot.create(:environment),
-                                                 puppet_proxy: FactoryBot.create(:puppet_smart_proxy))
+                             .create(:hostgroup, :with_puppet_enc, environment: FactoryBot.create(:environment),
+                                                                   puppet_proxy: FactoryBot.create(:puppet_smart_proxy))
 
         # Make host inherit hostgroup environment
         host.attributes = host.apply_inherited_attributes(
@@ -130,7 +131,7 @@ module ForemanPuppetEnc
         host.save
 
         overridden_hostgroup = FactoryBot
-                               .create(:hostgroup, environment: FactoryBot.create(:environment))
+                               .create(:hostgroup, :with_puppet_enc, environment: FactoryBot.create(:environment))
 
         visit edit_host_path(host)
         select2(original_hostgroup.name, from: 'host_hostgroup_id')
@@ -140,7 +141,7 @@ module ForemanPuppetEnc
         click_on_inherit('puppet_proxy')
         select2(overridden_hostgroup.name, from: 'host_hostgroup_id')
 
-        assert find('#s2id_host_environment_id .select2-chosen').has_text? original_hostgroup.environment.name
+        assert find('#s2id_host_puppet_attributes_environment_id .select2-chosen').has_text? original_hostgroup.environment.name
 
         # On host group change, the disabled select will be reset to an empty value - disabled select2 is invisible on chrome
         assert find('#s2id_host_puppet_proxy_id .select2-chosen', visible: :all).has_text? ''
@@ -148,8 +149,8 @@ module ForemanPuppetEnc
 
       context 'has inherited Puppetclasses' do
         test 'has the hostgroup inherited parameters visible' do
-          hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
-          host = FactoryBot.create(:host, hostgroup: hostgroup, environment: hostgroup.environment)
+          hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
+          host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hostgroup, environment: hostgroup.environment)
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
@@ -300,7 +301,7 @@ module ForemanPuppetEnc
 
     describe 'clone page' do
       test 'clones lookup values' do
-        host = FactoryBot.create(:host, :with_puppetclass)
+        host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
         lookup_key = FactoryBot.create(:puppetclass_lookup_key, puppetclass: host.puppetclasses.first,
                                                                 path: "fqdn\ncomment",
                                                                 overrides: { host.lookup_value_matcher => 'abc' })

@@ -4,7 +4,12 @@ module ForemanPuppetEnc
       extend ActiveSupport::Concern
 
       included do
-        has_one :environment, through: :host_puppet_extension
+        if ForemanPuppetEnc.extracted_from_core?
+          # has_one :environment, through: :puppet
+        else
+          env_assoc = reflect_on_association(:environment)
+          env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
+        end
       end
     end
   end
