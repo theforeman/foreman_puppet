@@ -317,10 +317,9 @@ module ForemanPuppetEnc
         Host.where(environment_id: env).update_all(environment_id: nil)
         Hostgroup.where(environment_id: env).update_all(environment_id: nil)
         # rubocop:enable Rails/SkipsModelValidations
-      end
-      if klasses.include? '_destroy_'
+
         # we can't guaranty that the env would be removed as it might have hosts attached to it.
-        env.destroy
+        env.destroy if klasses.include? '_destroy_'
       end
       # remove all klasses that have no environment now
       classes.not_in_any_environment.destroy_all

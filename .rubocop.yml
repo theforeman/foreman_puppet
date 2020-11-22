@@ -8,6 +8,10 @@ inherit_mode:
   merge:
     - Exclude
 
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
   IndentationWidth: 2
