@@ -24,18 +24,24 @@ module ForemanPuppet
       module PrependedClassMethods
         def templates_by_template_combinations(templates, hosts_or_conditions)
           if hosts_or_conditions.is_a?(Hash)
-            conditions = hosts_or_conditions
-            conditions[:hostgroup_id] = Array.wrap(conditions[:hostgroup_id]) | [nil]
-            conditions[:environment_id] = Array.wrap(conditions[:environment_id]) | [nil]
+            conditions = []
+            if hosts_or_conditions[:hostgroup_id] && hosts_or_conditions[:environment_id]
+              conditions << { hostgroup_id: Array.wrap(hosts_or_conditions[:hostgroup_id]), environment_id: Array.wrap(hosts_or_conditions[:environment_id]) }
+            end
+            conditions << { hostgroup_id: Array.wrap(hosts_or_conditions[:hostgroup_id]), environment_id: [nil] } if hosts_or_conditions[:hostgroup_id]
+            conditions << { hostgroup_id: [nil], environment_id: Array.wrap(hosts_or_conditions[:environment_id]) } if hosts_or_conditions[:environment_id]
           else
-            conditions = {}
-            conditions[:hostgroup_id] = hosts_or_conditions.pluck(:hostgroup_id) | [nil]
-            conditions[:environment_id] = hosts_or_conditions.pluck(:environment_id) | [nil]
+            conditions = [{
+              hostgroup_id: hosts_or_conditions.pluck(:hostgroup_id) | [nil],
+              environment_id: hosts_or_conditions.joins(:puppet).pluck('host_puppet_facets.environment_id') | [nil],
+            }]
           end
-          at = TemplateCombination.arel_table
-          arel = at[:hostgroup_id].in(conditions[:hostgroup_id])
-          arel = arel.and(at[:environment_id].in(conditions[:environment_id]))
-          templates.joins(:template_combinations).where(arel).distinct
+          tpls = templates.where('1=0')
+          conditions.each do |cond|
+            tpls = templates.joins(:template_combinations).where(template_combinations: cond).distinct
+            return tpls if tpls.any?
+          end
+          tpls
         end
 
         def template_includes

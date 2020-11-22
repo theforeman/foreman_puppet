@@ -11,6 +11,7 @@ module ForemanPuppet
     let(:puppetclass) { FactoryBot.create(:puppetclass, environments: [environment]) }
 
     test 'edit page' do
+      FactoryBot.create(:puppetclass, name: 'vim', environments: [environment]) if ForemanPuppet.extracted_from_core?
       visit puppetclasses_path
       click_link 'vim'
       assert page.has_no_link? 'Common'

@@ -79,7 +79,7 @@ module ForemanPuppet
 
       test 'can search hosts by puppet class from config group in parent hostgroup' do
         hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc)
-        host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hostgroup, environment: hostgroup.environment)
+        host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hostgroup, environment: hostgroup.puppet.environment)
         config_group = FactoryBot.create(:config_group, :with_puppetclass)
         hostgroup.puppet.config_groups << config_group
         result = Host.search_for("class = #{config_group.puppetclass_names.first}")
@@ -138,7 +138,8 @@ module ForemanPuppet
     describe '#clone' do
       test '#classes etc. on cloned host return the same' do
         hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_config_group, :with_puppetclass)
-        host = FactoryBot.create(:host, :with_puppet_enc, :with_config_group, :with_puppetclass, :with_parameter, hostgroup: hostgroup, environment: hostgroup.environment)
+        host = FactoryBot.create(:host, :with_puppet_enc, :with_config_group, :with_puppetclass, :with_parameter,
+          hostgroup: hostgroup, environment: hostgroup.puppet.environment)
         copy = host.clone
         assert_equal host.puppet.individual_puppetclasses.map(&:id), copy.puppet.individual_puppetclasses.map(&:id)
         assert_equal host.puppet.classes_in_groups.map(&:id), copy.puppet.classes_in_groups.map(&:id)

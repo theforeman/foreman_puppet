@@ -38,7 +38,7 @@ jobs:
       - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
       - uses: actions/checkout@v2
         with:
-          repository: ezr-ondrej/foreman
+          repository: 'ezr-ondrej/foreman'
           ref: plugin_base_rake
           path: foreman
       - uses: actions/checkout@v2
@@ -77,16 +77,22 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
+        foreman-repo: [theforeman/foreman]
         foreman-core-branch: [2.5-stable, develop]
         ruby-version: [2.7]
         node-version: [12]
+        include:
+          - foreman-core-branch: puppet_extraction
+            foreman-repo: 'ezr-ondrej/foreman'
+            ruby-version: 2.7
+            node-version: 14
     steps:
       - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
       - name: Install chromedriver
         uses: nanasess/setup-chromedriver@master
       - uses: actions/checkout@v2
         with:
-          repository: theforeman/foreman
+          repository: ${{ matrix.foreman-repo }}
           ref: ${{ matrix.foreman-core-branch }}
       - uses: actions/checkout@v2
         with:
@@ -123,6 +129,8 @@ jobs:
         if: github.event_name != 'push'
         run: |
           bundle exec rake test:foreman_puppet
+        env:
+          PUPPET_EXTRACTED: ${{ matrix.foreman-core-branch == 'puppet_extraction' && '1' }}
       - name: Upload test.log
         uses: actions/upload-artifact@v2
         if: failure() && github.event_name != 'push'

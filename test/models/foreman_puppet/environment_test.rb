@@ -2,6 +2,8 @@ require 'test_puppet_helper'
 
 module ForemanPuppet
   class EnvironmentTest < ActiveSupport::TestCase
+    setup { FactoryBot.create(:environment) }
+
     should validate_presence_of(:name)
     should validate_uniqueness_of(:name)
     should have_many(:provisioning_templates).through(:template_combinations)

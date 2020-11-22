@@ -22,15 +22,14 @@ module ForemanPuppet
     end
 
     test 'changing environment should preserve puppetclasses' do
-      skip 'Something fishy on env update, try once extracted' unless ForemanPuppet.extracted_from_core?
       new_environment = FactoryBot.create(:environment)
-      old_puppetclass_ids = hostgroup.puppet.puppetclass_ids
+      old_puppetclass_ids = hostgroup.puppet.puppetclasses.all
 
       hostgroup.puppet.update!(environment: new_environment)
       hostgroup.reload
 
       assert_equal new_environment, hostgroup.puppet.environment
-      assert_equal old_puppetclass_ids.sort, hostgroup.puppet.puppetclass_ids.sort
+      assert_equal old_puppetclass_ids.sort, hostgroup.puppet.puppetclasses.all
     end
 
     test 'should return all classes for environment only' do

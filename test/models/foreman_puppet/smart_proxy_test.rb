@@ -17,7 +17,7 @@ module ForemanPuppet
       end
 
       test 'can count connected hosts' do
-        FactoryBot.create(:host, :with_puppet_enc, :with_environment, puppet_proxy: proxy)
+        FactoryBot.create(:host, :with_puppet_enc, puppet_proxy: proxy)
 
         as_admin do
           assert_equal 1, proxy.hosts_count

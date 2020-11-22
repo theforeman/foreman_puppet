@@ -162,7 +162,7 @@ module ForemanPuppet
     end
 
     def db_environments
-      @db_environments ||= (Environment.pluck('environments.name') - ignored_environments)
+      @db_environments ||= (Environment.pluck(:name) - ignored_environments)
     end
 
     def actual_environments
@@ -313,10 +313,9 @@ module ForemanPuppet
         Host.where(environment_id: env).update_all(environment_id: nil)
         Hostgroup.where(environment_id: env).update_all(environment_id: nil)
         # rubocop:enable Rails/SkipsModelValidations
-
-        # we can't guaranty that the env would be removed as it might have hosts attached to it.
-        env.destroy if klasses.include? '_destroy_'
       end
+      # we can't guaranty that the env would be removed as it might have hosts attached to it.
+      env.destroy if klasses.include? '_destroy_'
       # remove all klasses that have no environment now
       classes.not_in_any_environment.destroy_all
     end

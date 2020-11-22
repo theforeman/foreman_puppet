@@ -141,7 +141,7 @@ module ForemanPuppet
         click_on_inherit('puppet_proxy')
         select2(overridden_hostgroup.name, from: 'host_hostgroup_id')
 
-        assert find('#s2id_host_puppet_attributes_environment_id .select2-chosen').has_text? original_hostgroup.environment.name
+        assert find('#s2id_host_puppet_attributes_environment_id .select2-chosen').has_text? original_hostgroup.puppet.environment.name
 
         # On host group change, the disabled select will be reset to an empty value - disabled select2 is invisible on chrome
         assert find('#s2id_host_puppet_proxy_id .select2-chosen', visible: :all).has_text? ''

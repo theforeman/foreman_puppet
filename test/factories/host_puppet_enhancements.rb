@@ -2,21 +2,21 @@ FactoryBot.modify do
   factory :host do
     trait :with_puppetclass do
       transient do
-        environment
+        environment { FactoryBot.create(:environment) }
         puppetclasses { [FactoryBot.create(:puppetclass, environments: [environment])] }
       end
     end
 
     trait :with_config_group do
       transient do
-        environment
+        environment { FactoryBot.create(:environment) }
         config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [environment])] }
       end
     end
 
     trait :with_puppet_enc do
       transient do
-        environment
+        environment { FactoryBot.create(:environment) }
         puppetclasses { [] }
         config_groups { [] }
       end
@@ -30,14 +30,14 @@ FactoryBot.modify do
   factory :hostgroup do
     trait :with_puppetclass do
       transient do
-        environment
+        environment { FactoryBot.create(:environment) }
         puppetclasses { [FactoryBot.create(:puppetclass, environments: [environment])] }
       end
     end
 
     trait :with_puppet_enc do
       transient do
-        environment
+        environment { FactoryBot.create(:environment) }
         puppetclasses { [] }
         config_groups { [] }
       end
@@ -49,7 +49,7 @@ FactoryBot.modify do
 
     trait :with_config_group do
       transient do
-        environment
+        environment { FactoryBot.create(:environment) }
         config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [environment])] }
       end
     end

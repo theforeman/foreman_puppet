@@ -5,6 +5,9 @@ module ForemanPuppet
   class EnvironmentJSTest < IntegrationTestWithJavascript
     include ForemanPuppet::Engine.routes.url_helpers
 
+    let(:environment) { FactoryBot.create(:environment) }
+    setup { environment }
+
     test 'index page' do
       assert_index_page(environments_path, 'Environments', 'Create Puppet Environment')
     end
@@ -18,7 +21,7 @@ module ForemanPuppet
 
     test 'edit page' do
       visit environments_path
-      click_link 'production'
+      click_link environment.name
       fill_in 'environment_name', with: 'production222'
       assert_submit_button(environments_path)
       assert page.has_link? 'production222'

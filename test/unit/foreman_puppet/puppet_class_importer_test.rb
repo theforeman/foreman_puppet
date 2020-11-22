@@ -3,6 +3,7 @@ require 'test_puppet_helper'
 module ForemanPuppet
   class PuppetClassImporterTest < ActiveSupport::TestCase
     def setup
+      FactoryBot.create(:environment, name: 'production') if ForemanPuppet.extracted_from_core?
       ProxyAPI::Puppet.any_instance.stubs(:environments).returns(%w[foreman-testing foreman-testing-1])
       ProxyAPI::Puppet.any_instance.stubs(:classes).returns(mocked_classes)
       User.current = users(:admin)
@@ -209,7 +210,8 @@ module ForemanPuppet
       org_b = FactoryBot.create(:organization, name: 'OrgB')
       loc_b = FactoryBot.create(:location, name: 'LocB')
       b_role = roles(:manager).clone name: 'b_role'
-      b_role.add_permissions! %i[destroy_external_parameters edit_external_parameters create_external_parameters view_external_parameters]
+      b_role.add_permissions! %i[destroy_external_parameters edit_external_parameters create_external_parameters view_external_parameters
+                                 import_puppetclasses view_environments import_environments create_environments]
       a_user = FactoryBot.create(:user, organizations: [org_a], locations: [loc_a], roles: [roles(:manager)], login: 'a_user')
       b_user = FactoryBot.create(:user, organizations: [org_b], locations: [loc_b], roles: [b_role], login: 'b_user')
       proxy = FactoryBot.build(:puppet_smart_proxy, organizations: [org_a, org_b], locations: [loc_a, loc_b])
