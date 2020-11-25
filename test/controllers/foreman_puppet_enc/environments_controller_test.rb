@@ -115,7 +115,7 @@ module ForemanPuppetEnc
         setup_import_classes
         as_admin do
           host = FactoryBot.create(:host)
-          Environment.find_by(name: 'env1').puppetclasses += [puppetclasses(:one)]
+          Environment.find_by(name: 'env1').puppetclasses += [FactoryBot.create(:puppetclass)]
           host.attributes = { puppet_attributes: { environment_id: Environment.find_by(name: 'env1').id } }
           assert host.save!
           assert_empty host.errors

@@ -5,7 +5,6 @@ module ForemanPuppetEnc
 
     include Facets::Base
     include ForemanPuppetEnc::HostCommon
-    include ::SelectiveClone
 
     has_many :host_classes, dependent: :destroy
     has_many :puppetclasses, through: :host_classes
@@ -14,8 +13,6 @@ module ForemanPuppetEnc
 
     after_validation :ensure_puppet_associations
     before_save :clear_puppetinfo, if: :environment_id_changed?
-
-    include_in_clone :config_groups, :host_config_groups
 
     def self.populate_fields_from_facts(host, parser, type, source_proxy)
       type ||= 'puppet'
@@ -45,12 +42,12 @@ module ForemanPuppetEnc
     # the environment used by #clases nees to be self.environment and not self.parent.environment
     def parent_classes
       return [] unless host.hostgroup
-      host.hostgroup.classes(environment)
+      host.hostgroup.puppet&.classes(environment)
     end
 
     def parent_config_groups
       return [] unless host.hostgroup
-      host.hostgroup.all_config_groups
+      host.hostgroup.puppet&.all_config_groups
     end
 
     def ensure_puppet_associations

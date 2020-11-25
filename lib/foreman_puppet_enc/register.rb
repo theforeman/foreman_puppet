@@ -110,20 +110,20 @@ Foreman::Plugin.register :foreman_puppet_enc do
     permission :view_puppetclasses,   { 'foreman_puppet_enc/puppetclasses' => %i[index show auto_complete_search],
                                         'foreman_puppet_enc/api/v2/puppetclasses' => %i[index show],
                                         'foreman_puppet_enc/api/v2/smart_class_parameters' => %i[index show] },
-      resource_type: 'Puppetclass'
+      resource_type: 'ForemanPuppetEnc::Puppetclass'
     permission :create_puppetclasses, { 'foreman_puppet_enc/puppetclasses' => %i[new create],
                                         'foreman_puppet_enc/api/v2/puppetclasses' => [:create] },
-      resource_type: 'Puppetclass'
+      resource_type: 'ForemanPuppetEnc::Puppetclass'
     permission :edit_puppetclasses,   { 'foreman_puppet_enc/puppetclasses' => %i[edit update override],
                                         'foreman_puppet_enc/api/v2/puppetclasses' => [:update],
                                         'foreman_puppet_enc/api/v2/smart_class_parameters' => %i[create update destroy] },
-      resource_type: 'Puppetclass'
+      resource_type: 'ForemanPuppetEnc::Puppetclass'
     permission :destroy_puppetclasses, { 'foreman_puppet_enc/puppetclasses' => [:destroy],
                                          'foreman_puppet_enc/api/v2/puppetclasses' => [:destroy] },
-      resource_type: 'Puppetclass'
+      resource_type: 'ForemanPuppetEnc::Puppetclass'
     permission :import_puppetclasses, { 'foreman_puppet_enc/puppetclasses' => %i[import_environments obsolete_and_new],
                                         'foreman_puppet_enc/api/v2/environments' => [:import_puppetclasses] },
-      resource_type: 'Puppetclass'
+      resource_type: 'ForemanPuppetEnc::Puppetclass'
   end
 
   add_all_permissions_to_default_roles
@@ -152,13 +152,15 @@ Foreman::Plugin.register :foreman_puppet_enc do
   # register host and hostgroup facet
   register_facet ForemanPuppetEnc::HostPuppetFacet, :puppet do
     configure_host do
-      extend_model ForemanPuppetEnc::Extensions::Host
+      # extend_model ForemanPuppetEnc::Extensions::Host
       api_view single: 'foreman_puppet_enc/api/v2/host_puppet_facets/main'
       template_compatibility_properties :environment_id, :environment
+      set_dependent_action :destroy
     end
     configure_hostgroup(ForemanPuppetEnc::HostgroupPuppetFacet) do
       api_view single: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/main'
       template_compatibility_properties :environment_id, :environment
+      set_dependent_action :destroy
     end
   end
 

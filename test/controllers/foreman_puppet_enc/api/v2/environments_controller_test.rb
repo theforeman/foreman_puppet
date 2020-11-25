@@ -143,7 +143,7 @@ module ForemanPuppetEnc
                 Hostgroup.update_all(environment_id: nil)
                 Puppetclass.destroy_all
                 Environment.destroy_all
-                assert_difference('Puppetclass.unscoped.count', 1) do
+                assert_difference(-> { ForemanPuppetEnc::Puppetclass.unscoped.count }, 1) do
                   post :import_puppetclasses,
                     params: { id: proxy.id }.merge(dryrun_param),
                     session: set_session_user
@@ -161,7 +161,7 @@ module ForemanPuppetEnc
               Hostgroup.update_all(environment_id: nil)
               Puppetclass.destroy_all
               Environment.destroy_all
-              assert_difference('Puppetclass.unscoped.count', 0) do
+              assert_difference(-> { ForemanPuppetEnc::Puppetclass.unscoped.count }, 0) do
                 post :import_puppetclasses, params: { id: proxy.id, dryrun: true }, session: set_session_user
               end
             end
@@ -173,7 +173,7 @@ module ForemanPuppetEnc
             as_admin do
               Environment.create!(name: 'xyz')
             end
-            assert_difference('Environment.unscoped.count', -1) do
+            assert_difference(-> { ForemanPuppetEnc::Environment.unscoped.count }, -1) do
               post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
             end
             assert_response :success
@@ -182,7 +182,7 @@ module ForemanPuppetEnc
           test 'should obsolete puppetclasses' do
             setup_import_classes
             as_admin do
-              assert_difference('Environment.unscoped.find_by_name("env1").puppetclasses.count', -2) do
+              assert_difference(-> { ForemanPuppetEnc::Environment.unscoped.find_by(name: 'env1').puppetclasses.count }, -2) do
                 post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
               end
             end
@@ -192,7 +192,7 @@ module ForemanPuppetEnc
           test 'should update puppetclass smart class parameters' do
             setup_import_classes
             LookupKey.destroy_all
-            assert_difference('LookupKey.unscoped.count', 1) do
+            assert_difference(-> { LookupKey.unscoped.count }, 1) do
               post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
             end
             assert_response :success
@@ -202,7 +202,7 @@ module ForemanPuppetEnc
             setup_import_classes
             Puppetclass.find_by(name: 'b').destroy
             Puppetclass.find_by(name: 'c').destroy
-            assert_difference('Environment.unscoped.count', 0) do
+            assert_difference(-> { ForemanPuppetEnc::Environment.unscoped.count }, 0) do
               post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
             end
             assert_response :success
@@ -229,7 +229,7 @@ module ForemanPuppetEnc
             as_admin do
               Environment.create!(name: 'xyz')
             end
-            assert_difference('Environment.unscoped.count', 0) do
+            assert_difference(-> { ForemanPuppetEnc::Environment.unscoped.count }, 0) do
               post :import_puppetclasses, params: { id: proxy.id, except: 'obsolete' }, session: set_session_user
             end
             assert_response :success
@@ -238,7 +238,7 @@ module ForemanPuppetEnc
           test 'should NOT add or update puppetclass smart class parameters if pass ?except=new,updated' do
             setup_import_classes
             LookupKey.destroy_all
-            assert_difference('LookupKey.unscoped.count', 0) do
+            assert_difference(-> { LookupKey.unscoped.count }, 0) do
               post :import_puppetclasses, params: { id: proxy.id, except: 'new,updated' }, session: set_session_user
             end
             assert_response :success
@@ -260,7 +260,7 @@ module ForemanPuppetEnc
             end
 
             test 'should import puppetclasses for specified environment only' do
-              assert_difference('Puppetclass.unscoped.count', 1) do
+              assert_difference(-> { ForemanPuppetEnc::Puppetclass.unscoped.count }, 1) do
                 post :import_puppetclasses, params: { id: proxy.id, environment_id: 'env1' }, session: set_session_user
                 assert_includes Puppetclass.pluck(:name), 'a'
                 assert_not_includes Puppetclass.pluck(:name), 'b'
@@ -269,7 +269,7 @@ module ForemanPuppetEnc
             end
 
             test 'should import puppetclasses for all environments if none specified' do
-              assert_difference('Puppetclass.unscoped.count', 2) do
+              assert_difference(-> { ForemanPuppetEnc::Puppetclass.unscoped.count }, 2) do
                 post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
               end
               assert_includes Puppetclass.pluck(:name), 'a'

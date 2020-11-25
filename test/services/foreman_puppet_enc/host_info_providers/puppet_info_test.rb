@@ -105,7 +105,7 @@ module ForemanPuppetEnc
         puppetclass: pc, key_type: 'json', default_value: '',
         overrides: { 'comment=override' => '{"a": "b"}' })
 
-      host = FactoryBot.build_stubbed(:host, environment: env, puppetclasses: [pc])
+      host = FactoryBot.build_stubbed(:host, :with_puppet_enc, environment: env, puppetclasses: [pc])
 
       Classification::MatchesGenerator.any_instance.expects(:attr_to_value).twice.with('comment').returns('override')
       values_hash = Classification::ValuesHashQuery.values_hash(host, LookupKey.where(id: [json_lkey, yaml_lkey]))
@@ -884,7 +884,7 @@ module ForemanPuppetEnc
                                                        path: "organization\nhostgroup\nlocation",
                                                        puppetclass: puppetclass_two)
 
-      parent_hostgroup = FactoryBot.create(:hostgroup,
+      parent_hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc,
         puppetclasses: [puppetclass_two],
         environment: environment)
       child_hostgroup = FactoryBot.build(:hostgroup, parent: parent_hostgroup)
@@ -1184,9 +1184,11 @@ module ForemanPuppetEnc
 
     def get_classparam(env, classes)
       host = Host.new
-      host.expects(:classes).returns(Array.wrap(classes))
-      host.expects(:puppet).returns(OpenStruct.new(environment: env, environment_id: env.id))
-      host.expects(:puppetclass_ids).returns(Array.wrap(classes).map(&:id))
+      puppet_mock = mock('HostPuppetFacet')
+      puppet_mock.stubs(environment: env, environment_id: env.id)
+      host.stubs(:puppet).returns(puppet_mock)
+      puppet_mock.expects(:classes).returns(Array.wrap(classes))
+      puppet_mock.expects(:puppetclass_ids).returns(Array.wrap(classes).map(&:id))
       HostInfoProviders::PuppetInfo.new(host)
     end
   end

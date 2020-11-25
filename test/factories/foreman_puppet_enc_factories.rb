@@ -54,7 +54,7 @@ FactoryBot.define do
     end
 
     trait :with_puppetclass do
-      puppetclasses { [FactoryBot.create(:puppetclass, :environments => class_environments)] }
+      puppetclasses { [FactoryBot.create(:puppetclass, environments: class_environments)] }
     end
   end
 

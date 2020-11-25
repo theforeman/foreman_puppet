@@ -24,7 +24,7 @@ module ForemanPuppetEnc
       hostgroup_name = RFauxFactory.gen_alpha
       puppetclass = FactoryBot.create(:puppetclass)
       environment = FactoryBot.create(:environment)
-      hostgroup = FactoryBot.create(:hostgroup, name: hostgroup_name, environment: environment, puppetclasses: [puppetclass])
+      hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, name: hostgroup_name, environment: environment, puppetclasses: [puppetclass])
       match = "hostgroup=#{hostgroup_name}"
       match_value = RFauxFactory.gen_alpha
       lookup_key = FactoryBot.create(:puppetclass_lookup_key, default_value: 'list', puppetclass: FactoryBot.create(:puppetclass))
@@ -35,7 +35,7 @@ module ForemanPuppetEnc
       hostgroup.destroy
       lookup_key.reload
       assert_equal(0, lookup_key.override_values.length)
-      FactoryBot.create(:hostgroup, name: hostgroup_name, environment: environment, puppetclasses: [puppetclass])
+      FactoryBot.create(:hostgroup, :with_puppet_enc, name: hostgroup_name, environment: environment, puppetclasses: [puppetclass])
       assert_equal(0, lookup_key.override_values.count)
     end
 

@@ -32,7 +32,7 @@ module ForemanPuppetEnc
 
     test 'should destroy lookup_keys' do
       lookup_key
-      assert_difference('ForemanPuppetEnc::PuppetclassLookupKey.count', -1) do
+      assert_difference(-> { ForemanPuppetEnc::PuppetclassLookupKey.count }, -1) do
         delete :destroy, params: { id: lookup_key.to_param }, session: set_session_user
       end
       assert_redirected_to puppetclass_lookup_keys_path

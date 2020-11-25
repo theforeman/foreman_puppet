@@ -150,7 +150,7 @@ module ForemanPuppetEnc
       context 'has inherited Puppetclasses' do
         test 'has the hostgroup inherited parameters visible' do
           hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
-          host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hostgroup, environment: hostgroup.environment)
+          host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hostgroup, environment: hostgroup.puppet.environment)
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
@@ -160,7 +160,7 @@ module ForemanPuppetEnc
           header_element.click
 
           class_element = page.find('#inherited_ids > li')
-          assert_equal hostgroup.puppetclasses.first.name, class_element.text
+          assert_equal hostgroup.puppet.puppetclasses.first.name, class_element.text
         end
       end
 
@@ -170,7 +170,7 @@ module ForemanPuppetEnc
         test 'shows errors on invalid lookup values' do
           lookup_key = FactoryBot.create(:puppetclass_lookup_key,
             key_type: 'real', default_value: true, path: "fqdn\ncomment",
-            puppetclass: host.puppetclasses.first, overrides: { host.lookup_value_matcher => false })
+            puppetclass: host.puppet.puppetclasses.first, overrides: { host.lookup_value_matcher => false })
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
@@ -184,7 +184,7 @@ module ForemanPuppetEnc
         test 'correctly show hash type overrides' do
           FactoryBot.create(:puppetclass_lookup_key, :hash,
             default_value: 'a: b', path: "fqdn\ncomment",
-            puppetclass: host.puppetclasses.first,
+            puppetclass: host.puppet.puppetclasses.first,
             overrides: { host.lookup_value_matcher => 'a: c' })
 
           visit edit_host_path(host)
@@ -195,7 +195,7 @@ module ForemanPuppetEnc
         test 'class parameters and overrides are displayed correctly for booleans' do
           lookup_key = FactoryBot.create(:puppetclass_lookup_key,
             key_type: 'boolean', default_value: 'false', path: 'fqdn',
-            puppetclass: host.puppetclasses.first, overrides: { host.lookup_value_matcher => 'false' })
+            puppetclass: host.puppet.puppetclasses.first, overrides: { host.lookup_value_matcher => 'false' })
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
           assert puppetclass_params.has_selector?("a[data-tag='remove']", visible: :visible)
@@ -211,7 +211,7 @@ module ForemanPuppetEnc
 
         test 'class parameters and overrides are displayed correctly for strings' do
           FactoryBot.create(:puppetclass_lookup_key, default_value: 'default', path: 'fqdn',
-                                                     puppetclass: host.puppetclasses.first, overrides: { host.lookup_value_matcher => 'hostOverride' })
+                                                     puppetclass: host.puppet.puppetclasses.first, overrides: { host.lookup_value_matcher => 'hostOverride' })
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
           assert_equal('hostOverride', puppetclass_params.find('textarea').value)
@@ -237,7 +237,7 @@ module ForemanPuppetEnc
 
         test 'can override puppetclass lookup values' do
           FactoryBot.create(:puppetclass_lookup_key, default_value: 'default', path: 'fqdn',
-                                                     puppetclass: host.puppetclasses.first, overrides: { host.lookup_value_matcher => 'hostOverride' })
+                                                     puppetclass: host.puppet.puppetclasses.first, overrides: { host.lookup_value_matcher => 'hostOverride' })
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
@@ -263,7 +263,7 @@ module ForemanPuppetEnc
           test 'user without edit_params permission can save host with params' do
             FactoryBot.create(:puppetclass_lookup_key,
               default_value: 'string1', path: "fqdn\ncomment",
-              puppetclass: host.puppetclasses.first,
+              puppetclass: host.puppet.puppetclasses.first,
               overrides: { host.lookup_value_matcher => 'string2' })
             user = FactoryBot.create(:user, :with_mail, roles: roles(:viewer, :edit_hosts))
             assert_not user.can? 'edit_params'
@@ -280,7 +280,7 @@ module ForemanPuppetEnc
           disable_orchestration
           domain = FactoryBot.create(:domain)
           FactoryBot.create(:puppetclass_lookup_key, path: "fqdn\ndomain\ncomment",
-                                                     puppetclass: host.puppetclasses.first, default_value: 'default',
+                                                     puppetclass: host.puppet.puppetclasses.first, default_value: 'default',
                                                      overrides: { "domain=#{domain.name}" => 'domain' })
 
           visit edit_host_path(host)
@@ -302,7 +302,7 @@ module ForemanPuppetEnc
     describe 'clone page' do
       test 'clones lookup values' do
         host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
-        lookup_key = FactoryBot.create(:puppetclass_lookup_key, puppetclass: host.puppetclasses.first,
+        lookup_key = FactoryBot.create(:puppetclass_lookup_key, puppetclass: host.puppet.puppetclasses.first,
                                                                 path: "fqdn\ncomment",
                                                                 overrides: { host.lookup_value_matcher => 'abc' })
         visit clone_host_path(host)
