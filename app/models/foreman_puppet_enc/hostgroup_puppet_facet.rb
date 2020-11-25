@@ -64,6 +64,9 @@ module ForemanPuppetEnc
     include ForemanPuppetEnc::HostCommon
     include Facets::HostgroupFacet
 
+    has_many :hostgroup_classes, dependent: :destroy
+    has_many :puppetclasses, through: :hostgroup_classes
+
     nested_attribute_for :environment_id
     scoped_search relation: :config_groups, on: :name,
                   complete_value: true,
@@ -92,6 +95,12 @@ module ForemanPuppetEnc
         groups += hostgroup.config_groups
       end
       groups.uniq
+    end
+
+    # the environment used by #clases nees to be self.environment and not self.parent.environment
+    def parent_classes
+      return [] unless parent
+      parent.classes(environment)
     end
   end
 end

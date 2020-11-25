@@ -24,7 +24,10 @@ module ForemanPuppetEnc
 
     def index
       @puppetclasses = resource_base_search_and_page
-      @hostgroups_authorizer = Authorizer.new(User.current, collection: HostgroupClass.where(puppetclass_id: @puppetclasses.map(&:id)).distinct.pluck(:hostgroup_id))
+      allowed_hostgroup_ids = HostgroupPuppetFacet.joins(:hostgroup_classes)
+                                                  .where(HostgroupClass.arel_table[:puppetclass_id].in(@puppetclasses.map(&:id)))
+                                                  .pluck(:hostgroup_id).uniq
+      @hostgroups_authorizer = Authorizer.new(User.current, collection: allowed_hostgroup_ids)
     end
 
     def edit
@@ -70,6 +73,10 @@ module ForemanPuppetEnc
                        obj: find_host_or_hostgroup }
     end
 
+    def resource_class
+      model_of_controller
+    end
+
     private
 
     def find_host_or_hostgroup
@@ -92,11 +99,6 @@ module ForemanPuppetEnc
         @obj.attributes = hostgroup_params('hostgroup').except(:puppetclass_ids, :config_group_ids)
       end
       @obj
-    end
-
-    def model_of_controller
-      return super if ForemanPuppetEnc.extracted_from_core?
-      @model_of_controller ||= ::Puppetclass
     end
 
     def action_permission

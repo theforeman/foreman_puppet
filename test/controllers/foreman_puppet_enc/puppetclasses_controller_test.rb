@@ -71,7 +71,7 @@ module ForemanPuppetEnc
 
       test 'new db rows are not added to HostgroupClass when POST to parameters' do
         hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
-        hostgroup_puppetclass_ids = hostgroup.hostgroup_classes.pluck(:puppetclass_id)
+        hostgroup_puppetclass_ids = hostgroup.puppet.hostgroup_classes.pluck(:puppetclass_id)
         params = {  id: puppetclass.id,
                     host_id: hostgroup.id,
                     hostgroup: { puppetclass_ids: (hostgroup_puppetclass_ids + [puppetclass.id]) } }

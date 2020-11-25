@@ -7,7 +7,8 @@ module ForemanPuppetEnc
     include ForemanPuppetEnc::HostCommon
     include ::SelectiveClone
 
-    has_many :puppetclasses, through: :host
+    has_many :host_classes, dependent: :destroy
+    has_many :puppetclasses, through: :host_classes
 
     validates :environment_id, presence: true, unless: ->(facet) { facet.host.puppet_proxy_id.blank? }
 
@@ -41,9 +42,15 @@ module ForemanPuppetEnc
       self.config_groups = []
     end
 
+    # the environment used by #clases nees to be self.environment and not self.parent.environment
+    def parent_classes
+      return [] unless host.hostgroup
+      host.hostgroup.classes(environment)
+    end
+
     def parent_config_groups
-      return [] unless hostgroup
-      hostgroup.all_config_groups
+      return [] unless host.hostgroup
+      host.hostgroup.all_config_groups
     end
 
     def ensure_puppet_associations
