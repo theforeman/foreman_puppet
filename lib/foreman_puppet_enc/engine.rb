@@ -21,9 +21,11 @@ module ForemanPuppetEnc
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
-      # Temporary
-      ::Puppetclass.include ForemanPuppetEnc::PuppetclassDecorations
-      # To stay
+      # Facets extenstion is applied too early - before the Hostgroup is complete
+      # We redefine thing, so we need to wait until complete definition of Hostgroup
+      # thus separate patching instead of using facet patching
+      Hostgroup.include ForemanPuppetEnc::Extensions::Hostgroup
+
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
       Nic::Managed.include ForemanPuppetEnc::Extensions::NicManaged
       Report.include ForemanPuppetEnc::Extensions::Report

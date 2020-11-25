@@ -1,3 +1,4 @@
+FactoryBot.factories.instance_variable_get('@items').delete(:config_group) if FactoryBot.factories.registered?(:config_group)
 FactoryBot.factories.instance_variable_get('@items').delete(:environment) if FactoryBot.factories.registered?(:environment)
 FactoryBot.factories.instance_variable_get('@items').delete(:environment_class) if FactoryBot.factories.registered?(:environment_class)
 FactoryBot.factories.instance_variable_get('@items').delete(:puppetclass) if FactoryBot.factories.registered?(:puppetclass)
@@ -46,6 +47,17 @@ FactoryBot.define do
     end
   end
 
+  factory :config_group, class: 'ForemanPuppetEnc::ConfigGroup' do
+    sequence(:name) { |n| "config_group#{n}" }
+    transient do
+      class_environments { nil }
+    end
+
+    trait :with_puppetclass do
+      puppetclasses { [FactoryBot.create(:puppetclass, :environments => class_environments)] }
+    end
+  end
+
   factory :environment, class: 'ForemanPuppetEnc::Environment' do
     sequence(:name) { |n| "environment#{n}" }
     organizations { [Organization.first || create(:organization)] }
@@ -73,7 +85,7 @@ FactoryBot.define do
     puppetclass
   end
 
-  factory :puppetclass do
+  factory :puppetclass, class: 'ForemanPuppetEnc::Puppetclass' do
     sequence(:name) { |n| "class#{n}" }
 
     transient do

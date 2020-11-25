@@ -14,26 +14,34 @@ module ForemanPuppetEnc
       alias_method :all_puppetclasses, :classes
     end
 
+    def parent_name
+      if is_a?(HostPuppetFacet) && host.hostgroup
+        host.hostgroup.name
+      elsif is_a?(HostgroupPuppetFacet) && hostgroup.parent
+        hostgroup.parent.name
+      end
+    end
+
     def cg_class_ids
-      cg_ids = if is_a?(Hostgroup)
-                 path.each.map(&:config_group_ids).flatten.uniq
+      cg_ids = if is_a?(HostgroupPuppetFacet)
+                 hostgroup.path.each.map(&:config_group_ids).flatten.uniq
                else
-                 hostgroup ? hostgroup.path.each.map(&:config_group_ids).flatten.uniq : []
+                 host.hostgroup ? host.hostgroup.path.each.map(&:config_group_ids).flatten.uniq : []
                end
       ConfigGroupClass.where(config_group_id: (config_group_ids + cg_ids)).pluck(:puppetclass_id)
     end
 
     def hg_class_ids
-      hg_ids = if is_a?(Hostgroup)
-                 path_ids
-               elsif hostgroup
+      hg_ids = if is_a?(HostgroupPuppetFacet)
                  hostgroup.path_ids
+               elsif host.hostgroup
+                 host.hostgroup.path_ids
                end
-      HostgroupClass.where(hostgroup_id: hg_ids).pluck(:puppetclass_id)
+      ForemanPuppetEnc::HostgroupClass.joins(:hostgroup_puppet_facet).where(HostgroupPuppetFacet.arel_table[:hostgroup_id].in(hg_ids)).pluck(:puppetclass_id)
     end
 
     def host_class_ids
-      (is_a?(Host::Base) ? host_classes : hostgroup_classes).map(&:puppetclass_id)
+      (is_a?(HostPuppetFacet) ? host_classes : hostgroup_classes).map(&:puppetclass_id)
     end
 
     def all_puppetclass_ids

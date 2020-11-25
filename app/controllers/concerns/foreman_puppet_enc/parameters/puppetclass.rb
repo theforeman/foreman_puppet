@@ -6,7 +6,7 @@ module ForemanPuppetEnc
 
       class_methods do
         def puppetclass_params_filter
-          Foreman::ParameterFilter.new(::Puppetclass).tap do |filter|
+          Foreman::ParameterFilter.new(ForemanPuppetEnc::Puppetclass).tap do |filter|
             filter.permit :name,
               class_params_attributes: [puppetclass_lookup_key_params_filter],
               hostgroup_ids: [], hostgroup_names: [],
