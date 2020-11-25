@@ -85,7 +85,7 @@ module ForemanPuppetEnc
         test_attributes pid: 'e8b140c0-5c6a-404f-870c-8ebb128830ef'
         test 'list parameters as non admin user' do
           filter1 = FactoryBot.build(:filter)
-          filter1.permissions = Permission.where(resource_type: ['Puppetclass'])
+          filter1.permissions = Permission.where(name: 'view_puppetclasses')
           filter2 = FactoryBot.build(:filter)
           filter2.permissions = Permission.where(name: 'view_external_parameters')
           role = FactoryBot.build(:role)

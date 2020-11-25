@@ -54,7 +54,7 @@ module ForemanPuppetEnc
         end
 
         test 'should create puppetclass' do
-          assert_difference('Puppetclass.count') do
+          assert_difference(-> { ForemanPuppetEnc::Puppetclass.count }) do
             post :create, params: { puppetclass: valid_attrs }
           end
           assert_response :created
@@ -68,18 +68,18 @@ module ForemanPuppetEnc
         end
 
         test 'should destroy puppetclasss' do
-          assert_difference('Puppetclass.count', -1) do
+          assert_difference(-> { ForemanPuppetEnc::Puppetclass.count }, -1) do
             delete :destroy, params: { id: puppetclass.to_param }
           end
           assert_response :success
         end
 
         test 'should get puppetclasses for given host only' do
-          host1 = FactoryBot.create(:host, :with_puppetclass)
-          FactoryBot.create(:host, :with_puppetclass)
+          host1 = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
+          FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
           get :index, params: { host_id: host1.to_param }
           assert_response :success
-          assert_equal host1.puppetclasses.map(&:name).sort, json_response['results'].keys.sort
+          assert_equal host1.puppet.puppetclasses.map(&:name).sort, json_response['results'].keys.sort
         end
 
         test 'should not get puppetclasses for nonexistent host' do
@@ -89,11 +89,11 @@ module ForemanPuppetEnc
         end
 
         test 'should get puppetclasses for hostgroup' do
-          hostgroup = FactoryBot.create(:hostgroup, :with_puppetclass)
+          hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
           get :index, params: { hostgroup_id: hostgroup.to_param }
           assert_response :success
           assert_not json_response['results'].empty?
-          assert_equal hostgroup.puppetclasses.map(&:name).sort, json_response['results'].keys.sort
+          assert_equal hostgroup.puppet.puppetclasses.map(&:name).sort, json_response['results'].keys.sort
         end
 
         test 'should get puppetclasses for environment' do
@@ -112,14 +112,14 @@ module ForemanPuppetEnc
 
         test 'should show puppetclass for host' do
           host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
-          get :show, params: { host_id: host.to_param, id: host.puppetclasses.first.id }
+          get :show, params: { host_id: host.to_param, id: host.puppet.puppetclasses.first.id }
           assert_response :success
           assert_not_empty json_response
         end
 
         test 'should show puppetclass for hostgroup' do
           hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
-          get :show, params: { hostgroup_id: hostgroup.to_param, id: hostgroup.puppetclasses.first.id }
+          get :show, params: { hostgroup_id: hostgroup.to_param, id: hostgroup.puppet.puppetclasses.first.id }
           assert_response :success
           assert_not_empty json_response
         end

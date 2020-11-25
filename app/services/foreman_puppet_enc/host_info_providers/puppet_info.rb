@@ -13,19 +13,19 @@ module ForemanPuppetEnc
       end
 
       def puppetclass_parameters
-        keys = ForemanPuppetEnc::PuppetclassLookupKey.includes(:environment_classes).parameters_for_class(host.puppetclass_ids, host.puppet&.environment_id)
+        keys = ForemanPuppetEnc::PuppetclassLookupKey.includes(:environment_classes).parameters_for_class(host.puppet&.puppetclass_ids, host.puppet&.environment_id)
         key_hash = hashed_class_keys(keys)
         values = keys.values_hash(host)
 
         klasses = {}
-        host.classes.each do |klass|
+        host.puppet.classes.each do |klass|
           klasses[klass.name] = smart_class_params_for(klass, key_hash, values)
         end
         klasses
       end
 
       def inherited_puppetclass_parameters
-        keys = ForemanPuppetEnc::PuppetclassLookupKey.includes(:environment_classes).parameters_for_class(host.puppetclass_ids, host.puppet&.environment_id)
+        keys = ForemanPuppetEnc::PuppetclassLookupKey.includes(:environment_classes).parameters_for_class(host.puppet&.puppetclass_ids, host.puppet&.environment_id)
 
         keys.inherited_values(host).raw
       end

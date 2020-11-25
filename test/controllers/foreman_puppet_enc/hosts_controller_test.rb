@@ -40,8 +40,8 @@ module ForemanPuppetEnc
       params = { host_ids: [host1.id, host2.id], environment: { id: 'inherit' } }
       post :update_multiple_environment, params: params, session: set_session_user(:one)
 
-      assert_equal hostgroup.environment_id, host1.reload.environment_id
-      assert_equal hostgroup.environment_id, host2.reload.environment_id
+      assert_equal hostgroup.puppet.environment_id, host1.reload.environment_id
+      assert_equal hostgroup.puppet.environment_id, host2.reload.environment_id
     end
 
     describe '#edit' do
@@ -49,11 +49,11 @@ module ForemanPuppetEnc
 
       test 'lookup value and description should be html escaped' do
         skip 'Needs complete migration to be done' unless ForemanPuppetEnc.extracted_from_core?
-        host = FactoryBot.create(:host, :with_puppetclass)
+        host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
         FactoryBot.create(:puppetclass_lookup_key,
           default_value: "<script>alert('hacked!');</script>",
           description: "<script>alert('hacked!');</script>",
-          puppetclass: host1.puppetclasses.first)
+          puppetclass: host1.puppet.puppetclasses.first)
         get :edit, params: { id: host.to_param }, session: set_session_user
         assert_not response.body.include?('<script>alert(')
         assert_includes response.body, '&lt;script&gt;alert('
@@ -99,7 +99,7 @@ module ForemanPuppetEnc
 
         lookup_key = FactoryBot.create(:puppetclass_lookup_key, :array, default_value: %w[a b],
                                                                         override: true,
-                                                                        puppetclass: host.puppetclasses.first,
+                                                                        puppetclass: host.puppet.puppetclasses.first,
                                                                         overrides: { "fqdn=#{host.fqdn}" => %w[c d] })
         lookup_value = lookup_key.lookup_values.first
 

@@ -49,12 +49,12 @@ module ForemanPuppetEnc
     end
 
     # and helpers
-    def parent_id
-      parent&.id
+    def parent_facet_id
+      parent_facet&.id
     end
 
-    def parent
-      @parent ||= hostgroup.parent_id && HostgroupPuppetFacet.find_by(hostgroup_id: hostgroup.parent_id)
+    def parent_facet
+      @parent_facet ||= hostgroup.parent_id && HostgroupPuppetFacet.find_by(hostgroup_id: hostgroup.parent_id)
     end
     # ------ END ANCESTRY -------
 
@@ -89,18 +89,18 @@ module ForemanPuppetEnc
     end
 
     def parent_config_groups
-      return [] unless parent
+      return [] unless hostgroup.parent
       groups = []
-      ancestors.each do |hostgroup|
-        groups += hostgroup.config_groups
+      hostgroup.ancestors.each do |hostgroup|
+        groups += hostgroup.puppet&.config_groups
       end
       groups.uniq
     end
 
     # the environment used by #clases nees to be self.environment and not self.parent.environment
     def parent_classes
-      return [] unless parent
-      parent.classes(environment)
+      return [] unless parent_facet
+      parent_facet.classes(environment)
     end
   end
 end

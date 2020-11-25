@@ -12,7 +12,7 @@ module ForemanPuppetEnc
       setup do
         @environment = FactoryBot.create(:environment)
         @puppetclass = FactoryBot.create(:puppetclass)
-        @hostgroup = FactoryBot.create(:hostgroup, environment: @environment)
+        @hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, environment: @environment)
         @params = {
           id: @hostgroup.id,
           hostgroup: {
@@ -24,11 +24,11 @@ module ForemanPuppetEnc
       end
 
       test 'should return the selected puppet classes on environment change' do
-        assert_equal 0, @hostgroup.puppetclasses.length
+        assert_equal 0, @hostgroup.puppet.puppetclasses.length
 
         post :environment_selected, params: @params, session: set_session_user, xhr: true
-        assert_equal(1, assigns(:hostgroup).puppetclasses.length)
-        assert_include assigns(:hostgroup).puppetclasses, @puppetclass
+        assert_equal(1, assigns(:hostgroup).puppet.puppetclasses.length)
+        assert_include assigns(:hostgroup).puppet.puppetclasses, @puppetclass
       end
 
       context 'environment_id param is set' do
@@ -42,8 +42,7 @@ module ForemanPuppetEnc
       end
 
       test 'should not escape lookup values on environment change' do
-        skip 'Needs fully extracted puppet' unless ForemanPuppetEnc.extracted_from_core?
-        hostgroup = FactoryBot.create(:hostgroup, environment: @environment, puppetclass_ids: [@puppetclass.id])
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, environment: @environment, puppetclasses: [@puppetclass])
         lookup_key = FactoryBot.create(:puppetclass_lookup_key, :array, default_value: %w[a b],
                                                                         override: true,
                                                                         puppetclass: @puppetclass,

@@ -29,13 +29,13 @@ module ForemanPuppetEnc
           puppet = @hostgroup.puppet || @hostgroup.build_puppet
           puppet.environment = @environment if @environment
 
-          @hostgroup.puppetclasses = Puppetclass.where(id: params[:hostgroup][:puppetclass_ids])
-          @hostgroup.config_groups = ConfigGroup.where(id: params[:hostgroup][:config_group_ids])
-          render partial: 'hosts/form_puppet_enc_tab', locals: { obj: @hostgroup, resource_type: :hostgroup }
+          puppet.puppetclasses = ForemanPuppetEnc::Puppetclass.where(id: params[:hostgroup][:puppetclass_ids])
+          puppet.config_groups = ForemanPuppetEnc::ConfigGroup.where(id: params[:hostgroup][:config_group_ids])
+          render partial: 'hosts/form_puppet_enc_tab', locals: { host_or_hostgroup: @hostgroup, resource_type: :hostgroup }
         end
 
         def puppetclass_parameters
-          Taxonomy.as_taxonomy @organization, @location do
+          ::Taxonomy.as_taxonomy @organization, @location do
             render partial: 'foreman_puppet_enc/puppetclasses/classes_parameters',
                    locals: { obj: refresh_hostgroup }
           end

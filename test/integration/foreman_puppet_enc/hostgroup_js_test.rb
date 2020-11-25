@@ -33,12 +33,12 @@ module ForemanPuppetEnc
         end
 
         test 'preserves the puppetclasses' do
-          puppetclasses = @hostgroup.puppetclasses.all
+          puppetclasses = @hostgroup.puppet.puppetclasses.all
 
           select2 environment.name, from: 'hostgroup_puppet_attributes_environment_id'
           assert_submit_button(hostgroups_path)
 
-          assert_equal puppetclasses, @hostgroup.puppetclasses.all
+          assert_equal puppetclasses, @hostgroup.puppet.puppetclasses.all
         end
       end
 
@@ -54,13 +54,13 @@ module ForemanPuppetEnc
           header_element.click
 
           class_element = page.find('#inherited_ids > li')
-          assert_equal hostgroup.puppetclasses.first.name, class_element.text
+          assert_equal hostgroup.puppet.puppetclasses.first.name, class_element.text
         end
       end
 
       test 'shows errors on invalid lookup values' do
         lookup_key = FactoryBot.create(:puppetclass_lookup_key, :integer,
-          path: 'hostgroup', puppetclass: hostgroup.puppetclasses.first,
+          path: 'hostgroup', puppetclass: hostgroup.puppet.puppetclasses.first,
           overrides: { hostgroup.lookup_value_matcher => 2 })
 
         visit edit_hostgroup_path(hostgroup)
@@ -73,7 +73,7 @@ module ForemanPuppetEnc
 
       context 'puppet classes are not available in the environment' do
         test 'it shows a warning and marks as unavailable' do
-          hostgroup.puppetclasses << @another_puppetclass
+          hostgroup.puppet.puppetclasses << @another_puppetclass
           visit edit_hostgroup_path(hostgroup)
 
           switch_form_tab('Puppet ENC')
@@ -87,7 +87,7 @@ module ForemanPuppetEnc
     describe 'clone page' do
       test 'clones lookup values' do
         lookup_key = FactoryBot.create(:puppetclass_lookup_key, path: "hostgroup\ncomment",
-                                                                puppetclass: hostgroup.puppetclasses.first,
+                                                                puppetclass: hostgroup.puppet.puppetclasses.first,
                                                                 overrides: { hostgroup.lookup_value_matcher => 'abc' })
 
         visit clone_hostgroup_path(hostgroup)

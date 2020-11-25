@@ -26,6 +26,10 @@ module ForemanPuppetEnc
       # thus separate patching instead of using facet patching
       Hostgroup.include ForemanPuppetEnc::Extensions::Hostgroup
 
+      # include_in_clone that is used in core Facets::ManagedHostExtensions doesn't support nested objects
+      # we need to run our include_in_clone after, so the puppet without nested objects doesnt override the one including them
+      Host::Managed.include ForemanPuppetEnc::Extensions::Host
+
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
       Nic::Managed.include ForemanPuppetEnc::Extensions::NicManaged
       Report.include ForemanPuppetEnc::Extensions::Report

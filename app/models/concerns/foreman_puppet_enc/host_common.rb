@@ -15,10 +15,10 @@ module ForemanPuppetEnc
     end
 
     def parent_name
-      if is_a?(HostPuppetFacet) && host.hostgroup
-        host.hostgroup.name
-      elsif is_a?(HostgroupPuppetFacet) && hostgroup.parent
-        hostgroup.parent.name
+      if is_a?(HostPuppetFacet)
+        host.hostgroup&.name
+      elsif is_a?(HostgroupPuppetFacet)
+        hostgroup.parent&.name
       end
     end
 

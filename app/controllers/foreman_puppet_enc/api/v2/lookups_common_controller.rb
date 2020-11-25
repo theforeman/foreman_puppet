@@ -24,8 +24,9 @@ module ForemanPuppetEnc
         def destroy
         end
 
-        ['Puppetclass', 'Environment', 'Host::Base', 'Hostgroup'].each do |klass|
-          model_string = klass.split('::').first.downcase
+        ['ForemanPuppetEnc::Puppetclass', 'ForemanPuppetEnc::Environment', 'Host::Base', 'Hostgroup'].each do |klass|
+          model_string = klass.split('::').last.downcase
+          model_string = 'host' if klass == 'Host::Base'
 
           define_method("#{model_string}_id?") do
             params.key?("#{model_string}_id")
@@ -70,8 +71,9 @@ module ForemanPuppetEnc
                      puppetclass_ids = @environment.environment_classes.pluck(:puppetclass_id).uniq
                      base.smart_class_parameters_for_class(puppetclass_ids, @environment.id)
                    elsif @host || @hostgroup
-                     puppetclass_ids = (@host || @hostgroup).all_puppetclasses.map(&:id)
-                     environment_id  = (@host || @hostgroup).environment_id
+                     puppet_facet = (@host || @hostgroup).puppet || (@host || @hostgroup).build_puppet
+                     puppetclass_ids = puppet_facet.all_puppetclasses.map(&:id)
+                     environment_id  = puppet_facet.environment_id
                      # scope :parameters_for_class uses .override
                      base.parameters_for_class(puppetclass_ids, environment_id)
                    end

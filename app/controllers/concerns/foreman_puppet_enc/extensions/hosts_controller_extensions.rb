@@ -42,7 +42,7 @@ module ForemanPuppetEnc
         set_class_variables(@host)
         ::Taxonomy.as_taxonomy @organization, @location do
           if @environment || @hostgroup
-            render partial: 'hosts/form_puppet_enc_tab', locals: { obj: @host, resource_type: :host }
+            render partial: 'hosts/form_puppet_enc_tab', locals: { host_or_hostgroup: @host, resource_type: :host }
           else
             logger.info 'environment_id or hostgroup_id is required to render puppetclasses'
           end
@@ -66,7 +66,7 @@ module ForemanPuppetEnc
           return
         end
 
-        ev = Environment.find_by(id: id)
+        ev = ForemanPuppetEnc::Environment.find_by(id: id)
 
         # update the hosts
         @hosts.each do |host|
@@ -99,7 +99,7 @@ module ForemanPuppetEnc
         if id == 'inherit' && host.hostgroup.present?
           host.hostgroup.environment
         else
-          Environment.find_by(id: id)
+          ForemanPuppetEnc::Environment.find_by(id: id)
         end
       end
 
