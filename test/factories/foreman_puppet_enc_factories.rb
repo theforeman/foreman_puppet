@@ -27,7 +27,7 @@ FactoryBot.define do
     host
 
     trait :with_config_group do
-      config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [host.environment])] }
+      config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [environment])] }
     end
 
     after(:build) do |facet|
@@ -39,7 +39,7 @@ FactoryBot.define do
     hostgroup
 
     trait :with_config_group do
-      config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [hostgroup.environment])] }
+      config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [environment])] }
     end
 
     after(:build) do |facet|
@@ -50,7 +50,7 @@ FactoryBot.define do
   factory :config_group, class: 'ForemanPuppetEnc::ConfigGroup' do
     sequence(:name) { |n| "config_group#{n}" }
     transient do
-      class_environments { nil }
+      class_environments { [] }
     end
 
     trait :with_puppetclass do

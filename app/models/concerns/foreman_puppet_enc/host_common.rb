@@ -5,7 +5,7 @@ module ForemanPuppetEnc
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :environment, class_name: 'ForemanPuppetEnc::Environment'
+      belongs_to :environment
       has_many :host_config_groups, as: :host, dependent: :destroy
       has_many :config_groups, through: :host_config_groups
       has_many :config_group_classes, through: :config_groups
@@ -15,20 +15,20 @@ module ForemanPuppetEnc
     end
 
     def parent_name
-      if is_a?(HostPuppetFacet)
+      if is_a?(ForemanPuppetEnc::HostPuppetFacet)
         host.hostgroup&.name
-      elsif is_a?(HostgroupPuppetFacet)
+      elsif is_a?(ForemanPuppetEnc::HostgroupPuppetFacet)
         hostgroup.parent&.name
       end
     end
 
     def cg_class_ids
-      cg_ids = if is_a?(HostgroupPuppetFacet)
+      cg_ids = if is_a?(ForemanPuppetEnc::HostgroupPuppetFacet)
                  hostgroup.path.each.map(&:config_group_ids).flatten.uniq
                else
                  host.hostgroup ? host.hostgroup.path.each.map(&:config_group_ids).flatten.uniq : []
                end
-      ConfigGroupClass.where(config_group_id: (config_group_ids + cg_ids)).pluck(:puppetclass_id)
+      ForemanPuppetEnc::ConfigGroupClass.where(config_group_id: (config_group_ids + cg_ids)).pluck(:puppetclass_id)
     end
 
     def hg_class_ids
@@ -37,11 +37,13 @@ module ForemanPuppetEnc
                elsif host.hostgroup
                  host.hostgroup.path_ids
                end
-      ForemanPuppetEnc::HostgroupClass.joins(:hostgroup_puppet_facet).where(HostgroupPuppetFacet.arel_table[:hostgroup_id].in(hg_ids)).pluck(:puppetclass_id)
+      ForemanPuppetEnc::HostgroupClass.joins(:hostgroup_puppet_facet)
+                                      .where(ForemanPuppetEnc::HostgroupPuppetFacet.arel_table[:hostgroup_id].in(hg_ids))
+                                      .pluck(:puppetclass_id)
     end
 
     def host_class_ids
-      (is_a?(HostPuppetFacet) ? host_classes : hostgroup_classes).map(&:puppetclass_id)
+      (is_a?(ForemanPuppetEnc::HostPuppetFacet) ? host_classes : hostgroup_classes).map(&:puppetclass_id)
     end
 
     def all_puppetclass_ids
@@ -53,7 +55,7 @@ module ForemanPuppetEnc
       if env
         env.puppetclasses.where(conditions)
       else
-        Puppetclass.where(conditions)
+        ForemanPuppetEnc::Puppetclass.where(conditions)
       end
     end
 
@@ -66,7 +68,7 @@ module ForemanPuppetEnc
       if environment
         environment.puppetclasses.where(conditions) - parent_classes
       else
-        Puppetclass.where(conditions) - parent_classes
+        ForemanPuppetEnc::Puppetclass.where(conditions) - parent_classes
       end
     end
 
@@ -77,11 +79,11 @@ module ForemanPuppetEnc
     def individual_puppetclasses
       ids = host_class_ids - cg_class_ids
       return puppetclasses if ids.blank? && new_record?
-      Puppetclass.includes(:environments).where(id: ids)
+      ForemanPuppetEnc::Puppetclass.includes(:environments).where(id: ids)
     end
 
     def available_puppetclasses
-      return Puppetclass.all.authorized(:view_puppetclasses) if environment.blank?
+      return ForemanPuppetEnc::Puppetclass.all.authorized(:view_puppetclasses) if environment.blank?
       environment.puppetclasses - parent_classes
     end
   end

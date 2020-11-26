@@ -13,7 +13,7 @@ module ForemanPuppetEnc
           env_assoc.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
         end
 
-        include_in_clone puppet: :hostgroup_classes
+        include_in_clone puppet: %i[config_groups host_config_groups hostgroup_classes]
       end
     end
   end
