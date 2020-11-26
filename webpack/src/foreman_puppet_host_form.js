@@ -15,8 +15,9 @@ import * as LayoutActions from 'foremanReact/components/Layout/LayoutActions';
 export function loadPuppetClassParameters(item) {
   const id = $(item).data('class-id');
   // host_id could be either host.id OR hostgroup.id depending on which form
-  const hostId = $('form.hostresource-form').data('id');
-  if (!hostId) return; // it is not host nor hostgroup form - probably config_group
+  const $form = $('form.hostresource-form');
+  if ($form.length <= 0) return; // it is not host nor hostgroup form - probably config_group
+  const hostId = $form.data('id');
   if ($(`#puppetclass_${id}_params_loading`).length > 0) return; // already loading
   if ($(`[id^="#puppetclass_${id}_params\\["]`).length > 0) return; // already loaded
   const url = $(item).data('url');
