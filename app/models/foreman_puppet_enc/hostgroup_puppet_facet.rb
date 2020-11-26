@@ -27,11 +27,11 @@ module ForemanPuppetEnc
           next unless (md = field.to_s.match(/(\w+)_id$/))
           define_method md[1] do
             if hostgroup.ancestry.present?
-              klass = md[1].classify
+              klass = "ForemanPuppetEnc::#{md[1].classify}"
               klass = 'SmartProxy' if md[1] == 'puppet_proxy' || md[1] == 'puppet_ca_proxy'
               klass = 'Subnet::Ipv4' if md[1] == 'subnet'
               klass = 'Subnet::Ipv6' if md[1] == 'subnet6'
-              klass.classify.constantize.find_by(id: send("inherited_#{field}"))
+              klass.constantize.find_by(id: send("inherited_#{field}"))
             else
               # () is required.
               # Otherwise, get RuntimeError: implicit argument passing of super from method defined by define_method() is not supported.
