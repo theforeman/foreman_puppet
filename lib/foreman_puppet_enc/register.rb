@@ -16,6 +16,7 @@ Foreman::Plugin.register :foreman_puppet_enc do
       Foreman::AccessControl.remove_permission(p)
     end
 
+    delete_menu_item(:top_menu, :puppetclasses)
     delete_menu_item(:top_menu, :config_groups)
     delete_menu_item(:top_menu, :puppetclass_lookup_keys)
     delete_menu_item(:top_menu, :environments)
