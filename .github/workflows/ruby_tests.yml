@@ -13,23 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUNDLE_FOREMAN: '0'
+      BUNDLE_WITHOUT: development:test
     steps:
       - uses: actions/checkout@v2
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6
-      - name: Setup
-        run: |
-          gem install bundler
-          bundle config set without development test
-          bundle install --jobs=3 --retry=3
+          ruby-version: 2.5
+          bundler-cache: true
       - name: Run rubocop
-        run: bundle exec rubocop
+        run: bundle exec rubocop -P
   view_specs:
     runs-on: ubuntu-latest
     env:
       working-directory: './foreman_puppet_enc'
+      BUNDLE_WITHOUT: journald:development:console:libvirt
     needs: rubocop
     services:
       postgres:
@@ -38,10 +36,6 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
       - uses: actions/checkout@v2
         with:
           repository: ezr-ondrej/foreman
@@ -50,44 +44,46 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: foreman_puppet_enc
-      - uses: actions/cache@v2
-        with:
-          path: ${{env.working-directory}}/vendor/bundle
-          key: ${{ runner.os }}-puppet_enc_fgems-${{ matrix.ruby-version }}-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-puppet_enc_fgems-${{ matrix.ruby-version }}-
       - name: Setup Bundler
         working-directory: ${{env.working-directory}}
         run: |
           echo "gem 'foreman_puppet_enc', path: '../foreman_puppet_enc'" > ../foreman/bundler.d/foreman_puppet_enc.local.rb
-          gem install bundler
-          bundle config set without journald development console libvirt
-          bundle config set path vendor/bundle
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.5
+          bundler-cache: true
+          working-directory: ${{env.working-directory}}
       - name: Prepare test env
+        if: github.event_name != 'push'
         working-directory: ${{env.working-directory}}
         run: |
-          bundle install --jobs=3 --retry=3
           bundle exec rake app:db:create
           bundle exec rake app:db:migrate
       - name: Run view specs
+        if: github.event_name != 'push'
         working-directory: ${{env.working-directory}}
         run: bundle exec rake spec
   test_ruby:
     runs-on: ubuntu-latest
     needs: rubocop
+    env:
+      BUNDLE_WITHOUT: journald:development:console:libvirt
     services:
       postgres:
         image: postgres:12.1
         ports: ['5432:5432']
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         foreman-core-branch: [hostgroup_facet-tempate_input]
         ruby-version: [2.5, 2.6]
         node-version: [12]
     steps:
       - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
+      - name: Install chromedriver
+        uses: nanasess/setup-chromedriver@master
       - uses: actions/checkout@v2
         with:
           repository: ezr-ondrej/foreman
@@ -95,49 +91,41 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: foreman_puppet_enc
-      - name: Install chromedriver
-        uses: nanasess/setup-chromedriver@master
+      - name: Setup Bundler
+        run: |
+          echo "gem 'foreman_puppet_enc', path: './foreman_puppet_enc'" > bundler.d/foreman_puppet_enc.local.rb
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
-      - name: Setup Bundler
-        run: |
-          echo "gem 'foreman_puppet_enc', path: './foreman_puppet_enc'" > bundler.d/foreman_puppet_enc.local.rb
-          gem install bundler
-          bundle config set without journald development console libvirt
-          bundle config set path vendor/bundle
+          bundler-cache: true
       - name: Setup Node
+        if: github.event_name != 'push'
         uses: actions/setup-node@v1
         with:
           node-version:  ${{ matrix.node-version }}
-      - name: Restore Gems
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-fgems-${{ matrix.ruby-version }}-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-fgems-${{ matrix.ruby-version }}-
+      - name: Prepare test DB
+        if: github.event_name != 'push'
+        run: |
+          bundle exec rake db:create
+          bundle exec rake db:migrate
       - name: Restore NPMs
         uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{ runner.os }}-modules-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
-      - name: Prepare test env
-        run: |
-          bundle install --jobs=3 --retry=3
-          bundle exec rake db:create
-          bundle exec rake db:migrate
       - name: Prepare webpack
+        if: github.event_name != 'push'
         run: |
           npm install
           bundle exec rake webpack:compile
       - name: Run plugin tests
+        if: github.event_name != 'push'
         run: |
           bundle exec rake test:foreman_puppet_enc
       - name: Upload test.log
         uses: actions/upload-artifact@v2
-        if: failure()
+        if: failure() && github.event_name != 'push'
         with:
           name: log
           path: log/test.log
