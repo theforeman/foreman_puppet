@@ -47,10 +47,10 @@ module ForemanPuppetEnc
           id = params.key?('smart_class_parameter_id') ? params['smart_class_parameter_id'] : params['id']
           @smart_class_parameter = PuppetclassLookupKey.authorized(:view_external_parameters).smart_class_parameters.find_by(id: id.to_i) if id.to_i > 0
           @smart_class_parameter ||= begin
-                                       puppet_cond = { 'environment_classes.puppetclass_id' => @puppetclass.id } if @puppetclass
-                                       env_cond = { 'environment_classes.environment_id' => @environment.id } if @environment
-                                       PuppetclassLookupKey.authorized(:view_external_parameters).smart_class_parameters.where(puppet_cond).where(env_cond).where(key: id).first
-                                     end
+            puppet_cond = { 'environment_classes.puppetclass_id' => @puppetclass.id } if @puppetclass
+            env_cond = { 'environment_classes.environment_id' => @environment.id } if @environment
+            PuppetclassLookupKey.authorized(:view_external_parameters).smart_class_parameters.where(puppet_cond).where(env_cond).where(key: id).first
+          end
           @smart_class_parameter
         end
 
