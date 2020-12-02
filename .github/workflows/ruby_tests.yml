@@ -22,7 +22,7 @@ jobs:
           ruby-version: 2.5
           bundler-cache: true
       - name: Run rubocop
-        run: bundle exec rubocop -P
+        run: bundle exec rubocop -P --format github
   view_specs:
     runs-on: ubuntu-latest
     env:
