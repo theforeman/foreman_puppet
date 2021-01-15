@@ -20,6 +20,7 @@ module ForemanPuppetEnc
         before_action :validate_multiple_puppet_proxy, only: :update_multiple_puppet_proxy
         before_action :validate_multiple_puppet_ca_proxy, only: :update_multiple_puppet_ca_proxy
 
+        define_action_permission %w[externalNodes], :view
         define_action_permission MULTIPLE_EDIT_ACTIONS, :edit
 
         set_callback :set_class_variables, :after, :set_puppet_class_variables
@@ -78,6 +79,37 @@ module ForemanPuppetEnc
         success _('Updated hosts: changed environment')
         redirect_back_or_to hosts_path
       end
+
+      # returns a yaml file ready to use for puppet external nodes script
+      # expected a fqdn parameter to provide hostname to lookup
+      # see example script in extras directory
+      # will return HTML error codes upon failure
+      # rubocop:disable Naming/MethodName
+      def externalNodes
+        certname = params[:name].to_s
+        @host ||= resource_base.find_by certname: certname
+        @host ||= resource_base.friendly.find certname
+        unless @host
+          not_found
+          return
+        end
+
+        begin
+          respond_to do |format|
+            # don't break lines in yaml to support Ruby < 1.9.3
+            # Remove the HashesWithIndifferentAccess using 'deep_stringify_keys',
+            # then we turn it into YAML
+            host_info_yaml = @host.info.deep_stringify_keys.to_yaml(line_width: -1)
+            format.html { render html: ActionController::Base.helpers.tag.pre(ERB::Util.html_escape(host_info_yaml)) }
+            format.yml { render plain: host_info_yaml }
+          end
+        rescue StandardError => e
+          Foreman::Logging.exception("Failed to generate external nodes for #{@host}", e)
+          render plain: _('Unable to generate output, Check log files'),
+                 status: :precondition_failed
+        end
+      end
+      # rubocop:enable Naming/MethodName
 
       # TODO: seems to be useless
       def environment_from_param

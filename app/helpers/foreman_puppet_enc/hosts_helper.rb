@@ -2,6 +2,7 @@ module ForemanPuppetEnc
   module HostsHelper
     UI.register_host_description do
       multiple_actions_provider :puppet_host_multiple_actions
+      overview_buttons_provider :puppet_host_overview_buttons
     end
 
     def puppet_host_multiple_actions
@@ -14,6 +15,17 @@ module ForemanPuppetEnc
       else
         []
       end
+    end
+
+    def puppet_host_overview_buttons(host)
+      buttons = []
+      if SmartProxy.with_features('Puppet').any?
+        buttons << {
+          button: link_to(_('Puppet YAML'), foreman_puppet_enc.externalNodes_host_path(name: host), title: _('Puppet external nodes YAML dump'),
+                                                                                                    class: 'btn btn-default'), priority: 400
+        }
+      end
+      buttons
     end
   end
 end

@@ -27,6 +27,16 @@ module ForemanPuppetEnc
             assert_equal puppet_proxy['name'], JSON.parse(@response.body)['puppet_proxy']['name'], "Can't update host with puppet proxy #{puppet_proxy}"
           end
         end
+
+        describe '#enc' do
+          test 'should get ENC values of host' do
+            get :enc, params: { id: host.to_param }
+            assert_response :success
+            response = ActiveSupport::JSON.decode(@response.body)
+            puppet_class = response['data']['classes'].keys
+            assert_equal host.puppetclasses.map(&:name), puppet_class
+          end
+        end
       end
     end
   end
