@@ -40,9 +40,11 @@ module ForemanPuppetEnc
 
       SmartProxiesHelper::TABBED_FEATURES << 'Puppet'
 
-      if !ForemanPuppetEnc.extracted_from_core? && (old_status = 'ProxyStatus::Puppet'.safe_constantize)
-        ::ProxyStatus.status_registry.delete(old_status)
+      unless ForemanPuppetEnc.extracted_from_core?
+        ::ProxyStatus.status_registry.delete('ProxyStatus::Puppet'.safe_constantize)
+        Foreman.input_types_registry.input_types.delete('puppet_parameter')
       end
+      Foreman.input_types_registry.register(ForemanPuppetEnc::InputType::PuppetParameterInput)
       ::ProxyStatus.status_registry.add(ForemanPuppetEnc::ProxyStatus::Puppet)
     end
 
