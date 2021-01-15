@@ -13,6 +13,13 @@ module ForemanPuppetEnc
           env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
         end
       end
+
+      # rubocop:disable Naming/MethodName
+      def importNode(nodeinfo)
+        facet = puppet || build_puppet
+        facet.import_puppet_node(nodeinfo)
+      end
+      # rubocop:enable Naming/MethodName
     end
   end
 end

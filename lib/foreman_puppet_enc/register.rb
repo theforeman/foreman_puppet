@@ -45,6 +45,10 @@ Foreman::Plugin.register :foreman_puppet_enc do
     end
     p.actions << 'foreman_puppet_enc/puppetclasses/parameters'
   end
+
+  p = Foreman::AccessControl.permission(:view_hosts)
+  p.actions << 'hosts/externalNodes'
+
   p = Foreman::AccessControl.permission(:view_smart_proxies)
   p.actions << 'foreman_puppet_enc/puppet_smart_proxies/dashboard'
   p.actions << 'foreman_puppet_enc/puppet_smart_proxies/environments'

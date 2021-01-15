@@ -1,4 +1,7 @@
 ForemanPuppetEnc::Engine.routes.draw do
+  # ENC requests goes here
+  get 'node/:name' => '/hosts#externalNodes', :constraints => { name: /[^.][\w.-]+/ }
+
   resources :config_groups, except: [:show] do
     collection do
       get 'help', action: :welcome
@@ -47,29 +50,38 @@ ForemanPuppetEnc::Engine.routes.draw do
   end
 
   # TODO: should we patch the core routes?
-  resources :hosts, only: [], controller: '/hosts' do
-    collection do
-      post 'hostgroup_or_environment_selected'
-      post 'puppetclass_parameters'
-      match 'select_multiple_environment', via: %i[get post]
-      post 'update_multiple_environment'
-      post 'select_multiple_puppet_proxy'
-      post 'update_multiple_puppet_proxy'
+  constraints(id: %r{[^/]+}) do
+    resources :hosts, only: [], controller: '/hosts' do
+      collection do
+        post 'hostgroup_or_environment_selected'
+        post 'puppetclass_parameters'
+        match 'select_multiple_environment', via: %i[get post]
+        post 'update_multiple_environment'
+        post 'select_multiple_puppet_proxy'
+        post 'update_multiple_puppet_proxy'
+      end
+
+      member do
+        get 'externalNodes'
+      end
+
+      constraints(host_id: %r{[^/]+}) do
+        resources :puppetclasses, only: :index
+      end
     end
 
-    constraints(host_id: %r{[^/]+}) do
-      resources :puppetclasses, only: :index
-    end
-  end
-
-  resources :hostgroups, only: [], controller: '/hostgroups' do
-    collection do
-      post 'environment_selected'
-      post 'puppetclass_parameters'
+    resources :hostgroups, only: [], controller: '/hostgroups' do
+      collection do
+        post 'environment_selected'
+        post 'puppetclass_parameters'
+      end
     end
   end
 end
 
 Foreman::Application.routes.draw do
   mount ForemanPuppetEnc::Engine, at: '/foreman_puppet_enc'
+
+  # ENC requests goes here - should get depreacated
+  get 'node/:name' => 'hosts#externalNodes', :constraints => { name: /[^.][\w.-]+/ }
 end

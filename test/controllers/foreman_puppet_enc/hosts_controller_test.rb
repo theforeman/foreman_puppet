@@ -40,8 +40,8 @@ module ForemanPuppetEnc
       params = { host_ids: [host1.id, host2.id], environment: { id: 'inherit' } }
       post :update_multiple_environment, params: params, session: set_session_user(:one)
 
-      assert_equal hostgroup.puppet.environment_id, host1.reload.environment_id
-      assert_equal hostgroup.puppet.environment_id, host2.reload.environment_id
+      assert_equal hostgroup.puppet.environment_id, host1.reload.puppet.environment_id
+      assert_equal hostgroup.puppet.environment_id, host2.reload.puppet.environment_id
     end
 
     describe '#edit' do
@@ -153,6 +153,194 @@ module ForemanPuppetEnc
         [host1, host2].each do |host|
           assert_nil host.reload.puppet_proxy
         end
+      end
+    end
+
+    describe '#externalNodes' do
+      test 'externalNodes should render YAML hashes correctly' do
+        HostInfoProviders::PuppetInfo.any_instance.expects(:classes_info_hash).returns(
+          'dhcp' => {
+            'bootfiles' => [
+              { 'name' => 'foo', 'mount_point' => '/bar' }.with_indifferent_access,
+              { 'name' => 'john', 'mount_point' => '/doe' }.with_indifferent_access,
+            ],
+          }
+        ).at_least_once
+
+        get :externalNodes, params: { name: host1.name, format: 'yml' }, session: set_session_user
+        assert_response :success
+        enc = nil
+        as_admin { enc = host1.info.deep_stringify_keys.to_yaml }
+        assert_equal enc, response.body
+      end
+
+      test 'externalNodes should render correctly when format text/html is given' do
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name }, session: set_session_user
+        assert_response :success
+        as_admin { @enc = host1.info.to_yaml }
+        assert_equal "<pre>#{ERB::Util.html_escape(@enc)}</pre>", response.body
+      end
+
+      test 'externalNodes should render yml request correctly' do
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }, session: set_session_user
+        assert_response :success
+        as_admin { @enc = host1.info.deep_stringify_keys.to_yaml(line_width: -1) }
+        assert_equal @enc, response.body
+      end
+
+      test 'when ":restrict_registered_smart_proxies" is false, HTTP requests should be able to get externalNodes' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = false
+        SETTINGS[:require_ssl] = false
+
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_response :success
+      end
+
+      test 'hosts with a registered smart proxy on should get externalNodes successfully' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = false
+
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_response :success
+      end
+
+      test 'hosts without a registered smart proxy on should not be able to get externalNodes' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = false
+
+        Resolv.any_instance.stubs(:getnames).returns(['another.host'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_equal 403, @response.status
+      end
+
+      test 'hosts with a registered smart proxy and SSL cert should get externalNodes successfully' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+
+        @request.env['HTTPS'] = 'on'
+        @request.env['SSL_CLIENT_S_DN'] = 'CN=else.where'
+        @request.env['SSL_CLIENT_VERIFY'] = 'SUCCESS'
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_response :success
+      end
+
+      test 'hosts in trusted hosts list and SSL cert should get externalNodes successfully' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+        Setting[:trusted_hosts] = ['else.where']
+
+        @request.env['HTTPS'] = 'on'
+        @request.env['SSL_CLIENT_S_DN'] = 'CN=else.where'
+        @request.env['SSL_CLIENT_VERIFY'] = 'SUCCESS'
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_response :success
+      end
+
+      test 'hosts with comma-separated SSL DN should get externalNodes successfully' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+        Setting[:trusted_hosts] = ['foreman.example']
+
+        @request.env['HTTPS'] = 'on'
+        @request.env['SSL_CLIENT_S_DN'] = 'CN=foreman.example,OU=PUPPET,O=FOREMAN,ST=North Carolina,C=US'
+        @request.env['SSL_CLIENT_VERIFY'] = 'SUCCESS'
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_response :success
+      end
+
+      test 'hosts with slash-separated SSL DN should get externalNodes successfully' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+        Setting[:trusted_hosts] = ['foreman.linux.lab.local']
+
+        @request.env['HTTPS'] = 'on'
+        @request.env['SSL_CLIENT_S_DN'] = '/C=US/ST=NC/L=City/O=Example/OU=IT/CN=foreman.linux.lab.local/emailAddress=user@example.com'
+        @request.env['SSL_CLIENT_VERIFY'] = 'SUCCESS'
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_response :success
+      end
+
+      test 'hosts without a registered smart proxy but with an SSL cert should not be able to get externalNodes' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+
+        @request.env['HTTPS'] = 'on'
+        @request.env['SSL_CLIENT_S_DN'] = 'CN=another.host'
+        @request.env['SSL_CLIENT_VERIFY'] = 'SUCCESS'
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_equal 403, @response.status
+      end
+
+      test 'hosts with an unverified SSL cert should not be able to get externalNodes' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+
+        @request.env['HTTPS'] = 'on'
+        @request.env['SSL_CLIENT_S_DN'] = 'CN=else.where'
+        @request.env['SSL_CLIENT_VERIFY'] = 'FAILURE'
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_equal 403, @response.status
+      end
+
+      test 'when "require_ssl_smart_proxies" and "require_ssl" are true, HTTP requests should not be able to get externalNodes' do
+        User.current = nil
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+        SETTINGS[:require_ssl] = true
+
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_equal 403, @response.status
+      end
+
+      test 'when "require_ssl_smart_proxies" is true and "require_ssl" is false, HTTP requests should be able to get externalNodes' do
+        User.current = nil
+        # since require_ssl_smart_proxies is only applicable to HTTPS connections, both should be set
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+        SETTINGS[:require_ssl] = false
+
+        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }
+        assert_response :success
+      end
+
+      test 'authenticated users over HTTP should be able to get externalNodes' do
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+        SETTINGS[:require_ssl] = false
+
+        Resolv.any_instance.stubs(:getnames).returns(['users.host'])
+        get :externalNodes, params: { name: host1.name, format: 'yml' }, session: set_session_user
+        assert_response :success
+      end
+
+      test 'authenticated users over HTTPS should be able to get externalNodes' do
+        Setting[:restrict_registered_smart_proxies] = true
+        Setting[:require_ssl_smart_proxies] = true
+        SETTINGS[:require_ssl] = false
+
+        Resolv.any_instance.stubs(:getnames).returns(['users.host'])
+        @request.env['HTTPS'] = 'on'
+        get :externalNodes, params: { name: host1.name, format: 'yml' }, session: set_session_user
+        assert_response :success
       end
     end
   end

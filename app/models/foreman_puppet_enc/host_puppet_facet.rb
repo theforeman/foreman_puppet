@@ -64,6 +64,50 @@ module ForemanPuppetEnc
       status
     end
 
+    # this method accepts a puppets external node yaml output and generate a node in our setup
+    # it is assumed that you already have the node (e.g. imported by one of the rack tasks)
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
+    def import_puppet_node(nodeinfo)
+      myklasses = []
+      # puppet classes
+      classes = nodeinfo['classes']
+      classes = classes.keys if classes.is_a?(Hash)
+      classes.each do |klass|
+        if (pc = ForemanPuppetEnc::Puppetclass.find_by(name: klass.to_s))
+          myklasses << pc
+        else
+          error = format(_("Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"), klass: klass, name: name)
+          logger.warn error
+          $stdout.puts error
+        end
+        self.puppetclasses = myklasses
+      end
+
+      # parameters are a bit more tricky, as some classifiers provide the facts as parameters as well
+      # not sure what is puppet priority about it, but we ignore it if has a fact with the same name.
+      # additionally, we don't import any non strings values, as puppet don't know what to do with those as well.
+
+      myparams = host.info['parameters']
+      nodeinfo['parameters'].each_pair do |param, value|
+        next if host.fact_names.exists? name: param
+        next unless value.is_a?(String)
+
+        # we already have this parameter
+        next if myparams.key?(param) && myparams[param] == value
+
+        unless (hp = host.host_parameters.create(name: param, value: value))
+          logger.warn "Failed to import #{param}/#{value} for #{name}: #{hp.errors.full_messages.join(', ')}"
+          $stdout.puts $ERROR_INFO
+        end
+      end
+
+      host.clear_host_parameters_cache!
+      save
+    end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
+
     private
 
     # Copy of method with same name, but for facet associations
