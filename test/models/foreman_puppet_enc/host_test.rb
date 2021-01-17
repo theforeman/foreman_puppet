@@ -32,7 +32,7 @@ module ForemanPuppetEnc
     end
 
     describe '#search_for' do
-      let(:host) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass, :with_config_group) }
+      let(:host) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass) }
 
       test 'can search hosts by smart proxy' do
         proxy = FactoryBot.create(:puppet_and_ca_smart_proxy)
@@ -49,6 +49,7 @@ module ForemanPuppetEnc
       end
 
       test 'can be found by puppetclass' do
+        host
         result = Host.search_for("class = #{host.puppet.puppetclass_names.first}")
         assert_includes result, host
       end
@@ -60,14 +61,34 @@ module ForemanPuppetEnc
         assert_not_includes result, host
       end
 
-      test 'search by puppetclass of hostgroup' do
+      test 'search hosts by inherited puppetclass from a hostgroup' do
         hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
         host_with_hg = FactoryBot.create(:host, hostgroup: hostgroup)
         result = Host.search_for("class = #{hostgroup.puppet.puppetclass_names.first}")
         assert_includes result, host_with_hg
       end
 
+      test 'can search hosts by inherited puppet class from a parent hostgroup' do
+        parent_hg = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
+        hg = FactoryBot.create(:hostgroup, parent: parent_hg)
+        host = FactoryBot.create(:host, hostgroup: hg)
+        result = Host.search_for("class = #{parent_hg.puppet.puppetclass_names.first}")
+        assert_equal 1, result.count
+        assert_includes result, host
+      end
+
+      test 'can search hosts by puppet class from config group in parent hostgroup' do
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc)
+        host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hostgroup, environment: hostgroup.environment)
+        config_group = FactoryBot.create(:config_group, :with_puppetclass)
+        hostgroup.puppet.config_groups << config_group
+        result = Host.search_for("class = #{config_group.puppetclass_names.first}")
+        assert_equal 1, result.count
+        assert_includes result, host
+      end
+
       test 'can be found by config group' do
+        host.puppet.config_groups << FactoryBot.create(:config_group)
         result = Host.search_for("config_group = #{host.puppet.config_group_names.first}")
         assert_includes result, host
       end
@@ -84,6 +105,7 @@ module ForemanPuppetEnc
         host_with_hg = FactoryBot.create(:host, hostgroup: hostgroup)
         result = Host.search_for("config_group = #{hostgroup.puppet.config_group_names.first}")
         assert_includes result, host_with_hg
+        assert_equal [host_with_hg.name], result.map(&:name)
       end
     end
 
@@ -113,12 +135,27 @@ module ForemanPuppetEnc
       end
     end
 
+    describe '#clone' do
+      test '#classes etc. on cloned host return the same' do
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_config_group, :with_puppetclass)
+        host = FactoryBot.create(:host, :with_puppet_enc, :with_config_group, :with_puppetclass, :with_parameter, hostgroup: hostgroup, environment: hostgroup.environment)
+        copy = host.clone
+        assert_equal host.puppet.individual_puppetclasses.map(&:id), copy.puppet.individual_puppetclasses.map(&:id)
+        assert_equal host.puppet.classes_in_groups.map(&:id), copy.puppet.classes_in_groups.map(&:id)
+        assert_equal host.puppet.classes.map(&:id), copy.puppet.classes.map(&:id)
+        assert_equal host.puppet.available_puppetclasses.map(&:id), copy.puppet.available_puppetclasses.map(&:id)
+        assert_equal host.puppet.host_classes.map(&:puppetclass_id), copy.puppet.host_classes.map(&:puppetclass_id)
+        assert_equal host.puppet.host_config_groups.map(&:config_group_id), copy.puppet.host_config_groups.map(&:config_group_id)
+      end
+    end
+
     test 'should import from external nodes output' do
       # create a dummy node
       Parameter.destroy_all
       env = FactoryBot.create(:environment)
       host = FactoryBot.create(:host, :with_puppet_enc, environment: env, ip: '3.3.4.12')
-      pc1, pc2 = FactoryBot.create_list(:puppetclass, 2, environments: [env], parameter_count: 1)
+      pc1 = FactoryBot.create(:puppetclass, environments: [env], parameter_count: 1)
+      pc2 = FactoryBot.create(:puppetclass, environments: [env], parameter_count: 1)
 
       classes_params = { pc1.name => { pc1.class_params.first.key => 'abcdef' },
                          pc2.name => { pc2.class_params.first.key => 'secret' } }
@@ -175,7 +212,7 @@ module ForemanPuppetEnc
       # This worked in core, but it's beyond me how could have :shrug:
       # assert_equal(classes_params, info['classes'])
       # We are only importing classes in the method
-      assert_equal(classes_params.keys, info['classes'].keys)
+      assert_equal(classes_params.keys.sort, info['classes'].keys.sort)
       parameters = info['parameters']
       assert_equal 'puppet', parameters['puppetmaster']
       assert_equal 'xybxa6JUkz63w', parameters['root_pw']
@@ -185,12 +222,67 @@ module ForemanPuppetEnc
     end
 
     test 'should import from non-parameterized external nodes output' do
-      env = FactoryBot.create(:environment)
-      host = FactoryBot.create(:host, :with_puppet_enc, environment: env)
+      host = FactoryBot.create(:host, :with_puppet_enc)
+      env = host.puppet.environment
       pc1, pc2 = FactoryBot.create_list(:puppetclass, 2, environments: [env])
       host.importNode('environment' => env.name, 'classes' => [pc1.name, pc2.name], 'parameters' => {})
 
       assert_equal [pc1.name, pc2.name].sort, host.info['classes'].keys.sort
+    end
+
+    test 'does not assign a host to environment with incorrect taxonomies' do
+      host = FactoryBot.build(:host, managed: false)
+      env_with_tax = FactoryBot.create(:environment, organizations: [host.organization], locations: [host.location])
+      env_with_other_tax = FactoryBot.create(:environment, organizations: [FactoryBot.create(:organization)],
+                                                           locations: [FactoryBot.create(:location)])
+      host.build_puppet
+      host.puppet.environment = env_with_tax
+      assert host.valid?
+
+      host.puppet.environment = env_with_other_tax
+      assert_not host.valid?
+      assert_match(/is not assigned/, host.errors[:environment_id].first)
+    end
+
+    test 'when saving a host, require puppet environment if puppet master is set' do
+      h = FactoryBot.build_stubbed(:host, :with_puppet_enc)
+      h.puppet.environment = nil
+      assert_not h.valid?
+    end
+
+    test 'host puppet classes must belong to the host environment' do
+      h = FactoryBot.create(:host, :with_puppet_enc)
+      pc = FactoryBot.create(:puppetclass)
+      h.puppet.puppetclasses << pc
+      assert_not h.puppet.environment.puppetclasses.map(&:id).include?(pc.id)
+      assert_not h.puppet.valid?
+      assert_equal ["#{pc} does not belong to the #{h.puppet.environment} environment"], h.puppet.errors[:puppetclasses]
+    end
+
+    test 'when changing host environment, its puppet classes should be verified' do
+      h = FactoryBot.create(:host, :with_puppet_enc)
+      pc = FactoryBot.create(:puppetclass, environments: [h.puppet.environment])
+      h.puppet.puppetclasses << pc
+      h.puppet.environment = FactoryBot.create(:environment)
+      assert_not h.puppet.save
+      assert_equal ["#{pc} does not belong to the #{h.puppet.environment} environment"], h.puppet.errors[:puppetclasses]
+    end
+
+    test 'when setting host environment to nil, its puppet classes should be removed' do
+      h = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
+      h.puppet_proxy = nil
+      h.puppet.environment = nil
+      h.puppet.save!
+      assert_empty h.puppet.puppetclasses
+    end
+
+    test 'when setting host environment to nil, its config groups should be removed' do
+      h = FactoryBot.create(:host, :with_puppet_enc, :with_config_group)
+      assert h.save
+      h.puppet_proxy = nil
+      h.puppet.environment = nil
+      h.save!
+      assert_empty h.puppet.config_groups
     end
   end
 end

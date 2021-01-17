@@ -36,9 +36,10 @@ module ForemanPuppetEnc
                              .pluck(:host_id)
           hostgroup_ids = ::Hostgroup.unscoped.with_taxonomy_scope.joins(puppet: :puppetclasses).where(conditions).map(&:subtree_ids)
           if config_group_ids.any?
-            hostgroup_cgs = ForemanPuppetEnc::HostConfigGroup.where(host_type: 'ForemanPuppetEnc::HostgroupPuppetFacet')
-                                                             .where(config_group_id: config_group_ids)
-            hostgroup_ids += ::Hostgroup.unscoped.with_taxonomy_scope.where(hostgroup_cgs.select(:host_id)).map(&:subtree_ids)
+            hostgroup_cg_ids = ForemanPuppetEnc::HostgroupPuppetFacet.joins(:host_config_groups)
+                                                                     .where(host_config_groups: { config_group_id: config_group_ids })
+                                                                     .pluck(:hostgroup_id)
+            hostgroup_ids += ::Hostgroup.unscoped.with_taxonomy_scope.where(id: hostgroup_cg_ids).map(&:subtree_ids)
           end
 
           conds = []
