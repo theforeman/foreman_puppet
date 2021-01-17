@@ -92,7 +92,7 @@ module ForemanPuppetEnc
 
     def remove_duplicated_nested_class
       ancestor_hgs = hostgroup.ancestors.preload(puppet: :puppetclasses)
-      self.puppetclasses -= ancestor_hgs.map { |ancestor| ancestor.puppet.puppetclasses }.flatten
+      self.puppetclasses -= ancestor_hgs.map { |ancestor| ancestor.puppet&.puppetclasses }.compact.flatten
     end
   end
 end
