@@ -25,6 +25,8 @@ ForemanPuppetEnc::Engine.routes.draw do
         get 'auto_complete_search'
       end
     end
+
+    resources :lookup_values, controller: '/lookup_values', except: %i[show new edit]
   end
 
   resources :puppetclasses, except: %i[new create show] do
