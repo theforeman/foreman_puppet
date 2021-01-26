@@ -35,6 +35,9 @@ module ForemanPuppetEnc
       Report.include ForemanPuppetEnc::Extensions::Report
       Taxonomy.include ForemanPuppetEnc::Extensions::Taxonomy
       User.include ForemanPuppetEnc::Extensions::User
+      TemplateCombination.include ForemanPuppetEnc::Extensions::TemplateCombination
+      ProvisioningTemplate.include ForemanPuppetEnc::Extensions::ProvisioningTemplate
+
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
       HostgroupsController.include ForemanPuppetEnc::Extensions::HostgroupsControllerExtensions
 
