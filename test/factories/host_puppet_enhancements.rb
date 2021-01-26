@@ -49,4 +49,8 @@ FactoryBot.modify do
       end
     end
   end
+
+  factory :template_combination do
+    environment
+  end
 end
