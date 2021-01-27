@@ -38,6 +38,9 @@ module ForemanPuppetEnc
       TemplateCombination.include ForemanPuppetEnc::Extensions::TemplateCombination
       ProvisioningTemplate.include ForemanPuppetEnc::Extensions::ProvisioningTemplate
 
+      Foreman::Controller::Parameters::TemplateCombination.include ForemanPuppetEnc::Extensions::ParametersTemplateCombination
+
+      ::Api::V2::TemplateCombinationsController.include ForemanPuppetEnc::Extensions::ApiTemplateCombinationsController
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
       HostgroupsController.include ForemanPuppetEnc::Extensions::HostgroupsControllerExtensions
 

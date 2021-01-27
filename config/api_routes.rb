@@ -38,6 +38,7 @@ ForemanPuppetEnc::Engine.routes.draw do
             end
           end
           resources :hosts, only: %i[index show], controller: '/api/v2/hosts'
+          resources :template_combinations, only: %i[index], controller: '/api/v2/template_combinations'
         end
 
         resources :puppetclasses, except: %i[new edit] do
