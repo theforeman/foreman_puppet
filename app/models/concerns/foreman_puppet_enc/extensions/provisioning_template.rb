@@ -6,6 +6,9 @@ module ForemanPuppetEnc
       included do
         if ForemanPuppetEnc.extracted_from_core?
           has_many :environments, through: :template_combinations
+          before_destroy EnsureNotUsedBy.new(:environments)
+
+          scoped_search relation: :environments, on: :name, rename: :environment, complete_value: true
 
           class << base
             prepend PrependedClassMethods
@@ -47,6 +50,13 @@ module ForemanPuppetEnc
       module PrependedMethods
         def reject_template_combination_attributes?(params)
           params[:environment_id].blank? && super(params)
+        end
+
+        # check if our template is a snippet, and remove its associations just in case they were selected.
+        def check_for_snippet_assoications
+          super
+          return unless snippet
+          environments.clear
         end
       end
     end
