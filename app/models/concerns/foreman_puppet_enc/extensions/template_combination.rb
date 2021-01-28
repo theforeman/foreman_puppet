@@ -10,7 +10,7 @@ module ForemanPuppetEnc
           validates :environment_id, uniqueness: { scope: %i[hostgroup_id provisioning_template_id] }
         else
           env_assoc = reflect_on_association(:environment)
-          env_assoc.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
+          env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
         end
       end
     end

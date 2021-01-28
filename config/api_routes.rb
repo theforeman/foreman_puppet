@@ -17,6 +17,7 @@ ForemanPuppetEnc::Engine.routes.draw do
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end
+          resources :host_classes, path: :puppetclass_ids, only: %i[index create destroy]
         end
 
         resources :hostgroups, only: [] do
@@ -24,6 +25,7 @@ ForemanPuppetEnc::Engine.routes.draw do
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end
+          resources :hostgroup_classes, path: :puppetclass_ids, only: %i[index create destroy]
         end
 
         resources :environments, except: %i[new edit] do

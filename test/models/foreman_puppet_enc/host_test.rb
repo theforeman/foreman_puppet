@@ -14,7 +14,7 @@ module ForemanPuppetEnc
 
       features = {
         'puppet' => {
-          settings: { 'puppet_url': 'https://puppet.example.com:8140' },
+          settings: { puppet_url: 'https://puppet.example.com:8140' },
         },
       }
       SmartProxyFeature.import_features(proxy, features)

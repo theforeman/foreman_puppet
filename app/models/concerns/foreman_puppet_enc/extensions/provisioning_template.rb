@@ -14,7 +14,7 @@ module ForemanPuppetEnc
           prepend PrependedMethods
         else
           env_assoc = reflect_on_association(:environments)
-          env_assoc.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
+          env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
         end
       end
 
