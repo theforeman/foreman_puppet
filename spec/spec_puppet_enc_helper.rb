@@ -46,21 +46,25 @@ module ViewExampleGroupExtensions
 end
 
 ::ActionView::TestCase::TestController.include(FindCommon)
-::ActionView::TestCase::TestController.class_eval do
-  helper_method :resource_path
+module ::ActionView
+  class TestCase
+    class TestController
+      helper_method :resource_path
 
-  def resource_path(type)
-    return '' if type.nil?
+      def resource_path(type)
+        return '' if type.nil?
 
-    path = "#{type.pluralize.underscore}_path"
-    prefix, suffix = path.split('/', 2)
-    if path.include?('/') && Rails.application.routes.mounted_helpers.method_defined?(prefix)
-      # handle mounted engines
-      engine = send(prefix)
-      engine.send(suffix) if engine.respond_to?(suffix)
-    else
-      path = path.tr('/', '_')
-      send(path) if respond_to?(path)
+        path = "#{type.pluralize.underscore}_path"
+        prefix, suffix = path.split('/', 2)
+        if path.include?('/') && Rails.application.routes.mounted_helpers.method_defined?(prefix)
+          # handle mounted engines
+          engine = send(prefix)
+          engine.send(suffix) if engine.respond_to?(suffix)
+        else
+          path = path.tr('/', '_')
+          send(path) if respond_to?(path)
+        end
+      end
     end
   end
 end

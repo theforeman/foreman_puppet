@@ -15,7 +15,7 @@ module ForemanPuppetEnc
           callback.filter.options[:scope] << :environment_id
         else
           env_assoc = reflect_on_association(:environment)
-          env_assoc.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
+          env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppetEnc::Environment')
         end
       end
     end

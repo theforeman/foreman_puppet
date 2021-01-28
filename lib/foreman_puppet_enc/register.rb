@@ -31,6 +31,10 @@ Foreman::Plugin.register :foreman_puppet_enc do
     end
     p.actions << 'foreman_puppet_enc/puppetclasses/parameters'
   end
+  p = Foreman::AccessControl.permission(:edit_hostgroups)
+  %w[index create destroy].each do |action|
+    p.actions << "foreman_puppet_enc/api/v2/hostgroup_classes/#{action}"
+  end
   %i[create_hosts edit_hosts].each do |perm|
     p = Foreman::AccessControl.permission(perm)
     if ForemanPuppetEnc.extracted_from_core?
@@ -129,6 +133,8 @@ Foreman::Plugin.register :foreman_puppet_enc do
     permission :import_puppetclasses, { 'foreman_puppet_enc/puppetclasses' => %i[import_environments obsolete_and_new],
                                         'foreman_puppet_enc/api/v2/environments' => [:import_puppetclasses] },
       resource_type: 'ForemanPuppetEnc::Puppetclass'
+    permission :edit_classes, { 'foreman_puppet_enc/api/v2/host_classes': %i[index create destroy] },
+      resource_type: 'ForemanPuppetEnc::HostClass'
   end
 
   add_all_permissions_to_default_roles
