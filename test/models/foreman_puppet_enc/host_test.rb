@@ -31,19 +31,60 @@ module ForemanPuppetEnc
       assert_includes res, puppet_id
     end
 
-    test 'can search hosts by smart proxy' do
-      host = FactoryBot.create(:host, :with_puppet_enc)
-      proxy = FactoryBot.create(:puppet_and_ca_smart_proxy)
-      results = Host.search_for("smart_proxy = #{proxy.name}")
-      assert_equal 0, results.count
-      host.update(puppet_proxy_id: proxy.id)
-      results = Host.search_for("smart_proxy = #{proxy.name}")
-      assert_equal 1, results.count
-      assert_includes results, host
-      # the results should not change even if the host has multiple connections to same proxy
-      host.update(puppet_ca_proxy_id: proxy.id)
-      results2 = Host.search_for("smart_proxy = #{proxy.name}")
-      assert_equal results, results2
+    describe '#search_for' do
+      let(:host) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass, :with_config_group) }
+
+      test 'can search hosts by smart proxy' do
+        proxy = FactoryBot.create(:puppet_and_ca_smart_proxy)
+        results = Host.search_for("smart_proxy = #{proxy.name}")
+        assert_equal 0, results.count
+        host.update(puppet_proxy_id: proxy.id)
+        results = Host.search_for("smart_proxy = #{proxy.name}")
+        assert_equal 1, results.count
+        assert_includes results, host
+        # the results should not change even if the host has multiple connections to same proxy
+        host.update(puppet_ca_proxy_id: proxy.id)
+        results2 = Host.search_for("smart_proxy = #{proxy.name}")
+        assert_equal results, results2
+      end
+
+      test 'can be found by puppetclass' do
+        result = Host.search_for("class = #{host.puppet.puppetclass_names.first}")
+        assert_includes result, host
+      end
+
+      test 'search by puppetclass returns only host within that puppetclass' do
+        host
+        puppetclass = FactoryBot.create(:puppetclass)
+        result = Host.search_for("class = #{puppetclass.name}")
+        assert_not_includes result, host
+      end
+
+      test 'search by puppetclass of hostgroup' do
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
+        host_with_hg = FactoryBot.create(:host, hostgroup: hostgroup)
+        result = Host.search_for("class = #{hostgroup.puppet.puppetclass_names.first}")
+        assert_includes result, host_with_hg
+      end
+
+      test 'can be found by config group' do
+        result = Host.search_for("config_group = #{host.puppet.config_group_names.first}")
+        assert_includes result, host
+      end
+
+      test 'search by config group returns only host within that config group' do
+        host
+        config_group = FactoryBot.create(:config_group)
+        result = Host.search_for("config_group = #{config_group.name}")
+        assert_not_includes result, host
+      end
+
+      test 'search by config_group of hostgroup' do
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_config_group)
+        host_with_hg = FactoryBot.create(:host, hostgroup: hostgroup)
+        result = Host.search_for("config_group = #{hostgroup.puppet.config_group_names.first}")
+        assert_includes result, host_with_hg
+      end
     end
 
     describe '#info puppet bits' do
@@ -149,7 +190,7 @@ module ForemanPuppetEnc
       pc1, pc2 = FactoryBot.create_list(:puppetclass, 2, environments: [env])
       host.importNode('environment' => env.name, 'classes' => [pc1.name, pc2.name], 'parameters' => {})
 
-      assert_equal [pc1.name, pc2.name], host.info['classes'].keys
+      assert_equal [pc1.name, pc2.name].sort, host.info['classes'].keys.sort
     end
   end
 end
