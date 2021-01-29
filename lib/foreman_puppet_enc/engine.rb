@@ -21,6 +21,10 @@ module ForemanPuppetEnc
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
+      # Parameters should go ASAP as they need to be applied before they are included in core controller
+      Foreman::Controller::Parameters::Host.include ForemanPuppetEnc::Extensions::ParametersHost
+      Foreman::Controller::Parameters::TemplateCombination.include ForemanPuppetEnc::Extensions::ParametersTemplateCombination
+
       # Facets extenstion is applied too early - before the Hostgroup is complete
       # We redefine thing, so we need to wait until complete definition of Hostgroup
       # thus separate patching instead of using facet patching
@@ -37,8 +41,6 @@ module ForemanPuppetEnc
       User.include ForemanPuppetEnc::Extensions::User
       TemplateCombination.include ForemanPuppetEnc::Extensions::TemplateCombination
       ProvisioningTemplate.include ForemanPuppetEnc::Extensions::ProvisioningTemplate
-
-      Foreman::Controller::Parameters::TemplateCombination.include ForemanPuppetEnc::Extensions::ParametersTemplateCombination
 
       ::Api::V2::HostsController.include ForemanPuppetEnc::Extensions::ApiV2HostsController
       ::Api::V2::HostgroupsController.include ForemanPuppetEnc::Extensions::ApiHostgroupsController

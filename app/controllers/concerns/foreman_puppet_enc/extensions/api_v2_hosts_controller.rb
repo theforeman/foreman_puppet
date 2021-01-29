@@ -17,23 +17,20 @@ module ForemanPuppetEnc
           apipie_update_methods(%i[create update]) do
             param :host, Hash do
               param :environment_id, String, desc: N_('Deprecated in favor of host/puppet_attributes/environment_id')
+              param :puppetclass_ids, Array, desc: N_('Deprecated in favor of host/puppet_attributes/puppetclass_ids')
+              param :config_group_ids, Array, desc: N_('Deprecated in favor of host/puppet_attributes/config_group_ids')
+
+              param :puppet_attributes, Hash do
+                param :environment_id, String, desc: N_('ID of associated puppet Environment')
+                param :puppetclass_ids, Array, desc: N_('IDs of associated Puppetclasses')
+                param :config_group_ids, Array, desc: N_('IDs of associated ConfigGroups')
+              end
             end
           end
         end
       end
 
       module PatchMethods
-        def host_attributes(params, host = nil)
-          environment_id = params.delete(:environment_id)
-          attrs = super(params, host)
-          if environment_id
-            ::Foreman::Deprecation.api_deprecation_warning('host[environment_id] has been deprecated in favor of host[puppet_attributes][environment_id]')
-            attrs[:puppet_attributes] ||= {}
-            attrs[:puppet_attributes][:environment_id] ||= environment_id
-          end
-          attrs
-        end
-
         def resource_name(*attrs)
           return 'foreman_puppet_enc/environment' if attrs.first.is_a?(String) &&
                                                      attrs.first.start_with?('environment')

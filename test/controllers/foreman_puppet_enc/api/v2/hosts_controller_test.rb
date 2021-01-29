@@ -9,13 +9,40 @@ module ForemanPuppetEnc
         let(:host) { FactoryBot.create(:host, :with_puppet_enc) }
 
         describe '#show' do
-          test 'include config_groups' do
+          test 'includes config_groups under puppet node' do
+            get :show, params: { id: host.to_param }
+            assert_response :success
+            json_response = ActiveSupport::JSON.decode(response.body)
+            assert json_response['puppet']['config_groups'].is_a? Array
+            response_cg_ids = json_response['puppet']['config_groups'].map { |cg| cg['id'] }
+            assert_equal host.puppet.config_groups.pluck(:id), response_cg_ids
+          end
+
+          test 'includes puppetclasses under puppet node' do
+            get :show, params: { id: host.to_param }
+            assert_response :success
+            json_response = ActiveSupport::JSON.decode(response.body)
+            assert json_response['puppet']['puppetclasses'].is_a? Array
+            response_pg_ids = json_response['puppet']['puppetclasses'].map { |pg| pg['id'] }
+            assert_equal host.puppet.puppetclasses.pluck(:id), response_pg_ids
+          end
+
+          test 'includes config_groups for backward compatibility' do
             get :show, params: { id: host.to_param }
             assert_response :success
             json_response = ActiveSupport::JSON.decode(response.body)
             assert json_response['config_groups'].is_a? Array
             response_cg_ids = json_response['config_groups'].map { |cg| cg['id'] }
             assert_equal host.puppet.config_groups.pluck(:id), response_cg_ids
+          end
+
+          test 'includes puppetclasses for backward compatibility' do
+            get :show, params: { id: host.to_param }
+            assert_response :success
+            json_response = ActiveSupport::JSON.decode(response.body)
+            assert json_response['puppetclasses'].is_a? Array
+            response_pg_ids = json_response['puppetclasses'].map { |pg| pg['id'] }
+            assert_equal host.puppet.puppetclasses.pluck(:id), response_pg_ids
           end
         end
 

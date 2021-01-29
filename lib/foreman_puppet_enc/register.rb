@@ -167,7 +167,8 @@ Foreman::Plugin.register :foreman_puppet_enc do
   register_facet ForemanPuppetEnc::HostPuppetFacet, :puppet do
     configure_host do
       # extend_model ForemanPuppetEnc::Extensions::Host
-      api_view single: 'foreman_puppet_enc/api/v2/host_puppet_facets/main'
+      api_view list: 'foreman_puppet_enc/api/v2/host_puppet_facets/base',
+               single: 'foreman_puppet_enc/api/v2/host_puppet_facets/host_single'
       template_compatibility_properties :environment, :environment_id, :environment_name
       set_dependent_action :destroy
     end
