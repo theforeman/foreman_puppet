@@ -161,6 +161,7 @@ Foreman::Plugin.register :foreman_puppet_enc do
                                                      engine: ForemanPuppetEnc::Engine,
                                                      parent: :configure_menu
 
+  register_info_provider(ForemanPuppetEnc::HostInfoProviders::ConfigGroupsInfo)
   register_info_provider(ForemanPuppetEnc::HostInfoProviders::PuppetInfo)
 
   # register host and hostgroup facet

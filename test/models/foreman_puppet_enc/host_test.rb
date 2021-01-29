@@ -56,6 +56,20 @@ module ForemanPuppetEnc
         assert_kind_of Hash, enc
         assert_equal classes, enc['classes']
       end
+
+      test '#info ENC YAML contains config_groups' do
+        host = FactoryBot.create(:host, :with_puppet_enc, :with_config_group)
+        enc = host.info
+        assert_includes(enc['parameters'].keys, 'foreman_config_groups')
+        assert_includes(enc['parameters']['foreman_config_groups'], host.puppet.config_group_names.first)
+      end
+
+      test '#info ENC YAML contains parent hostgroup config_groups' do
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_config_group)
+        host = FactoryBot.create(:host, :with_puppet_enc, :with_config_group, hostgroup: hostgroup)
+        enc = host.info
+        assert_equal(enc['parameters']['foreman_config_groups'], [host.puppet.config_group_names.first, hostgroup.puppet.config_group_names.first])
+      end
     end
 
     test 'should import from external nodes output' do
