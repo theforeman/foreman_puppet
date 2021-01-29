@@ -36,13 +36,6 @@ module ForemanPuppetEnc
         foreman_puppet_enc.select_multiple_puppet_proxy_hosts_path(*args)
       end
 
-      # params facets fix:
-      def host_params(top_level_hash = controller_name.singularize)
-        filter = self.class.host_params_filter
-        filter.permit(puppet_attributes: {})
-        filter.filter_params(params, parameter_filter_context, top_level_hash)
-      end
-
       def hostgroup_or_environment_selected
         refresh_host
         set_class_variables(@host)

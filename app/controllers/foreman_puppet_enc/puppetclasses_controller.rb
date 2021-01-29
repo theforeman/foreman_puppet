@@ -92,7 +92,7 @@ module ForemanPuppetEnc
           @obj.type = 'Host::Managed'
         end
         # puppetclass_ids and config_group_ids need to be removed so they don't cause automatic insertsgroup
-        @obj.attributes = host_params('host').except(:puppetclass_ids, :config_group_ids)
+        @obj.attributes = host_params('host')
       elsif params['hostgroup']
         # hostgroup.id is assigned to params['host_id'] by host_edit.js#load_puppet_class_parameters
         @obj = Hostgroup.find(host_id)
