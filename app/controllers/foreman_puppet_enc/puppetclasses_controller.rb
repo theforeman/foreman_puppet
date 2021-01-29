@@ -96,7 +96,7 @@ module ForemanPuppetEnc
       elsif params['hostgroup']
         # hostgroup.id is assigned to params['host_id'] by host_edit.js#load_puppet_class_parameters
         @obj = Hostgroup.find(host_id)
-        @obj.attributes = hostgroup_params('hostgroup').except(:puppetclass_ids, :config_group_ids)
+        @obj.attributes = hostgroup_params('hostgroup')
       end
       @obj
     end
