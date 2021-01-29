@@ -23,6 +23,7 @@ module ForemanPuppetEnc
     config.to_prepare do
       # Parameters should go ASAP as they need to be applied before they are included in core controller
       Foreman::Controller::Parameters::Host.include ForemanPuppetEnc::Extensions::ParametersHost
+      Foreman::Controller::Parameters::Hostgroup.include ForemanPuppetEnc::Extensions::ParametersHostgroup
       Foreman::Controller::Parameters::TemplateCombination.include ForemanPuppetEnc::Extensions::ParametersTemplateCombination
 
       # Facets extenstion is applied too early - before the Hostgroup is complete

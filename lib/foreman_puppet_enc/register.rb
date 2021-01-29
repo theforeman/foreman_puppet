@@ -173,7 +173,8 @@ Foreman::Plugin.register :foreman_puppet_enc do
       set_dependent_action :destroy
     end
     configure_hostgroup(ForemanPuppetEnc::HostgroupPuppetFacet) do
-      api_view single: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/main'
+      api_view list: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/base',
+               single: 'foreman_puppet_enc/api/v2/hostgroup_puppet_facets/hostgroup_single'
       template_compatibility_properties :environment, :environment_id, :environment_name
       set_dependent_action :destroy
     end
