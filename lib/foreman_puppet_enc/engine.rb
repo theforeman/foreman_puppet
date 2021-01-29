@@ -19,6 +19,10 @@ module ForemanPuppetEnc
       end
     end
 
+    initializer 'foreman_ansible.configure_assets', group: :assets do
+      SETTINGS[:foreman_puppet_enc] = { assets: { precompile: ['foreman_puppet_enc.scss'] } }
+    end
+
     # Include concerns in this config.to_prepare block
     config.to_prepare do
       # Parameters should go ASAP as they need to be applied before they are included in core controller

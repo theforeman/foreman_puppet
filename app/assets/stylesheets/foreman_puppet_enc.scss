@@ -1,0 +1,117 @@
+#hostclasses,
+.classes li,
+.classes li a {
+  list-style-type: none;
+  margin-right: 0.5em;
+  text-decoration: none;
+}
+
+.classes > ul {
+  margin-bottom: 0;
+  margin-left: -42px;
+}
+
+.puppetclass,
+.puppetclass li,
+.selected_puppetclass,
+.selected_puppetclass li,
+.config_group,
+.config_group li,
+.selected_config_group,
+.selected_config_group li {
+  a {
+    color: #333;
+  }
+
+  a.glyphicon-minus-sign,
+  a.glyphicon-plus-sign {
+    float: right;
+    margin-right: 10px;
+  }
+}
+
+a.config_group_name {
+  color: #428bca;
+}
+
+#params #inherited_puppetclasses_parameters {
+    .overridden .param_name {
+      font-weight: bold;
+    }
+
+    .btn-override {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+}
+
+.lookup_values {
+  .fields {
+    border-top: 1px dotted lightgrey;
+    padding-top: 10px;
+
+    &:nth-child(3) {
+      border-top: none;
+    }
+
+    .btn-hide {
+      display: none;
+    }
+  }
+}
+
+.lookup-keys-container {
+  h6 {
+    margin-top: 0;
+  }
+
+  .help-block {
+    margin: 0;
+  }
+
+  input[type=checkbox] {
+    margin-top: 8px;
+  }
+
+  .nav a.btn-success:focus {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+  }
+
+  .matcher .matcher-group {
+    display: block;
+  }
+
+  .matcher_value {
+    width: 60%;
+  }
+}
+
+.selected_puppetclass.unavailable a {
+  color: $color-pf-black-400;
+}
+
+#inherited_ids {
+  padding-left: 0;
+}
+
+#inherited-classes .panel-title {
+  font-size: 1.6rem;
+}
+
+#puppet_klasses ul {
+  padding-left: 40px;
+  padding-right: 20px;
+}
+
+.puppetclass_group,
+.config_group_group {
+  li {
+    a {
+      i.glyphicon {
+        font-size: 11px;
+      }
+    }
+  }
+}
