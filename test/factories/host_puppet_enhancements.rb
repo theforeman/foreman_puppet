@@ -8,8 +8,10 @@ FactoryBot.modify do
     end
 
     trait :with_config_group do
-      environment
-      config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [environment])] }
+      transient do
+        environment
+        config_groups { [FactoryBot.create(:config_group, :with_puppetclass, class_environments: [environment])] }
+      end
     end
 
     trait :with_puppet_enc do
@@ -18,7 +20,7 @@ FactoryBot.modify do
         puppetclasses { [] }
         config_groups { [] }
       end
-      puppet { association :host_puppet_facet, :with_config_group, environment: environment, puppetclasses: puppetclasses, config_groups: config_groups }
+      puppet { association :host_puppet_facet, environment: environment, puppetclasses: puppetclasses, config_groups: config_groups }
       puppet_proxy do
         FactoryBot.create(:smart_proxy, features: [FactoryBot.create(:feature, :puppet)])
       end

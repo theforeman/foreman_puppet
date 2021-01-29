@@ -52,6 +52,7 @@ module ForemanPuppetEnc
       SmartProxiesHelper::TABBED_FEATURES << 'Puppet'
 
       unless ForemanPuppetEnc.extracted_from_core?
+        ::HostInfo.local_entries.delete('HostInfoProviders::ConfigGroupsInfo'.safe_constantize)
         ::ProxyStatus.status_registry.delete('ProxyStatus::Puppet'.safe_constantize)
         Foreman.input_types_registry.input_types.delete('puppet_parameter')
       end
