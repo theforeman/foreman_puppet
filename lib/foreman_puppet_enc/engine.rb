@@ -41,6 +41,7 @@ module ForemanPuppetEnc
       Foreman::Controller::Parameters::TemplateCombination.include ForemanPuppetEnc::Extensions::ParametersTemplateCombination
 
       ::Api::V2::HostsController.include ForemanPuppetEnc::Extensions::ApiV2HostsController
+      ::Api::V2::HostgroupsController.include ForemanPuppetEnc::Extensions::ApiHostgroupsController
       ::Api::V2::TemplateCombinationsController.include ForemanPuppetEnc::Extensions::ApiTemplateCombinationsController
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
       HostgroupsController.include ForemanPuppetEnc::Extensions::HostgroupsControllerExtensions
