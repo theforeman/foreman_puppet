@@ -24,9 +24,9 @@ module ForemanPuppetEnc
 
     def cg_class_ids
       cg_ids = if is_a?(ForemanPuppetEnc::HostgroupPuppetFacet)
-                 hostgroup.path.each.map(&:config_group_ids).flatten.uniq
+                 hostgroup.path.each.map { |hg| hg.puppet&.config_group_ids }.compact.flatten.uniq
                else
-                 host.hostgroup ? host.hostgroup.path.each.map(&:config_group_ids).flatten.uniq : []
+                 host.hostgroup ? host.hostgroup.path.each.map { |hg| hg.puppet&.config_group_ids }.compact.flatten.uniq : []
                end
       ForemanPuppetEnc::ConfigGroupClass.where(config_group_id: (config_group_ids + cg_ids)).pluck(:puppetclass_id)
     end

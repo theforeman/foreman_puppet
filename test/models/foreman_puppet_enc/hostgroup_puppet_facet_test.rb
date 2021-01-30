@@ -33,6 +33,18 @@ module ForemanPuppetEnc
       assert_equal old_puppetclass_ids.sort, hostgroup.puppet.puppetclass_ids.sort
     end
 
+    test 'should return all classes for environment only' do
+      config_group1 = hostgroup.puppet.config_groups.first
+      config_group1.puppetclasses << FactoryBot.create(:puppetclass, environments: [environment]) unless config_group1.puppetclasses.any?
+      config_group2 = FactoryBot.create(:config_group, :with_puppetclass, class_environments: [FactoryBot.create(:environment)])
+      hostgroup.puppet.config_groups << config_group2
+
+      all_classes = hostgroup.puppet.classes
+      env_puppetclasses = hostgroup.puppet.puppetclasses.to_a + hostgroup.puppet.config_groups.first.puppetclasses.to_a
+      assert_equal(2, all_classes.count)
+      assert_equal env_puppetclasses.map(&:id).sort, all_classes.map(&:id).sort
+    end
+
     describe '#available_puppetclasses' do
       setup do
         standalone_puppetclass
@@ -83,13 +95,27 @@ module ForemanPuppetEnc
         end
       end
 
-      test 'individual puppetclasses added to hostgroup (that can be removed) does not include classes that are included by config group' do
-        config_group = FactoryBot.create(:config_group, :with_puppetclass)
+      test 'puppetclasses added to hostgroup (that can be removed) does not include classes that are included by config group' do
+        config_group = FactoryBot.create(:config_group, :with_puppetclass, class_environments: [environment])
         hostgroup.puppet.config_groups << config_group
-        hostgroup.puppet.puppetclasses << config_group.puppetclasses.first
 
-        assert_includes hostgroup.puppet.puppetclasses, config_group.puppetclasses.first
+        assert_includes hostgroup.puppet.all_puppetclasses, config_group.puppetclasses.first
         assert_not_includes hostgroup.puppet.individual_puppetclasses, config_group.puppetclasses.first
+      end
+    end
+
+    describe '#classes_in_groups' do
+      test 'should return the puppetclasses of a config group only if it is in hostgroup environment' do
+        config_group1 = hostgroup.puppet.config_groups.first
+        config_group1.puppetclasses << FactoryBot.create(:puppetclass, environments: [environment]) unless config_group1.puppetclasses.any?
+        config_group2 = FactoryBot.create(:config_group, :with_puppetclass, class_environments: [FactoryBot.create(:environment)])
+        hostgroup.puppet.config_groups << config_group2
+
+        group_classes = hostgroup.puppet.classes_in_groups
+        assert_equal 2, (config_group1.puppetclasses + config_group2.puppetclasses).uniq.count
+        # but only 1 is in hostgroup environment.
+        assert_equal 1, group_classes.count
+        assert_equal config_group1.puppetclasses.pluck(:id).sort, group_classes.map(&:id).sort
       end
     end
 
@@ -110,7 +136,25 @@ module ForemanPuppetEnc
       end
 
       test 'should be empty if hostgroup does not have parent' do
-        assert_empty hostgroup.parent_classes
+        assert_empty hostgroup.puppet.parent_classes
+      end
+    end
+
+    describe '#parent_config_groups' do
+      test 'should return empty array if hostgroup does not has parent' do
+        assert_empty hostgroup.puppet.parent_config_groups
+      end
+
+      test 'should return parent config_groups if hostgroup has parent - 2 levels' do
+        assert child_hostgroup.parent
+        assert_equal child_hostgroup.puppet.parent_config_groups, hostgroup.puppet.config_groups
+      end
+
+      test 'should return parent config_groups if hostgroup has parent  - 3 levels' do
+        hg = FactoryBot.create(:hostgroup, name: 'third level', parent_id: child_hostgroup.id)
+        hg.create_puppet
+        groups = (hg.parent.puppet.config_groups + hg.parent.parent.puppet.config_groups).uniq.sort
+        assert_equal groups, hg.puppet.parent_config_groups.sort
       end
     end
 
@@ -144,6 +188,12 @@ module ForemanPuppetEnc
         cloned = hostgroup.clone
         assert_not cloned.valid?
         assert_equal 1, cloned.errors[:name].size
+      end
+
+      test 'clone should clone config groups as well' do
+        cg_ids = hostgroup.puppet.config_groups.pluck(:id)
+        cloned = hostgroup.clone('new_name')
+        assert_equal cg_ids.sort, cloned.puppet.config_groups.map(&:id).sort
       end
     end
   end

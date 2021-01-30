@@ -67,6 +67,8 @@ module ForemanPuppetEnc
     has_many :hostgroup_classes, dependent: :destroy
     has_many :puppetclasses, through: :hostgroup_classes
 
+    before_save :remove_duplicated_nested_class
+
     nested_attribute_for :environment_id
     scoped_search relation: :config_groups, on: :name,
                   complete_value: true,
@@ -101,6 +103,11 @@ module ForemanPuppetEnc
     def parent_classes
       return [] unless parent_facet
       parent_facet.classes(environment)
+    end
+
+    def remove_duplicated_nested_class
+      ancestor_hgs = hostgroup.ancestors.preload(puppet: :puppetclasses)
+      self.puppetclasses -= ancestor_hgs.map { |ancestor| ancestor.puppet.puppetclasses }.flatten
     end
   end
 end

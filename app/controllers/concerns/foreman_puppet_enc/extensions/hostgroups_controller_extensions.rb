@@ -21,6 +21,11 @@ module ForemanPuppetEnc
       end
 
       module Actions
+        def nest
+          super
+          @hostgroup.puppetclasses = @parent.puppetclasses
+        end
+
         def environment_selected
           env_id = params[:environment_id] || params[:hostgroup][:environment_id] || params.dig(:hostgroup, :puppet_attributes, :environment_id)
           return not_found if env_id.to_i.positive? && !(@environment = ForemanPuppetEnc::Environment.find(env_id))
