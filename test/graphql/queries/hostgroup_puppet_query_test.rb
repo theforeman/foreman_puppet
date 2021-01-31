@@ -12,6 +12,14 @@ module Queries
           environment {
             id
           }
+          puppetclasses {
+            totalCount
+            edges {
+              node {
+                id
+              }
+            }
+          }
           puppetProxy {
             id
           }
@@ -20,7 +28,7 @@ module Queries
       GRAPHQL
     end
 
-    let(:hostgroup) { FactoryBot.create(:hostgroup, :with_puppet_enc) }
+    let(:hostgroup) { FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass) }
     let(:global_id) { Foreman::GlobalId.encode('Hostgroup', hostgroup.id) }
     let(:variables) { { id: global_id } }
 
@@ -30,6 +38,7 @@ module Queries
       assert_empty result['errors']
       assert_equal global_id, hostgroup_data['id']
       assert_record hostgroup.puppet.environment, hostgroup_data['environment']
+      assert_collection hostgroup.puppetclasses, data['puppetclasses']
       assert_record hostgroup.puppet_proxy, hostgroup_data['puppetProxy']
     end
   end
