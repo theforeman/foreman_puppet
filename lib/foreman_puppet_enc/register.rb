@@ -192,6 +192,8 @@ Foreman::Plugin.register :foreman_puppet_enc do
     end
   end
 
+  extend_template_helpers(ForemanPuppetEnc::TemplateRendererScope)
+
   # extend host(group) form with puppet ENC Tab
   %i[host hostgroup].each do |resource_type|
     host_onlyif = ->(host, context) { context.send(:accessible_resource, host, :smart_proxy, :name, association: :puppet_proxy).present? }
