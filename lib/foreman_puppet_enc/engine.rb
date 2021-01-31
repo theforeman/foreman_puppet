@@ -36,6 +36,7 @@ module ForemanPuppetEnc
       Host::Managed.include ForemanPuppetEnc::Extensions::Host
 
       LookupValue.include ForemanPuppetEnc::PuppetLookupValueExtensions
+      Operatingsystem.include ForemanPuppetEnc::Extensions::Operatingsystem
       Nic::Managed.include ForemanPuppetEnc::Extensions::NicManaged
       Report.include ForemanPuppetEnc::Extensions::Report
       Taxonomy.include ForemanPuppetEnc::Extensions::Taxonomy
@@ -46,6 +47,7 @@ module ForemanPuppetEnc
       ::Api::V2::HostsController.include ForemanPuppetEnc::Extensions::ApiV2HostsController
       ::Api::V2::HostgroupsController.include ForemanPuppetEnc::Extensions::ApiHostgroupsController
       ::Api::V2::TemplateCombinationsController.include ForemanPuppetEnc::Extensions::ApiTemplateCombinationsController
+      OperatingsystemsController.prepend ForemanPuppetEnc::Extensions::OperatingsystemsController
       HostsController.include ForemanPuppetEnc::Extensions::HostsControllerExtensions
       HostgroupsController.include ForemanPuppetEnc::Extensions::HostgroupsControllerExtensions
 
