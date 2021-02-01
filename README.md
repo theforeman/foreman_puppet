@@ -1,6 +1,6 @@
-# ForemanPuppetEnc
+# ForemanPuppet
 
-*Introdction here*
+Adds Puppet External node classification funcionality for [Foreman](theforeman.org).
 
 ## Installation
 

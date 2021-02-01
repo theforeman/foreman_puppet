@@ -2,23 +2,23 @@
 <% host_or_hostgroup ||= local_assigns[resource_type] %>
 <% obj = (host_or_hostgroup.puppet || host_or_hostgroup.build_puppet) if %i[host hostgroup].include?(resource_type) %>
 <% if resource_type == :host %>
-<span id="puppet_klasses_reload_url" data-url="<%= foreman_puppet_enc.hostgroup_or_environment_selected_hosts_path %>"></span>
+<span id="puppet_klasses_reload_url" data-url="<%= foreman_puppet.hostgroup_or_environment_selected_hosts_path %>"></span>
 <% elsif resource_type == :hostgroup %>
-<span id="puppet_klasses_reload_url" data-url="<%= foreman_puppet_enc.environment_selected_hostgroups_path %>"></span>
+<span id="puppet_klasses_reload_url" data-url="<%= foreman_puppet.environment_selected_hostgroups_path %>"></span>
 <% end %>
 <% if @environment.present? || obj.environment.present? %>
   <% if accessible_resource_records(:config_group).exists? %>
-    <%= render 'foreman_puppet_enc/config_groups/config_groups_selection', obj: obj, resource_type: resource_type %>
+    <%= render 'foreman_puppet/config_groups/config_groups_selection', obj: obj, resource_type: resource_type %>
   <% end %>
 
-  <%= render 'foreman_puppet_enc/puppetclasses/class_selection', obj: obj, resource_type: resource_type %>
+  <%= render 'foreman_puppet/puppetclasses/class_selection', obj: obj, resource_type: resource_type %>
 <% else %>
   <%= alert(class: alert_class(:info),
             header: _('Notice'),
             text: _('Please select an environment first')) %>
 <% end %>
 
-<fieldset id="puppet_klasses_parameters" data-url="<%= foreman_puppet_enc.url_for(action: :puppetclass_parameters, only_path: true) %>">
+<fieldset id="puppet_klasses_parameters" data-url="<%= foreman_puppet.url_for(action: :puppetclass_parameters, only_path: true) %>">
   <h2><%= _('Puppet Class Parameters') %></h2>
-  <%= render 'foreman_puppet_enc/puppetclasses/classes_parameters', obj: host_or_hostgroup %>
+  <%= render 'foreman_puppet/puppetclasses/classes_parameters', obj: host_or_hostgroup %>
 </fieldset>

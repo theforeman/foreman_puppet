@@ -26,4 +26,4 @@ Style/FormatStringToken:
 Metrics/BlockLength:
   Exclude:
     - 'config/*routes.rb'
-    - 'lib/foreman_puppet_enc/register.rb'
+    - 'lib/foreman_puppet/register.rb'

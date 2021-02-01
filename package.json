@@ -1,5 +1,5 @@
 {
-  "name": "foreman_puppet_enc",
+  "name": "foreman_puppet",
   "version": "1.0.0",
   "description": "DESCRIPTION",
   "main": "index.js",
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/theforeman/foreman_puppet_enc.git"
+    "url": "git+https://github.com/theforeman/foreman_puppet.git"
   },
   "bugs": {
-    "url": "http://projects.theforeman.org/projects/foreman_puppet_enc/issues"
+    "url": "http://projects.theforeman.org/projects/foreman_puppet/issues"
   },
   "peerDependencies": {
     "@theforeman/vendor": ">= 4.0.2"

@@ -1,8 +1,8 @@
 [main]
 host = https://www.transifex.com
 
-[foreman.foreman_puppet_enc]
-file_filter = locale/<lang>/foreman_puppet_enc.edit.po
-source_file = locale/foreman_puppet_enc.pot
+[foreman.foreman_puppet]
+file_filter = locale/<lang>/foreman_puppet.edit.po
+source_file = locale/foreman_puppet.pot
 source_lang = en
 type = PO

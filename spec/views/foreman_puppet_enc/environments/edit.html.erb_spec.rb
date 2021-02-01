@@ -1,6 +1,6 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
-describe 'foreman_puppet_enc/environments/edit.html.erb' do
+describe 'foreman_puppet/environments/edit.html.erb' do
   it 'renders the form' do
     assign(:environment, FactoryBot.build_stubbed(:environment, name: 'Special'))
 

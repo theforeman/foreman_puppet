@@ -1,6 +1,6 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
-describe 'foreman_puppet_enc/config_groups/edit.html.erb' do
+describe 'foreman_puppet/config_groups/edit.html.erb' do
   helper PuppetclassesHelper
 
   it 'renders the form' do

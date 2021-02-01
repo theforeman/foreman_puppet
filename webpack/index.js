@@ -4,7 +4,7 @@
 import componentRegistry from 'foremanReact/components/componentRegistry';
 import { registerReducer } from 'foremanReact/common/MountingService';
 import reducers from './src/reducers';
-import ForemanPuppetEnc from './src/ForemanPuppetEnc';
+import ForemanPuppet from './src/ForemanPuppet';
 
 // register reducers
 Object.entries(reducers).forEach(([key, reducer]) =>
@@ -13,6 +13,6 @@ Object.entries(reducers).forEach(([key, reducer]) =>
 
 // register components for erb mounting
 componentRegistry.register({
-  name: 'ForemanPuppetEnc',
-  type: ForemanPuppetEnc,
+  name: 'ForemanPuppet',
+  type: ForemanPuppet,
 });

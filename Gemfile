@@ -11,7 +11,7 @@ else
 
   # remove deps, we want to redefine
   temporary_deletes = %w[theforeman-rubocop]
-  temporary_deletes.concat(%w[foreman_puppet_enc]).each do |dep_name|
+  temporary_deletes.concat(%w[foreman_puppet]).each do |dep_name|
     dep = dependencies.detect { |d| d.name == dep_name }
     dependencies.delete(dep) if dep
   end

@@ -1,4 +1,4 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
 describe 'provisioning_templates/new.html.erb' do
   let!(:environment) { FactoryBot.create(:environment, name: 'SpecialEnv') }

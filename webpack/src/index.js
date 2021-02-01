@@ -1,1 +1,1 @@
-export { default } from './ForemanPuppetEnc';
+export { default } from './ForemanPuppet';

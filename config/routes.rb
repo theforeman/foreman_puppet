@@ -1,4 +1,4 @@
-ForemanPuppetEnc::Engine.routes.draw do
+ForemanPuppet::Engine.routes.draw do
   # ENC requests goes here
   get 'node/:name' => '/hosts#externalNodes', :constraints => { name: /[^.][\w.-]+/ }
 
@@ -82,7 +82,7 @@ ForemanPuppetEnc::Engine.routes.draw do
 end
 
 Foreman::Application.routes.draw do
-  mount ForemanPuppetEnc::Engine, at: '/foreman_puppet_enc'
+  mount ForemanPuppet::Engine, at: '/foreman_puppet'
 
   # ENC requests goes here - should get depreacated
   get 'node/:name' => 'hosts#externalNodes', :constraints => { name: /[^.][\w.-]+/ }
