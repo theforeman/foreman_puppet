@@ -79,7 +79,7 @@ module ForemanPuppet
       return [] unless hostgroup.parent
       groups = []
       hostgroup.ancestors.each do |hostgroup|
-        groups += hostgroup.puppet&.config_groups
+        groups += hostgroup.puppet&.config_groups || []
       end
       groups.uniq
     end
