@@ -26,7 +26,7 @@ jobs:
   view_specs:
     runs-on: ubuntu-latest
     env:
-      working-directory: './foreman_puppet_enc'
+      working-directory: './foreman_puppet'
       BUNDLE_WITHOUT: journald:development:console:libvirt
     needs: rubocop
     services:
@@ -43,11 +43,11 @@ jobs:
           path: foreman
       - uses: actions/checkout@v2
         with:
-          path: foreman_puppet_enc
+          path: foreman_puppet
       - name: Setup Bundler
         working-directory: ${{env.working-directory}}
         run: |
-          echo "gem 'foreman_puppet_enc', path: '../foreman_puppet_enc'" > ../foreman/bundler.d/foreman_puppet_enc.local.rb
+          echo "gem 'foreman_puppet', path: '../foreman_puppet'" > ../foreman/bundler.d/foreman_puppet.local.rb
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -90,10 +90,10 @@ jobs:
           ref: ${{ matrix.foreman-core-branch }}
       - uses: actions/checkout@v2
         with:
-          path: foreman_puppet_enc
+          path: foreman_puppet
       - name: Setup Bundler
         run: |
-          echo "gem 'foreman_puppet_enc', path: './foreman_puppet_enc'" > bundler.d/foreman_puppet_enc.local.rb
+          echo "gem 'foreman_puppet', path: './foreman_puppet'" > bundler.d/foreman_puppet.local.rb
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -122,7 +122,7 @@ jobs:
       - name: Run plugin tests
         if: github.event_name != 'push'
         run: |
-          bundle exec rake test:foreman_puppet_enc
+          bundle exec rake test:foreman_puppet
       - name: Upload test.log
         uses: actions/upload-artifact@v2
         if: failure() && github.event_name != 'push'

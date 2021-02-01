@@ -1,6 +1,6 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
-describe 'foreman_puppet_enc/puppetclasses/index.html.erb' do
+describe 'foreman_puppet/puppetclasses/index.html.erb' do
   context 'with 2 puppetclasses' do
     before(:each) do
       hostgroup = FactoryBot.build_stubbed(:hostgroup, organizations: [FactoryBot.create(:organization)], locations: [FactoryBot.create(:location)])

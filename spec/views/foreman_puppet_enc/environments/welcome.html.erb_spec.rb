@@ -1,6 +1,6 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
-describe 'foreman_puppet_enc/environments/welcome.html.erb' do
+describe 'foreman_puppet/environments/welcome.html.erb' do
   it 'renders the welcome page' do
     assign(:welcome, true)
 

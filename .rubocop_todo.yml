@@ -11,12 +11,12 @@
 # Include: **/*.gemspec
 Gemspec/RequiredRubyVersion:
   Exclude:
-    - 'foreman_puppet_enc.gemspec'
+    - 'foreman_puppet.gemspec'
 
 # Offense count: 1
 Lint/RequireParentheses:
   Exclude:
-    - 'app/controllers/concerns/foreman_puppet_enc/extensions/hosts_controller_extensions.rb'
+    - 'app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb'
 
 # Offense count: 42
 # Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
@@ -53,7 +53,7 @@ Metrics/ModuleLength:
 # Configuration parameters: Max, CountKeywordArgs, MaxOptionalParameters.
 Metrics/ParameterLists:
   Exclude:
-    - 'test/controllers/foreman_puppet_enc/puppetclasses_controller_test.rb'
+    - 'test/controllers/foreman_puppet/puppetclasses_controller_test.rb'
 
 # Offense count: 14
 # Configuration parameters: IgnoredMethods.
@@ -65,7 +65,7 @@ Metrics/PerceivedComplexity:
 # SupportedStyles: snake_case, camelCase
 Naming/MethodName:
   Exclude:
-    - 'app/models/foreman_puppet_enc/environment.rb'
+    - 'app/models/foreman_puppet/environment.rb'
 
 # Offense count: 2
 # Configuration parameters: NamePrefix, ForbiddenPrefixes, AllowedMethods, MethodDefinitionMacros.
@@ -75,27 +75,27 @@ Naming/MethodName:
 # MethodDefinitionMacros: define_method, define_singleton_method
 Naming/PredicateName:
   Exclude:
-    - 'app/models/foreman_puppet_enc/environment_class.rb'
-    - 'app/services/foreman_puppet_enc/host_info_providers/puppet_info.rb'
+    - 'app/models/foreman_puppet/environment_class.rb'
+    - 'app/services/foreman_puppet/host_info_providers/puppet_info.rb'
 
 # Offense count: 1
 # Configuration parameters: Include.
 # Include: app/models/**/*.rb
 Rails/HasAndBelongsToMany:
   Exclude:
-    - 'app/models/concerns/foreman_puppet_enc/extensions/operatingsystem.rb'
+    - 'app/models/concerns/foreman_puppet/extensions/operatingsystem.rb'
 
 # Offense count: 2
 Rails/OutputSafety:
   Exclude:
-    - 'app/helpers/foreman_puppet_enc/puppetclasses_and_environments_helper.rb'
+    - 'app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb'
 
 # Offense count: 8
 # Configuration parameters: ForbiddenMethods, AllowedMethods.
 # ForbiddenMethods: decrement!, decrement_counter, increment!, increment_counter, insert, insert!, insert_all, insert_all!, toggle!, touch, touch_all, update_all, update_attribute, update_column, update_columns, update_counters, upsert, upsert_all
 Rails/SkipsModelValidations:
   Exclude:
-    - 'test/controllers/foreman_puppet_enc/api/v2/environments_controller_test.rb'
+    - 'test/controllers/foreman_puppet/api/v2/environments_controller_test.rb'
 
 # Offense count: 195
 # Cop supports --auto-correct.
@@ -108,13 +108,13 @@ Style/FrozenStringLiteralComment:
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
   Exclude:
-    - 'app/controllers/concerns/foreman_puppet_enc/extensions/hosts_controller_extensions.rb'
+    - 'app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/IfUnlessModifier:
   Exclude:
-    - 'lib/tasks/foreman_puppet_enc_tasks.rake'
+    - 'lib/tasks/foreman_puppet_tasks.rake'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -122,14 +122,14 @@ Style/IfUnlessModifier:
 # SupportedStyles: predicate, comparison
 Style/NumericPredicate:
   Exclude:
-    - 'app/controllers/foreman_puppet_enc/api/v2/lookups_common_controller.rb'
+    - 'app/controllers/foreman_puppet/api/v2/lookups_common_controller.rb'
 
 # Offense count: 1
 # Configuration parameters: AllowedMethods.
 # AllowedMethods: respond_to_missing?
 Style/OptionalBooleanParameter:
   Exclude:
-    - 'app/helpers/foreman_puppet_enc/puppetclasses_and_environments_helper.rb'
+    - 'app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -137,7 +137,7 @@ Style/OptionalBooleanParameter:
 # IgnoredMethods: respond_to, define_method
 Style/SymbolProc:
   Exclude:
-    - 'app/views/foreman_puppet_enc/api/v2/import_puppetclasses/show.json.rabl'
+    - 'app/views/foreman_puppet/api/v2/import_puppetclasses/show.json.rabl'
 
 # Offense count: 277
 # Cop supports --auto-correct.

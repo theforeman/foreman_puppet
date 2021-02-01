@@ -1,6 +1,6 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
-describe 'foreman_puppet_enc/environments/index.html.erb' do
+describe 'foreman_puppet/environments/index.html.erb' do
   context 'with 2 environments' do
     before(:each) do
       envs = as_paginatable([FactoryBot.build_stubbed(:environment, name: 'slicer'),

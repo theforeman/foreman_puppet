@@ -1,6 +1,6 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
-describe 'foreman_puppet_enc/environments/new.html.erb' do
+describe 'foreman_puppet/environments/new.html.erb' do
   it 'renders the form' do
     assign(:environment, Environment.new)
 

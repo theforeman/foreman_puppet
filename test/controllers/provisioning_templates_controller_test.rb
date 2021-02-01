@@ -1,4 +1,4 @@
-require 'test_puppet_enc_helper'
+require 'test_puppet_helper'
 
 class ProvisioningTemplatesControllerTest < ActionController::TestCase
   let(:environment) { FactoryBot.create(:environment) }

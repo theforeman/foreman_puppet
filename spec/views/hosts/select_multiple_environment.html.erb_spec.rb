@@ -1,11 +1,11 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
 describe 'hosts/select_multiple_environment.html.erb' do
   let!(:environment) { FactoryBot.create(:environment, name: 'SpecialEnv') }
 
   it 'renders the form' do
     hosts = [FactoryBot.build_stubbed(:host)]
-    if ForemanPuppetEnc.extracted_from_core?
+    if ForemanPuppet.extracted_from_core?
       hosts.stubs(:preload).returns(hosts)
     else
       hosts.stubs(:includes).returns(hosts)

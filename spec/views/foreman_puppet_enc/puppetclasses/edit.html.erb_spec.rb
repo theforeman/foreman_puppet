@@ -1,6 +1,6 @@
-require 'spec_puppet_enc_helper'
+require 'spec_puppet_helper'
 
-describe 'foreman_puppet_enc/puppetclasses/edit.html.erb', type: :view do
+describe 'foreman_puppet/puppetclasses/edit.html.erb', type: :view do
   it 'renders the form' do
     assign(:puppetclass, FactoryBot.build_stubbed(:puppetclass, name: 'Special'))
 

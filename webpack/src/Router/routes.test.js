@@ -3,7 +3,7 @@ import { shallow } from '@theforeman/test';
 
 import Routes from './routes';
 
-describe('ForemanPuppetEncRoutes', () => {
+describe('ForemanPuppetRoutes', () => {
   it('should create routes', () => {
     Object.entries(Routes).forEach(([key, Route]) => {
       const Component = Route.component;
