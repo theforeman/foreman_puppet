@@ -55,7 +55,7 @@ module ForemanPuppet
         end
 
         def process_deprecated_attributes!(params)
-          %w[puppetclass config_groups].each do |relation|
+          %w[puppetclass config_group].each do |relation|
             ids = params.delete("#{relation}_ids".to_sym)
             names = params.delete("#{relation}_names".to_sym)
             plains = params.delete(relation.pluralize.to_sym)

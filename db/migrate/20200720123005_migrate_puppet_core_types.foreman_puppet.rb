@@ -5,6 +5,7 @@ class MigratePuppetCoreTypes < ActiveRecord::Migration[6.0]
       Permission.where(resource_type: type).update_all(resource_type: "ForemanPuppet::#{type}")
     end
     LookupKey.where(type: 'PuppetclassLookupKey').update_all(type: 'ForemanPuppet::PuppetclassLookupKey')
+    TaxableTaxonomy.where(taxable_type: 'Environment').update_all(taxable_type: 'ForemanPuppet::Environment')
   end
 
   def down
@@ -13,5 +14,6 @@ class MigratePuppetCoreTypes < ActiveRecord::Migration[6.0]
       Permission.where(resource_type: "ForemanPuppet::#{type}").update_all(resource_type: type)
     end
     LookupKey.where(type: 'ForemanPuppet::PuppetclassLookupKey').update_all(type: 'PuppetclassLookupKey')
+    TaxableTaxonomy.where(taxable_type: 'ForemanPuppet::Environment').update_all(taxable_type: 'Environment')
   end
 end

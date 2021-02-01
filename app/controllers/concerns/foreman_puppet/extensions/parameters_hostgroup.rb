@@ -12,7 +12,7 @@ module ForemanPuppet
       end
 
       module PatchedClassMethods
-        def host_params_filter
+        def hostgroup_params_filter
           super.tap do |filter|
             filter.permit :environment_id, :environment_name,
               config_group_ids: [], config_group_names: [],
@@ -25,15 +25,15 @@ module ForemanPuppet
       end
 
       module PatchedMethods
-        def host_params(*attrs)
+        def hostgroup_params(*attrs)
           params = super(*attrs)
 
-          process_deprecated_environment_params!(params)
-          process_deprecated_attributes!(params)
+          process_deprecated_hostgroup_environment_params!(params)
+          process_deprecated_hostgroup_attributes!(params)
           params
         end
 
-        def process_deprecated_environment_params!(params)
+        def process_deprecated_hostgroup_environment_params!(params)
           env_id = env_name = nil
           if ForemanPuppet.extracted_from_core?
             env_id = params.delete(:environment_id)
@@ -51,10 +51,10 @@ module ForemanPuppet
           params[:puppet_attributes][:environment_name] ||= env_name if env_name
         end
 
-        def process_deprecated_attributes!(params)
-          %w[puppetclass config_groups].each do |relation|
-            ids = params.delete("#{relation}_ids".to_sym)
-            names = params.delete("#{relation}_names".to_sym)
+        def process_deprecated_hostgroup_attributes!(params)
+          %w[puppetclass config_group].each do |relation|
+            ids = params.delete("#{relation}_ids")
+            names = params.delete("#{relation}_names")
 
             next unless ids || names
             ::Foreman::Deprecation.api_deprecation_warning("param hostgroup[#{relation}_*] has been deprecated in favor of hostgroup[puppet_attributes][#{relation}_*]")
