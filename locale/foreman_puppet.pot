@@ -1,19 +1,1076 @@
-# foreman_puppet_enc
-#
-# This file is distributed under the same license as foreman_puppet_enc.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: version 0.0.1\n"
+"Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 08:46+0100\n"
-"PO-Revision-Date: 2014-08-20 08:46+0100\n"
-"Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
+"POT-Creation-Date: 2021-02-02 04:11+0100\n"
+"PO-Revision-Date: 2021-02-02 04:11+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+#:
+#: ../app/controllers/concerns/foreman_puppet/api/import_puppetclasses_common_controller.rb:14
+msgid "Import puppet classes from puppet proxy"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/api/import_puppetclasses_common_controller.rb:15
+#: ../app/controllers/concerns/foreman_puppet/api/import_puppetclasses_common_controller.rb:16
+msgid "Import puppet classes from puppet proxy for an environment"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/api/import_puppetclasses_common_controller.rb:21
+msgid ""
+"Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolet"
+"e'that is used to limit the imported Puppet classes"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/api/import_puppetclasses_common_controller.rb:49
+msgid ""
+"Failed to update the environments and Puppet classes from the on-disk puppet i"
+"nstallation: %s"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/api/import_puppetclasses_common_controller.rb:77
+#: ../app/controllers/concerns/foreman_puppet/environments_import.rb:21
+msgid "No changes to your environments detected"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/api/import_puppetclasses_common_controller.rb:104
+#: ../app/controllers/concerns/foreman_puppet/api/import_puppetclasses_common_controller.rb:117
+msgid ""
+"No proxy found to import classes from, ensure that the smart proxy has the Pup"
+"pet feature enabled."
+msgstr ""
+
+#: ../app/controllers/concerns/foreman_puppet/environments_import.rb:15
+msgid ""
+"Ignored environment names resulting in booleans found. Please quote strings li"
+"ke true/false and yes/no in config/ignored_environments.yml"
+msgstr ""
+
+#: ../app/controllers/concerns/foreman_puppet/environments_import.rb:32
+msgid ""
+"Successfully updated environments and Puppet classes from the on-disk Puppet i"
+"nstallation"
+msgstr ""
+
+#: ../app/controllers/concerns/foreman_puppet/environments_import.rb:34
+msgid ""
+"Failed to update environments and Puppet classes from the on-disk Puppet insta"
+"llation: %s"
+msgstr ""
+
+#: ../app/controllers/concerns/foreman_puppet/environments_import.rb:46
+msgid ""
+"No smart proxy was found to import environments from, ensure that at least one"
+" smart proxy is registered with the 'puppet' feature"
+msgstr ""
+
+#: ../app/controllers/concerns/foreman_puppet/environments_import.rb:53
+msgid "Ignored environments: %s"
+msgstr ""
+
+#: ../app/controllers/concerns/foreman_puppet/environments_import.rb:55
+msgid "Ignored classes in the environments: %s"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_hostgroups_controller.rb:11
+msgid "List all host groups for a Puppet class"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_hostgroups_controller.rb:14
+msgid "ID of Puppetclass"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_hostgroups_controller.rb:19
+msgid "Deprecated in favor of hostgroup/puppet_attributes/environment_id"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_hostgroups_controller.rb:20
+msgid "Deprecated in favor of hostgroup/puppet_attributes/puppetclass_ids"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_hostgroups_controller.rb:21
+msgid "Deprecated in favor of hostgroup/puppet_attributes/config_group_ids"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_hostgroups_controller.rb:24
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_v2_hosts_controller.rb:24
+msgid "ID of associated puppet Environment"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_hostgroups_controller.rb:25
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_v2_hosts_controller.rb:25
+msgid "IDs of associated Puppetclasses"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_hostgroups_controller.rb:26
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_v2_hosts_controller.rb:26
+msgid "IDs of associated ConfigGroups"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_template_combinations_controller.rb:9
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:16
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:51
+msgid "ID of environment"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_v2_hosts_controller.rb:11
+msgid "List hosts per environment"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_v2_hosts_controller.rb:14
+msgid "ID of puppet environment"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_v2_hosts_controller.rb:19
+msgid "Deprecated in favor of host/puppet_attributes/environment_id"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_v2_hosts_controller.rb:20
+msgid "Deprecated in favor of host/puppet_attributes/puppetclass_ids"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/api_v2_hosts_controller.rb:21
+msgid "Deprecated in favor of host/puppet_attributes/config_group_ids"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:63
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:116
+msgid "No environment selected!"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:77
+msgid "Updated hosts: changed environment"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:106
+msgid "Unable to generate output, Check log files"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:146
+msgid "No proxy selected!"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:152
+msgid "Invalid proxy selected!"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:169
+msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:175
+msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:177
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:192
+msgid "The %{proxy_type} proxy of the selected hosts was cleared."
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:180
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:195
+msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
+msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
+msgstr[0] ""
+msgstr[1] ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:190
+msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:205
+msgid "Puppet"
+msgstr ""
+
+#:
+#: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:212
+msgid "Puppet CA"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/config_groups_controller.rb:11
+msgid "List of config groups"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/config_groups_controller.rb:19
+msgid "Show a config group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/config_groups_controller.rb:32
+msgid "Create a config group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/config_groups_controller.rb:40
+msgid "Update a config group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/config_groups_controller.rb:48
+msgid "Delete a config group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:16
+msgid "List all environments"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:17
+msgid "List environments of Puppet class"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:18
+msgid "List environments per location"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:19
+msgid "List environments per organization"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:20
+#: ../app/controllers/foreman_puppet/api/v2/host_classes_controller.rb:16
+#: ../app/controllers/foreman_puppet/api/v2/host_classes_controller.rb:25
+#: ../app/controllers/foreman_puppet/api/v2/hostgroup_classes_controller.rb:15
+#: ../app/controllers/foreman_puppet/api/v2/hostgroup_classes_controller.rb:24
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:52
+msgid "ID of Puppet class"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:29
+msgid "Show an environment"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:42
+msgid "Create an environment"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:50
+msgid "Update an environment"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/environments_controller.rb:58
+msgid "Delete an environment"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/host_classes_controller.rb:8
+msgid "List all Puppet class IDs for host"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/host_classes_controller.rb:14
+msgid "Add a Puppet class to host"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/host_classes_controller.rb:15
+#: ../app/controllers/foreman_puppet/api/v2/host_classes_controller.rb:24
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:14
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:49
+msgid "ID of host"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/host_classes_controller.rb:23
+msgid "Remove a Puppet class from host"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hostgroup_classes_controller.rb:7
+msgid "List all Puppet class IDs for host group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hostgroup_classes_controller.rb:13
+msgid "Add a Puppet class to host group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hostgroup_classes_controller.rb:14
+#: ../app/controllers/foreman_puppet/api/v2/hostgroup_classes_controller.rb:23
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:15
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:50
+msgid "ID of host group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hostgroup_classes_controller.rb:22
+msgid "Remove a Puppet class from host group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/lookups_common_controller.rb:108
+msgid "%{model} with id '%{id}' was not found"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:20
+msgid "List of override values for a specific smart class parameter"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:22
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:31
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:25
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:37
+msgid "Display hidden values"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:28
+msgid "Show an override value for a specific smart class parameter"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:38
+msgid "Override match"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:39
+msgid "Override value, required if omit is false"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:40
+msgid "Foreman will not send this parameter in classification output"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:44
+msgid "Create an override value for a specific smart class parameter"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:54
+msgid "Update an override value for a specific smart class parameter"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:63
+msgid "Delete an override value for a specific smart class parameter"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:10
+msgid "List all Puppet classes"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:11
+msgid "List all Puppet classes for a host"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:12
+msgid "List all Puppet classes for a host group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:13
+msgid "List all Puppet classes for an environment"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:45
+msgid "Show a Puppet class"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:46
+msgid "Show a Puppet class for host"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:47
+msgid "Show a Puppet class for a host group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:48
+msgid "Show a Puppet class for an environment"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:63
+msgid "Create a Puppet class"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:71
+msgid "Update a Puppet class"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/puppetclasses_controller.rb:80
+msgid "Delete a Puppet class"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:14
+msgid "List all smart class parameters"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:15
+msgid "List of smart class parameters for a specific host"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:16
+msgid "List of smart class parameters for a specific host group"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:17
+msgid "List of smart class parameters for a specific Puppet class"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:18
+msgid "List of smart class parameters for a specific environment"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:20
+msgid ""
+"List of smart class parameters for a specific environment/Puppet class combina"
+"tion"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:35
+msgid "Show a smart class parameter"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:42
+msgid "Update a smart class parameter"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:46
+msgid "Whether the smart class parameter value is managed by Foreman"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:47
+msgid "Description of smart class"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:48
+msgid "Value to use when there is no match"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:49
+msgid "When enabled the parameter is hidden in the UI"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:50
+msgid ""
+"Foreman will not send this parameter in classification output.Puppet will use "
+"the value defined in the Puppet manifest for this parameter"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:52
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:55
+msgid "The order in which values are resolved"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:53
+msgid "Types of validation values"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:54
+msgid "Used to enforce certain values for the parameter values"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:56
+msgid "Types of variable values"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:57
+msgid ""
+"If true, will raise an error if there is no default value and no matcher provi"
+"de a value"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:58
+msgid "Merge all matching values (only array/hash type)"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:59
+msgid "Include default value when merging all matching values"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/smart_class_parameters_controller.rb:60
+msgid "Remove duplicate values (only array type)"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/puppetclasses_controller.rb:58
+msgid "Successfully overridden all parameters of Puppet class %s"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/puppetclasses_controller.rb:60
+msgid "Successfully reset all parameters of Puppet class %s to their default values"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/puppetclasses_controller.rb:63
+msgid "No parameters to override for Puppet class %s"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/environments_helper.rb:13
+#: ../app/views/foreman_puppet/environments/new.html.erb:5
+#: ../app/views/foreman_puppet/environments/welcome.html.erb:11
+msgid "Create Puppet Environment"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/hosts_helper.rb:11
+msgid "Change Environment"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/hosts_helper.rb:13
+msgid "Change Puppet Master"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/hosts_helper.rb:25
+msgid "Puppet YAML"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/hosts_helper.rb:25
+msgid "Puppet external nodes YAML dump"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclass_lookup_keys_helper.rb:32
+msgid "Omit from classification output"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclass_lookup_keys_helper.rb:39
+msgid "Override this value"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclass_lookup_keys_helper.rb:43
+msgid "Remove this override"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclass_lookup_keys_helper.rb:75
+msgid "Default value"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclass_lookup_keys_helper.rb:93
+msgid "Original value info"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclass_lookup_keys_helper.rb:99
+msgid ""
+"<b>Description:</b> %{desc}<br/>\n"
+"        <b>Type:</b> %{type}<br/>\n"
+"        <b>Matcher:</b> %{matcher}<br/>\n"
+"        <b>Inherited value:</b> %{inherited_value}"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclass_lookup_keys_helper.rb:113
+msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclass_lookup_keys_helper.rb:116
+msgid ""
+"Optional parameter without value.<br/><i>Still managed by Foreman, the value w"
+"ill be empty.</i><br/>"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb:5
+msgid "Empty environment"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb:7
+msgid "Deleted environment"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb:9
+msgid "Deleted environment %{env} and %{pcs}"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb:11
+msgid "Ignored environment"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb:18
+msgid "Import"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb:22
+msgid "Import environments from %s"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb:22
+msgid "Import classes from %s"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_and_environments_helper.rb:45
+msgid "%{name} has %{num_tag} class"
+msgid_plural "%{name} has %{num_tag} classes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_helper.rb:33
+#: ../webpack/src/foreman_class_edit.js:55
+msgid "Click to remove %s"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/puppetclasses_helper.rb:46
+msgid "Click to add %s"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:6
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:7
+msgid "None"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:14
+msgid ""
+"When editing a template, you must assign a list \\\n"
+"  of operating systems which this template can be used with. Optionally, you c"
+"an \\\n"
+"  restrict a template to a list of host groups and/or environments."
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:18
+msgid ""
+"When a Host requests a template (e.g. during provisioning), Foreman \\\n"
+"  will select the best match from the available templates of that type, in the"
+" \\\n"
+"  following order:"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:22
+msgid "Host group and Environment"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:23
+msgid "Host group only"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:24
+msgid "Environment only"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:25
+msgid "Operating system default"
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:27
+msgid "The final entry, Operating System default, can be set by editing the %s page."
+msgstr ""
+
+#: ../app/helpers/foreman_puppet/template_combinations_helper.rb:28
+msgid "Operating System"
+msgstr ""
+
+#: ../app/models/foreman_puppet/environment.rb:42
+msgid "Can't find a valid Foreman Proxy with a Puppet feature"
+msgstr ""
+
+#: ../app/models/foreman_puppet/host_puppet_facet.rb:60
+msgid "%{puppetclass} does not belong to the %{environment} environment"
+msgstr ""
+
+#: ../app/models/foreman_puppet/host_puppet_facet.rb:80
+msgid ""
+"Failed to import %{klass} for %{name}: doesn't exists in our database - ignori"
+"ng"
+msgstr ""
+
+#: ../app/models/foreman_puppet/host_puppet_facet.rb:122
+msgid ""
+"with id %{object_id} doesn't exist or is not assigned to proper organization a"
+"nd/or location"
+msgstr ""
+
+#: ../app/models/foreman_puppet/puppetclass_lookup_key.rb:51
+msgid "must be true to edit the parameter"
+msgstr ""
+
+#: ../app/services/foreman_puppet/input_type/puppet_parameter_input.rb:24
+msgid "Puppet parameter"
+msgstr ""
+
+#: ../app/services/foreman_puppet/puppet_class_importer.rb:16
+msgid "Can't find a valid Proxy with a Puppet feature"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/_config_group.html.erb:10
+msgid "included already from parent"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/_config_group.html.erb:14
+#: ../app/views/provisioning_templates/_combination.html.erb:4
+msgid "Remove"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/_config_group.html.erb:14
+msgid "Add"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/_config_group.html.erb:26
+msgid "%s is not in environment"
+msgstr ""
+
+#:
+#: ../app/views/foreman_puppet/config_groups/_config_groups_selection.html.erb:4
+msgid "Included Config Groups"
+msgstr ""
+
+#:
+#: ../app/views/foreman_puppet/config_groups/_config_groups_selection.html.erb:21
+msgid "Available Config Groups"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/edit.html.erb:1
+#: ../app/views/foreman_puppet/environments/edit.html.erb:1
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/edit.html.erb:1
+msgid "Edit %s"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:3
+#: ../app/views/foreman_puppet/config_groups/welcome.html.erb:1
+#: ../app/views/foreman_puppet/config_groups/welcome.html.erb:6
+#: ../lib/foreman_puppet/register.rb:157
+msgid "Config Groups"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:5
+#: ../app/views/foreman_puppet/config_groups/new.html.erb:1
+#: ../app/views/foreman_puppet/config_groups/welcome.html.erb:10
+msgid "Create Config Group"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:11
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:1
+msgid "Puppet Classes"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:12
+#: ../app/views/foreman_puppet/environments/index.html.erb:9
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:12
+msgid "Hosts"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:13
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:11
+msgid "Host Groups"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:14
+#: ../app/views/foreman_puppet/environments/index.html.erb:10
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:14
+msgid "Actions"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:25
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:36
+msgid "Delete %s?"
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/welcome.html.erb:7
+msgid ""
+"A config group provides a one-step method of associating many Puppet classes t"
+"o either a host or host group. Typically this would be used to add a particula"
+"r application profile or stack in one step."
+msgstr ""
+
+#: ../app/views/foreman_puppet/config_groups/welcome.html.erb:8
+#: ../app/views/foreman_puppet/environments/welcome.html.erb:9
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/welcome.html.erb:8
+msgid "Learn more about this in the documentation."
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/_form.html.erb:4
+#: ../app/views/foreman_puppet/puppet_smart_proxies/_environments.html.erb:4
+#: ../app/views/hosts/select_multiple_environment.html.erb:7
+#: ../app/views/provisioning_templates/_combination.html.erb:4
+msgid "Environment"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/_form.html.erb:6
+msgid "Locations"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/_form.html.erb:9
+msgid "Organizations"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/edit.html.erb:5
+#: ../app/views/foreman_puppet/environments/index.html.erb:1
+#: ../app/views/foreman_puppet/environments/new.html.erb:4
+msgid "Puppet Environments"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/index.html.erb:8
+msgid "Environment|Name"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/index.html.erb:22
+#: ../lib/foreman_puppet/register.rb:154
+msgid "Classes"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/new.html.erb:1
+msgid "Create Environment"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/welcome.html.erb:1
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:14
+msgid "Puppet environments"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/welcome.html.erb:6
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:10
+#: ../app/views/smart_proxies/plugins/_puppet.html.erb:4
+#: ../lib/foreman_puppet/register.rb:151
+msgid "Environments"
+msgstr ""
+
+#: ../app/views/foreman_puppet/environments/welcome.html.erb:7
+msgid ""
+"If you are planning to use Foreman as an external node classifier you should p"
+"rovide information about one or more environments. This information is commonl"
+"y imported from a pre-existing Puppet configuration by the use of the %{link_s"
+"tart}Puppet classes and environment importer%{link_end}."
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppet_smart_proxies/_environments.html.erb:5
+msgid "Number of classes"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppet_smart_proxies/_environments.html.erb:15
+msgid "Total"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppet_smart_proxies/_environments.html.erb:25
+msgid "No environments found"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppet_smart_proxies/_environments.html.erb:27
+msgid ""
+"There are no puppet environments set up on this puppet master. Please check th"
+"e puppet master configuration."
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/index.html.erb:1
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/welcome.html.erb:1
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/welcome.html.erb:6
+#: ../lib/foreman_puppet/register.rb:160
+msgid "Smart Class Parameters"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/index.html.erb:6
+msgid "Parameter"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/index.html.erb:7
+#: ../app/views/foreman_puppet/puppetclasses/_classes_parameters.html.erb:4
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:7
+msgid "Puppet Class"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/index.html.erb:8
+msgid "Number of Overrides"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclass_lookup_keys/welcome.html.erb:7
+msgid ""
+"Parameterized class support permits detecting, importing, and supplying parame"
+"ters directly to classes which support it, via the ENC and depending on a set "
+"of rules (Smart Matchers)."
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_class_selection.html.erb:8
+msgid "Included Classes"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_class_selection.html.erb:26
+#: ../app/views/foreman_puppet/puppetclasses/_classes.html.erb:10
+msgid "Not authorized to edit classes"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_class_selection.html.erb:37
+msgid "Inherited Classes from %s"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_class_selection.html.erb:56
+msgid "Available Classes"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_class_selection.html.erb:59
+msgid "Filter classes"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_classes_in_groups.html.erb:2
+#: ../webpack/src/foreman_class_edit.js:84
+msgid "belongs to config group"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_classes_parameters.html.erb:5
+msgid "Name"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_classes_parameters.html.erb:6
+msgid "Value"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_classes_parameters.html.erb:7
+msgid "Omit"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:4
+msgid ""
+"The class could not be saved because of an error in one of the class parameter"
+"s."
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:8
+msgid "Smart Class Parameter"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:15
+msgid "Host groups"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:22
+msgid "This Puppet class has no parameters in its signature."
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:23
+msgid ""
+"To update the class signature, go to the Puppet Classes page and select \"Impor"
+"t\"."
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:28
+msgid "Filter by name"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:34
+msgid "All environments - (not filtered)"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/_form.html.erb:46
+msgid "Overridden"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/edit.html.erb:1
+msgid "Edit Puppet Class %s"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:9
+msgid "Puppetclass|Name"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:13
+msgid "Parameters"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:37
+msgid "Override all parameters"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:37
+msgid "This will set all parameters of the class %s as overridden. Continue?"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:38
+msgid "Set parameters to defaults"
+msgstr ""
+
+#: ../app/views/foreman_puppet/puppetclasses/index.html.erb:38
+msgid "This will reset parameters of the class %s to their default values. Continue?"
+msgstr ""
+
+#: ../app/views/hosts/_form_puppet_enc_tab.html.erb:17
+msgid "Notice"
+msgstr ""
+
+#: ../app/views/hosts/_form_puppet_enc_tab.html.erb:18
+msgid "Please select an environment first"
+msgstr ""
+
+#: ../app/views/hosts/_form_puppet_enc_tab.html.erb:22
+msgid "Puppet Class Parameters"
+msgstr ""
+
+#: ../app/views/hosts/select_multiple_environment.html.erb:4
+msgid "Select environment"
+msgstr ""
+
+#: ../app/views/hosts/select_multiple_environment.html.erb:5
+msgid "*Clear environment*"
+msgstr ""
+
+#: ../app/views/hosts/select_multiple_environment.html.erb:6
+msgid "*Inherit from host group*"
+msgstr ""
+
+#: ../app/views/provisioning_templates/_combination.html.erb:2
+msgid "Hostgroup"
+msgstr ""
+
+#: ../app/views/provisioning_templates/_combination.html.erb:4
+msgid "Remove Combination"
+msgstr ""
+
+#: ../app/views/provisioning_templates/_combinations.html.erb:1
+msgid "Valid Host Group and Environment Combinations"
+msgstr ""
+
+#: ../app/views/provisioning_templates/_combinations.html.erb:6
+msgid "Add Combination"
+msgstr ""
+
+#: ../app/views/smart_proxies/plugins/_puppet.html.erb:3
+msgid "General"
+msgstr ""
+
+#: ../app/views/smart_proxies/plugins/_puppet.html.erb:12
+msgid "Hosts managed:"
+msgstr ""
+
+#: ../lib/foreman_puppet/register.rb:148 ../lib/foreman_puppet/register.rb:204
+msgid "Puppet ENC"
+msgstr ""
+
+#: ../webpack/src/foreman_class_edit.js:146
+msgid "Click to remove config group"
+msgstr ""
+
+#: ../webpack/src/foreman_class_edit.js:149
+msgid " Remove"
+msgstr ""
+
+#: ../webpack/src/foreman_puppet_host_form.js:32
+msgid "Loading parameters..."
+msgstr ""
+
+#: gemspec.rb:2
+msgid "TODO: Description of ForemanPuppetEnc."
+msgstr ""
