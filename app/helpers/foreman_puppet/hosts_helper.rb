@@ -2,7 +2,8 @@ module ForemanPuppet
   module HostsHelper
     UI.register_host_description do
       multiple_actions_provider :puppet_host_multiple_actions
-      overview_buttons_provider :puppet_host_overview_buttons
+      # otherwise registered twice
+      overview_buttons_provider :puppet_host_overview_buttons if ForemanPuppet.extracted_from_core?
     end
 
     def puppet_host_multiple_actions

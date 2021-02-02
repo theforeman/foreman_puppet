@@ -60,13 +60,6 @@ module ForemanPuppet
         end
       end
 
-      # rubocop:disable Naming/MethodName
-      def importNode(nodeinfo)
-        facet = puppet || build_puppet
-        facet.import_puppet_node(nodeinfo)
-      end
-      # rubocop:enable Naming/MethodName
-
       module PrependedMethods
         def provisioning_template(opts = {})
           opts[:environment_id] ||= puppet&.environment_id
@@ -82,6 +75,13 @@ module ForemanPuppet
                                                  environment_id: puppet&.environment_id })
           end.compact
         end
+
+        # rubocop:disable Naming/MethodName
+        def importNode(nodeinfo)
+          facet = puppet || build_puppet
+          facet.import_puppet_node(nodeinfo)
+        end
+        # rubocop:enable Naming/MethodName
       end
     end
   end
