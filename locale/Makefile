@@ -6,7 +6,7 @@
 # make tx-update - download and merge translations from Transifex
 # make clean - clean everything
 #
-DOMAIN = foreman_puppet_enc
+DOMAIN = foreman_puppet
 VERSION = $(shell ruby -e 'require "rubygems";spec = Gem::Specification::load(Dir.glob("../*.gemspec")[0]);puts spec.version')
 POTFILE = $(DOMAIN).pot
 MOFILE = $(DOMAIN).mo
