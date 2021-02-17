@@ -106,7 +106,7 @@ module ForemanPuppet
     # We are going through two associations, so we are on our own to define modifiers
     def hostgroup_ids=(hg_ids)
       hg_ids = Array(hg_ids).reject(&:blank?)
-      hg_to_facets_ids = Hash[HostgroupPuppetFacet.where(hostgroup_id: hg_ids).pluck(:hostgroup_id, :id)]
+      hg_to_facets_ids = HostgroupPuppetFacet.where(hostgroup_id: hg_ids).pluck(:hostgroup_id, :id).to_h
       missing_facet_ids = hg_ids.map(&:to_i) - hg_to_facets_ids.keys
       new_facet_ids = missing_facet_ids.map { |hg_id| HostgroupPuppetFacet.create(hostgroup_id: hg_id).id }
       self.hostgroup_puppet_facet_ids = hg_to_facets_ids.values + new_facet_ids
