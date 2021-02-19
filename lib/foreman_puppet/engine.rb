@@ -39,11 +39,12 @@ module ForemanPuppet
       # we need to run our include_in_clone after, so the puppet without nested objects doesnt override the one including them
       Host::Managed.include ForemanPuppet::Extensions::Host
 
+      Taxonomy.include ForemanPuppet::Extensions::Taxonomy
+      TaxHost.include ForemanPuppet::Extensions::TaxHost
       LookupValue.include ForemanPuppet::PuppetLookupValueExtensions
       Operatingsystem.include ForemanPuppet::Extensions::Operatingsystem
       Nic::Managed.include ForemanPuppet::Extensions::NicManaged
       Report.include ForemanPuppet::Extensions::Report
-      Taxonomy.include ForemanPuppet::Extensions::Taxonomy
       User.include ForemanPuppet::Extensions::User
       TemplateCombination.include ForemanPuppet::Extensions::TemplateCombination
       ProvisioningTemplate.include ForemanPuppet::Extensions::ProvisioningTemplate

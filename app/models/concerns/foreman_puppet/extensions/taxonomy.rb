@@ -14,6 +14,14 @@ module ForemanPuppet
         new.environments = environments
         new
       end
+
+      def environment_ids do
+        if ignore?('ForemanPuppet::Environment')
+          return ForemanPuppet::Environment.pluck(:id)
+        else
+          super()
+        end
+      end
     end
   end
 end
