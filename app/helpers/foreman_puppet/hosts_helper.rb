@@ -4,6 +4,7 @@ module ForemanPuppet
       multiple_actions_provider :puppet_host_multiple_actions
       # otherwise registered twice
       overview_buttons_provider :puppet_host_overview_buttons if ForemanPuppet.extracted_from_core?
+      overview_fields_provider :puppet_host_overview_fields if ForemanPuppet.extracted_from_core?
     end
 
     def puppet_host_multiple_actions
@@ -27,6 +28,20 @@ module ForemanPuppet
         }
       end
       buttons
+    end
+
+    def puppet_host_overview_fields(host)
+      fields = []
+      if host.environment.present?
+        fields << {
+          field: [
+            _('Puppet Environment'),
+            link_to(host.puppet.environment, hosts_path(search: "environment = #{host.puppet.environment}")),
+          ],
+          priority: 650,
+        }
+      end
+      fields
     end
   end
 end
