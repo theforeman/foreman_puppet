@@ -248,15 +248,11 @@ module ForemanPuppet
     end
 
     def add_classes_to_foreman(env_name, klasses)
-      env         = find_or_create_env env_name
-      # look for Puppet class in all scopes to make sure we do not try to create a new record
-      # with a name that already exists and hit the uniqueness constraint on name
-      new_classes = klasses.map { |k| find_or_create_puppetclass(name: k[0]) }
+      env = find_or_create_env env_name
 
-      new_classes.each do |new_class|
-        EnvironmentClass.find_or_create_by! puppetclass_id: new_class.id, environment_id: env.id
-        class_params = klasses[new_class.to_s]
-        add_new_parameter(env, new_class, class_params) if class_params.any?
+      klasses.each do |klass_name, klass_params|
+        puppetclass = find_or_create_puppetclass_for_env(klass_name, env)
+        add_new_parameter(env, puppetclass, klass_params) if klass_params.any?
       end
     end
 
@@ -346,8 +342,12 @@ module ForemanPuppet
                                      key_type: Foreman::ImporterPuppetclass.suggest_key_type(value))
     end
 
-    def find_or_create_puppetclass(name:)
-      puppetclass = Puppetclass.unscoped.find_or_create_by!(name: name)
+    def find_or_create_puppetclass_for_env(klass_name, env)
+      # look for Puppet class in all scopes to make sure we do not try to create a new record
+      # with a name that already exists and hit the uniqueness constraint on name
+      puppetclass = Puppetclass.find_or_initialize_by(name: klass_name)
+      puppetclass.environment_classes.find_or_initialize_by(environment_id: env.id)
+      puppetclass.save
       raise Foreman::Exception.new('Failed to create Puppetclass: %s', puppetclass.errors.full_messages.to_sentence) unless puppetclass.errors.empty?
       puppetclass
     end
