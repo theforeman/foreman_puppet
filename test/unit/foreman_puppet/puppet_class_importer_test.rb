@@ -231,6 +231,18 @@ module ForemanPuppet
       assert_not Environment.find_by(name: 'b_env_new')
     end
 
+    test 'should tax create audits correctly' do
+      env = FactoryBot.create(:environment)
+      klass_changes = { 'apache::new_nicecls' => {} }
+      importer.obsolete_and_new('new' => { env.name => klass_changes.to_json })
+      pc = Puppetclass.find_by(name: 'apache::new_nicecls')
+      assert pc && pc.persisted?
+      assert_equal 1, pc.audits.count
+      audit = pc.audits.first
+      assert_equal env.location_ids, audit.location_ids.sort
+      assert_equal env.organization_ids, audit.organization_ids.sort
+    end
+
     private
 
     def mocked_classes
