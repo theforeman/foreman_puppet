@@ -170,13 +170,13 @@ Foreman::Plugin.register :foreman_puppet do
       # extend_model ForemanPuppet::Extensions::Host
       api_view list: 'foreman_puppet/api/v2/host_puppet_facets/base',
                single: 'foreman_puppet/api/v2/host_puppet_facets/host_single'
-      template_compatibility_properties :environment, :environment_id, :environment_name
+      template_compatibility_properties :puppetmaster, :environment, :environment_id, :environment_name
       set_dependent_action :destroy
     end
     configure_hostgroup(ForemanPuppet::HostgroupPuppetFacet) do
       api_view list: 'foreman_puppet/api/v2/hostgroup_puppet_facets/base',
                single: 'foreman_puppet/api/v2/hostgroup_puppet_facets/hostgroup_single'
-      template_compatibility_properties :environment, :environment_id, :environment_name
+      template_compatibility_properties :puppetmaster, :environment, :environment_id, :environment_name
       set_dependent_action :destroy
     end
   end
