@@ -1,6 +1,6 @@
 <% title _("Puppet Classes") %>
 
-<% title_actions import_proxy_select(hash_for_import_environments_puppetclasses_path),
+<% title_actions import_proxy_select(hash_for_import_environments_puppetclasses_path.merge(engine: foreman_puppet)),
                  documentation_button('4.2.2Classes') %>
 
 <table class="<%= table_css_classes 'table-fixed' %>">

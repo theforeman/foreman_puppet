@@ -11,6 +11,6 @@
     <%= new_link(_('Create Puppet Environment'), { engine: foreman_puppet }, { class: "btn-lg" }) %>
   </div>
   <div class="blank-slate-pf-secondary-action">
-    <%= import_proxy_select(hash_for_import_environments_environments_path) %>
+    <%= import_proxy_select(hash_for_import_environments_environments_path.merge(engine: foreman_puppet)) %>
   </div>
 </div>
