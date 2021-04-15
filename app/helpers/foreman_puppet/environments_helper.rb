@@ -9,7 +9,7 @@ module ForemanPuppet
     end
 
     def environments_title_actions
-      title_actions import_proxy_select(hash_for_import_environments_environments_path),
+      title_actions import_proxy_select(hash_for_import_environments_environments_path.merge(engine: foreman_puppet)),
         button_group(new_link(_('Create Puppet Environment'), engine: foreman_puppet)),
         button_group(help_button)
     end

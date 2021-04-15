@@ -5,6 +5,7 @@ module ForemanPuppet
     include Foreman::Controller::Parameters::Hostgroup
     include ForemanPuppet::Parameters::Environment
     include ForemanPuppet::Parameters::Puppetclass
+    include ForemanPuppet::EnvironmentsImport
 
     before_action :find_resource, only: %i[edit update destroy override]
     before_action :setup_search_options, only: :index

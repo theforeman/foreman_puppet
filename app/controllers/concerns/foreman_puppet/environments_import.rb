@@ -16,7 +16,7 @@ module ForemanPuppet
       end
 
       if !@changed['new'].empty? || !@changed['obsolete'].empty? || !@changed['updated'].empty?
-        render 'common/_puppetclasses_or_envs_changed'
+        render 'foreman_puppet/common/_puppetclasses_or_envs_changed'
       else
         info_message = _('No changes to your environments detected')
 
