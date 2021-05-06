@@ -110,6 +110,12 @@ module ForemanPuppet
     end
 
     describe '#info puppet bits' do
+      test "#info ENC YAML omits environment if no puppet facet" do
+        host = FactoryBot.build_stubbed(:host)
+        enc = host.info
+        refute_includes enc.keys, 'environment'
+      end
+
       test 'ENC YAML uses Classification::ClassParam for parameterized output' do
         skip 'No idea whats wrong here'
         host = FactoryBot.build_stubbed(:host, :with_environment)
