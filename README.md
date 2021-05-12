@@ -1,19 +1,58 @@
 # ForemanPuppet
 
-Adds Puppet External node classification funcionality for [Foreman](theforeman.org).
+[![Gem Version](https://img.shields.io/gem/v/foreman_puppet.svg)](https://rubygems.org/gems/foreman_puppet)
+[![Code Climate](https://codeclimate.com/github/theforeman/foreman_puppet/badges/gpa.svg)](https://codeclimate.com/github/theforeman/foreman_puppet)
+[![GPL License](https://img.shields.io/github/license/theforeman/foreman_ansible.svg)](https://github.com/theforeman/foreman_ansible/blob/master/LICENSE)
 
+This plugin adds Puppet External node classification functionality to [Foreman](theforeman.org).
+
+* Website: [theforeman.org](http://theforeman.org)
+* Support: [Foreman support](http://theforeman.org/support.html)
+
+## Features
+
+* Puppet dashboards
+* Puppet
+    * Environments
+    * Classes
+    * Config groups
+    * Smart Class parameters
+* Host / Hostgroup
+    * Classes assignment
+    * Environment assignment
+    * Puppet proxy assignment
+* Puppet ENC (external node classifier)
+* Smartproxy Puppet status/tab
+* Template hostgroup / environment
+
+## Compatibility
+
+Foreman 3.0 will be the first release where the Puppet functionality is fully extracted.
+Therefore, this plugin is only required for 3.0 and onwards.  
+You can install it on Foreman 2.5 to prepare for the Foreman update.
+
+|Foreman version|Plugin version|Notes                                     |
+|---------------|--------------|------------------------------------------|
+| >= 3.0        | ~> 1.0       | Required                                 |
+| >= 2.5        | ~> 1.0       | Optional; replaces Core features         |
+| < 2.5         | -            | Not supported (functionality is in Core) |
 ## Installation
 
-See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
-for how to install Foreman plugins
+See [How_to_Install_a_Plugin](https://theforeman.org/plugins/#2.Installation) for how to install Foreman plugins
 
 ## Usage
 
-*Usage here*
+The usage is identical to the prior core functionality:
 
-## TODO
+- Import *environments* and *classes* from a Smartproxy
+- Optionally define *Smart Class* parameters
+- Assign *environment* and *classes* to *Hosts / Hostgroups* 
+- Use the *Puppet ENC* on your Puppetserver(s) to query Foreman
 
-*Todo list here*
+## Problems?
+
+Please feel free to open a [new Github issue](https://github.com/theforeman/foreman_puppet/issues/new)
+if you encounter any bugs/issues using this plugin.
 
 ## Contributing
 
@@ -21,7 +60,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) *year* *your name*
+Copyright (c) *2021* *The Foreman developers*
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
