@@ -92,7 +92,7 @@ module ForemanPuppet
             assert_response :success
             response = ActiveSupport::JSON.decode(@response.body)
             puppet_class = response['data']['classes'].keys
-            assert_equal host.puppetclasses.map(&:name), puppet_class
+            assert_equal host.puppet.puppetclasses.map(&:name), puppet_class
           end
         end
       end

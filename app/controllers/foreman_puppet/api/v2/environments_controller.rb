@@ -62,6 +62,10 @@ module ForemanPuppet
           process_response @environment.destroy
         end
 
+        def resource_class
+          ForemanPuppet::Environment
+        end
+
         private
 
         def action_permission

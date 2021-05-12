@@ -42,5 +42,9 @@ module ForemanPuppet
         process_error
       end
     end
+
+    def resource_class
+      model_of_controller
+    end
   end
 end

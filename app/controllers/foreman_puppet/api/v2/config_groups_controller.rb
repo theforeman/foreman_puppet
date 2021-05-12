@@ -51,6 +51,10 @@ module ForemanPuppet
         def destroy
           process_response @config_group.destroy
         end
+
+        def resource_class
+          ForemanPuppet::ConfigGroup
+        end
       end
     end
   end
