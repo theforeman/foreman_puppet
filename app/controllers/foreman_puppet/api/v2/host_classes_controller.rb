@@ -29,6 +29,10 @@ module ForemanPuppet
           process_response @host_class.destroy_all
         end
 
+        def resource_class
+          ForemanPuppet::HostClass
+        end
+
         private
 
         # overwrite resource_name so it's host and and not host_class, since we want to return @host

@@ -28,6 +28,10 @@ module ForemanPuppet
           process_response @hostgroup_class.destroy_all
         end
 
+        def resource_class
+          ForemanPuppet::HostgroupClass
+        end
+
         private
 
         def find_hostgroup

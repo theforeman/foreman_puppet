@@ -1,4 +1,4 @@
-<% Puppetclass.classes2hash(puppetclasses).sort.in_groups(2,nil) do |group| %>
+<% ForemanPuppet::Puppetclass.classes2hash(puppetclasses).sort.in_groups(2,nil) do |group| %>
   <div class="col-md-6 classes">
     <% group.each do |list| %>
       <% next if list.nil? %>

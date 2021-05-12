@@ -5,7 +5,7 @@ module ForemanPuppet
 
       included do
         if ForemanPuppet.extracted_from_core?
-          belongs_to :environment
+          belongs_to :environment, class_name: 'ForemanPuppet::Environment'
 
           validates :environment_id, uniqueness: { scope: %i[hostgroup_id provisioning_template_id] }
 

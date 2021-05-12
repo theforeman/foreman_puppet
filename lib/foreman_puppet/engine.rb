@@ -67,6 +67,8 @@ module ForemanPuppet
       end
       Foreman.input_types_registry.register(ForemanPuppet::InputType::PuppetParameterInput)
       ::ProxyStatus.status_registry.add(ForemanPuppet::ProxyStatus::Puppet)
+    rescue StandardError => e
+      Rails.logger.warn "ForemanPuppet: skipping engine hook (#{e})\n#{e.backtrace.join("\n")}"
     end
 
     rake_tasks do

@@ -16,6 +16,10 @@ module ForemanPuppet
       process_ajax_error e
     end
 
+    def resource_class
+      ::SmartProxy
+    end
+
     private
 
     def find_status

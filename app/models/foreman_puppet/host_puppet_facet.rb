@@ -6,7 +6,7 @@ module ForemanPuppet
     include Facets::Base
     include ForemanPuppet::HostCommon
 
-    has_many :host_classes, dependent: :destroy
+    has_many :host_classes, dependent: :destroy, class_name: 'ForemanPuppet::HostClass'
     has_many :puppetclasses, through: :host_classes
 
     validates :environment_id, presence: true, unless: ->(facet) { facet.host.puppet_proxy_id.blank? }

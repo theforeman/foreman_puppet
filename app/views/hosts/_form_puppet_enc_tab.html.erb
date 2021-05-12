@@ -7,7 +7,7 @@
 <span id="puppet_klasses_reload_url" data-url="<%= foreman_puppet.environment_selected_hostgroups_path %>"></span>
 <% end %>
 <% if @environment.present? || obj.environment.present? %>
-  <% if accessible_resource_records(:config_group).exists? %>
+  <% if accessible_resource_records('ForemanPuppet::ConfigGroup').exists? %>
     <%= render 'foreman_puppet/config_groups/config_groups_selection', obj: obj, resource_type: resource_type %>
   <% end %>
 

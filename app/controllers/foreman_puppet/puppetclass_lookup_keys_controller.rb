@@ -13,7 +13,7 @@ module ForemanPuppet
     end
 
     def resource_class
-      ForemanPuppet::PuppetclassLookupKey
+      model_of_controller
     end
 
     private
