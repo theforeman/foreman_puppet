@@ -2,6 +2,8 @@ module ForemanPuppet
   class Environment < ApplicationRecord
     self.table_name = 'environments'
 
+    graphql_type 'ForemanPuppet::Types::Environment'
+
     audited
     extend FriendlyId
     friendly_id :name, reserved_words: []

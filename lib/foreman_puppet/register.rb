@@ -194,6 +194,11 @@ Foreman::Plugin.register :foreman_puppet do
     end
   end
 
+  register_graphql_query_field :environment, 'ForemanPuppet::Types::Environment', :record_field
+  register_graphql_query_field :environments, 'ForemanPuppet::Types::Environment', :collection_field
+  register_graphql_query_field :puppetclass, 'ForemanPuppet::Types::Puppetclass', :record_field
+  register_graphql_query_field :puppetclasses, 'ForemanPuppet::Types::Puppetclass', :collection_field
+
   extend_template_helpers(ForemanPuppet::TemplateRendererScope)
 
   # extend host(group) form with puppet ENC Tab

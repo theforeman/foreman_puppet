@@ -12,9 +12,6 @@ module Queries
           environment {
             id
           }
-          puppetProxy {
-            id
-          }
         }
       }
       GRAPHQL
@@ -23,14 +20,12 @@ module Queries
     let(:host) { FactoryBot.create(:host, :with_puppet_enc) }
     let(:global_id) { Foreman::GlobalId.encode('Host', host.id) }
     let(:variables) { { id: global_id } }
+    let(:data) { result['data']['host'] }
 
     test 'fetching host attributes' do
-      skip 'GraphQL is TODO'
-      host_data = result['data']['host']
       assert_empty result['errors']
-      assert_equal global_id, host_data['id']
-      assert_record host.environment, host_data['environment']
-      assert_record host.puppet_proxy, host_data['puppetProxy']
+      assert_equal global_id, data['id']
+      assert_record host.environment, data['environment']
     end
   end
 end

@@ -1,11 +1,11 @@
-require 'test_puppet_helper'
+require 'test_helper'
 
 module Queries
-  class PuppetclassesQueryTest < GraphQLQueryTestCase
+  class EnvironmentsQueryTest < GraphQLQueryTestCase
     let(:query) do
       <<-GRAPHQL
       query {
-        puppetclasses {
+        environments {
           totalCount
           pageInfo {
             startCursor
@@ -24,16 +24,16 @@ module Queries
       GRAPHQL
     end
 
-    let(:data) { result['data']['puppetclasses'] }
+    let(:data) { result['data']['environments'] }
 
     setup do
-      FactoryBot.create_list(:puppetclass, 2)
+      FactoryBot.create_list(:environment, 2)
     end
 
-    test 'fetching puppetclasses attributes' do
+    test 'fetching environments attributes' do
       assert_empty result['errors']
 
-      expected_count = ForemanPuppet::Puppetclass.count
+      expected_count = ForemanPuppet::Environment.count
 
       assert_not_equal 0, expected_count
       assert_equal expected_count, data['totalCount']
