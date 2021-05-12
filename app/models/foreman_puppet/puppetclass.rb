@@ -2,6 +2,8 @@ module ForemanPuppet
   class Puppetclass < ApplicationRecord
     self.table_name = 'puppetclasses'
 
+    graphql_type 'ForemanPuppet::Types::Puppetclass'
+
     audited
     include Authorizable
     include ScopedSearchExtensions

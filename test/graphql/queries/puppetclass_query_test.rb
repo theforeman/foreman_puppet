@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_puppet_helper'
 
 module Queries
   class PuppetclassQueryTest < GraphQLQueryTestCase
