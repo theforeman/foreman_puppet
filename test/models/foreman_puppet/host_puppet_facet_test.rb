@@ -1,12 +1,45 @@
 require 'test_puppet_helper'
 
 module ForemanPuppet
-  class HostgroupPuppetFacetTest < ActiveSupport::TestCase
+  class HostPuppetFacetTest < ActiveSupport::TestCase
     let(:environment) { FactoryBot.create(:environment) }
     let(:diff_environment) { FactoryBot.create(:environment) }
     let(:puppetclass_both) { FactoryBot.create(:puppetclass, environments: [environment, diff_environment]) }
     let(:config_group) { FactoryBot.create(:config_group, :with_puppetclass, class_environments: [environment]) }
     let(:config_group_diff_env) { FactoryBot.create(:config_group, :with_puppetclass, class_environments: [diff_environment]) }
+
+    describe '.populate_fields_from_facts' do
+      test 'populate environment without any puppet info' do
+        h = FactoryBot.create(:host)
+        parser = stub(environment: environment)
+        HostPuppetFacet.populate_fields_from_facts(h, parser, 'puppet', FactoryBot.create(:puppet_smart_proxy))
+        assert_equal environment, h.puppet.environment
+      end
+
+      test 'changes puppet environment when setting says to do so' do
+        Setting[:update_environment_from_facts] = true
+        h = FactoryBot.create(:host, :with_puppet_enc)
+        parser = stub(environment: environment)
+        HostPuppetFacet.populate_fields_from_facts(h, parser, 'puppet', FactoryBot.create(:puppet_smart_proxy))
+        assert_equal environment, h.puppet.environment
+      end
+
+      test 'keep puppet environment when parser has empty environment' do
+        Setting[:update_environment_from_facts] = true
+        h = FactoryBot.create(:host, :with_puppet_enc)
+        parser = stub(environment: nil)
+        HostPuppetFacet.populate_fields_from_facts(h, parser, 'puppet', FactoryBot.create(:puppet_smart_proxy))
+        assert_not_nil h.puppet.environment
+      end
+
+      test 'do not update puppet environment when setting says not to' do
+        Setting[:update_environment_from_facts] = false
+        h = FactoryBot.create(:host, :with_puppet_enc)
+        parser = stub(environment: environment)
+        HostPuppetFacet.populate_fields_from_facts(h, parser, 'puppet', FactoryBot.create(:puppet_smart_proxy))
+        assert_not_equal environment, h.puppet.environment
+      end
+    end
 
     describe '#classes_in_groups' do
       test 'classes_in_groups should return the puppetclasses of a config group only if it is in host environment' do
