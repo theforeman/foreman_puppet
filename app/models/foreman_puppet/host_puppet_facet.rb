@@ -18,10 +18,11 @@ module ForemanPuppet
       type ||= 'puppet'
       return unless type == 'puppet'
 
+      facet = host.puppet || host.build_puppet
       if Setting[:update_environment_from_facts]
-        host.set_non_empty_values parser, [:environment]
+        facet.environment = parser.environment if parser.environment.present?
       elsif parser.environment.present?
-        self.environment ||= parser.environment
+        facet.environment ||= parser.environment
       end
 
       # if proxy authentication is enabled and we have no puppet proxy set and the upload came from puppet,
