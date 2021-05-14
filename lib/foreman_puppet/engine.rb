@@ -19,17 +19,19 @@ module ForemanPuppet
       end
     end
 
-    initializer 'foreman_ansible.configure_assets', group: :assets do
+    initializer 'foreman_puppet.configure_assets', group: :assets do
       SETTINGS[:foreman_puppet] = { assets: { precompile: ['foreman_puppet.scss'] } }
     end
 
-    # Include concerns in this config.to_prepare block
-    config.to_prepare do
+    initializer 'foreman_puppet.patch_parameters' do
       # Parameters should go ASAP as they need to be applied before they are included in core controller
       Foreman::Controller::Parameters::Host.include ForemanPuppet::Extensions::ParametersHost
       Foreman::Controller::Parameters::Hostgroup.include ForemanPuppet::Extensions::ParametersHostgroup
       Foreman::Controller::Parameters::TemplateCombination.include ForemanPuppet::Extensions::ParametersTemplateCombination
+    end
 
+    # Include concerns in this config.to_prepare block
+    config.to_prepare do
       # Facets extenstion is applied too early - before the Hostgroup is complete
       # We redefine thing, so we need to wait until complete definition of Hostgroup
       # thus separate patching instead of using facet patching

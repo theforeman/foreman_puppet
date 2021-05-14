@@ -61,6 +61,12 @@ module ForemanPuppet
       end
 
       module PrependedMethods
+        # TODO: we can drop this once extracted_from_core?
+        def validate_association_taxonomy(association_name)
+          return if association_name.to_sym == :environment
+          super
+        end
+
         def provisioning_template(opts = {})
           opts[:environment_id] ||= puppet&.environment_id
           super(opts)

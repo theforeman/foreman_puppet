@@ -241,7 +241,7 @@ module ForemanPuppet
 
       host.puppet.environment = env_with_other_tax
       assert_not host.valid?
-      assert_match(/is not assigned/, host.errors[:environment_id].first)
+      assert_match(/is not assigned/, host.errors['puppet.environment_id'].first)
     end
 
     test 'when saving a host, require puppet environment if puppet master is set' do
