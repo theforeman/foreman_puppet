@@ -105,11 +105,14 @@ FactoryBot.define do
         evaluator.parameter_count.times do
           evaluator.environments.each do |env|
             FactoryBot.create :puppetclass_lookup_key, override: false, puppetclass: pc, environment: env
+            # for Host#managed validation, once extracted_from_core? we can remove
+            env.reload
           end
         end
       else
         evaluator.environments.each do |env|
           FactoryBot.create :environment_class, puppetclass: pc, environment: env unless env.nil?
+          env.reload
         end
       end
     end

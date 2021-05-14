@@ -34,16 +34,9 @@ module ForemanPuppet
         end
 
         def process_deprecated_environment_params!(params)
-          env_id = env_name = env = nil
-          if ForemanPuppet.extracted_from_core?
-            env_id = params.delete(:environment_id)
-            env_name = params.delete(:environment_name)
-            env = params.delete(:environment)
-          else
-            env_id = params[:environment_id]
-            env_name = params[:environment_name]
-            env = params[:environment]
-          end
+          env_id = params.delete(:environment_id)
+          env_name = params.delete(:environment_name)
+          env = params.delete(:environment)
 
           return unless env_id || env_name || env
           ::Foreman::Deprecation.api_deprecation_warning('param host[environment_*] has been deprecated in favor of host[puppet_attributes][environment_*]')
