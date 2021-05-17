@@ -18,11 +18,11 @@ module ForemanPuppet
 
         scoped_search relation: :environment, on: :name, complete_value: true, rename: :environment
         scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :class, only_explicit: true, operators: ['= ', '~ '],
-                      ext_method: :search_by_deprecated_class
+          ext_method: :search_by_deprecated_class
         scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :puppetclass, only_explicit: true, operators: ['= ', '~ '],
-                      ext_method: :search_by_puppetclass
+          ext_method: :search_by_puppetclass
         scoped_search relation: :config_groups, on: :name, complete_value: true, rename: :config_group, only_explicit: true, operators: ['= ', '~ '],
-                      ext_method: :search_by_config_group
+          ext_method: :search_by_config_group
       end
 
       class_methods do
@@ -81,9 +81,9 @@ module ForemanPuppet
           kinds = template_kinds(provisioning)
           kinds.map do |kind|
             ProvisioningTemplate.find_template({ kind: kind.name,
-                                                 operatingsystem_id: operatingsystem_id,
-                                                 hostgroup_id: hostgroup_id,
-                                                 environment_id: puppet&.environment_id })
+              operatingsystem_id: operatingsystem_id,
+              hostgroup_id: hostgroup_id,
+              environment_id: puppet&.environment_id })
           end.compact
         end
 

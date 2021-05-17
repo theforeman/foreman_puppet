@@ -104,7 +104,7 @@ module ForemanPuppet
         rescue StandardError => e
           Foreman::Logging.exception("Failed to generate external nodes for #{@host}", e)
           render plain: _('Unable to generate output, Check log files'),
-                 status: :precondition_failed
+            status: :precondition_failed
         end
       end
       # rubocop:enable Naming/MethodName

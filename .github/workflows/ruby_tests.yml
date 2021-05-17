@@ -19,7 +19,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.5
+          ruby-version: 2.7
           bundler-cache: true
       - name: Run rubocop
         run: bundle exec rubocop -P --format github
@@ -66,7 +66,7 @@ jobs:
         run: bundle exec rake spec
   test_ruby:
     runs-on: ubuntu-latest
-    # needs: rubocop
+    needs: rubocop
     env:
       BUNDLE_WITHOUT: journald:development:console:libvirt
     services:
@@ -78,7 +78,7 @@ jobs:
       fail-fast: true
       matrix:
         foreman-core-branch: [2.5-stable, develop]
-        ruby-version: [2.5, 2.6]
+        ruby-version: [2.7]
         node-version: [12]
     steps:
       - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev

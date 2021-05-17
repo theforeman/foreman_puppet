@@ -17,11 +17,11 @@ module ForemanPuppet
         scoped_search relation: :environment, on: :name, complete_value: true, rename: :environment, only_explicit: true
         scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :class, only_explicit: true, operators: ['= ', '~ ']
         scoped_search relation: :config_groups, on: :name,
-                      complete_value: true,
-                      rename: :config_group,
-                      only_explicit: true,
-                      operators: ['= ', '~ '],
-                      ext_method: :search_by_config_group
+          complete_value: true,
+          rename: :config_group,
+          only_explicit: true,
+          operators: ['= ', '~ '],
+          ext_method: :search_by_config_group
       end
 
       # Temporary, can be ordinary class_methods do, when removed from core
