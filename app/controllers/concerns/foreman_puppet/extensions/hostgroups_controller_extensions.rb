@@ -42,7 +42,7 @@ module ForemanPuppet
         def puppetclass_parameters
           ::Taxonomy.as_taxonomy @organization, @location do
             render partial: 'foreman_puppet/puppetclasses/classes_parameters',
-                   locals: { obj: refresh_hostgroup }
+              locals: { obj: refresh_hostgroup }
           end
         end
 

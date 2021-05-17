@@ -37,9 +37,9 @@ module ForemanPuppet
 
       value = as_admin do
         LookupValue.create! lookup_key_id: puppetclass_lookup_key.id,
-                            match: "organization=#{taxonomies(:organization1)},location=#{taxonomies(:location1)}",
-                            value: 'test',
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)},location=#{taxonomies(:location1)}",
+          value: 'test',
+          omit: false
       end
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
 
@@ -78,19 +78,17 @@ module ForemanPuppet
       host = FactoryBot.build_stubbed(:host, :with_puppet_enc, environment: environment, puppetclasses: [puppetclass])
       Classification::MatchesGenerator.any_instance.expects(:attr_to_value).with('comment').returns('override')
 
-      assert_equal(
-        {
-          lkey.id => {
-            lkey.key => {
-              value: 'overridden value',
-              element: 'comment',
-              element_name: 'override',
-              managed: false,
-            },
+      expected = {
+        lkey.id => {
+          lkey.key => {
+            value: 'overridden value',
+            element: 'comment',
+            element_name: 'override',
+            managed: false,
           },
         },
-        Classification::ValuesHashQuery.values_hash(host, LookupKey.where(id: [lkey])).raw
-      )
+      }
+      assert_equal(expected, Classification::ValuesHashQuery.values_hash(host, LookupKey.where(id: [lkey])).raw)
 
       Classification::MatchesGenerator.any_instance.unstub(:attr_to_value)
     end
@@ -108,9 +106,9 @@ module ForemanPuppet
         puppetclass: puppetclass, path: "location\ncomment")
       as_admin do
         LookupValue.create! lookup_key_id: lkey.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: 'test',
-                            omit: true
+          match: "location=#{taxonomies(:location1)}",
+          value: 'test',
+          omit: true
       end
 
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
@@ -124,9 +122,9 @@ module ForemanPuppet
                                                                         path: "location\ncomment")
       lvalue = as_admin do
         LookupValue.create! lookup_key_id: lkey.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: 'test',
-                            omit: false
+          match: "location=#{taxonomies(:location1)}",
+          value: 'test',
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
@@ -142,22 +140,22 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: { example: { a: 'test' } },
-                            omit: true
+          match: "location=#{taxonomies(:location1)}",
+          value: { example: { a: 'test' } },
+          omit: true
       end
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: { example: { b: 'test2' } },
-                            omit: true
+          match: "organization=#{taxonomies(:organization1)}",
+          value: { example: { b: 'test2' } },
+          omit: true
       end
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "os=#{operatingsystems(:redhat)}",
-                            value: { example: { a: 'test3' } },
-                            omit: true
+          match: "os=#{operatingsystems(:redhat)}",
+          value: { example: { a: 'test3' } },
+          omit: true
       end
 
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
@@ -184,13 +182,13 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{parent_hostgroup}",
-                            value: ['parent'],
-                            omit: false
+          match: "hostgroup=#{parent_hostgroup}",
+          value: ['parent'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: ['org'],
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)}",
+          value: ['org'],
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -218,13 +216,13 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{parent_org}",
-                            value: ['parent'],
-                            omit: false
+          match: "organization=#{parent_org}",
+          value: ['parent'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: ['loc'],
-                            omit: false
+          match: "location=#{taxonomies(:location1)}",
+          value: ['loc'],
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -252,13 +250,13 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{parent_loc}",
-                            value: ['parent'],
-                            omit: false
+          match: "location=#{parent_loc}",
+          value: ['parent'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: ['org'],
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)}",
+          value: ['org'],
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -285,17 +283,17 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{parent_hostgroup}",
-                            value: ['parent'],
-                            omit: false
+          match: "hostgroup=#{parent_hostgroup}",
+          value: ['parent'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{child_hostgroup}",
-                            value: ['child'],
-                            omit: false
+          match: "hostgroup=#{child_hostgroup}",
+          value: ['child'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: ['org'],
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)}",
+          value: ['org'],
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -323,17 +321,17 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{parent_org}",
-                            value: ['parent'],
-                            omit: false
+          match: "organization=#{parent_org}",
+          value: ['parent'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{child_org}",
-                            value: ['child'],
-                            omit: false
+          match: "organization=#{child_org}",
+          value: ['child'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: ['loc'],
-                            omit: false
+          match: "location=#{taxonomies(:location1)}",
+          value: ['loc'],
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -361,17 +359,17 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{parent_loc}",
-                            value: ['parent'],
-                            omit: false
+          match: "location=#{parent_loc}",
+          value: ['parent'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{child_loc}",
-                            value: ['child'],
-                            omit: false
+          match: "location=#{child_loc}",
+          value: ['child'],
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: ['org'],
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)}",
+          value: ['org'],
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -398,17 +396,17 @@ module ForemanPuppet
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{parent_hostgroup}",
-                            value: 'parent',
-                            omit: false
+          match: "hostgroup=#{parent_hostgroup}",
+          value: 'parent',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{child_hostgroup}",
-                            value: 'child',
-                            omit: false
+          match: "hostgroup=#{child_hostgroup}",
+          value: 'child',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: 'org',
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)}",
+          value: 'org',
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -434,17 +432,17 @@ module ForemanPuppet
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{parent_org}",
-                            value: 'parent',
-                            omit: false
+          match: "organization=#{parent_org}",
+          value: 'parent',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{child_org}",
-                            value: 'child',
-                            omit: false
+          match: "organization=#{child_org}",
+          value: 'child',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: 'loc',
-                            omit: false
+          match: "location=#{taxonomies(:location1)}",
+          value: 'loc',
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -470,17 +468,17 @@ module ForemanPuppet
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{parent_loc}",
-                            value: 'parent',
-                            omit: false
+          match: "location=#{parent_loc}",
+          value: 'parent',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{child_loc}",
-                            value: 'child',
-                            omit: false
+          match: "location=#{child_loc}",
+          value: 'child',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: 'org',
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)}",
+          value: 'org',
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -506,17 +504,17 @@ module ForemanPuppet
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{parent_hostgroup}",
-                            value: 'parent',
-                            omit: false
+          match: "hostgroup=#{parent_hostgroup}",
+          value: 'parent',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: 'loc',
-                            omit: true
+          match: "location=#{taxonomies(:location1)}",
+          value: 'loc',
+          omit: true
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{child_hostgroup}",
-                            value: 'child',
-                            omit: false
+          match: "hostgroup=#{child_hostgroup}",
+          value: 'child',
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -544,17 +542,17 @@ module ForemanPuppet
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{parent_org}",
-                            value: 'parent',
-                            omit: false
+          match: "organization=#{parent_org}",
+          value: 'parent',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: 'loc',
-                            omit: true
+          match: "location=#{taxonomies(:location1)}",
+          value: 'loc',
+          omit: true
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{child_org}",
-                            value: 'child',
-                            omit: false
+          match: "organization=#{child_org}",
+          value: 'child',
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -582,17 +580,17 @@ module ForemanPuppet
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{parent_loc}",
-                            value: 'parent',
-                            omit: false
+          match: "location=#{parent_loc}",
+          value: 'parent',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: 'org',
-                            omit: true
+          match: "organization=#{taxonomies(:organization1)}",
+          value: 'org',
+          omit: true
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{child_loc}",
-                            value: 'child',
-                            omit: false
+          match: "location=#{child_loc}",
+          value: 'child',
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -608,13 +606,13 @@ module ForemanPuppet
 
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: 'test_incorrect',
-                            omit: false
+          match: "location=#{taxonomies(:location1)}",
+          value: 'test_incorrect',
+          omit: false
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)},location=#{taxonomies(:location1)}",
-                            value: 'test_correct',
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)},location=#{taxonomies(:location1)}",
+          value: 'test_correct',
+          omit: false
       end
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
       key.reload
@@ -630,15 +628,15 @@ module ForemanPuppet
 
       value = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)},location=#{taxonomies(:location1)}",
-                            value: 'test_correct',
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)},location=#{taxonomies(:location1)}",
+          value: 'test_correct',
+          omit: false
       end
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: 'test_incorrect',
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)}",
+          value: 'test_incorrect',
+          omit: false
       end
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
 
@@ -662,22 +660,22 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{parent_hostgroup},organization=#{taxonomies(:organization1)}",
-                            value: 'parent',
-                            omit: false
+          match: "hostgroup=#{parent_hostgroup},organization=#{taxonomies(:organization1)}",
+          value: 'parent',
+          omit: false
       end
       value2 = as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "hostgroup=#{child_hostgroup},organization=#{taxonomies(:organization1)}",
-                            value: 'child',
-                            omit: false
+          match: "hostgroup=#{child_hostgroup},organization=#{taxonomies(:organization1)}",
+          value: 'child',
+          omit: false
       end
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: 'loc',
-                            omit: false
+          match: "location=#{taxonomies(:location1)}",
+          value: 'loc',
+          omit: false
       end
 
       enc = HostInfoProviders::PuppetInfo.new(host).puppetclass_parameters
@@ -694,21 +692,21 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: '<%= [2,3] %>',
-                            omit: false
+          match: "location=#{taxonomies(:location1)}",
+          value: '<%= [2,3] %>',
+          omit: false
       end
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "organization=#{taxonomies(:organization1)}",
-                            value: '<%= [3,4] %>',
-                            omit: false
+          match: "organization=#{taxonomies(:organization1)}",
+          value: '<%= [3,4] %>',
+          omit: false
       end
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "os=#{operatingsystems(:redhat)}",
-                            value: '<%= [4,5] %>',
-                            omit: false
+          match: "os=#{operatingsystems(:redhat)}",
+          value: '<%= [4,5] %>',
+          omit: false
       end
 
       key.reload
@@ -764,9 +762,9 @@ module ForemanPuppet
 
       as_admin do
         LookupValue.create! lookup_key_id: key.id,
-                            match: "location=#{taxonomies(:location1)}",
-                            value: '<%= "c" %>',
-                            omit: false
+          match: "location=#{taxonomies(:location1)}",
+          value: '<%= "c" %>',
+          omit: false
       end
 
       key.reload

@@ -298,7 +298,7 @@ module ForemanPuppet
       changed_params['new'].map do |param_name, value|
         param = find_or_create_puppet_class_param klass, param_name, value
         EnvironmentClass.find_or_create_by! puppetclass_id: klass.id, environment_id: env.id,
-                                            puppetclass_lookup_key_id: param.id
+          puppetclass_lookup_key_id: param.id
       end
     end
 
@@ -327,8 +327,8 @@ module ForemanPuppet
 
     def find_or_create_env(env)
       user_visible_environment(env) || Environment.create!(name: env,
-                                                           organizations: User.current.my_organizations,
-                                                           locations: User.current.my_locations)
+        organizations: User.current.my_organizations,
+        locations: User.current.my_locations)
     end
 
     def user_visible_environment(env)
@@ -339,7 +339,7 @@ module ForemanPuppet
     def find_or_create_puppet_class_param(klass, param_name, value)
       klass.class_params.where(key: param_name).first ||
         PuppetclassLookupKey.create!(key: param_name, default_value: value,
-                                     key_type: Foreman::ImporterPuppetclass.suggest_key_type(value))
+          key_type: Foreman::ImporterPuppetclass.suggest_key_type(value))
     end
 
     def find_or_create_puppetclass_for_env(klass_name, env)
