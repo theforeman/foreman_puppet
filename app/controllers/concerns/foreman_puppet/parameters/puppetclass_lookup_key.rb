@@ -7,8 +7,8 @@ module ForemanPuppet
       def puppetclass_lookup_key_params_filter
         Foreman::ParameterFilter.new(ForemanPuppet::PuppetclassLookupKey).tap do |filter|
           filter.permit environments: [], environment_ids: [], environment_names: [],
-                        environment_classes: [], environment_classes_ids: [], environment_classes_names: [],
-                        param_classes: [], param_classes_ids: [], param_classes_names: []
+            environment_classes: [], environment_classes_ids: [], environment_classes_names: [],
+            param_classes: [], param_classes_ids: [], param_classes_names: []
           filter.permit_by_context :required, nested: true
           filter.permit_by_context :id, ui: false, api: false, nested: true
 

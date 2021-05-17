@@ -70,8 +70,8 @@ module ForemanPuppet
     def parameters
       puppetclass = Puppetclass.find(params[:id])
       render partial: 'foreman_puppet/puppetclasses/class_parameters',
-             locals: { puppetclass: puppetclass,
-                       obj: find_host_or_hostgroup }
+        locals: { puppetclass: puppetclass,
+                  obj: find_host_or_hostgroup }
     end
 
     def resource_class
