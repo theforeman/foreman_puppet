@@ -61,7 +61,7 @@ module ForemanPuppet
     audited associated_with: :hostgroup
     self.table_name = 'hostgroup_puppet_facets'
 
-    include ForemanPuppet::HostCommon
+    include ForemanPuppet::PuppetFacetCommon
     include Facets::HostgroupFacet
 
     has_many :hostgroup_classes, dependent: :destroy
