@@ -3,7 +3,7 @@
 [![Gem Version](https://img.shields.io/gem/v/foreman_puppet.svg)](https://rubygems.org/gems/foreman_puppet)
 [![GPL License](https://img.shields.io/github/license/theforeman/foreman_puppet.svg)](https://github.com/theforeman/foreman_puppet/blob/master/LICENSE)
 
-This plugin adds Puppet External node classification functionality to [Foreman](theforeman.org).
+This plugin adds Puppet External node classification functionality to [Foreman](https://theforeman.org).
 
 * Website: [theforeman.org](http://theforeman.org)
 * Support: [Foreman support](http://theforeman.org/support.html)
@@ -32,7 +32,7 @@ Some features will remain in core:
 ## Compatibility
 
 Foreman 3.0 will be the first release where the Puppet functionality is mostly extracted.
-Therefore, this plugin is only required for 3.0 and onwards.  
+Therefore, this plugin is only required for 3.0 and onwards.
 You can install it on Foreman 2.5 to prepare for the Foreman update.
 
 |Foreman version|Plugin version|Notes                                     |
