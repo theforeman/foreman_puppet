@@ -1,11 +1,10 @@
 module ForemanPuppet
   module Api
     module V2
-      class OverrideValuesController < LookupsCommonController
+      class OverrideValuesController < ::ForemanPuppet::Api::V2::PuppetLookupsCommonController
         include Foreman::Controller::Parameters::LookupValue
 
         resource_description do
-          api_version '2'
           api_base_url '/foreman_puppet/api'
         end
 

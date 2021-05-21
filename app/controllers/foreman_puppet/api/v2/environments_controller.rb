@@ -1,12 +1,11 @@
 module ForemanPuppet
   module Api
     module V2
-      class EnvironmentsController < BaseController
+      class EnvironmentsController < ::ForemanPuppet::Api::V2::PuppetBaseController
         include ForemanPuppet::Api::ImportPuppetclassesCommonController
         include ForemanPuppet::Parameters::Environment
 
         resource_description do
-          api_version '2'
           api_base_url '/foreman_puppet/api'
         end
 

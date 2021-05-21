@@ -1,8 +1,12 @@
 module ForemanPuppet
   module Api
     module V2
-      class PuppetclassesController < BaseController
+      class PuppetclassesController < ::ForemanPuppet::Api::V2::PuppetBaseController
         include ForemanPuppet::Parameters::Puppetclass
+
+        resource_description do
+          api_base_url '/foreman_puppet/api'
+        end
 
         before_action :find_optional_nested_object
         before_action :find_resource, only: %w[show update destroy]
