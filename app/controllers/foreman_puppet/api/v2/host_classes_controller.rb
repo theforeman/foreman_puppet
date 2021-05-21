@@ -1,7 +1,11 @@
 module ForemanPuppet
   module Api
     module V2
-      class HostClassesController < V2::BaseController
+      class HostClassesController < ::ForemanPuppet::Api::V2::PuppetBaseController
+        resource_description do
+          api_base_url '/foreman_puppet/api'
+        end
+
         before_action :find_host, only: %i[index create destroy]
         before_action :find_puppetclass, only: %i[create destroy]
 

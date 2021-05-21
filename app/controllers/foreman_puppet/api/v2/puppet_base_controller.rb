@@ -1,10 +1,9 @@
 module ForemanPuppet
   module Api
     module V2
-      class BaseController < ::Api::V2::BaseController
+      class PuppetBaseController < ::Api::V2::BaseController
         resource_description do
-          api_version '2'
-          api_base_url '/foreman_puppet/api'
+          api_version 'v2'
         end
 
         before_action :show_deprecation_for_core_routes

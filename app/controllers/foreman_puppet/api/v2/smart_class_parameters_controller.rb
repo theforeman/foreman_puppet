@@ -1,11 +1,10 @@
 module ForemanPuppet
   module Api
     module V2
-      class SmartClassParametersController < ForemanPuppet::Api::V2::LookupsCommonController
+      class SmartClassParametersController < ::ForemanPuppet::Api::V2::PuppetLookupsCommonController
         include ForemanPuppet::Parameters::PuppetclassLookupKey
 
         resource_description do
-          api_version '2'
           api_base_url '/foreman_puppet/api'
         end
 

@@ -1,8 +1,12 @@
 module ForemanPuppet
   module Api
     module V2
-      class ConfigGroupsController < BaseController
+      class ConfigGroupsController < ::ForemanPuppet::Api::V2::PuppetBaseController
         include ForemanPuppet::Parameters::ConfigGroup
+
+        resource_description do
+          api_base_url '/foreman_puppet/api'
+        end
 
         wrap_parameters ConfigGroup, include: config_group_params_filter.accessible_attributes(parameter_filter_context)
 

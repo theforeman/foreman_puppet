@@ -1,7 +1,11 @@
 module ForemanPuppet
   module Api
     module V2
-      class HostgroupClassesController < V2::BaseController
+      class HostgroupClassesController < ::ForemanPuppet::Api::V2::PuppetBaseController
+        resource_description do
+          api_base_url '/foreman_puppet/api'
+        end
+
         before_action :find_hostgroup, only: %i[index create destroy]
 
         api :GET, '/hostgroups/:hostgroup_id/puppetclass_ids/', N_('List all Puppet class IDs for host group')
