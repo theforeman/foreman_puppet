@@ -3,7 +3,7 @@ require 'test_puppet_helper'
 module ForemanPuppet
   module Api
     module V2
-      class DummyLookupController < ForemanPuppet::Api::V2::LookupsCommonController
+      class DummyLookupController < ForemanPuppet::Api::V2::PuppetLookupsCommonController
         attr_accessor :params
       end
 
