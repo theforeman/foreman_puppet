@@ -30,7 +30,7 @@ module ForemanPuppet
 
     def link_to_remove_function(text, options)
       options.delete_if { |key, _value| !options[key].to_s } # otherwise error during template render
-      title = (_('Click to remove %s') % options[:"data-class-name"])
+      title = (_('Click to remove %s') % options[:'data-class-name'])
       link_to_function(text, 'tfm.classEditor.removePuppetClass(this)', options.merge!('data-original-title': title))
     end
 
@@ -43,7 +43,7 @@ module ForemanPuppet
 
     def link_to_add_function(text, options)
       link_to_function(text, 'tfm.classEditor.addPuppetClass(this)',
-        options.merge('data-original-title': _('Click to add %s') % options[:"data-class-name"]))
+        options.merge('data-original-title': _('Click to add %s') % options[:'data-class-name']))
     end
 
     def options_for_puppetclass_selection(klass, type)

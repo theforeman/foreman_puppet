@@ -81,9 +81,9 @@ module ForemanPuppet
           kinds = template_kinds(provisioning)
           kinds.map do |kind|
             ProvisioningTemplate.find_template({ kind: kind.name,
-              operatingsystem_id: operatingsystem_id,
-              hostgroup_id: hostgroup_id,
-              environment_id: puppet&.environment_id })
+                                                 operatingsystem_id: operatingsystem_id,
+                                                 hostgroup_id: hostgroup_id,
+                                                 environment_id: puppet&.environment_id })
           end.compact
         end
 
