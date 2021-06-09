@@ -20,4 +20,5 @@ end
 gemspec
 
 gem 'rspec-rails', '~> 4.0.1', groups: %i[development test]
+gem 'rubocop', '<= 1.16.0', groups: %i[development rubocop]
 gem 'theforeman-rubocop', '~> 0.1.0.pre', groups: %i[development rubocop]
