@@ -42,7 +42,7 @@ module ForemanPuppet
           mod_name,
           rel: 'popover',
           data: { content: mod_classes[mod_name].sort.join('<br>').html_safe,
-                  "original-title": format(n_('%{name} has %{num_tag} class', '%{name} has %{num_tag} classes', num), name: mod_name, num_tag: num_tag),
+                  'original-title': format(n_('%{name} has %{num_tag} class', '%{name} has %{num_tag} classes', num), name: mod_name, num_tag: num_tag),
                   trigger: 'focus',
                   container: 'body',
                   html: true },
