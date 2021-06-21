@@ -131,6 +131,10 @@ jobs:
           bundle exec rake test:foreman_puppet
         env:
           PUPPET_EXTRACTED: ${{ matrix.foreman-core-branch == 'puppet_extraction' && '1' }}
+      - name: Run access permission test
+        if: ${{ ( startsWith(matrix.foreman-core-branch, '3') || matrix.foreman-core-branch == 'puppet_extraction' ) && github.event_name != 'push' }}
+        run: |
+          bundle exec rake test TEST="test/unit/foreman/access_permissions_test.rb"
       - name: Upload test.log
         uses: actions/upload-artifact@v2
         if: failure() && github.event_name != 'push'
