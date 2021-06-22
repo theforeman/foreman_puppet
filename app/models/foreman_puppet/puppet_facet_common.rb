@@ -1,7 +1,7 @@
 module ForemanPuppet
   # Common methods between host and hostgroup
   # mostly for template rendering consistency
-  module HostCommon
+  module PuppetFacetCommon
     extend ActiveSupport::Concern
 
     included do
