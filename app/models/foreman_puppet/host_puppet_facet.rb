@@ -4,7 +4,7 @@ module ForemanPuppet
     audited associated_with: :host
 
     include Facets::Base
-    include ForemanPuppet::HostCommon
+    include ForemanPuppet::PuppetFacetCommon
 
     has_many :host_classes, dependent: :destroy, class_name: 'ForemanPuppet::HostClass'
     has_many :puppetclasses, through: :host_classes
