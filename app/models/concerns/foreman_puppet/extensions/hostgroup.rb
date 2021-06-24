@@ -8,8 +8,12 @@ module ForemanPuppet
           prepend PatchedClassMethods
         end
 
-        env_assoc = reflect_on_association(:environment)
-        env_assoc.instance_variable_set(:@class_name, 'ForemanPuppet::Environment')
+        if ForemanPuppet.extracted_from_core?
+          has_one :environment, through: :puppet, class_name: 'ForemanPuppet::Environment'
+        else
+          env_assoc = reflect_on_association(:environment)
+          env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppet::Environment')
+        end
 
         include_in_clone puppet: %i[host_config_groups config_groups hostgroup_classes]
 

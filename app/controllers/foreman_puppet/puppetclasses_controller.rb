@@ -3,6 +3,8 @@ module ForemanPuppet
     include Foreman::Controller::AutoCompleteSearch
     include Foreman::Controller::Parameters::Host
     include Foreman::Controller::Parameters::Hostgroup
+    include ForemanPuppet::Extensions::ParametersHost
+    include ForemanPuppet::Extensions::ParametersHostgroup
     include ForemanPuppet::Parameters::Environment
     include ForemanPuppet::Parameters::Puppetclass
     include ForemanPuppet::EnvironmentsImport
@@ -93,11 +95,11 @@ module ForemanPuppet
           @obj.type = 'Host::Managed'
         end
         # puppetclass_ids and config_group_ids need to be removed so they don't cause automatic insertsgroup
-        @obj.attributes = host_params('host')
+        @obj.attributes = host_params('host').tap { |params| strip_relation_ids(params) }
       elsif params['hostgroup']
         # hostgroup.id is assigned to params['host_id'] by host_edit.js#load_puppet_class_parameters
         @obj = Hostgroup.find(host_id)
-        @obj.attributes = hostgroup_params('hostgroup')
+        @obj.attributes = hostgroup_params('hostgroup').tap { |params| strip_relation_ids(params) }
       end
       @obj
     end
@@ -109,6 +111,11 @@ module ForemanPuppet
       else
         super
       end
+    end
+
+    def strip_relation_ids(params)
+      return unless params[:puppet_attributes]
+      params[:puppet_attributes].except!(:puppetclass_ids, :config_group_ids)
     end
   end
 end
