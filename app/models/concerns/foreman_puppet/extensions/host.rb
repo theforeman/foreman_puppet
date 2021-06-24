@@ -6,7 +6,9 @@ module ForemanPuppet
       included do
         prepend PrependedMethods
 
-        unless ForemanPuppet.extracted_from_core?
+        if ForemanPuppet.extracted_from_core?
+          has_one :environment, through: :puppet, class_name: 'ForemanPuppet::Environment'
+        else
           env_assoc = reflect_on_association(:environment)
           env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppet::Environment')
 

@@ -4,7 +4,7 @@ module ForemanPuppet
       extend ActiveSupport::Concern
 
       included do
-        has_and_belongs_to_many :puppetclasses
+        has_and_belongs_to_many :puppetclasses, class_name: 'ForemanPuppet::Puppetclass'
       end
     end
   end

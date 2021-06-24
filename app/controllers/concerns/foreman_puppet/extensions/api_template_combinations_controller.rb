@@ -6,7 +6,7 @@ module ForemanPuppet
       included do
         if ForemanPuppet.extracted_from_core?
           apipie_update_methods(%i[index create show update]) do
-            param :environment_id, String, desc: N_('ID of environment')
+            param :environment_id, nil, desc: N_('ID of environment')
           end
         end
 

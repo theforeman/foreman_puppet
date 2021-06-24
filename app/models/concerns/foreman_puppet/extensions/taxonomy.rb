@@ -6,7 +6,7 @@ module ForemanPuppet
       included do
         has_many :environments, through: :taxable_taxonomies, source: :taxable, source_type: 'ForemanPuppet::Environment'
 
-        has_many :puppetclasses, through: :environments
+        has_many :puppetclasses, through: :environments, class_name: 'ForemanPuppet::Puppetclass'
       end
 
       def dup
