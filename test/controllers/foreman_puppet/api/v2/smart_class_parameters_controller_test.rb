@@ -207,11 +207,17 @@ module ForemanPuppet
 
           test_attributes pid: 'd7b1c336-bd9f-40a3-a573-939f2a021cdc'
           test 'should not set merge overrides for non supported types' do
+            expected_error = if Gem::Version.new(SETTINGS[:version].notag) < Gem::Version.new('2.6')
+                               'Validation failed: Merge overrides can only be set for array or hash'
+                             else
+                               'Validation failed: Merge overrides can only be set for array, hash, json or yaml'
+                             end
+
             put :update, params: { id: lookup_key.id, smart_class_parameter: { override: true,
                                                                                default_value: RFauxFactory.gen_alpha,
                                                                                merge_overrides: true } }
             assert_response :internal_server_error, 'Can set merge overrides for non supported types'
-            assert_error_message('Validation failed: Merge overrides can only be set for array or hash')
+            assert_error_message(expected_error)
             assert_not(lookup_key.reload.merge_overrides)
           end
 
