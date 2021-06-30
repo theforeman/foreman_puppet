@@ -164,9 +164,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct merged override to host when multiple overrides for inherited hostgroups exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        key_type: 'array', merge_overrides: true,
                                                        path: "organization\nhostgroup\nlocation",
@@ -197,9 +194,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct merged override to host when multiple overrides for inherited organizations exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        key_type: 'array', merge_overrides: true,
                                                        path: "location\norganization\nhostgroup",
@@ -231,9 +225,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct merged override to host when multiple overrides for inherited locations exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        key_type: 'array', merge_overrides: true,
                                                        path: "organization\nhostgroup\nlocation",
@@ -265,9 +256,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct merged override to host when multiple overrides for inherited hostgroups exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        key_type: 'array', merge_overrides: true,
                                                        path: "organization\nhostgroup\nlocation",
@@ -302,9 +290,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct merged override to host when multiple overrides for inherited organizations exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        key_type: 'array', merge_overrides: true,
                                                        path: "location\norganization\nhostgroup",
@@ -340,9 +325,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct merged override to host when multiple overrides for inherited locations exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        key_type: 'array', merge_overrides: true,
                                                        path: "organization\nhostgroup\nlocation",
@@ -378,9 +360,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct override to host when multiple overrides for inherited hostgroups exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        merge_overrides: false,
                                                        path: "organization\nhostgroup\nlocation",
@@ -415,9 +394,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct override to host when multiple overrides for inherited organizations exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        merge_overrides: false,
                                                        path: "location\norganization\nhostgroup",
@@ -451,9 +427,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct override to host when multiple overrides for inherited locations exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        merge_overrides: false,
                                                        path: "organization\nlocation\nhostgroup",
@@ -487,9 +460,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct override to host when multiple overrides for inherited hostgroups exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        merge_overrides: false,
                                                        path: "organization\nhostgroup\nlocation",
@@ -523,9 +493,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct override to host when multiple overrides for inherited organizations exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        merge_overrides: false,
                                                        path: "organization\nhostgroup\nlocation",
@@ -561,9 +528,6 @@ module ForemanPuppet
     end
 
     test '#enc should return correct override to host when multiple overrides for inherited locations exist' do
-      FactoryBot.create(:setting,
-        name: 'matchers_inheritance',
-        value: true)
       key = FactoryBot.create(:puppetclass_lookup_key, omit: true,
                                                        merge_overrides: false,
                                                        path: "location\norganization\nhostgroup",
