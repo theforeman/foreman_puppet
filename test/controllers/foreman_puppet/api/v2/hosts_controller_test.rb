@@ -61,10 +61,11 @@ module ForemanPuppet
         end
 
         describe '#create' do
-          test 'should create with puppet proxy' do
+          test 'should create with puppet proxy and environment' do
             host_params = FactoryBot.attributes_for(:host, managed: false).merge(environment_id: environment.id, puppet_proxy_id: puppet_proxy.to_param)
             post :create, params: { host: host_params }
             assert_response :created
+            assert_equal environment.name, JSON.parse(@response.body)['environment_name'], "Can't create host environment #{environment}"
             assert_equal puppet_proxy.name, JSON.parse(@response.body)['puppet_proxy']['name'], "Can't create host with puppet proxy #{puppet_proxy}"
           end
         end
