@@ -9,7 +9,7 @@ module ForemanPuppet
     has_many :host_classes, dependent: :destroy, class_name: 'ForemanPuppet::HostClass'
     has_many :puppetclasses, through: :host_classes
 
-    validates :environment_id, presence: true, unless: ->(facet) { facet.host.puppet_proxy_id.blank? }
+    validates :environment_id, presence: true, unless: ->(facet) { facet.puppet_proxy_id.blank? }
 
     after_validation :ensure_puppet_associations
     before_save :clear_puppetinfo, if: :environment_id_changed?
@@ -27,7 +27,7 @@ module ForemanPuppet
 
       # if proxy authentication is enabled and we have no puppet proxy set and the upload came from puppet,
       # use it as puppet proxy.
-      host.puppet_proxy ||= source_proxy
+      facet.puppet_proxy ||= source_proxy
     end
 
     def self.inherited_attributes(new_hostgroup, attributes)
