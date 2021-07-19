@@ -15,7 +15,18 @@ module ForemanPuppet
           end
         end
 
+        module RelayClassicMutationClassMethodPath
+          # rubocop:disable Metrics/ParameterLists
+          def argument(name, type, *rest, loads: nil, **kwargs, &block)
+            # rubocop:enable Metrics/ParameterLists
+            return if [::Types::Environment, ::Types::Puppetclass].include?(loads)
+
+            super
+          end
+        end
+
         GraphQL::Types::Relay::BaseObject.extend(BaseObjectClassMethodPath)
+        GraphQL::Schema::RelayClassicMutation.extend(RelayClassicMutationClassMethodPath)
       end
     end
 
