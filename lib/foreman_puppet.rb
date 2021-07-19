@@ -1,5 +1,5 @@
 module ForemanPuppet
-  FOREMAN_EXTRACTION_VERSION = '3.0'.freeze
+  FOREMAN_EXTRACTION_VERSION = '2.6'.freeze
 
   def self.extracted_from_core?
     ENV['PUPPET_EXTRACTED'].to_s == '1' ||
