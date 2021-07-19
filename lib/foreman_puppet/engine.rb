@@ -108,6 +108,8 @@ module ForemanPuppet
       ::Types::Hostgroup.include(ForemanPuppet::Types::HostgroupExtensions)
       ::Types::Location.include(ForemanPuppet::Types::LocationExtensions)
       ::Types::Organization.include(ForemanPuppet::Types::OrganizationExtensions)
+      ::Types::InterfaceAttributesInput.include(ForemanPuppet::Types::InterfaceAttributesInputExtensions)
+
       ::Mutations::Hosts::Create.include(ForemanPuppet::Mutations::Hosts::CreateExtensions)
     rescue StandardError => e
       Rails.logger.warn "ForemanPuppet: skipping engine hook (#{e})\n#{e.backtrace.join("\n")}"

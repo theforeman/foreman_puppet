@@ -17,6 +17,16 @@ module ForemanPuppet
             name: hostname,
             environmentId: environment_id,
             puppetclassIds: [puppetclass_id],
+            interfacesAttributes: [
+              {
+                type: 'bond',
+                attachedTo: %w[eth0 eth1],
+                identifier: 'bond0',
+                primary: true,
+                provision: true,
+                managed: true,
+              },
+            ],
           }
         end
         let(:context_user) { FactoryBot.create(:user, :admin, locations: [tax_location], organizations: [organization]) }
@@ -28,11 +38,13 @@ module ForemanPuppet
                 $name: String!,
                 $environmentId: ID,
                 $puppetclassIds: [ID!],
+                $interfacesAttributes: [InterfaceAttributesInput!]
               ) {
               createHost(input: {
                 name: $name,
                 environmentId: $environmentId,
                 puppetclassIds: $puppetclassIds,
+                interfacesAttributes: $interfacesAttributes,
               }) {
                 host {
                   id
@@ -56,6 +68,15 @@ module ForemanPuppet
             host = Host.find(Foreman::GlobalId.decode(data['id'])[2])
             assert_equal environment.id, host.puppet.environment_id
             assert_equal [puppetclass.id], host.puppet.puppetclasses.pluck(:id)
+
+            assert_equal 1, host.interfaces.count
+            interface = host.interfaces.first
+            assert_equal 'Nic::Bond', interface.type
+            assert_equal 'eth0, eth1', interface.attached_to
+            assert_equal 'bond0', interface.identifier
+            assert interface.primary
+            assert interface.provision
+            assert interface.managed
 
             assert_not_nil data
           end
