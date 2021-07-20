@@ -81,11 +81,6 @@ jobs:
         foreman-core-branch: [2.5-stable, develop]
         ruby-version: [2.7]
         node-version: [12]
-        include:
-          - foreman-core-branch: puppet_extraction
-            foreman-repo: 'ezr-ondrej/foreman'
-            ruby-version: 2.7
-            node-version: 14
     steps:
       - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
       - name: Install chromedriver
@@ -132,7 +127,7 @@ jobs:
         env:
           PUPPET_EXTRACTED: ${{ matrix.foreman-core-branch == 'puppet_extraction' && '1' }}
       - name: Run access permission test
-        if: ${{ ( startsWith(matrix.foreman-core-branch, '3') || matrix.foreman-core-branch == 'puppet_extraction' ) && github.event_name != 'push' }}
+        if: ${{ matrix.foreman-core-branch != '2.5-stable' && github.event_name != 'push' }}
         run: |
           bundle exec rake test TEST="test/unit/foreman/access_permissions_test.rb"
       - name: Upload test.log
