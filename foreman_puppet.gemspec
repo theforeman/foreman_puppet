@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.authors     = IO.readlines(File.expand_path('AUTHORS', __dir__), encoding: 'utf-8').map(&:strip)
   s.email       = ['foreman-dev@googlegroups.com']
   s.homepage    = 'https://github.com/theforeman/foreman_puppet'
-  s.summary     = 'Adds puppet ENC features'
+  s.summary     = 'Add Puppet features to Foreman'
   # also update locale/gemspec.rb
-  s.description = 'Allow assigning Puppet environmets and classes to the Foreman Hosts.'
+  s.description = 'Allow assigning Puppet environments and classes to the Foreman Hosts.'
 
   s.files = Dir['{app,config,db,lib,locale,webpack}/**/*'] + ['LICENSE', 'Rakefile', 'README.md', 'package.json']
   s.test_files = Dir['test/**/*']
