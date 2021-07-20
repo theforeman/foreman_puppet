@@ -15,7 +15,18 @@ module ForemanPuppet
           end
         end
 
+        module RelayClassicMutationClassMethodPath
+          # rubocop:disable Metrics/ParameterLists
+          def argument(name, type, *rest, loads: nil, **kwargs, &block)
+            # rubocop:enable Metrics/ParameterLists
+            return if [::Types::Environment, ::Types::Puppetclass].include?(loads)
+
+            super
+          end
+        end
+
         GraphQL::Types::Relay::BaseObject.extend(BaseObjectClassMethodPath)
+        GraphQL::Schema::RelayClassicMutation.extend(RelayClassicMutationClassMethodPath)
       end
     end
 
@@ -97,6 +108,8 @@ module ForemanPuppet
       ::Types::Hostgroup.include(ForemanPuppet::Types::HostgroupExtensions)
       ::Types::Location.include(ForemanPuppet::Types::LocationExtensions)
       ::Types::Organization.include(ForemanPuppet::Types::OrganizationExtensions)
+      ::Types::InterfaceAttributesInput.include(ForemanPuppet::Types::InterfaceAttributesInputExtensions)
+
       ::Mutations::Hosts::Create.include(ForemanPuppet::Mutations::Hosts::CreateExtensions)
     rescue StandardError => e
       Rails.logger.warn "ForemanPuppet: skipping engine hook (#{e})\n#{e.backtrace.join("\n")}"
