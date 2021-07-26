@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 0.0.2\n"
+"Project-Id-Version: foreman_puppet 1.0.0.pre\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2014-08-20 08:54+0100\n"
 "Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
@@ -66,10 +66,13 @@ msgstr ""
 msgid "Add a Puppet class to host group"
 msgstr ""
 
+msgid "Add:"
+msgstr ""
+
 msgid "All environments - (not filtered)"
 msgstr ""
 
-msgid "Allow assigning Puppet environmets and classes to the Foreman Hosts."
+msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
 msgid "Available Classes"
@@ -84,10 +87,31 @@ msgstr ""
 msgid "Can't find a valid Proxy with a Puppet feature"
 msgstr ""
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Change Environment"
 msgstr ""
 
 msgid "Change Puppet Master"
+msgstr ""
+
+msgid "Changed environments"
+msgstr ""
+
+msgid "Check/Uncheck all"
+msgstr ""
+
+msgid "Check/Uncheck all %s changes"
+msgstr ""
+
+msgid "Check/Uncheck new"
+msgstr ""
+
+msgid "Check/Uncheck obsolete"
+msgstr ""
+
+msgid "Check/Uncheck updated"
 msgstr ""
 
 msgid "Classes"
@@ -273,9 +297,6 @@ msgstr ""
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr ""
 
-msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments. This information is commonly imported from a pre-existing Puppet configuration by the use of the %{link_start}Puppet classes and environment importer%{link_end}."
-msgstr ""
-
 msgid "Ignored classes in the environments: %s"
 msgstr ""
 
@@ -286,6 +307,9 @@ msgid "Ignored environment names resulting in booleans found. Please quote strin
 msgstr ""
 
 msgid "Ignored environments: %s"
+msgstr ""
+
+msgid "Ignored:"
 msgstr ""
 
 msgid "Import"
@@ -322,9 +346,6 @@ msgid "Inherited Classes from %s"
 msgstr ""
 
 msgid "Invalid proxy selected!"
-msgstr ""
-
-msgid "Learn more about this in the documentation."
 msgstr ""
 
 msgid "List all Puppet class IDs for host"
@@ -399,6 +420,9 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+msgid "New"
+msgstr ""
+
 msgid "No changes to your environments detected"
 msgstr ""
 
@@ -435,6 +459,9 @@ msgstr ""
 msgid "Number of classes"
 msgstr ""
 
+msgid "Obsolete"
+msgstr ""
+
 msgid "Omit"
 msgstr ""
 
@@ -445,6 +472,9 @@ msgid "Operating System"
 msgstr ""
 
 msgid "Operating system default"
+msgstr ""
+
+msgid "Operation"
 msgstr ""
 
 msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes"
@@ -504,7 +534,13 @@ msgstr ""
 msgid "Puppet ENC"
 msgstr ""
 
+msgid "Puppet Environment"
+msgstr ""
+
 msgid "Puppet Environments"
+msgstr ""
+
+msgid "Puppet Modules"
 msgstr ""
 
 msgid "Puppet YAML"
@@ -543,10 +579,16 @@ msgstr ""
 msgid "Remove this override"
 msgstr ""
 
+msgid "Remove:"
+msgstr ""
+
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr ""
 
 msgid "Select environment"
+msgstr ""
+
+msgid "Select the changes you want to apply to Foreman"
 msgstr ""
 
 msgid "Set parameters to defaults"
@@ -629,6 +671,9 @@ msgstr ""
 msgid "To update the class signature, go to the Puppet Classes page and select \"Import\"."
 msgstr ""
 
+msgid "Toggle"
+msgstr ""
+
 msgid "Total"
 msgstr ""
 
@@ -639,6 +684,9 @@ msgid "Types of variable values"
 msgstr ""
 
 msgid "Unable to generate output, Check log files"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Update a Puppet class"
@@ -654,6 +702,12 @@ msgid "Update an environment"
 msgstr ""
 
 msgid "Update an override value for a specific smart class parameter"
+msgstr ""
+
+msgid "Update:"
+msgstr ""
+
+msgid "Updated"
 msgstr ""
 
 msgid "Updated hosts: changed environment"
