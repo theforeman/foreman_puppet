@@ -35,7 +35,9 @@ jobs:
         ports: ['5432:5432']
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
-      - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
+      - run: |
+          sudo apt-get update
+          sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
       - uses: actions/checkout@v2
         with:
           repository: 'ezr-ondrej/foreman'
@@ -82,7 +84,9 @@ jobs:
         ruby-version: [2.7]
         node-version: [12]
     steps:
-      - run: sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
+      - run: |
+          sudo apt-get update
+          sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
       - name: Install chromedriver
         uses: nanasess/setup-chromedriver@master
       - uses: actions/checkout@v2
