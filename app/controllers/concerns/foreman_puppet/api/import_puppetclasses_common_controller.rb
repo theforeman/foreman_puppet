@@ -74,7 +74,13 @@ module ForemanPuppet
         end
 
         unless @environments.any?
-          render_message(_('No changes to your environments detected'))
+          # check if environment id/name was valid at all
+          if @env_id && \
+             Environment.authorized(:view_environments).where(name: @env_id).or(Environment.authorized(:view_environments).where(id: @env_id)).empty?
+            render_message(_('The requested environment cannot be found.'))
+          else
+            render_message(_('No changes to your environments detected'))
+          end
           return false
         end
 

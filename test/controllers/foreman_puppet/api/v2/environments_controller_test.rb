@@ -251,7 +251,8 @@ module ForemanPuppet
               ProxyAPI::Puppet.any_instance.stubs(:environments).returns(%w[env1 env2])
               classes_env1 = { 'a' => Foreman::ImporterPuppetclass.new('name' => 'a') }
               classes_env2 = { 'b' => Foreman::ImporterPuppetclass.new('name' => 'b') }
-              ProxyAPI::Puppet.any_instance.stubs(:classes).returns(classes_env1.merge(classes_env2))
+
+              ProxyAPI::Puppet.any_instance.stubs(:classes).with('invalid').returns({})
               ProxyAPI::Puppet.any_instance.stubs(:classes).with('env1').returns(classes_env1)
               ProxyAPI::Puppet.any_instance.stubs(:classes).with('env2').returns(classes_env2)
             end
@@ -270,6 +271,18 @@ module ForemanPuppet
               assert_response :success
             end
 
+            test 'should render error message when invalid environment is set' do
+              env = 'invalid'
+              assert_difference(-> { ForemanPuppet::Puppetclass.unscoped.count }, 0) do
+                post :import_puppetclasses, params: { id: proxy.id, environment_id: env }, session: set_session_user
+                assert_not_includes Puppetclass.pluck(:name), 'a'
+                assert_not_includes Puppetclass.pluck(:name), 'b'
+              end
+              response = ActiveSupport::JSON.decode(@response.body)
+              assert_equal 'The requested environment cannot be found.', response['message']
+              assert_response :success
+            end
+
             test 'should import puppetclasses for all environments if none specified' do
               assert_difference(-> { ForemanPuppet::Puppetclass.unscoped.count }, 2) do
                 post :import_puppetclasses, params: { id: proxy.id }, session: set_session_user
@@ -279,7 +292,7 @@ module ForemanPuppet
               assert_response :success
             end
 
-            context 'ignored entvironments or classes are set' do
+            context 'ignored environments or classes are set' do
               setup do
                 setup_import_classes
               end
