@@ -4,6 +4,8 @@ module ForemanPuppet
   module PuppetFacetCommon
     extend ActiveSupport::Concern
 
+    include ::BelongsToProxies
+
     included do
       belongs_to :environment
       has_many :host_config_groups, as: :host, dependent: :destroy
@@ -11,7 +13,21 @@ module ForemanPuppet
       has_many :config_group_classes, through: :config_groups
       has_many :group_puppetclasses, through: :config_groups, source: :puppetclasses
 
+      belongs_to_proxy :puppet_proxy,
+        feature: N_('Puppet'),
+        label: N_('Puppet Proxy'),
+        description: N_('Use the Puppetserver configured on this Smart Proxy'),
+        api_description: N_('Puppet proxy ID')
+
+      belongs_to_proxy :puppet_ca_proxy,
+        feature: 'Puppet CA',
+        label: N_('Puppet CA Proxy'),
+        description: N_('Use the Puppetserver CA configured on this Smart Proxy'),
+        api_description: N_('Puppet CA proxy ID')
+
       alias_method :all_puppetclasses, :classes
+
+      before_save :check_puppet_ca_proxy_is_required?
     end
 
     def parent_name
@@ -85,6 +101,51 @@ module ForemanPuppet
     def available_puppetclasses
       return ForemanPuppet::Puppetclass.all.authorized(:view_puppetclasses) if environment.blank?
       environment.puppetclasses - parent_classes
+    end
+
+    def puppetca?
+      return false if respond_to?(:managed?) && !managed?
+      puppetca_exists?
+    end
+
+    def puppetca_exists?
+      !!(puppet_ca_proxy && puppet_ca_proxy.url.present?)
+    end
+
+    def puppet_server_uri
+      return unless puppet_proxy
+      url = puppet_proxy.setting('Puppet', 'puppet_url')
+      url ||= "https://#{puppet_proxy}:8140"
+      URI(url)
+    end
+
+    # The Puppet server FQDN or an empty string. Exposed as a provisioning macro
+    def puppet_server
+      puppet_server_uri.try(:host) || ''
+    end
+    alias_method :puppetmaster, :puppet_server
+
+    def puppet_ca_server_uri
+      return unless puppet_ca_proxy
+      url = puppet_ca_proxy.setting('Puppet CA', 'puppet_url')
+      url ||= "https://#{puppet_ca_proxy}:8140"
+      URI(url)
+    end
+
+    # The Puppet CA server FQDN or an empty string. Exposed as a provisioning
+    # macro.
+    def puppet_ca_server
+      puppet_ca_server_uri.try(:host) || ''
+    end
+
+    private
+
+    # fall back to our puppet proxy in case our puppet ca is not defined/used.
+    def check_puppet_ca_proxy_is_required?
+      return true if puppet_ca_proxy_id.present? || puppet_proxy_id.blank?
+      self.puppet_ca_proxy ||= puppet_proxy if puppet_proxy.has_feature?('Puppet CA')
+    rescue StandardError
+      true # we don't want to break anything, so just skipping.
     end
   end
 end

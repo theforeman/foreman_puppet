@@ -9,6 +9,8 @@ module ForemanPuppet
     let(:config_group_diff_env) { FactoryBot.create(:config_group, :with_puppetclass, class_environments: [diff_environment]) }
 
     describe '.populate_fields_from_facts' do
+      let(:puppet_proxy) { FactoryBot.create(:puppet_smart_proxy) }
+
       test 'populate environment without any puppet info' do
         h = FactoryBot.create(:host)
         parser = stub(environment: environment)
@@ -38,6 +40,28 @@ module ForemanPuppet
         parser = stub(environment: environment)
         HostPuppetFacet.populate_fields_from_facts(h, parser, 'puppet', FactoryBot.create(:puppet_smart_proxy))
         assert_not_equal environment, h.puppet.environment
+      end
+
+      test 'should update puppet_proxy_id to the id of the validated proxy' do
+        raw = read_json_fixture('facts/facts_with_caps.json')
+        host = Host.import_host(raw['name'], nil)
+        assert HostFactImporter.new(host).import_facts(raw['facts'], puppet_proxy)
+        assert_equal puppet_proxy.id, Host.find_by(name: 'sinn1636.lan').puppet_proxy_id
+      end
+
+      test 'should not update puppet_proxy_id if it was not puppet upload' do
+        raw = read_json_fixture('facts/facts_with_caps.json')
+        host = Host.import_host(raw['name'])
+        assert HostFactImporter.new(host).import_facts(raw['facts'].merge(_type: 'chef'), puppet_proxy)
+        assert_nil host.puppet_proxy_id
+      end
+
+      test "shouldn't update puppet_proxy_id if it has been set" do
+        Host.new(name: 'sinn1636.lan', puppet_proxy_id: puppet_proxy.id).save(validate: false)
+        raw = read_json_fixture('facts/facts_with_certname.json')
+        host = Host.import_host(raw['name'])
+        assert HostFactImporter.new(host).import_facts(raw['facts'], puppet_proxy)
+        assert_equal smart_proxies(:puppetmaster).id, Host.find_by(name: 'sinn1636.lan').puppet_proxy_id
       end
     end
 

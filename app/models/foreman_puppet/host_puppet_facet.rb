@@ -6,10 +6,11 @@ module ForemanPuppet
     include Facets::Base
     include ForemanPuppet::PuppetFacetCommon
 
+    has_one :puppetca_token, :foreign_key => :host_id, :dependent => :destroy, :inverse_of => :host, :class_name => 'ForemanPuppet::Token::Puppetca'
     has_many :host_classes, dependent: :destroy, class_name: 'ForemanPuppet::HostClass'
     has_many :puppetclasses, through: :host_classes
 
-    validates :environment_id, presence: true, unless: ->(facet) { facet.host.puppet_proxy_id.blank? }
+    validates :environment_id, presence: true, unless: ->(facet) { facet.puppet_proxy_id.blank? }
 
     after_validation :ensure_puppet_associations
     before_save :clear_puppetinfo, if: :environment_id_changed?
@@ -27,11 +28,13 @@ module ForemanPuppet
 
       # if proxy authentication is enabled and we have no puppet proxy set and the upload came from puppet,
       # use it as puppet proxy.
-      host.puppet_proxy ||= source_proxy
+      facet.puppet_proxy ||= source_proxy
     end
 
     def self.inherited_attributes(new_hostgroup, attributes)
-      { 'environment_id' => new_hostgroup.puppet&.inherited_environment_id }.merge(attributes)
+      { 'environment_id' => new_hostgroup.puppet&.inherited_environment_id,
+        'puppet_proxy_id' => new_hostgroup.puppet&.inherited_puppet_proxy_id,
+        'puppet_ca_proxy_id' => new_hostgroup.puppet&.inherited_puppet_ca_proxy_id }.merge(attributes)
     end
 
     def clear_puppetinfo

@@ -6,6 +6,10 @@ module ForemanPuppet
       included do
         prepend PrependedMethods
 
+        if SETTINGS[:unattended]
+          include ForemanPuppet::Orchestration::Puppetca
+        end
+
         if ForemanPuppet.extracted_from_core?
           has_one :environment, through: :puppet, class_name: 'ForemanPuppet::Environment'
         else
@@ -16,6 +20,10 @@ module ForemanPuppet
           host_classes_assoc&.instance_variable_set(:@class_name, 'ForemanPuppet::HostClass')
         end
 
+        smart_proxy_reference :self => [:puppet_proxy_id, :puppet_ca_proxy_id]
+
+        before_save :check_puppet_ca_proxy_is_required?
+
         include_in_clone puppet: %i[config_groups host_config_groups host_classes]
 
         scoped_search relation: :environment, on: :name, complete_value: true, rename: :environment
@@ -25,6 +33,23 @@ module ForemanPuppet
           ext_method: :search_by_puppetclass
         scoped_search relation: :config_groups, on: :name, complete_value: true, rename: :config_group, only_explicit: true, operators: ['= ', '~ '],
           ext_method: :search_by_config_group
+
+
+        apipie :class do
+          property :puppetca_token, 'Token::Puppetca', desc: 'Returns Puppet CA token for this host'
+        end
+
+        private
+
+        # fall back to our puppet proxy in case our puppet ca is not defined/used.
+        def check_puppet_ca_proxy_is_required?
+          return true if puppet_ca_proxy_id.present? || puppet_proxy_id.blank?
+          if puppet_proxy.has_feature?('Puppet CA')
+            self.puppet_ca_proxy ||= puppet_proxy
+          end
+        rescue
+          true # we don't want to break anything, so just skipping.
+        end
       end
 
       class_methods do
