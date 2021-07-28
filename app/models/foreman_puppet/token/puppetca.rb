@@ -1,5 +1,7 @@
 module ForemanPuppet
-  class Token::Puppetca < ::Token
-    validates :value, uniqueness: true
+  module Token
+    class Puppetca < ::Token
+      validates :value, uniqueness: true
+    end
   end
 end

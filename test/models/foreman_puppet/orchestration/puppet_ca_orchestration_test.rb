@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PuppetCaOrchestrationTest < ActiveSupport::TestCase
   def setup
-    users(:one).roles << Role.find_by_name('Manager')
+    users(:one).roles << Role.find_by(name: 'Manager')
     User.current = users(:one)
     disable_orchestration
     Setting[:manage_puppetca] = true
@@ -15,7 +15,7 @@ class PuppetCaOrchestrationTest < ActiveSupport::TestCase
 
   context 'a host with puppetca orchestration' do
     context 'when entering build mode on creation' do
-      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, :build => true) }
+      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, build: true) }
 
       test 'should queue puppetca autosigning' do
         assert_valid host
@@ -45,7 +45,7 @@ class PuppetCaOrchestrationTest < ActiveSupport::TestCase
     end
 
     context 'when reentering build mode' do
-      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, :build => false) }
+      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, build: false) }
 
       setup do
         @host = host
@@ -64,7 +64,7 @@ class PuppetCaOrchestrationTest < ActiveSupport::TestCase
     end
 
     context 'when reentering build mode after certname setting was changed' do
-      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, :build => false) }
+      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, build: false) }
 
       test 'should reset certname when changing from hostname to uuid' do
         assert_valid host
@@ -98,7 +98,7 @@ class PuppetCaOrchestrationTest < ActiveSupport::TestCase
     end
 
     context 'when host leaves build mode' do
-      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, :build => true) }
+      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, build: true) }
 
       setup do
         @host = host
@@ -115,19 +115,19 @@ class PuppetCaOrchestrationTest < ActiveSupport::TestCase
     end
 
     context 'when host is updated' do
-      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, :build => false) }
+      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, build: false) }
 
       test 'should not queue anything if build mode is not changed' do
         assert_valid host
         host.post_queue.clear
-        host.comment = "updated"
+        host.comment = 'updated'
         host.save!
         assert_equal 0, host.post_queue.all.size
       end
     end
 
     context 'when host gets destroyed' do
-      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, :build => false) }
+      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, build: false) }
 
       test 'should queue puppetca destroy' do
         assert_valid host
@@ -141,7 +141,7 @@ class PuppetCaOrchestrationTest < ActiveSupport::TestCase
     end
 
     context 'handles smart proxy responses correctly' do
-      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, :build => true) }
+      let(:host) { FactoryBot.create(:host, :managed, :with_puppet_ca, build: true) }
 
       setup do
         @host = host
@@ -156,7 +156,7 @@ class PuppetCaOrchestrationTest < ActiveSupport::TestCase
 
       test 'when autosigning fails' do
         @host.puppetca.stubs(:set_autosign).with(@host.certname).returns(false)
-        refute @host.send(:setAutosign)
+        assert_not @host.send(:setAutosign)
         assert_nil @host.puppetca_token
       end
 
@@ -165,19 +165,19 @@ class PuppetCaOrchestrationTest < ActiveSupport::TestCase
         @host.puppetca.stubs(:set_autosign).with(@host.certname).returns(spresponse)
         assert @host.send(:setAutosign)
         assert_valid @host.puppetca_token
-        assert_equal @host.puppetca_token.value, 'foo42'
+        assert_equal('foo42', @host.puppetca_token.value)
       end
 
       test 'when it gets an invalid hash response' do
         spresponse = { 'not_a_token' => '' }
         @host.puppetca.stubs(:set_autosign).with(@host.certname).returns(spresponse)
-        refute @host.send(:setAutosign)
+        assert_not @host.send(:setAutosign)
         assert_nil @host.puppetca_token
       end
 
       test 'when it gets an invalid nil response' do
         @host.puppetca.stubs(:set_autosign).with(@host.certname).returns(nil)
-        refute @host.send(:setAutosign)
+        assert_not @host.send(:setAutosign)
         assert_nil @host.puppetca_token
       end
     end

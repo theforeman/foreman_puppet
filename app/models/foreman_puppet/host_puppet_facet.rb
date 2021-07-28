@@ -6,7 +6,7 @@ module ForemanPuppet
     include Facets::Base
     include ForemanPuppet::PuppetFacetCommon
 
-    has_one :puppetca_token, :foreign_key => :host_id, :dependent => :destroy, :inverse_of => :host, :class_name => 'ForemanPuppet::Token::Puppetca'
+    has_one :puppetca_token, foreign_key: :host_id, dependent: :destroy, inverse_of: :host, class_name: 'ForemanPuppet::Token::Puppetca'
     has_many :host_classes, dependent: :destroy, class_name: 'ForemanPuppet::HostClass'
     has_many :puppetclasses, through: :host_classes
 
