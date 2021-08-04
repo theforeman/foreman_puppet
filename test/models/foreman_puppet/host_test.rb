@@ -150,6 +150,32 @@ module ForemanPuppet
       end
     end
 
+    describe '#available_template_kinds' do
+      let(:template_kinds) { [stub(name: 'iPXE'), stub(name: 'finish')] }
+
+      test 'calls find_template with Puppet environment' do
+        host = FactoryBot.create(:host, :with_hostgroup, :with_puppet_enc)
+        host.expects(:template_kinds).returns(template_kinds)
+        template_kinds.each do |kind|
+          ::ProvisioningTemplate.expects(:find_template)
+                                .with(kind: kind.name, operatingsystem_id: host.operatingsystem.id, hostgroup_id: host.hostgroup.id, environment_id: host.puppet.environment.id)
+                                .returns(stub(name: "default #{kind.name}"))
+        end
+        assert_equal template_kinds.map { |k| "default #{k.name}" }, host.available_template_kinds.map(&:name)
+      end
+
+      test 'calls find_template without Puppet environment' do
+        host = FactoryBot.create(:host, :with_hostgroup)
+        host.expects(:template_kinds).returns(template_kinds)
+        template_kinds.each do |kind|
+          ::ProvisioningTemplate.expects(:find_template)
+                                .with(kind: kind.name, operatingsystem_id: host.operatingsystem.id, hostgroup_id: host.hostgroup.id, environment_id: nil)
+                                .returns(stub(name: "default #{kind.name}"))
+        end
+        assert_equal template_kinds.map { |k| "default #{k.name}" }, host.available_template_kinds.map(&:name)
+      end
+    end
+
     test 'should import from external nodes output' do
       # create a dummy node
       Parameter.destroy_all
