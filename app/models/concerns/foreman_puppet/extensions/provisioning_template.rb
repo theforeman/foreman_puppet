@@ -46,7 +46,7 @@ module ForemanPuppet
 
         def template_includes
           includes = super
-          tc_include = includes.detect { |i| i.key?(:template_combinations) }
+          tc_include = includes.detect { |i| i.is_a?(Hash) && i.key?(:template_combinations) }
           tc_include ||= includes << {}
           tc_include[:template_combinations] = %i[hostgroup environment]
           includes
