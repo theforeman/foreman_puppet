@@ -37,6 +37,13 @@ module ForemanPuppet
       assert_equal [], tmplt.template_combinations
     end
 
+    test '#template_includes adds environment include' do
+      includes = ProvisioningTemplate.template_includes
+      tc_include = includes.detect { |i| i.is_a?(Hash) && i.key?(:template_combinations) }
+      assert tc_include
+      assert_includes tc_include[:template_combinations], :environment
+    end
+
     describe '#find_template by template_combinations' do
       setup do
         @arch = FactoryBot.create(:architecture)
