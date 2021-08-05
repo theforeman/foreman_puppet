@@ -3,6 +3,8 @@ module ForemanPuppet
     module Host
       extend ActiveSupport::Concern
 
+      include ForemanPuppet::Extensions::HostCommon if ForemanPuppet.extracted_from_core?
+
       included do
         prepend PrependedMethods
 

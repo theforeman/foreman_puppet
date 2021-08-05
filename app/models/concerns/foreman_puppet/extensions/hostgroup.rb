@@ -3,6 +3,8 @@ module ForemanPuppet
     module Hostgroup
       extend ActiveSupport::Concern
 
+      include ForemanPuppet::Extensions::HostCommon if ForemanPuppet.extracted_from_core?
+
       included do
         class << self
           prepend PatchedClassMethods
