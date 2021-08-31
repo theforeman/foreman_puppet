@@ -43,7 +43,7 @@ module ForemanPuppet
     # the environment used by #clases nees to be self.environment and not self.parent.environment
     def parent_classes
       return [] unless host.hostgroup
-      host.hostgroup.puppet&.classes(environment)
+      host.hostgroup.puppet&.classes(environment) || []
     end
 
     def parent_config_groups
