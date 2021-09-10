@@ -33,7 +33,6 @@ module ForemanPuppet
     engine_name 'foreman_puppet'
     isolate_namespace ForemanPuppet
 
-    config.paths['db/migrate'] << 'db/migrate_foreman' if Gem::Dependency.new('', ">= #{ForemanPuppet::FOREMAN_EXTRACTION_VERSION}").match?('', SETTINGS[:version])
     config.paths['config/routes.rb'].unshift('config/api_routes.rb')
 
     initializer 'foreman_puppet.register_plugin', before: :finisher_hook do |_app|
