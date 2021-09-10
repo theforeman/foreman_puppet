@@ -14,8 +14,8 @@ module ForemanPuppet
           test 'should import new environments' do
             setup_import_classes
             as_admin do
-              Host::Managed.update_all(environment_id: nil)
-              Hostgroup.update_all(environment_id: nil)
+              HostPuppetFacet.destroy_all
+              HostgroupPuppetFacet.destroy_all
               Puppetclass.destroy_all
               Environment.destroy_all
             end
@@ -33,8 +33,8 @@ module ForemanPuppet
             test 'should import new puppetclasses' do
               setup_import_classes
               as_admin do
-                Host::Managed.update_all(environment_id: nil)
-                Hostgroup.update_all(environment_id: nil)
+                HostPuppetFacet.destroy_all
+                HostgroupPuppetFacet.destroy_all
                 Puppetclass.destroy_all
                 Environment.destroy_all
                 assert_difference(-> { ForemanPuppet::Puppetclass.unscoped.count }, 1) do
@@ -51,8 +51,8 @@ module ForemanPuppet
           test 'should not import new puppetclasses when dryrun' do
             setup_import_classes
             as_admin do
-              Host::Managed.update_all(environment_id: nil)
-              Hostgroup.update_all(environment_id: nil)
+              HostPuppetFacet.destroy_all
+              HostgroupPuppetFacet.destroy_all
               Puppetclass.destroy_all
               Environment.destroy_all
               assert_difference(-> { ForemanPuppet::Puppetclass.unscoped.count }, 0) do
@@ -222,8 +222,8 @@ module ForemanPuppet
 
         def setup_import_classes
           as_admin do
-            ::Host::Managed.update_all(environment_id: nil)
-            ::Hostgroup.update_all(environment_id: nil)
+            HostPuppetFacet.destroy_all
+            HostgroupPuppetFacet.destroy_all
             ForemanPuppet::HostClass.destroy_all
             ForemanPuppet::HostgroupClass.destroy_all
             ForemanPuppet::Puppetclass.destroy_all
