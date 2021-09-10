@@ -2,7 +2,7 @@ module ForemanPuppet
   module Orchestration
     module Puppetca
       extend ActiveSupport::Concern
-      include Orchestration::Common
+      include ::Orchestration::Common
 
       included do
         attr_reader :puppetca
