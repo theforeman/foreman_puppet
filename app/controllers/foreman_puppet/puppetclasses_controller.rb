@@ -14,7 +14,7 @@ module ForemanPuppet
 
     helper ForemanPuppet::PuppetclassLookupKeysHelper
 
-    # TODO: extracted_from_core?
+    # TODO: filter for facets needs improving
     def host_params(top_level_hash = controller_name.singularize)
       filter = self.class.host_params_filter
       filter.permit(puppet_attributes: {})

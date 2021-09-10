@@ -5,11 +5,7 @@ describe 'hosts/select_multiple_environment.html.erb' do
 
   it 'renders the form' do
     hosts = [FactoryBot.build_stubbed(:host)]
-    if ForemanPuppet.extracted_from_core?
-      hosts.stubs(:preload).returns(hosts)
-    else
-      hosts.stubs(:includes).returns(hosts)
-    end
+    hosts.stubs(:preload).returns(hosts)
     assign(:hosts, hosts)
 
     render

@@ -3,20 +3,12 @@ module ForemanPuppet
     module Host
       extend ActiveSupport::Concern
 
-      include ForemanPuppet::Extensions::HostCommon if ForemanPuppet.extracted_from_core?
+      include ForemanPuppet::Extensions::HostCommon
 
       included do
         prepend PrependedMethods
 
-        if ForemanPuppet.extracted_from_core?
-          has_one :environment, through: :puppet, class_name: 'ForemanPuppet::Environment'
-        else
-          env_assoc = reflect_on_association(:environment)
-          env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppet::Environment')
-
-          host_classes_assoc = reflect_on_association(:host_classes)
-          host_classes_assoc&.instance_variable_set(:@class_name, 'ForemanPuppet::HostClass')
-        end
+        has_one :environment, through: :puppet, class_name: 'ForemanPuppet::Environment'
 
         include_in_clone puppet: %i[config_groups host_config_groups host_classes]
 
@@ -70,12 +62,6 @@ module ForemanPuppet
       end
 
       module PrependedMethods
-        # TODO: we can drop this once extracted_from_core?
-        def validate_association_taxonomy(association_name)
-          return if association_name.to_sym == :environment
-          super
-        end
-
         def provisioning_template(opts = {})
           opts[:environment_id] ||= puppet&.environment_id
           super(opts)

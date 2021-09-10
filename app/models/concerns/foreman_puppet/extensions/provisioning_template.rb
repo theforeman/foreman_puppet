@@ -4,21 +4,16 @@ module ForemanPuppet
       extend ActiveSupport::Concern
 
       included do
-        if ForemanPuppet.extracted_from_core?
-          has_many :environments, through: :template_combinations
-          before_destroy ActiveRecord::Base::EnsureNotUsedBy.new(:environments)
+        has_many :environments, through: :template_combinations
+        before_destroy ActiveRecord::Base::EnsureNotUsedBy.new(:environments)
 
-          scoped_search relation: :environments, on: :name, rename: :environment, complete_value: true
+        scoped_search relation: :environments, on: :name, rename: :environment, complete_value: true
 
-          class << self
-            prepend PrependedClassMethods
-          end
-
-          prepend PrependedMethods
-        else
-          env_assoc = reflect_on_association(:environments)
-          env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppet::Environment')
+        class << self
+          prepend PrependedClassMethods
         end
+
+        prepend PrependedMethods
       end
 
       module PrependedClassMethods

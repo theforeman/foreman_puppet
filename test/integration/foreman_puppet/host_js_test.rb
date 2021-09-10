@@ -362,7 +362,6 @@ module ForemanPuppet
       page.find('#puppet_klasses_parameters_table')
     end
 
-    # TODO: unless ForemanPuppet.extracted_from_core?
     def switch_form_tab_to_interfaces
       switch_form_tab('Interfaces')
       disable_interface_modal_animation

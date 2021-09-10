@@ -1,35 +1,5 @@
 module ForemanPuppet
   class Engine < ::Rails::Engine
-    config.before_configuration do
-      unless ForemanPuppet.extracted_from_core?
-        require 'graphql'
-
-        module BaseObjectClassMethodPath
-          def field(*args, **kwargs, &block)
-            return if args.first == :environment && args.second.to_s == 'Types::Environment'
-            return if args.first == :environments && args.second.node_type.to_s == 'Types::Environment'
-            return if args.first == :puppetclass && args.second.to_s == 'Types::Puppetclass'
-            return if args.first == :puppetclasses && args.second.node_type.to_s == 'Types::Puppetclass'
-
-            super
-          end
-        end
-
-        module RelayClassicMutationClassMethodPath
-          # rubocop:disable Metrics/ParameterLists
-          def argument(name, type, *rest, loads: nil, **kwargs, &block)
-            # rubocop:enable Metrics/ParameterLists
-            return if [::Types::Environment, ::Types::Puppetclass].include?(loads)
-
-            super
-          end
-        end
-
-        GraphQL::Types::Relay::BaseObject.extend(BaseObjectClassMethodPath)
-        GraphQL::Schema::RelayClassicMutation.extend(RelayClassicMutationClassMethodPath)
-      end
-    end
-
     engine_name 'foreman_puppet'
     isolate_namespace ForemanPuppet
 
@@ -96,12 +66,6 @@ module ForemanPuppet
 
       ::SmartProxiesHelper::TABBED_FEATURES << 'Puppet'
 
-      unless ForemanPuppet.extracted_from_core?
-        ::HostInfo.local_entries.delete('HostInfoProviders::PuppetInfo'.safe_constantize)
-        ::HostInfo.local_entries.delete('HostInfoProviders::ConfigGroupsInfo'.safe_constantize)
-        ::ProxyStatus.status_registry.delete('ProxyStatus::Puppet'.safe_constantize)
-        Foreman.input_types_registry.input_types.delete('puppet_parameter')
-      end
       Foreman.input_types_registry.register(ForemanPuppet::InputType::PuppetParameterInput)
       ::ProxyStatus.status_registry.add(ForemanPuppet::ProxyStatus::Puppet)
 

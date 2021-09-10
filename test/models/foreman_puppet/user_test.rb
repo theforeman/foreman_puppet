@@ -5,11 +5,7 @@ module ForemanPuppet
     describe '#visible_environments' do
       let(:environment) { FactoryBot.create(:environment) }
       let(:untaxed_env) { FactoryBot.create(:environment, organizations: [], locations: []) }
-      let(:env_names) do
-        env_names = [environment.name, untaxed_env.name]
-        env_names += %w[production global_puppetmaster testing] unless ForemanPuppet.extracted_from_core?
-        env_names
-      end
+      let(:env_names) { [environment.name, untaxed_env.name] }
 
       setup do
         environment

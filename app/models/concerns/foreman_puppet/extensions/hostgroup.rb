@@ -3,19 +3,14 @@ module ForemanPuppet
     module Hostgroup
       extend ActiveSupport::Concern
 
-      include ForemanPuppet::Extensions::HostCommon if ForemanPuppet.extracted_from_core?
+      include ForemanPuppet::Extensions::HostCommon
 
       included do
         class << self
           prepend PatchedClassMethods
         end
 
-        if ForemanPuppet.extracted_from_core?
-          has_one :environment, through: :puppet, class_name: 'ForemanPuppet::Environment'
-        else
-          env_assoc = reflect_on_association(:environment)
-          env_assoc&.instance_variable_set(:@class_name, 'ForemanPuppet::Environment')
-        end
+        has_one :environment, through: :puppet, class_name: 'ForemanPuppet::Environment'
 
         include_in_clone puppet: %i[host_config_groups config_groups hostgroup_classes]
 

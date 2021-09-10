@@ -6,25 +6,23 @@ module ForemanPuppet
       included do
         prepend PatchMethods
 
-        if ForemanPuppet.extracted_from_core?
-          method_desc = Apipie.get_method_description(self, :index)
-          method_desc.apis << Apipie::MethodDescription::Api.new(:GET, '/environments/:environment_id/hosts', N_('List hosts per environment'), {})
+        method_desc = Apipie.get_method_description(self, :index)
+        method_desc.apis << Apipie::MethodDescription::Api.new(:GET, '/environments/:environment_id/hosts', N_('List hosts per environment'), {})
 
-          apipie_update_methods([:index]) do
-            param :environment_id, String, desc: N_('ID of puppet environment')
-          end
+        apipie_update_methods([:index]) do
+          param :environment_id, String, desc: N_('ID of puppet environment')
+        end
 
-          apipie_update_methods(%i[create update]) do
-            param :host, Hash do
-              param :environment_id, String, desc: N_('Deprecated in favor of host/puppet_attributes/environment_id')
-              param :puppetclass_ids, Array, desc: N_('Deprecated in favor of host/puppet_attributes/puppetclass_ids')
-              param :config_group_ids, Array, desc: N_('Deprecated in favor of host/puppet_attributes/config_group_ids')
+        apipie_update_methods(%i[create update]) do
+          param :host, Hash do
+            param :environment_id, String, desc: N_('Deprecated in favor of host/puppet_attributes/environment_id')
+            param :puppetclass_ids, Array, desc: N_('Deprecated in favor of host/puppet_attributes/puppetclass_ids')
+            param :config_group_ids, Array, desc: N_('Deprecated in favor of host/puppet_attributes/config_group_ids')
 
-              param :puppet_attributes, Hash do
-                param :environment_id, String, desc: N_('ID of associated puppet Environment')
-                param :puppetclass_ids, Array, desc: N_('IDs of associated Puppetclasses')
-                param :config_group_ids, Array, desc: N_('IDs of associated ConfigGroups')
-              end
+            param :puppet_attributes, Hash do
+              param :environment_id, String, desc: N_('ID of associated puppet Environment')
+              param :puppetclass_ids, Array, desc: N_('IDs of associated Puppetclasses')
+              param :config_group_ids, Array, desc: N_('IDs of associated ConfigGroups')
             end
           end
         end
@@ -39,7 +37,7 @@ module ForemanPuppet
 
         def allowed_nested_id
           ids = super
-          ids << 'environment_id' if ForemanPuppet.extracted_from_core?
+          ids << 'environment_id'
           ids.uniq
         end
       end

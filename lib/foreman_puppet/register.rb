@@ -5,30 +5,11 @@ Foreman::Plugin.register :foreman_puppet do
 
   apipie_documented_controllers(["#{ForemanPuppet::Engine.root}/app/controllers/foreman_puppet/api/v2/*.rb"])
 
-  unless ForemanPuppet.extracted_from_core?
-    # Remove core permissions
-    cfgs = %i[view_config_groups create_config_groups edit_config_groups destroy_config_groups]
-    plks = %i[view_external_parameters create_external_parameters edit_external_parameters
-              destroy_external_parameters]
-    pcls = %i[view_puppetclasses create_puppetclasses edit_puppetclasses destroy_puppetclasses import_puppetclasses]
-    (cfgs | plks | pcls).each do |perm_name|
-      p = Foreman::AccessControl.permission(perm_name)
-      Foreman::AccessControl.remove_permission(p)
-    end
-
-    delete_menu_item(:top_menu, :puppetclasses)
-    delete_menu_item(:top_menu, :config_groups)
-    delete_menu_item(:top_menu, :puppetclass_lookup_keys)
-    delete_menu_item(:top_menu, :environments)
-  end
-
   # TODO: maybe this would not be necessary if we rething the form
   %i[create_hostgroups edit_hostgroups].each do |perm|
     p = Foreman::AccessControl.permission(perm)
-    if ForemanPuppet.extracted_from_core?
-      p.actions << 'hostgroups/environment_selected'
-      p.actions << 'hostgroups/puppetclass_parameters'
-    end
+    p.actions << 'hostgroups/environment_selected'
+    p.actions << 'hostgroups/puppetclass_parameters'
     p.actions << 'foreman_puppet/puppetclasses/parameters'
   end
   p = Foreman::AccessControl.permission(:edit_hostgroups)
@@ -37,15 +18,13 @@ Foreman::Plugin.register :foreman_puppet do
   end
   %i[create_hosts edit_hosts].each do |perm|
     p = Foreman::AccessControl.permission(perm)
-    if ForemanPuppet.extracted_from_core?
-      p.actions << 'hosts/hostgroup_or_environment_selected'
-      p.actions << 'hosts/puppetclass_parameters'
-      if perm == :edit_hosts
-        p.actions << 'hosts/select_multiple_environment'
-        p.actions << 'hosts/update_multiple_environment'
-        p.actions << 'hosts/select_multiple_puppet_proxy'
-        p.actions << 'hosts/update_multiple_puppet_proxy'
-      end
+    p.actions << 'hosts/hostgroup_or_environment_selected'
+    p.actions << 'hosts/puppetclass_parameters'
+    if perm == :edit_hosts
+      p.actions << 'hosts/select_multiple_environment'
+      p.actions << 'hosts/update_multiple_environment'
+      p.actions << 'hosts/select_multiple_puppet_proxy'
+      p.actions << 'hosts/update_multiple_puppet_proxy'
     end
     p.actions << 'foreman_puppet/puppetclasses/parameters'
   end
@@ -185,14 +164,6 @@ Foreman::Plugin.register :foreman_puppet do
     base_scope.preload(puppet: :environment)
   end
 
-  unless ForemanPuppet.extracted_from_core?
-    Rails.application.config.after_initialize do
-      list = Pagelets::Manager.instance.instance_variable_get(:@pagelets)['hosts/_form'][:main_tabs]
-      core_pagelet = list.detect { |pagelet| pagelet.opts[:id] == :puppet_klasses }
-      list.delete(core_pagelet)
-    end
-  end
-
   register_graphql_query_field :environment, 'ForemanPuppet::Types::Environment', :record_field
   register_graphql_query_field :environments, 'ForemanPuppet::Types::Environment', :collection_field
   register_graphql_query_field :puppetclass, 'ForemanPuppet::Types::Puppetclass', :record_field
@@ -212,12 +183,10 @@ Foreman::Plugin.register :foreman_puppet do
         priority: 100,
         onlyif: (host_onlyif if resource_type == :host)
 
-      if ForemanPuppet.extracted_from_core?
-        context.add_pagelet :main_tab_fields,
-          partial: 'hosts/foreman_puppet/form_main_tab_fields',
-          resource_type: resource_type,
-          priority: 100
-      end
+      context.add_pagelet :main_tab_fields,
+        partial: 'hosts/foreman_puppet/form_main_tab_fields',
+        resource_type: resource_type,
+        priority: 100
     end
   end
 end
