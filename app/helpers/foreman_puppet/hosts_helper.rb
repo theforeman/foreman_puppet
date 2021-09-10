@@ -3,20 +3,16 @@ module ForemanPuppet
     UI.register_host_description do
       multiple_actions_provider :puppet_host_multiple_actions
       # otherwise registered twice
-      overview_buttons_provider :puppet_host_overview_buttons if ForemanPuppet.extracted_from_core?
-      overview_fields_provider :puppet_host_overview_fields if ForemanPuppet.extracted_from_core?
+      overview_buttons_provider :puppet_host_overview_buttons
+      overview_fields_provider :puppet_host_overview_fields
     end
 
     def puppet_host_multiple_actions
-      if ForemanPuppet.extracted_from_core?
-        actions = [{ action: [_('Change Environment'), foreman_puppet.select_multiple_environment_hosts_path], priority: 200 }]
-        if authorized_for(controller: :hosts, action: :edit) && SmartProxy.unscoped.authorized.with_features('Puppet').exists?
-          actions << { action: [_('Change Puppet Master'), foreman_puppet.select_multiple_puppet_proxy_hosts_path], priority: 1050 }
-        end
-        actions
-      else
-        []
+      actions = [{ action: [_('Change Environment'), foreman_puppet.select_multiple_environment_hosts_path], priority: 200 }]
+      if authorized_for(controller: :hosts, action: :edit) && SmartProxy.unscoped.authorized.with_features('Puppet').exists?
+        actions << { action: [_('Change Puppet Master'), foreman_puppet.select_multiple_puppet_proxy_hosts_path], priority: 1050 }
       end
+      actions
     end
 
     def puppet_host_overview_buttons(host)

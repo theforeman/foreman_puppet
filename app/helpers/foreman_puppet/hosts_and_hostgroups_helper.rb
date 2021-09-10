@@ -1,10 +1,5 @@
 module ForemanPuppet
   module HostsAndHostgroupsHelper
-    # TODO: remove me - prevents the puppetclass tab duplication
-    # unless ForemanPuppet.extracted_from_core?
-    def puppetclasses_tab(puppetclasses_receiver)
-    end
-
     def environment_inherited_by_default?(host)
       return false unless host.hostgroup && host.hostgroup_id_was.nil?
       return false if params[:action] == 'clone'

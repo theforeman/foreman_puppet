@@ -4,6 +4,6 @@ class AddEnvironmentToTemplateCombinations < ActiveRecord::Migration[4.2]
   end
 
   def down
-    remove_reference :template_combinations, :environment, foreign_key: true if ForemanPuppet.extracted_from_core?
+    remove_reference :template_combinations, :environment, foreign_key: true
   end
 end

@@ -308,12 +308,6 @@ module ForemanPuppet
       env.puppetclasses.destroy classes
       # remove all old classes from hosts
       HostClass.joins(host: :puppet).where(HostPuppetFacet.arel_table[:environment_id].eq(env.id)).where(puppetclass_id: classes).destroy_all
-      unless ForemanPuppet.extracted_from_core?
-        # rubocop:disable Rails/SkipsModelValidations
-        Host.where(environment_id: env).update_all(environment_id: nil)
-        Hostgroup.where(environment_id: env).update_all(environment_id: nil)
-        # rubocop:enable Rails/SkipsModelValidations
-      end
       # we can't guaranty that the env would be removed as it might have hosts attached to it.
       env.destroy if klasses.include? '_destroy_'
       # remove all klasses that have no environment now

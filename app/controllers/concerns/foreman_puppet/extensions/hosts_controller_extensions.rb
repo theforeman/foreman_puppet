@@ -31,7 +31,6 @@ module ForemanPuppet
         helper ForemanPuppet::PuppetclassLookupKeysHelper
       end
 
-      # TODO: unless ForemanPuppet.extracted_from_core?
       def select_multiple_puppet_proxy_hosts_path(*args)
         foreman_puppet.select_multiple_puppet_proxy_hosts_path(*args)
       end

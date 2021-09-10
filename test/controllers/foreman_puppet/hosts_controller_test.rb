@@ -48,7 +48,6 @@ module ForemanPuppet
       setup { @routes = Rails.application.routes }
 
       test 'lookup value and description should be html escaped' do
-        skip 'Needs complete migration to be done' unless ForemanPuppet.extracted_from_core?
         FactoryBot.create(:puppetclass_lookup_key,
           default_value: "<script>alert('hacked!');</script>",
           description: "<script>alert('hacked!');</script>",

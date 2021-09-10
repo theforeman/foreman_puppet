@@ -3,7 +3,7 @@ require 'test_puppet_helper'
 module ForemanPuppet
   class PuppetClassImporterTest < ActiveSupport::TestCase
     def setup
-      FactoryBot.create(:environment, name: 'production') if ForemanPuppet.extracted_from_core?
+      FactoryBot.create(:environment, name: 'production')
       ProxyAPI::Puppet.any_instance.stubs(:environments).returns(%w[foreman-testing foreman-testing-1])
       ProxyAPI::Puppet.any_instance.stubs(:classes).returns(mocked_classes)
       User.current = users(:admin)
