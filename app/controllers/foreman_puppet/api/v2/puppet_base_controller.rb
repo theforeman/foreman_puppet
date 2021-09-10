@@ -11,7 +11,7 @@ module ForemanPuppet
         protected
 
         def show_deprecation_for_core_routes
-          return if request.path.starts_with?('/foreman_puppet')
+          return if request.path.starts_with?('/foreman_puppet') || request.path.starts_with?('/api/smart_proxies')
           Foreman::Deprecation.api_deprecation_warning(
             format(
               '/api/v2/%{controller} API endpoints are deprecated, please use /foreman_puppet/api/v2/%{controller} instead',
