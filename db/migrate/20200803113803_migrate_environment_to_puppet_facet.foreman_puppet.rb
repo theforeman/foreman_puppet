@@ -1,5 +1,6 @@
 class MigrateEnvironmentToPuppetFacet < ActiveRecord::Migration[6.0]
   def up
+    return true unless column_exists?(:hosts, :environment_id)
     puppet_hostgroups = ::Hostgroup.unscoped.where.not(environment_id: nil).pluck(:id, :environment_id)
     puppet_hostgroups.map! { |hg_id, env_id| { hostgroup_id: hg_id, environment_id: env_id } }
     ForemanPuppet::HostgroupPuppetFacet.insert_all!(puppet_hostgroups) if puppet_hostgroups.any?
@@ -10,6 +11,7 @@ class MigrateEnvironmentToPuppetFacet < ActiveRecord::Migration[6.0]
   end
 
   def down
+    return true unless column_exists?(:hosts, :environment_id)
     hostgroup_facet_ids = ForemanPuppet::HostgroupPuppetFacet.all.pluck(:hostgroup_id, :environment_id)
     hostgroup_facet_ids.each do |hostgroup_id, env_id|
       ::Hostgroup.unscoped.where(id: hostgroup_id).update_all(environment_id: env_id)

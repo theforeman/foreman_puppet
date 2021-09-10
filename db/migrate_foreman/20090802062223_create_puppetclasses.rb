@@ -7,6 +7,8 @@ class CreatePuppetclasses < ActiveRecord::Migration[4.2]
 
       t.timestamps null: true
     end
+    add_foreign_key(:environments_puppetclasses, :puppetclasses)
+
     create_table :hosts_puppetclasses, id: false do |t|
       t.references :puppetclass, null: false
       t.references :host, null: false

@@ -194,8 +194,8 @@ module ForemanPuppet
 
       def setup_import_classes
         as_admin do
-          Host::Managed.all.each { |h| h.update(environment_id: nil) }
-          Hostgroup.all.each { |h| h.update(environment_id: nil) }
+          HostPuppetFacet.destroy_all
+          HostgroupPuppetFacet.destroy_all
           Puppetclass.destroy_all
           Environment.destroy_all
         end
