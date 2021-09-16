@@ -23,7 +23,9 @@ module ForemanPuppet
       module Actions
         def nest
           super
-          @hostgroup.puppetclasses = @parent.puppetclasses
+          return unless @parent.puppet
+          puppet = @hostgroup.puppet || @hostgroup.build_puppet
+          puppet.puppetclasses = @parent.puppet.puppetclasses
         end
 
         def environment_selected
