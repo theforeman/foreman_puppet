@@ -2,11 +2,11 @@ class MigrateEnvironmentToPuppetFacet < ActiveRecord::Migration[6.0]
   def up
     puppet_hostgroups = ::Hostgroup.unscoped.where.not(environment_id: nil).pluck(:id, :environment_id)
     puppet_hostgroups.map! { |hg_id, env_id| { hostgroup_id: hg_id, environment_id: env_id } }
-    ForemanPuppet::HostgroupPuppetFacet.insert_all(puppet_hostgroups) if puppet_hostgroups.any?
+    ForemanPuppet::HostgroupPuppetFacet.insert_all!(puppet_hostgroups) if puppet_hostgroups.any?
 
     puppet_hosts = Host::Managed.unscoped.where.not(environment_id: nil).pluck(:id, :environment_id)
     puppet_hosts.map! { |host_id, env_id| { host_id: host_id, environment_id: env_id } }
-    ForemanPuppet::HostPuppetFacet.insert_all(puppet_hosts) if puppet_hosts.any?
+    ForemanPuppet::HostPuppetFacet.insert_all!(puppet_hosts) if puppet_hosts.any?
   end
 
   def down
