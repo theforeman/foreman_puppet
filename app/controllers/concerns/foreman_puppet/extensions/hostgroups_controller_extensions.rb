@@ -36,7 +36,7 @@ module ForemanPuppet
 
           puppet.puppetclasses = ForemanPuppet::Puppetclass.where(id: params[:hostgroup][:puppetclass_ids])
           puppet.config_groups = ForemanPuppet::ConfigGroup.where(id: params[:hostgroup][:config_group_ids])
-          render partial: 'hosts/form_puppet_enc_tab', locals: { host_or_hostgroup: @hostgroup, resource_type: :hostgroup }
+          render partial: 'hosts/form_puppet_enc_tab', locals: { subject: @hostgroup, resource_type: :hostgroup }
         end
 
         def puppetclass_parameters

@@ -41,7 +41,7 @@ module ForemanPuppet
         set_class_variables(@host)
         ::Taxonomy.as_taxonomy @organization, @location do
           if @environment || @hostgroup
-            render partial: 'hosts/form_puppet_enc_tab', locals: { host_or_hostgroup: @host, resource_type: :host }
+            render partial: 'hosts/form_puppet_enc_tab', locals: { subject: @host, resource_type: :host }
           else
             logger.info 'environment_id or hostgroup_id is required to render puppetclasses'
           end
