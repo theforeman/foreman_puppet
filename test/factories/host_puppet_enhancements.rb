@@ -45,6 +45,9 @@ FactoryBot.modify do
       puppet_proxy do
         FactoryBot.create(:smart_proxy, features: [FactoryBot.create(:feature, :puppet)])
       end
+      puppet_ca_proxy do
+        FactoryBot.create(:smart_proxy, features: [FactoryBot.create(:feature, :puppetca)])
+      end
     end
 
     trait :with_config_group do
