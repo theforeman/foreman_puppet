@@ -11,7 +11,7 @@ export const WelcomeEnv = ({ canCreate }) => {
   };
 
   const content = __(`If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/>
-  This information is commonly imported from a pre-existing Puppet configuration by the use of the <a href=${getManualURL(
+  This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target="_blank" href=${getManualURL(
     '4.2.2Classes'
   )}>Puppet classes and environment importer.</a>`);
   return (
