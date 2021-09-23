@@ -27,3 +27,4 @@ Metrics/BlockLength:
   Exclude:
     - 'config/*routes.rb'
     - 'lib/foreman_puppet/register.rb'
+    - 'config/initializers/api_reroute.rb'
