@@ -94,7 +94,7 @@ Rails/OutputSafety:
 # ForbiddenMethods: decrement!, decrement_counter, increment!, increment_counter, insert, insert!, insert_all, insert_all!, toggle!, touch, touch_all, update_all, update_attribute, update_column, update_columns, update_counters, upsert, upsert_all
 Rails/SkipsModelValidations:
   Exclude:
-    - 'test/controllers/foreman_puppet/api/v2/environments_controller_test.rb'
+    - 'test/controllers/foreman_puppet/api/v2/smart_proxies_controller_test.rb'
 
 # Offense count: 198
 # Cop supports --auto-correct.

@@ -4,7 +4,7 @@ Foreman::Application.routes.prepend do
       resources :smart_proxies, only: [] do
         post :import_puppetclasses, on: :member
         resources :environments, only: [] do
-          post :import_puppetclasses, on: :member, controller: '/foreman_puppet/api/v2/environments'
+          post :import_puppetclasses, on: :member, controller: '/api/v2/smart_proxies'
         end
       end
 
