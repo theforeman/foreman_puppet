@@ -1,6 +1,6 @@
 module ForemanPuppet
-  module Api
-    module ImportPuppetclassesCommonController
+  module Extensions
+    module ApiSmartProxiesController
       extend ActiveSupport::Concern
 
       included do

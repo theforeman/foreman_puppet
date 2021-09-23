@@ -105,6 +105,9 @@ module ForemanPuppet
       Foreman.input_types_registry.register(ForemanPuppet::InputType::PuppetParameterInput)
       ::ProxyStatus.status_registry.add(ForemanPuppet::ProxyStatus::Puppet)
 
+      # Extend smart_proxies API functionality
+      ::Api::V2::SmartProxiesController.include ForemanPuppet::Extensions::ApiSmartProxiesController
+
       # GraphQL
       ::Types::Host.include(ForemanPuppet::Types::HostExtensions)
       ::Types::Hostgroup.include(ForemanPuppet::Types::HostgroupExtensions)
