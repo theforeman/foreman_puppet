@@ -80,6 +80,8 @@ module ForemanPuppet
       ::TemplateCombination.include ForemanPuppet::Extensions::TemplateCombination
       ::ProvisioningTemplate.include ForemanPuppet::Extensions::ProvisioningTemplate
 
+      ::HostCounter.prepend ForemanPuppet::Extensions::HostCounter
+
       ::Api::V2::BaseController.include ForemanPuppet::Extensions::ApiBaseController
       ::Api::V2::HostsController.include ForemanPuppet::Extensions::ApiV2HostsController
       ::Api::V2::HostgroupsController.include ForemanPuppet::Extensions::ApiHostgroupsController
