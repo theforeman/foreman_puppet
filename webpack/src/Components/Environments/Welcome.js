@@ -7,7 +7,7 @@ import { foremanUrl, getManualURL } from 'foremanReact/common/helpers';
 export const WelcomeEnv = ({ canCreate }) => {
   const action = canCreate && {
     title: __('Create Puppet Environment'),
-    url: foremanUrl('environments/new'),
+    url: foremanUrl('/foreman_puppet/environments/new'),
   };
 
   const content = __(`If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/>
