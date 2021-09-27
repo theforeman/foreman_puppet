@@ -41,7 +41,7 @@ Foreman::Application.routes.prepend do
           end
         end
         resources :hosts, only: %i[index show]
-        resources :template_combinations, only: %i[index]
+        resources :template_combinations, only: %i[index show create update]
       end
 
       resources :puppetclasses, controller: '/foreman_puppet/api/v2/puppetclasses', except: %i[new edit] do
