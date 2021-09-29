@@ -80,7 +80,7 @@ jobs:
       fail-fast: true
       matrix:
         foreman-repo: [theforeman/foreman]
-        foreman-core-branch: [2.5-stable, develop]
+        foreman-core-branch: [develop]
         ruby-version: [2.7]
         node-version: [12]
     steps:
@@ -128,10 +128,8 @@ jobs:
         if: github.event_name != 'push'
         run: |
           bundle exec rake test:foreman_puppet
-        env:
-          PUPPET_EXTRACTED: ${{ matrix.foreman-core-branch == 'puppet_extraction' && '1' }}
       - name: Run access permission test
-        if: ${{ matrix.foreman-core-branch != '2.5-stable' && github.event_name != 'push' }}
+        if: ${{ github.event_name != 'push' }}
         run: |
           bundle exec rake test TEST="test/unit/foreman/access_permissions_test.rb"
       - name: Upload test.log
