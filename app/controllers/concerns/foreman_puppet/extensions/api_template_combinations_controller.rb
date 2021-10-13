@@ -4,7 +4,7 @@ module ForemanPuppet
       extend ActiveSupport::Concern
 
       included do
-        if ForemanPuppet.extracted_from_core?
+        if Gem::Dependency.new('', '>= 3.1').match?('', SETTINGS[:version].notag)
           index_desc = Apipie.get_method_description(self, :index)
           index_desc.apis << Apipie::MethodDescription::Api.new(:GET, '/environments/:environment_id/template_combinations', N_('List template combination'), {})
 
@@ -25,6 +25,10 @@ module ForemanPuppet
             param :template_combination, Hash do
               param :environment_id, :number, allow_nil: true, desc: N_('environment id')
             end
+          end
+        elsif ForemanPuppet.extracted_from_core?
+          apipie_update_methods(%i[index create show update]) do
+            param :environment_id, nil, desc: N_('ID of environment')
           end
         end
 
