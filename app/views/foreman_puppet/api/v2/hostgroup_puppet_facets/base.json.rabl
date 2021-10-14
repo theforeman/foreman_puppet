@@ -1,3 +1,5 @@
+object @facet
+
 attributes :environment_id, :environment_name
 
 ForemanPuppet::HostgroupPuppetFacet.nested_attribute_fields.each do |nested_field|
