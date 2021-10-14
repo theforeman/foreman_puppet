@@ -1,7 +1,7 @@
 require 'spec_puppet_helper'
 
 describe 'foreman_puppet/config_groups/edit.html.erb' do
-  helper PuppetclassesHelper
+  helper ForemanPuppet::PuppetclassesHelper
 
   it 'renders the form' do
     config_group = FactoryBot.build_stubbed(:config_group, name: 'Special')

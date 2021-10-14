@@ -2,7 +2,7 @@ require 'spec_puppet_helper'
 
 describe 'foreman_puppet/environments/new.html.erb' do
   it 'renders the form' do
-    assign(:environment, Environment.new)
+    assign(:environment, ForemanPuppet::Environment.new)
 
     render
 

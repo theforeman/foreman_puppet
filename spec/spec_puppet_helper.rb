@@ -16,26 +16,24 @@ FactoryBot.definition_file_paths.unshift(File.join(foreman_path, 'test', 'factor
 require 'factory_bot_rails'
 FactoryBot.reload
 
+module TestAuthorizeHelper
+  def authorizer
+    @authorizer ||= ::Authorizer.new(User.current, collection: instance_variable_get("@#{controller_name.split('/').last}"))
+  end
+end
+
 module ViewExampleGroupExtensions
   extend ActiveSupport::Concern
 
   included do
-    helper(LayoutHelper, AuthorizeHelper, TaxonomyHelper, PaginationHelper, ReactjsHelper)
+    helper(LayoutHelper, AuthorizeHelper, TaxonomyHelper, PaginationHelper, ReactjsHelper, TestAuthorizeHelper)
+    helper ForemanPuppet::Engine.routes.url_helpers
 
     before do
       path = _controller_path
       controller.class.define_method(:controller_name) do
         path
       end
-    end
-  end
-
-  def _controller_path
-    case _path_parts[1]
-    when 'puppetclasses'
-      _path_parts[1..-2].join('/')
-    else
-      super
     end
   end
 
@@ -49,7 +47,7 @@ end
 module ::ActionView
   class TestCase
     class TestController
-      helper_method :resource_path
+      helper_method :resource_path, :authorizer
 
       def resource_path(type)
         return '' if type.nil?
