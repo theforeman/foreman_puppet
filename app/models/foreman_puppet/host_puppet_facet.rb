@@ -48,7 +48,7 @@ module ForemanPuppet
 
     def parent_config_groups
       return [] unless host.hostgroup
-      host.hostgroup.puppet&.all_config_groups
+      host.hostgroup.puppet&.all_config_groups || []
     end
 
     def ensure_puppet_associations
