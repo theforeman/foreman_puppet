@@ -225,4 +225,8 @@ Foreman::Plugin.register :foreman_puppet do
         priority: 100
     end
   end
+  extend_page 'hosts/_list' do |cx|
+    cx.add_pagelet :hosts_table_column_header, resource_type: 'host', partial: 'hosts/foreman_puppet/form_list_env_field_header', priority: 100
+    cx.add_pagelet :hosts_table_column_content, resource_type: 'host', partial: 'hosts/foreman_puppet/form_list_env_field_content', priority: 100
+  end
 end
