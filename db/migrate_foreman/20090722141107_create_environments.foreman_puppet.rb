@@ -11,7 +11,7 @@ class CreateEnvironments < ActiveRecord::Migration[4.2]
   end
 
   def down
-    drop_table :environments
     drop_table :environments_puppetclasses
+    drop_table :environments
   end
 end

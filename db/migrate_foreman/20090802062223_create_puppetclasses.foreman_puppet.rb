@@ -21,8 +21,9 @@ class CreatePuppetclasses < ActiveRecord::Migration[4.2]
   end
 
   def down
-    drop_table :puppetclasses
-    drop_table :hosts_puppetclasses
     drop_table :operatingsystems_puppetclasses
+    drop_table :hosts_puppetclasses
+    remove_foreign_key(:environments_puppetclasses, :puppetclasses)
+    drop_table :puppetclasses
   end
 end
