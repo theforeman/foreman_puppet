@@ -8,8 +8,8 @@ class CreateEnvironmentClasses < ActiveRecord::Migration[5.0]
   end
 
   def down
-    remove_foreign_key :environment_classes, :lookup_key
-    drop_column :environment_classes, :puppetclass_lookup_key_id, :integer
+    remove_foreign_key :environment_classes, :lookup_keys, column: :puppetclass_lookup_key_id
+    remove_column :environment_classes, :puppetclass_lookup_key_id, :integer
     rename_table :environment_classes, :environments_puppetclasses
   end
 end
