@@ -3,6 +3,41 @@ Foreman::Plugin.register :foreman_puppet do
   # Add Global JS file for extending foreman-core components and routes
   register_global_js_file 'fills'
 
+  settings do
+    category(:facts, N_('Facts')) do
+      setting('default_puppet_environment',
+        type: :string,
+        description: N_('Foreman will default to this puppet environment if it cannot auto detect one'),
+        default: 'production',
+        full_name: N_('Default Puppet environment'),
+        collection: proc { ForemanPuppet::Environment.pluck(:name) { |name| [name, name] }.to_h })
+      setting('enc_environment',
+        type: :boolean,
+        description: N_('Foreman will explicitly set the puppet environment in the ENC yaml output. '\
+                        'This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman'),
+        default: true,
+        full_name: N_('ENC environment'))
+      setting('update_environment_from_facts',
+        type: :boolean,
+        description: N_("Foreman will update a host's environment from its facts"),
+        default: false,
+        full_name: N_('Update environment from facts'))
+    end
+
+    category(:cfgmgmt, N_('Config Management')) do
+      setting('puppet_interval',
+        type: :integer,
+        description: N_('Duration in minutes after servers reporting via Puppet are classed as out of sync.'),
+        default: 35,
+        full_name: N_('Puppet interval'))
+      setting('puppet_out_of_sync_disabled',
+        type: :boolean,
+        description: N_('Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval') % 'Puppet',
+        default: false,
+        full_name: N_('%s out of sync disabled') % 'Puppet')
+    end
+  end
+
   apipie_documented_controllers(["#{ForemanPuppet::Engine.root}/app/controllers/foreman_puppet/api/v2/*.rb"])
 
   # TODO: maybe this would not be necessary if we rething the form
