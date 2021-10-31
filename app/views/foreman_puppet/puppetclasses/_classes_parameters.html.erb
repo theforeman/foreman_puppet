@@ -9,7 +9,7 @@
   </thead>
   <tbody>
   <%= render  partial: 'foreman_puppet/puppetclasses/class_parameters',
-              collection: puppetclasses_with_parameters_for(obj.puppet),
+              collection: puppetclasses_with_parameters_for(obj.puppet || obj.build_puppet),
               as: :puppetclass,
               locals: { obj: obj } %>
   </tbody>
