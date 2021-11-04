@@ -48,6 +48,8 @@ module ForemanPuppet
       Hostgroup.sort_by_ancestry(hostgroup.ancestors.joins(:puppet).where(HostgroupPuppetFacet.arel_table[attr.to_sym].not_eq(nil))).last&.puppet.try(attr)
     end
 
+    delegate :parent_id, to: :hostgroup
+
     # and helpers
     def parent_facet_id
       parent_facet&.id
