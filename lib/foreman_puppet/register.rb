@@ -10,7 +10,7 @@ Foreman::Plugin.register :foreman_puppet do
         description: N_('Foreman will default to this puppet environment if it cannot auto detect one'),
         default: 'production',
         full_name: N_('Default Puppet environment'),
-        collection: proc { ForemanPuppet::Environment.pluck(:name) { |name| [name, name] }.to_h })
+        collection: proc { ForemanPuppet::Environment.pluck(:name).map { |name| [name, name] }.to_h })
       setting('enc_environment',
         type: :boolean,
         description: N_('Foreman will explicitly set the puppet environment in the ENC yaml output. '\
