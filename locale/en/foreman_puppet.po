@@ -21,6 +21,9 @@ msgstr ""
 msgid "%s is not in environment"
 msgstr ""
 
+msgid "%s out of sync disabled"
+msgstr ""
+
 msgid "%{model} with id '%{id}' was not found"
 msgstr ""
 
@@ -64,6 +67,9 @@ msgid "Add a Puppet class to host"
 msgstr ""
 
 msgid "Add a Puppet class to host group"
+msgstr ""
+
+msgid "Add a template combination"
 msgstr ""
 
 msgid "Add:"
@@ -129,6 +135,9 @@ msgstr ""
 msgid "Config Groups"
 msgstr ""
 
+msgid "Config Management"
+msgstr ""
+
 msgid "Create Config Group"
 msgstr ""
 
@@ -148,6 +157,9 @@ msgid "Create an environment"
 msgstr ""
 
 msgid "Create an override value for a specific smart class parameter"
+msgstr ""
+
+msgid "Default Puppet environment"
 msgstr ""
 
 msgid "Default value"
@@ -195,7 +207,16 @@ msgstr ""
 msgid "Description of smart class"
 msgstr ""
 
+msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
+msgstr ""
+
 msgid "Display hidden values"
+msgstr ""
+
+msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
+msgstr ""
+
+msgid "ENC environment"
 msgstr ""
 
 msgid "Edit %s"
@@ -219,6 +240,9 @@ msgstr ""
 msgid "Environment|Name"
 msgstr ""
 
+msgid "Facts"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr ""
 
@@ -237,10 +261,19 @@ msgstr ""
 msgid "Filter classes"
 msgstr ""
 
+msgid "Foreman will default to this puppet environment if it cannot auto detect one"
+msgstr ""
+
+msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
+msgstr ""
+
 msgid "Foreman will not send this parameter in classification output"
 msgstr ""
 
 msgid "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter"
+msgstr ""
+
+msgid "Foreman will update a host's environment from its facts"
 msgstr ""
 
 msgid "General"
@@ -268,6 +301,9 @@ msgid "Hosts managed:"
 msgstr ""
 
 msgid "ID of Puppet class"
+msgstr ""
+
+msgid "ID of Puppet environment"
 msgstr ""
 
 msgid "ID of Puppetclass"
@@ -406,6 +442,9 @@ msgid "List of smart class parameters for a specific host"
 msgstr ""
 
 msgid "List of smart class parameters for a specific host group"
+msgstr ""
+
+msgid "List template combination"
 msgstr ""
 
 msgid "Loading parameters..."
@@ -552,6 +591,9 @@ msgstr ""
 msgid "Puppet external nodes YAML dump"
 msgstr ""
 
+msgid "Puppet interval"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr ""
 
@@ -618,6 +660,9 @@ msgstr ""
 msgid "Show an override value for a specific smart class parameter"
 msgstr ""
 
+msgid "Show template combination"
+msgstr ""
+
 msgid "Smart Class Parameter"
 msgstr ""
 
@@ -654,6 +699,9 @@ msgid "The final entry, Operating System default, can be set by editing the %s p
 msgstr ""
 
 msgid "The order in which values are resolved"
+msgstr ""
+
+msgid "The requested environment cannot be found."
 msgstr ""
 
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
@@ -704,6 +752,12 @@ msgstr ""
 msgid "Update an override value for a specific smart class parameter"
 msgstr ""
 
+msgid "Update environment from facts"
+msgstr ""
+
+msgid "Update template combination"
+msgstr ""
+
 msgid "Update:"
 msgstr ""
 
@@ -744,6 +798,9 @@ msgid "Whether the smart class parameter value is managed by Foreman"
 msgstr ""
 
 msgid "belongs to config group"
+msgstr ""
+
+msgid "environment id"
 msgstr ""
 
 msgid "included already from parent"
