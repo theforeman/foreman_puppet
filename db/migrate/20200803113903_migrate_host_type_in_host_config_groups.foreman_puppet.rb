@@ -13,26 +13,8 @@ class MigrateHostTypeInHostConfigGroups < ActiveRecord::Migration[6.0]
   end
 
   def up
-    host_config_group_ids = FakeHostConfigGroup.for_host.pluck(:host_id).uniq
-    host_config_group_ids.each do |host_id|
-      host_facet_id = ForemanPuppet::HostPuppetFacet.where(host_id: host_id).pick(:id)
-      host_groups = FakeHostConfigGroup.for_host.where(host_id: host_id)
-      if host_facet_id
-        host_groups.update_all(host_type: 'ForemanPuppet::HostPuppetFacet', host_id: host_facet_id)
-      else
-        deleted_groups = FakeConfigGroup.where(id: host_groups.pluck(:config_group_id)).pluck(:name)
-        say "deleting groups #{deleted_groups.join(', ')} from Host (id=#{host_id}) because it has no environment"
-        host_groups.delete_all
-      end
-    end
-    hostgroup_config_group_ids = FakeHostConfigGroup.for_hostgroup.pluck(:host_id).uniq
-    hostgroup_config_group_ids.each do |hostgroup_id|
-      hostgroup_facet_id = ForemanPuppet::HostgroupPuppetFacet.where(hostgroup_id: hostgroup_id).pick(:id)
-      hostgroup_facet_id ||= ForemanPuppet::HostgroupPuppetFacet.create!(hostgroup: Hostgroup.unscoped.find(hostgroup_id)).id
-      FakeHostConfigGroup.for_hostgroup
-                         .where(host_id: hostgroup_id)
-                         .update_all(host_type: 'ForemanPuppet::HostgroupPuppetFacet', host_id: hostgroup_facet_id)
-    end
+    migrate_host_data_to_facets
+    migrate_hostgroup_data_to_facets
   end
 
   def down
@@ -49,6 +31,40 @@ class MigrateHostTypeInHostConfigGroups < ActiveRecord::Migration[6.0]
       FakeHostConfigGroup.for_hostgroup_facet
                          .where(host_id: hostgroup_facet_id)
                          .update_all(host_type: 'Hostgroup', host_id: hostgroup_facet_ids[hostgroup_facet_id])
+    end
+  end
+
+  private
+
+  def migrate_host_data_to_facets
+    host_config_group_ids = FakeHostConfigGroup.for_host.pluck(:host_id).uniq
+    host_config_group_ids.each do |host_id|
+      host_facet_id = ForemanPuppet::HostPuppetFacet.where(host_id: host_id).pick(:id)
+      host_groups = FakeHostConfigGroup.for_host.where(host_id: host_id)
+      if host_facet_id
+        host_groups.update_all(host_type: 'ForemanPuppet::HostPuppetFacet', host_id: host_facet_id)
+      else
+        deleted_groups = FakeConfigGroup.where(id: host_groups.pluck(:config_group_id)).pluck(:name)
+        say "Deleting Config groups #{deleted_groups.join(', ')} from Host (id=#{host_id}) because the Host doesn't exist or has no environment"
+        host_groups.delete_all
+      end
+    end
+  end
+
+  def migrate_hostgroup_data_to_facets
+    hostgroup_config_group_ids = FakeHostConfigGroup.for_hostgroup.pluck(:host_id).uniq
+    hostgroup_config_group_ids.each do |hostgroup_id|
+      hostgroup = Hostgroup.unscoped.find_by(id: hostgroup_id)
+      hostgroup_groups = FakeHostConfigGroup.for_hostgroup.where(host_id: hostgroup_id)
+      if hostgroup
+        hostgroup_facet_id = ForemanPuppet::HostgroupPuppetFacet.where(hostgroup_id: hostgroup_id).pick(:id)
+        hostgroup_facet_id ||= ForemanPuppet::HostgroupPuppetFacet.create!(hostgroup: hostgroup).id
+        hostgroup_groups.update_all(host_type: 'ForemanPuppet::HostgroupPuppetFacet', host_id: hostgroup_facet_id)
+      else
+        deleted_groups = FakeConfigGroup.where(id: hostgroup_groups.pluck(:config_group_id)).pluck(:name)
+        say "Deleting Config groups #{deleted_groups.join(', ')} from Hostgroup (id=#{hostgroup_id}) because Hostgroup doesn't exist"
+        hostgroup_groups.delete_all
+      end
     end
   end
 end
