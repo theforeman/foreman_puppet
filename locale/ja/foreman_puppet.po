@@ -1,0 +1,830 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2021
+# Bryan Kearney <bryan.kearney@gmail.com>, 2021
+# 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2021
+# Transifex Bot <>, 2021
+# Amit Upadhye <aupadhye@redhat.com>, 2021
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-02-03 16:30+0000\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2021\n"
+"Language-Team: Japanese (https://www.transifex.com/foreman/teams/114/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid " Remove"
+msgstr " 削除"
+
+msgid "%s is not in environment"
+msgstr "%s は環境内にありません"
+
+msgid "%s out of sync disabled"
+msgstr "%s の非同期切り替えを無効にしました"
+
+msgid "%{model} with id '%{id}' was not found"
+msgstr "id '%{id}' の %{model} が見つかりませんでした"
+
+msgid "%{name} has %{num_tag} class"
+msgid_plural "%{name} has %{num_tag} classes"
+msgstr[0] "%{name} には ％{num_tag} クラスが含まれます"
+
+msgid "%{puppetclass} does not belong to the %{environment} environment"
+msgstr "%{puppetclass} は %{environment} 環境に属していません"
+
+msgid "*Clear environment*"
+msgstr "*環境をクリア*"
+
+msgid "*Inherit from host group*"
+msgstr "*ホストグループから継承*"
+
+msgid ""
+"<b>Description:</b> %{desc}<br/>\n"
+"        <b>Type:</b> %{type}<br/>\n"
+"        <b>Matcher:</b> %{matcher}<br/>\n"
+"        <b>Inherited value:</b> %{inherited_value}"
+msgstr ""
+"<b>説明:</b> %{desc}<br/>\n"
+"     <b>タイプ:</b> %{type}<br/>\n"
+"     <b>Matcher:</b> %{matcher}<br/>\n"
+"     <b>継承値:</b> %{inherited_value}"
+
+msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
+msgstr "設定グループは、多くの Puppet クラスをホストまたはホストグループのいずれかに関連付けるワンステップの方法を提供します。通常、これは特定のアプリケーションプロファイルまたはスタックを 1 つのステップで追加するために使用されます。"
+
+msgid "Action with sub plans"
+msgstr "サブプランによるアクション"
+
+msgid "Actions"
+msgstr "アクション"
+
+msgid "Add"
+msgstr "追加"
+
+msgid "Add Combination"
+msgstr "組み合わせの追加"
+
+msgid "Add a Puppet class to host"
+msgstr "Puppet クラスをホストに追加"
+
+msgid "Add a Puppet class to host group"
+msgstr "Puppet クラスをホストグループに追加"
+
+msgid "Add a template combination"
+msgstr "テンプレートの組み合わせの追加"
+
+msgid "Add:"
+msgstr "追加:"
+
+msgid "All environments - (not filtered)"
+msgstr "すべての環境 - (フィルターなし)"
+
+msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
+msgstr ""
+
+msgid "Available Classes"
+msgstr "利用可能なクラス"
+
+msgid "Available Config Groups"
+msgstr "選択可能な設定グループ"
+
+msgid "Can't find a valid Foreman Proxy with a Puppet feature"
+msgstr "Puppet 機能を持つ有効な Foreman プロキシーが見つかりません"
+
+msgid "Can't find a valid Proxy with a Puppet feature"
+msgstr "Puppet 機能を持つ有効なプロキシーが見つかりません"
+
+msgid "Cancel"
+msgstr "取り消し"
+
+msgid "Change Environment"
+msgstr "環境の変更"
+
+msgid "Change Puppet Master"
+msgstr "Puppet マスターの変更"
+
+msgid "Changed environments"
+msgstr "変更済みの環境"
+
+msgid "Check/Uncheck all"
+msgstr "すべて選択/選択解除"
+
+msgid "Check/Uncheck all %s changes"
+msgstr "%s のすべての変更を選択/選択解除"
+
+msgid "Check/Uncheck new"
+msgstr "新規の選択/選択解除"
+
+msgid "Check/Uncheck obsolete"
+msgstr "旧版の選択/選択解除"
+
+msgid "Check/Uncheck updated"
+msgstr "更新版の選択/選択解除"
+
+msgid "Classes"
+msgstr "クラス"
+
+msgid "Click to add %s"
+msgstr "クリックして %s を追加"
+
+msgid "Click to remove %s"
+msgstr "クリックして %s を削除"
+
+msgid "Click to remove config group"
+msgstr "クリックして設定グループを削除"
+
+msgid "Config Groups"
+msgstr "設定グループ"
+
+msgid "Config Management"
+msgstr "設定管理"
+
+msgid "Create Config Group"
+msgstr "設定グループの作成"
+
+msgid "Create Environment"
+msgstr "環境の作成"
+
+msgid "Create Puppet Environment"
+msgstr "Puppet 環境の作成"
+
+msgid "Create a Puppet class"
+msgstr "Puppet クラスの作成"
+
+msgid "Create a config group"
+msgstr "設定グループの作成"
+
+msgid "Create an environment"
+msgstr "環境の作成"
+
+msgid "Create an override value for a specific smart class parameter"
+msgstr "特定スマートクラスパラメーターの上書き値を作成"
+
+msgid "Default Puppet environment"
+msgstr "デフォルトの Puppet 環境"
+
+msgid "Default value"
+msgstr "デフォルト値"
+
+msgid "Delete %s?"
+msgstr "%s を削除しますか?"
+
+msgid "Delete a Puppet class"
+msgstr "Puppet クラスの削除"
+
+msgid "Delete a config group"
+msgstr "設定グループの削除"
+
+msgid "Delete an environment"
+msgstr "環境の削除"
+
+msgid "Delete an override value for a specific smart class parameter"
+msgstr "特定スマートクラスパラメーターの上書き値の削除"
+
+msgid "Deleted environment"
+msgstr "削除済みの環境"
+
+msgid "Deleted environment %{env} and %{pcs}"
+msgstr "削除済みの環境 %{env} および %{pcs}"
+
+msgid "Deprecated in favor of host/puppet_attributes/config_group_ids"
+msgstr "host/puppet_attributes/config_group_ids を優先して非推奨となりました"
+
+msgid "Deprecated in favor of host/puppet_attributes/environment_id"
+msgstr "host/puppet_attributes/environment_id を優先して非推奨となりました"
+
+msgid "Deprecated in favor of host/puppet_attributes/puppetclass_ids"
+msgstr "host/puppet_attributes/puppetclass_ids を優先して非推奨となりました"
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/config_group_ids"
+msgstr "hostgroup/puppet_attributes/config_group_ids を優先して非推奨となりました"
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/environment_id"
+msgstr "hostgroup/puppet_attributes/environment_id を優先して非推奨となりました"
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/puppetclass_ids"
+msgstr "hostgroup/puppet_attributes/puppetclass_ids を優先して非推奨となりました"
+
+msgid "Description of smart class"
+msgstr "スマートクラスの説明"
+
+msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
+msgstr "設定した間隔でレポートが到達しない場合に、%s のホスト設定ステータスが非同期に切り替わらないように無効にします"
+
+msgid "Display hidden values"
+msgstr "非表示の値の表示"
+
+msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
+msgstr "Puppet 経由で報告するサーバーが非同期として分類されるまでの期間 (分単位)。"
+
+msgid "ENC environment"
+msgstr "ENC 環境"
+
+msgid "Edit %s"
+msgstr "%s の編集"
+
+msgid "Edit Puppet Class %s"
+msgstr "Puppet クラス %s の編集"
+
+msgid "Empty environment"
+msgstr "空の環境"
+
+msgid "Environment"
+msgstr "環境"
+
+msgid "Environment only"
+msgstr "環境のみ"
+
+msgid "Environments"
+msgstr "環境"
+
+msgid "Environment|Name"
+msgstr "名前"
+
+msgid "Facts"
+msgstr "ファクト"
+
+msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
+msgstr "%{name} の %{klass} のインポートに失敗しました: データベースに存在しません - 無視します"
+
+msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr "%{host} に %{proxy_type} プロキシーを設定できませんでした。"
+
+msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
+msgstr "オンディスクの Puppet インストールからの環境と Puppet クラスの更新に失敗しました: %s"
+
+msgid "Failed to update the environments and Puppet classes from the on-disk puppet installation: %s"
+msgstr "オンディスクの Puppet インストールから環境および Puppet クラスを更新できませんでした: %s"
+
+msgid "Filter by name"
+msgstr "名前でフィルター"
+
+msgid "Filter classes"
+msgstr "クラスのフィルター"
+
+msgid "Foreman will default to this puppet environment if it cannot auto detect one"
+msgstr "Foreman は、自動検出できない場合にこの puppet 環境にデフォルト設定されます"
+
+msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
+msgstr "Foreman は ENC YAML 出力で puppet 環境を明示的に設定します。これにより、puppet.conf の環境と Foreman で設定される環境間の競合を避けられます"
+
+msgid "Foreman will not send this parameter in classification output"
+msgstr "Foreman では、このパラメーターは分類出力で送信されません。"
+
+msgid "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter"
+msgstr "Foreman はこのパラメーターを分類出力で送信しません。Puppet はこのパラメーターについて Puppet マニフェストで定義された値を使用します"
+
+msgid "Foreman will update a host's environment from its facts"
+msgstr "Foreman はホスト環境をそのファクトで更新します"
+
+msgid "General"
+msgstr "全般"
+
+msgid "Host Groups"
+msgstr "ホストグループ"
+
+msgid "Host group and Environment"
+msgstr "ホストグループと環境"
+
+msgid "Host group only"
+msgstr "ホストグループのみ"
+
+msgid "Host groups"
+msgstr "ホストグループ"
+
+msgid "Hostgroup"
+msgstr "ホストグループ"
+
+msgid "Hosts"
+msgstr "ホスト"
+
+msgid "Hosts managed:"
+msgstr "管理されるホスト:"
+
+msgid "ID of Puppet class"
+msgstr "Puppet クラスの ID"
+
+msgid "ID of Puppet environment"
+msgstr ""
+
+msgid "ID of Puppetclass"
+msgstr "Puppet クラスの ID"
+
+msgid "ID of associated puppet Environment"
+msgstr "関連する Puppet 環境の ID"
+
+msgid "ID of environment"
+msgstr "環境の ID"
+
+msgid "ID of host"
+msgstr "ホストの ID"
+
+msgid "ID of host group"
+msgstr "ホストグループの ID"
+
+msgid "ID of puppet environment"
+msgstr "Puppet 環境の ID"
+
+msgid "IDs of associated ConfigGroups"
+msgstr "関連付けられた設定グループの ID"
+
+msgid "IDs of associated Puppetclasses"
+msgstr "関連する Puppet クラスの ID"
+
+msgid "If true, will raise an error if there is no default value and no matcher provide a value"
+msgstr "true の場合は、デフォルト値がなく、Matcher が値を提供しないときにエラーが発生します"
+
+msgid "Ignored classes in the environments: %s"
+msgstr "環境内で無視されたクラス: %s"
+
+msgid "Ignored environment"
+msgstr "無視された環境"
+
+msgid "Ignored environment names resulting in booleans found. Please quote strings like true/false and yes/no in config/ignored_environments.yml"
+msgstr "環境名を無視したブール値が見つかりました。config/ignored_environments.yml の true/false および yes/no などの文字列を引用符で囲んでください"
+
+msgid "Ignored environments: %s"
+msgstr "無視された環境: %s"
+
+msgid "Ignored:"
+msgstr "無視:"
+
+msgid "Import"
+msgstr "インポート"
+
+msgid "Import Puppet classes"
+msgstr "Puppet クラスのインポート"
+
+msgid "Import classes from %s"
+msgstr "%s からのクラスのインポート"
+
+msgid "Import environments from %s"
+msgstr "%s からの環境のインポート"
+
+msgid "Import facts"
+msgstr "ファクトのインポート"
+
+msgid "Import puppet classes from puppet proxy"
+msgstr "Puppet プロキシーから Puppet クラスをインポート"
+
+msgid "Import puppet classes from puppet proxy for an environment"
+msgstr "環境の Puppet プロキシーから Puppet クラスをインポート"
+
+msgid "Include default value when merging all matching values"
+msgstr "一致するすべての値をマージするときにデフォルト値を含めます"
+
+msgid "Included Classes"
+msgstr "組み込み済みのクラス"
+
+msgid "Included Config Groups"
+msgstr "組み込まれた設定グループ"
+
+msgid "Inherited Classes from %s"
+msgstr "%s から継承されたクラス"
+
+msgid "Invalid proxy selected!"
+msgstr "無効なプロキシーが選択されました!"
+
+msgid "List all Puppet class IDs for host"
+msgstr "ホストのすべての Puppet クラス ID を一覧表示"
+
+msgid "List all Puppet class IDs for host group"
+msgstr "ホストグループのすべての Puppet クラス ID を一覧表示"
+
+msgid "List all Puppet classes"
+msgstr "すべての Puppet クラスを一覧表示する"
+
+msgid "List all Puppet classes for a host"
+msgstr "ホストのすべての Puppet クラスを一覧表示"
+
+msgid "List all Puppet classes for a host group"
+msgstr "ホストグループのすべての Puppet クラスを一覧表示"
+
+msgid "List all Puppet classes for an environment"
+msgstr "環境のすべての Puppet クラスを一覧表示"
+
+msgid "List all environments"
+msgstr "すべての環境を一覧表示"
+
+msgid "List all host groups for a Puppet class"
+msgstr "Puppet クラスのすべてのホストグループを一覧表示"
+
+msgid "List all smart class parameters"
+msgstr "すべてのスマートクラスパラメーターを一覧表示"
+
+msgid "List environments of Puppet class"
+msgstr "Puppet クラスの環境を一覧表示"
+
+msgid "List environments per location"
+msgstr "ロケーションごとに環境を一覧表示"
+
+msgid "List environments per organization"
+msgstr "組織ごとに環境を一覧表示"
+
+msgid "List hosts per environment"
+msgstr "環境ごとにホストを一覧表示"
+
+msgid "List of config groups"
+msgstr "設定グループの一覧"
+
+msgid "List of override values for a specific smart class parameter"
+msgstr "特定スマートクラスパラメーターの上書き値の一覧"
+
+msgid "List of smart class parameters for a specific Puppet class"
+msgstr "特定 Puppet クラスのスマートクラスパラメーターの一覧"
+
+msgid "List of smart class parameters for a specific environment"
+msgstr "特定の環境のスマートクラスパラメーターの一覧"
+
+msgid "List of smart class parameters for a specific environment/Puppet class combination"
+msgstr "特定の環境/Puppet クラスの組み合わせ用のスマートクラスパラメーターの一覧"
+
+msgid "List of smart class parameters for a specific host"
+msgstr "特定ホストのスマートクラスパラメーターの一覧"
+
+msgid "List of smart class parameters for a specific host group"
+msgstr "特定ホストグループのスマートクラスパラメーターの一覧"
+
+msgid "List template combination"
+msgstr "テンプレートの組み合わせを一覧表示"
+
+msgid "Loading parameters..."
+msgstr "パラメーターのロード中..."
+
+msgid "Locations"
+msgstr "ロケーション"
+
+msgid "Merge all matching values (only array/hash type)"
+msgstr "一致するすべての値のマージ (配列/ハッシュタイプのみ)"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "New"
+msgstr "新規"
+
+msgid "No changes to your environments detected"
+msgstr "環境への変更が検出されませんでした"
+
+msgid "No environment selected!"
+msgstr "環境が選択されていません!"
+
+msgid "No environments found"
+msgstr "環境が見つかりません"
+
+msgid "No parameters to override for Puppet class %s"
+msgstr "Puppet クラス %s で上書きするパラメーターはありません"
+
+msgid "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled."
+msgstr "クラスのインポート元となるプロキシーが見つかりません。Smart Proxy で Puppet 機能が有効であることを確認してください。"
+
+msgid "No proxy selected!"
+msgstr "プロキシーが選択されていません!"
+
+msgid "No smart proxy was found to import environments from, ensure that at least one smart proxy is registered with the 'puppet' feature"
+msgstr "環境のインポート元となる Smart Proxy が見つかりませんでした。1 つ以上の Smart Proxy が「Puppet」機能で登録されていることを確認してください"
+
+msgid "None"
+msgstr "なし"
+
+msgid "Not authorized to edit classes"
+msgstr "クラスを編集する権限がありません"
+
+msgid "Notice"
+msgstr "通知"
+
+msgid "Number of Overrides"
+msgstr "上書き数"
+
+msgid "Number of classes"
+msgstr "クラスの数"
+
+msgid "Obsolete"
+msgstr "旧版"
+
+msgid "Omit"
+msgstr "省略"
+
+msgid "Omit from classification output"
+msgstr "分類出力からの省略"
+
+msgid "Operating System"
+msgstr "オペレーティングシステム"
+
+msgid "Operating system default"
+msgstr "オペレーティングシステムのデフォルト"
+
+msgid "Operation"
+msgstr "操作"
+
+msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes"
+msgstr "インポートされた Puppet クラスを制限するために使用される '新規'、'更新済み'、または '旧版' のいずれかが含まれる、オプションのコンマ区切りの文字列"
+
+msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the value will be empty.</i><br/>"
+msgstr "値なしの任意パラメーターです。<br/><i>引き続き Foreman により管理されます。値は空白になります。</i><br/>"
+
+msgid "Organizations"
+msgstr "組織"
+
+msgid "Original value info"
+msgstr "元の値の情報"
+
+msgid "Overridden"
+msgstr "上書き済み"
+
+msgid "Override all parameters"
+msgstr "すべてのパラメーターの上書き"
+
+msgid "Override match"
+msgstr "一致候補の上書き"
+
+msgid "Override this value"
+msgstr "この値の上書き"
+
+msgid "Override value, required if omit is false"
+msgstr "上書き値 (omit が false の場合に必要)"
+
+msgid "Parameter"
+msgstr "パラメーター"
+
+msgid "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers)."
+msgstr "パラメーター化クラスのサポートでは、ENC を介して一連のルール (Smart Matcher) に従い、パラメーターを検出してインポートし、そのパラメーターをサポートするクラスに直接渡すことができます。"
+
+msgid "Parameters"
+msgstr "パラメーター"
+
+msgid "Please select an environment first"
+msgstr "まず環境を選択してください"
+
+msgid "Puppet"
+msgstr "Puppet"
+
+msgid "Puppet CA"
+msgstr "Puppet CA"
+
+msgid "Puppet Class"
+msgstr "Puppet クラス"
+
+msgid "Puppet Class Parameters"
+msgstr "Puppet クラスパラメーター"
+
+msgid "Puppet Classes"
+msgstr "Puppet クラス"
+
+msgid "Puppet ENC"
+msgstr "Puppet ENC"
+
+msgid "Puppet Environment"
+msgstr "Puppet 環境"
+
+msgid "Puppet Environments"
+msgstr "Puppet 環境"
+
+msgid "Puppet Modules"
+msgstr "Puppet モジュール"
+
+msgid "Puppet YAML"
+msgstr "Puppet YAML"
+
+msgid "Puppet environments"
+msgstr "Puppet 環境"
+
+msgid "Puppet external nodes YAML dump"
+msgstr "Puppet 外部ノード YAML ダンプ"
+
+msgid "Puppet interval"
+msgstr "Puppet の間隔"
+
+msgid "Puppet parameter"
+msgstr "Puppet パラメーター"
+
+msgid "Puppetclass|Name"
+msgstr "名前"
+
+msgid "Remote action:"
+msgstr "リモートアクション:"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid "Remove Combination"
+msgstr "組み合わせの削除"
+
+msgid "Remove a Puppet class from host"
+msgstr "ホストから Puppet クラスを削除"
+
+msgid "Remove a Puppet class from host group"
+msgstr "ホストグループからの Puppet クラスの削除"
+
+msgid "Remove duplicate values (only array type)"
+msgstr "重複する値の削除 (配列タイプのみ)"
+
+msgid "Remove this override"
+msgstr "この上書きの削除"
+
+msgid "Remove:"
+msgstr "削除:"
+
+msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
+msgstr "値なしの必須パラメーターです。<br/><b>上書きしてください!</b><br/>"
+
+msgid "Select environment"
+msgstr "環境の選択"
+
+msgid "Select the changes you want to apply to Foreman"
+msgstr "Foreman に適用する変更を選択してください"
+
+msgid "Set parameters to defaults"
+msgstr "パラメーターをデフォルトに設定"
+
+msgid "Show a Puppet class"
+msgstr "Puppet クラスの表示"
+
+msgid "Show a Puppet class for a host group"
+msgstr "ホストグループの Puppet クラスの表示"
+
+msgid "Show a Puppet class for an environment"
+msgstr "環境の Puppet クラスの表示"
+
+msgid "Show a Puppet class for host"
+msgstr "ホストの Puppet クラスの表示"
+
+msgid "Show a config group"
+msgstr "設定グループの表示"
+
+msgid "Show a smart class parameter"
+msgstr "スマートクラスパラメーターの表示"
+
+msgid "Show an environment"
+msgstr "環境の表示"
+
+msgid "Show an override value for a specific smart class parameter"
+msgstr "特定スマートクラスパラメーターの上書き値を表示"
+
+msgid "Show template combination"
+msgstr "テンプレートの組み合わせの表示"
+
+msgid "Smart Class Parameter"
+msgstr "スマートクラスパラメーター"
+
+msgid "Smart Class Parameters"
+msgstr "スマートクラスパラメーター"
+
+msgid "Successfully overridden all parameters of Puppet class %s"
+msgstr "Puppet クラス %s のすべてのパラメーターが正常に上書きされました"
+
+msgid "Successfully reset all parameters of Puppet class %s to their default values"
+msgstr "Puppet クラス %s の全パラメーターをデフォルト値に正常にリセットしました"
+
+msgid "Successfully updated environments and Puppet classes from the on-disk Puppet installation"
+msgstr "オンディスクの Puppet インストールから環境および Puppet クラスを正常に更新しました"
+
+msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
+msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
+msgstr[0] "ホスト: %{host_names} に %{proxy_type} プロキシーを設定できませんでした。"
+
+msgid "The %{proxy_type} proxy of the selected hosts was cleared."
+msgstr "選択したホストの %{proxy_type} プロキシーが消去されました。"
+
+msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
+msgstr "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました"
+
+msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
+msgstr "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました。"
+
+msgid "The class could not be saved because of an error in one of the class parameters."
+msgstr "クラスパラメーターのいずれかにエラーがあるため、このクラスは保存できませんでした。"
+
+msgid "The final entry, Operating System default, can be set by editing the %s page."
+msgstr "最終エントリーのオペレーティングシステムのデフォルトは、%s ページを編集して設定できます。"
+
+msgid "The order in which values are resolved"
+msgstr "値が解決される順序"
+
+msgid "The requested environment cannot be found."
+msgstr ""
+
+msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
+msgstr "この puppet マスターには puppet 環境がセットアップされていません。puppet マスター設定を確認してください。"
+
+msgid "This Puppet class has no parameters in its signature."
+msgstr "この Puppet クラスの署名にはパラメーターがありません。"
+
+msgid "This will reset parameters of the class %s to their default values. Continue?"
+msgstr "この操作ではクラス %s のパラメーターをデフォルト値にリセットします。続行しますか?"
+
+msgid "This will set all parameters of the class %s as overridden. Continue?"
+msgstr "これは、クラス %s のすべてのパラメーターを上書き済みとして設定します。続行しますか?"
+
+msgid "To update the class signature, go to the Puppet Classes page and select \"Import\"."
+msgstr "クラス署名を更新するには「Puppet クラス」ページに移動して「インポート」を選択します。"
+
+msgid "Toggle"
+msgstr "切り替え"
+
+msgid "Total"
+msgstr "合計"
+
+msgid "Types of validation values"
+msgstr "検証値のタイプ"
+
+msgid "Types of variable values"
+msgstr "変数値のタイプ"
+
+msgid "Unable to generate output, Check log files"
+msgstr "出力を生成できません。ログファイルを確認してください"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Update a Puppet class"
+msgstr "Puppet クラスの更新"
+
+msgid "Update a config group"
+msgstr "設定グループの更新"
+
+msgid "Update a smart class parameter"
+msgstr "スマートクラスパラメーターの更新"
+
+msgid "Update an environment"
+msgstr "環境の更新"
+
+msgid "Update an override value for a specific smart class parameter"
+msgstr "特定スマートクラスパラメーターの上書き値を更新"
+
+msgid "Update environment from facts"
+msgstr "ファクトから環境を更新"
+
+msgid "Update template combination"
+msgstr "テンプレートの組み合わせの更新"
+
+msgid "Update:"
+msgstr "更新:"
+
+msgid "Updated"
+msgstr "更新済み"
+
+msgid "Updated hosts: changed environment"
+msgstr "更新済みホスト: 変更済み環境"
+
+msgid "Used to enforce certain values for the parameter values"
+msgstr "パラメーター値の特定の値を適用するために使用されます"
+
+msgid "Valid Host Group and Environment Combinations"
+msgstr "有効なホストグループと環境の組み合わせ"
+
+msgid "Value"
+msgstr "値"
+
+msgid "Value to use when there is no match"
+msgstr "一致がない場合に使用する値"
+
+msgid ""
+"When a Host requests a template (e.g. during provisioning), Foreman \\\n"
+"  will select the best match from the available templates of that type, in the \\\n"
+"  following order:"
+msgstr ""
+"ホストがテンプレートを要求する際 (例: プロビジョニング時) に、Foreman \\\n"
+"  は以下の順序で、該当タイプの利用可能なテンプレートからベストマッチ \\\n"
+"  を選択します:"
+
+msgid ""
+"When editing a template, you must assign a list \\\n"
+"  of operating systems which this template can be used with. Optionally, you can \\\n"
+"  restrict a template to a list of host groups and/or environments."
+msgstr ""
+"テンプレートの編集時に、このテンプレートを使用できる \\\n"
+"  オペレーティングシステムの一覧を割り当てる必要があります。オプションで、テンプレート \\\n"
+"  をホストグループや環境の一覧に制限することができます。"
+
+msgid "When enabled the parameter is hidden in the UI"
+msgstr "有効な場合はパラメーターは UI で非表示になります"
+
+msgid "Whether the smart class parameter value is managed by Foreman"
+msgstr "スマートクラスパラメーター値が Foreman によって管理されているかどうか"
+
+msgid "belongs to config group"
+msgstr "設定グループに属します"
+
+msgid "environment id"
+msgstr "環境 ID"
+
+msgid "included already from parent"
+msgstr "すでに親から組み込まれています"
+
+msgid "must be true to edit the parameter"
+msgstr "パラメーターを編集するには true に設定する必要があります"
+
+msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
+msgstr "id %{object_id} が存在しないか、適切な組織またはロケーションに割り当てられていません"
