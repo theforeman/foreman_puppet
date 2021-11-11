@@ -33,17 +33,9 @@ class MigratePuppetclassesToFacets < ActiveRecord::Migration[6.0]
       hostgroup_facet ||= ForemanPuppet::HostgroupPuppetFacet.create(hostgroup: Hostgroup.unscoped.find(hostgroup_id))
       ForemanPuppet::HostgroupClass.where(hostgroup_id: hostgroup_id).update_all(hostgroup_puppet_facet_id: hostgroup_facet.id)
     end
-
-    change_column_null(:host_classes, :host_id, true)
-    change_column_null(:hostgroup_classes, :hostgroup_id, true)
-    # remove_reference(:host_classes, :host, index: true, foreign_key: true)
-    # remove_reference(:hostgroup_classes, :hostgroup, index: true, foreign_key: true)
   end
 
   def down
-    # add_reference :host_classes, :host, foreign_key: true, index: true
-    # add_reference :hostgroup_classes, :hostgroup, foreign_key: true, index: true
-
     host_facets_ids = ForemanPuppet::HostClass.joins(:host_puppet_facet).pluck(:host_puppet_facet_id, 'host_puppet_facets.host_id')
     host_facets_ids.each do |host_facet_id, host_id|
       ForemanPuppet::HostClass.where(host_puppet_facet_id: host_facet_id).update_all(host_id: host_id)

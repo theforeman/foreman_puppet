@@ -20,7 +20,7 @@ module ForemanPuppet
 
         def create
           @hostgroup_class = HostgroupClass.create!(hostgroup_puppet_facet_id: @hostgroup.puppet.id, puppetclass_id: params[:puppetclass_id].to_i)
-          render json: { hostgroup_id: @hostgroup_class.hostgroup_id, puppetclass_id: @hostgroup_class.puppetclass_id }
+          render json: { hostgroup_id: @hostgroup.puppet.hostgroup_id, puppetclass_id: @hostgroup_class.puppetclass_id }
         end
 
         api :DELETE, '/hostgroups/:hostgroup_id/puppetclass_ids/:id/', N_('Remove a Puppet class from host group')
