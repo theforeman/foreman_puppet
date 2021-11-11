@@ -1,25 +1,35 @@
-# foreman_puppet
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is distributed under the same license as foreman_puppet.
+# Translators:
+# mhulan <mhulan@redhat.com>, 2021
+# Ondřej Ezr <ezrik12@gmail.com>, 2021
+# Lukáš Zapletal, 2021
+# Pavel Borecki <pavel.borecki@gmail.com>, 2021
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2014-08-20 08:54+0100\n"
-"Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-02-03 16:30+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2021\n"
+"Language-Team: Czech (Czech Republic) (https://www.transifex.com/foreman/teams"
+"/114/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= "
+"4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid " Remove"
-msgstr ""
+msgstr "Odebrat"
 
 msgid "%s is not in environment"
-msgstr ""
+msgstr "%s není prostředí"
 
 msgid "%s out of sync disabled"
 msgstr ""
@@ -36,10 +46,10 @@ msgid "%{puppetclass} does not belong to the %{environment} environment"
 msgstr ""
 
 msgid "*Clear environment*"
-msgstr ""
+msgstr "*Vyčistit prostředí*"
 
 msgid "*Inherit from host group*"
-msgstr ""
+msgstr "*Převzít ze skupiny stroje*"
 
 msgid ""
 "<b>Description:</b> %{desc}<br/>\n"
@@ -52,28 +62,28 @@ msgid "A config group provides a one-step method of associating many Puppet clas
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Akce s dílčími plány"
 
 msgid "Actions"
-msgstr ""
+msgstr "Akce"
 
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 msgid "Add Combination"
-msgstr ""
+msgstr "Přidat kombinaci"
 
 msgid "Add a Puppet class to host"
-msgstr ""
+msgstr "Přidat hostiteli Puppet třídu"
 
 msgid "Add a Puppet class to host group"
-msgstr ""
+msgstr "Přidat skupině hostitelů puppet třídu"
 
 msgid "Add a template combination"
-msgstr ""
+msgstr "Přidat kombinaci šablony"
 
 msgid "Add:"
-msgstr ""
+msgstr "Přidat:"
 
 msgid "All environments - (not filtered)"
 msgstr ""
@@ -82,79 +92,79 @@ msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
 msgid "Available Classes"
-msgstr ""
+msgstr "Třídy k dispozici"
 
 msgid "Available Config Groups"
-msgstr ""
+msgstr "Skupiny nastavení k dispozici"
 
 msgid "Can't find a valid Foreman Proxy with a Puppet feature"
-msgstr ""
+msgstr "Nedaří se nalézt platnou Foreman proxy s funkcí puppet"
 
 msgid "Can't find a valid Proxy with a Puppet feature"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Storno"
 
 msgid "Change Environment"
-msgstr ""
+msgstr "Změnit prostředí"
 
 msgid "Change Puppet Master"
 msgstr ""
 
 msgid "Changed environments"
-msgstr ""
+msgstr "Změněná prostředí"
 
 msgid "Check/Uncheck all"
-msgstr ""
+msgstr "Zaškrtnout / zrušit zaškrtnutí všeho"
 
 msgid "Check/Uncheck all %s changes"
-msgstr ""
+msgstr "Zaškrtnout / zrušit zaškrtnutí %s změn"
 
 msgid "Check/Uncheck new"
-msgstr ""
+msgstr "Zaškrtnout / zrušit zaškrtnutí u nových"
 
 msgid "Check/Uncheck obsolete"
-msgstr ""
+msgstr "Zaškrtnout / zrušit zaškrtnutí zastaralých"
 
 msgid "Check/Uncheck updated"
-msgstr ""
+msgstr "Zaškrtnout / zrušit zaškrtnutí u aktualizováno"
 
 msgid "Classes"
-msgstr ""
+msgstr "Třídy"
 
 msgid "Click to add %s"
-msgstr ""
+msgstr "%s přidáte kliknutím"
 
 msgid "Click to remove %s"
-msgstr ""
+msgstr "%s odeberete kliknutím"
 
 msgid "Click to remove config group"
-msgstr ""
+msgstr "Kliknutím skupinu nastavení odeberete"
 
 msgid "Config Groups"
 msgstr ""
 
 msgid "Config Management"
-msgstr ""
+msgstr "Správa nastavení"
 
 msgid "Create Config Group"
 msgstr ""
 
 msgid "Create Environment"
-msgstr ""
+msgstr "Vytvořit prostředí"
 
 msgid "Create Puppet Environment"
-msgstr ""
+msgstr "Vytvořit puppet prostředí"
 
 msgid "Create a Puppet class"
-msgstr ""
+msgstr "Vytvořit puppet třídu"
 
 msgid "Create a config group"
-msgstr ""
+msgstr "Vytvořit skupinu nastavení"
 
 msgid "Create an environment"
-msgstr ""
+msgstr "Vytvořit prostředí"
 
 msgid "Create an override value for a specific smart class parameter"
 msgstr ""
@@ -163,28 +173,28 @@ msgid "Default Puppet environment"
 msgstr ""
 
 msgid "Default value"
-msgstr ""
+msgstr "Výchozí hodnota"
 
 msgid "Delete %s?"
-msgstr ""
+msgstr "Smazat %s?"
 
 msgid "Delete a Puppet class"
-msgstr ""
+msgstr "Smazat Puppet třídu"
 
 msgid "Delete a config group"
-msgstr ""
+msgstr "Smazat skupinu nastavení"
 
 msgid "Delete an environment"
-msgstr ""
+msgstr "Smazat prostředí"
 
 msgid "Delete an override value for a specific smart class parameter"
 msgstr ""
 
 msgid "Deleted environment"
-msgstr ""
+msgstr "Smazat prostředí"
 
 msgid "Deleted environment %{env} and %{pcs}"
-msgstr ""
+msgstr "Smazané prostředí %{env} a %{pcs}"
 
 msgid "Deprecated in favor of host/puppet_attributes/config_group_ids"
 msgstr ""
@@ -211,40 +221,40 @@ msgid "Disable host configuration status turning to out of sync for %s after rep
 msgstr ""
 
 msgid "Display hidden values"
-msgstr ""
+msgstr "Zobrazit skryté hodnoty"
 
 msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
 msgstr ""
 
 msgid "ENC environment"
-msgstr ""
+msgstr "ENC prostředí"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Upravit %s"
 
 msgid "Edit Puppet Class %s"
-msgstr ""
+msgstr "Upravit puppet třídu %s"
 
 msgid "Empty environment"
-msgstr ""
+msgstr "Prázdné prostředí"
 
 msgid "Environment"
-msgstr ""
+msgstr "Prostředí"
 
 msgid "Environment only"
-msgstr ""
+msgstr "Pouze prostředí"
 
 msgid "Environments"
-msgstr ""
+msgstr "Prostředí"
 
 msgid "Environment|Name"
-msgstr ""
+msgstr "Environment|Název"
 
 msgid "Facts"
-msgstr ""
+msgstr "Fakta"
 
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
-msgstr ""
+msgstr "Nepodařilo se importovat %{klass} pro %{name}: neexistuje v databázi – bude ignorováno"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr ""
@@ -256,10 +266,10 @@ msgid "Failed to update the environments and Puppet classes from the on-disk pup
 msgstr ""
 
 msgid "Filter by name"
-msgstr ""
+msgstr "Filtrovat podle názvu"
 
 msgid "Filter classes"
-msgstr ""
+msgstr "Filtrovat třídy"
 
 msgid "Foreman will default to this puppet environment if it cannot auto detect one"
 msgstr ""
@@ -277,31 +287,31 @@ msgid "Foreman will update a host's environment from its facts"
 msgstr ""
 
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 msgid "Host Groups"
-msgstr ""
+msgstr "Skupiny hostitelů"
 
 msgid "Host group and Environment"
-msgstr ""
+msgstr "Skupina hostitelů a prostředí"
 
 msgid "Host group only"
-msgstr ""
+msgstr "Pouze skupina hostitelů"
 
 msgid "Host groups"
-msgstr ""
+msgstr "Skupiny hostitelů"
 
 msgid "Hostgroup"
 msgstr ""
 
 msgid "Hosts"
-msgstr ""
+msgstr "Stroje"
 
 msgid "Hosts managed:"
-msgstr ""
+msgstr "Spravované stroje:"
 
 msgid "ID of Puppet class"
-msgstr ""
+msgstr "Identifikátor puppet třídy"
 
 msgid "ID of Puppet environment"
 msgstr ""
@@ -313,13 +323,13 @@ msgid "ID of associated puppet Environment"
 msgstr ""
 
 msgid "ID of environment"
-msgstr ""
+msgstr "Identifikátor prostředí"
 
 msgid "ID of host"
-msgstr ""
+msgstr "Identifikátor stroje"
 
 msgid "ID of host group"
-msgstr ""
+msgstr "Identifikátor skupiny strojů"
 
 msgid "ID of puppet environment"
 msgstr ""
@@ -337,46 +347,46 @@ msgid "Ignored classes in the environments: %s"
 msgstr ""
 
 msgid "Ignored environment"
-msgstr ""
+msgstr "Ignorované prostředí"
 
 msgid "Ignored environment names resulting in booleans found. Please quote strings like true/false and yes/no in config/ignored_environments.yml"
 msgstr ""
 
 msgid "Ignored environments: %s"
-msgstr ""
+msgstr "Ignorovaná prostředí: %s"
 
 msgid "Ignored:"
-msgstr ""
+msgstr "Ignorováno:"
 
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Importovat Puppet třídy"
 
 msgid "Import classes from %s"
-msgstr ""
+msgstr "Importovat třídy z %s"
 
 msgid "Import environments from %s"
 msgstr ""
 
 msgid "Import facts"
-msgstr ""
+msgstr "Importovat fakta"
 
 msgid "Import puppet classes from puppet proxy"
-msgstr ""
+msgstr "Importovat puppet třídy z puppet proxy"
 
 msgid "Import puppet classes from puppet proxy for an environment"
-msgstr ""
+msgstr "Importovat puppet třídy z puppet proxy pro Environment"
 
 msgid "Include default value when merging all matching values"
-msgstr ""
+msgstr "Při slučování všech odpovídajících hodnota zahrnout výchozí hodnoty"
 
 msgid "Included Classes"
-msgstr ""
+msgstr "Obsažené třídy"
 
 msgid "Included Config Groups"
-msgstr ""
+msgstr "Včetně skupin nastavení"
 
 msgid "Inherited Classes from %s"
 msgstr ""
@@ -385,28 +395,28 @@ msgid "Invalid proxy selected!"
 msgstr ""
 
 msgid "List all Puppet class IDs for host"
-msgstr ""
+msgstr "Vypsat všechny identifikátory Puppet tříd pro hostitele"
 
 msgid "List all Puppet class IDs for host group"
 msgstr ""
 
 msgid "List all Puppet classes"
-msgstr ""
+msgstr "Vypsat všechny puppet třídy"
 
 msgid "List all Puppet classes for a host"
-msgstr ""
+msgstr "Vypsat všechny Puppet třídy pro hostitele"
 
 msgid "List all Puppet classes for a host group"
 msgstr ""
 
 msgid "List all Puppet classes for an environment"
-msgstr ""
+msgstr "Vypsat všechny Puppet třídy pro prostředí"
 
 msgid "List all environments"
-msgstr ""
+msgstr "Vypsat všechny prostředí"
 
 msgid "List all host groups for a Puppet class"
-msgstr ""
+msgstr "Vypsat všechny skupiny strojů pro puppet třídu"
 
 msgid "List all smart class parameters"
 msgstr ""
@@ -424,7 +434,7 @@ msgid "List hosts per environment"
 msgstr ""
 
 msgid "List of config groups"
-msgstr ""
+msgstr "Seznam skupin nastavení"
 
 msgid "List of override values for a specific smart class parameter"
 msgstr ""
@@ -448,28 +458,28 @@ msgid "List template combination"
 msgstr ""
 
 msgid "Loading parameters..."
-msgstr ""
+msgstr "Načítání parametrů…"
 
 msgid "Locations"
-msgstr ""
+msgstr "Umístění"
 
 msgid "Merge all matching values (only array/hash type)"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid "New"
-msgstr ""
+msgstr "Nové"
 
 msgid "No changes to your environments detected"
-msgstr ""
+msgstr "Nezjištěny žádné změny ve vašich prostředích"
 
 msgid "No environment selected!"
-msgstr ""
+msgstr "Nevybráno prostředí!"
 
 msgid "No environments found"
-msgstr ""
+msgstr "Nebylo nalezeno žádné prostředí"
 
 msgid "No parameters to override for Puppet class %s"
 msgstr ""
@@ -484,37 +494,37 @@ msgid "No smart proxy was found to import environments from, ensure that at leas
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Žádné"
 
 msgid "Not authorized to edit classes"
-msgstr ""
+msgstr "Neoprávněni upravovat třídy"
 
 msgid "Notice"
-msgstr ""
+msgstr "Upozornění"
 
 msgid "Number of Overrides"
 msgstr ""
 
 msgid "Number of classes"
-msgstr ""
+msgstr "Počet tříd"
 
 msgid "Obsolete"
-msgstr ""
+msgstr "Zastaralé"
 
 msgid "Omit"
-msgstr ""
+msgstr "Vynechat"
 
 msgid "Omit from classification output"
 msgstr ""
 
 msgid "Operating System"
-msgstr ""
+msgstr "Operační systém"
 
 msgid "Operating system default"
-msgstr ""
+msgstr "Výchozí operačnímu systému"
 
 msgid "Operation"
-msgstr ""
+msgstr "Operace"
 
 msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes"
 msgstr ""
@@ -523,70 +533,70 @@ msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the va
 msgstr ""
 
 msgid "Organizations"
-msgstr ""
+msgstr "Organizace"
 
 msgid "Original value info"
-msgstr ""
+msgstr "Informace o původní hodnotě"
 
 msgid "Overridden"
 msgstr ""
 
 msgid "Override all parameters"
-msgstr ""
+msgstr "Přebít veškeré parametry"
 
 msgid "Override match"
 msgstr ""
 
 msgid "Override this value"
-msgstr ""
+msgstr "Přebít tuto hodnotu"
 
 msgid "Override value, required if omit is false"
 msgstr ""
 
 msgid "Parameter"
-msgstr ""
+msgstr "Parametr"
 
 msgid "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers)."
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "Parametry"
 
 msgid "Please select an environment first"
-msgstr ""
+msgstr "Nejprve vyberte prostředí"
 
 msgid "Puppet"
-msgstr ""
+msgstr "Puppet"
 
 msgid "Puppet CA"
-msgstr ""
+msgstr "Certif. autorita pro Puppet"
 
 msgid "Puppet Class"
-msgstr ""
+msgstr "Puppet třída"
 
 msgid "Puppet Class Parameters"
 msgstr ""
 
 msgid "Puppet Classes"
-msgstr ""
+msgstr "Puppet třídy"
 
 msgid "Puppet ENC"
 msgstr ""
 
 msgid "Puppet Environment"
-msgstr ""
+msgstr "Puppet prostředí"
 
 msgid "Puppet Environments"
-msgstr ""
+msgstr "Puppet prostředí"
 
 msgid "Puppet Modules"
-msgstr ""
+msgstr "Puppet moduly"
 
 msgid "Puppet YAML"
 msgstr ""
 
 msgid "Puppet environments"
-msgstr ""
+msgstr "Puppet prostředí"
 
 msgid "Puppet external nodes YAML dump"
 msgstr ""
@@ -595,19 +605,19 @@ msgid "Puppet interval"
 msgstr ""
 
 msgid "Puppet parameter"
-msgstr ""
+msgstr "Puppet parametr"
 
 msgid "Puppetclass|Name"
-msgstr ""
+msgstr "Puppetclass|Název"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Akce na protějšku:"
 
 msgid "Remove"
-msgstr ""
+msgstr "Odebrat"
 
 msgid "Remove Combination"
-msgstr ""
+msgstr "Odebrat kombinaci"
 
 msgid "Remove a Puppet class from host"
 msgstr ""
@@ -622,46 +632,46 @@ msgid "Remove this override"
 msgstr ""
 
 msgid "Remove:"
-msgstr ""
+msgstr "Odebrat:"
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr ""
 
 msgid "Select environment"
-msgstr ""
+msgstr "Vybrat prostředí"
 
 msgid "Select the changes you want to apply to Foreman"
-msgstr ""
+msgstr "Vyberte změny které chcete uplatnit na Forman"
 
 msgid "Set parameters to defaults"
 msgstr ""
 
 msgid "Show a Puppet class"
-msgstr ""
+msgstr "Zobrazit puppet třídu"
 
 msgid "Show a Puppet class for a host group"
 msgstr ""
 
 msgid "Show a Puppet class for an environment"
-msgstr ""
+msgstr "Zobrazit Puppet třídu pro prostředí"
 
 msgid "Show a Puppet class for host"
-msgstr ""
+msgstr "Zobrazit Puppet třídu pro hostitele"
 
 msgid "Show a config group"
-msgstr ""
+msgstr "Zobrazit skupinu nastavení"
 
 msgid "Show a smart class parameter"
 msgstr ""
 
 msgid "Show an environment"
-msgstr ""
+msgstr "Zobrazit prostředí"
 
 msgid "Show an override value for a specific smart class parameter"
 msgstr ""
 
 msgid "Show template combination"
-msgstr ""
+msgstr "Zobrazit kombinaci šablony"
 
 msgid "Smart Class Parameter"
 msgstr ""
@@ -676,7 +686,7 @@ msgid "Successfully reset all parameters of Puppet class %s to their default val
 msgstr ""
 
 msgid "Successfully updated environments and Puppet classes from the on-disk Puppet installation"
-msgstr ""
+msgstr "Úspěšně aktualizována prostředí a Puppet třídy z instalace Puppet na disku"
 
 msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
 msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
@@ -699,7 +709,7 @@ msgid "The final entry, Operating System default, can be set by editing the %s p
 msgstr ""
 
 msgid "The order in which values are resolved"
-msgstr ""
+msgstr "Pořadí ve kterém jsou hodnoty řešeny"
 
 msgid "The requested environment cannot be found."
 msgstr ""
@@ -708,7 +718,7 @@ msgid "There are no puppet environments set up on this puppet master. Please che
 msgstr ""
 
 msgid "This Puppet class has no parameters in its signature."
-msgstr ""
+msgstr "Tato Puppet třída nemá žádné parametry ve svém podpisu."
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
 msgstr ""
@@ -720,52 +730,52 @@ msgid "To update the class signature, go to the Puppet Classes page and select \
 msgstr ""
 
 msgid "Toggle"
-msgstr ""
+msgstr "Přepnout"
 
 msgid "Total"
-msgstr ""
+msgstr "Celkem"
 
 msgid "Types of validation values"
-msgstr ""
+msgstr "Typy hodnot ověřování"
 
 msgid "Types of variable values"
-msgstr ""
+msgstr "Typy hodnot proměnné"
 
 msgid "Unable to generate output, Check log files"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Aktualizovat"
 
 msgid "Update a Puppet class"
-msgstr ""
+msgstr "Aktualizovat puppet třídu"
 
 msgid "Update a config group"
-msgstr ""
+msgstr "Aktualizovat skupinu nastavení"
 
 msgid "Update a smart class parameter"
 msgstr ""
 
 msgid "Update an environment"
-msgstr ""
+msgstr "Aktualizovat prostředí"
 
 msgid "Update an override value for a specific smart class parameter"
 msgstr ""
 
 msgid "Update environment from facts"
-msgstr ""
+msgstr "Aktualizovat prostředí z faktů"
 
 msgid "Update template combination"
-msgstr ""
+msgstr "Aktualizovat kombinaci šablony"
 
 msgid "Update:"
-msgstr ""
+msgstr "Aktualizace:"
 
 msgid "Updated"
-msgstr ""
+msgstr "Aktualizováno"
 
 msgid "Updated hosts: changed environment"
-msgstr ""
+msgstr "Aktualizovaní hostitelé: změněné prostředí"
 
 msgid "Used to enforce certain values for the parameter values"
 msgstr ""
@@ -774,10 +784,10 @@ msgid "Valid Host Group and Environment Combinations"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Hodnota"
 
 msgid "Value to use when there is no match"
-msgstr ""
+msgstr "Hodnoty které použít v případě nenalezení žádné shody"
 
 msgid ""
 "When a Host requests a template (e.g. during provisioning), Foreman \\\n"
@@ -798,16 +808,16 @@ msgid "Whether the smart class parameter value is managed by Foreman"
 msgstr ""
 
 msgid "belongs to config group"
-msgstr ""
+msgstr "náleží do skupiny nastavení"
 
 msgid "environment id"
-msgstr ""
+msgstr "identifikátor prostředí"
 
 msgid "included already from parent"
-msgstr ""
+msgstr "už zahrnuto od nadřazeného"
 
 msgid "must be true to edit the parameter"
-msgstr ""
+msgstr "aby bylo možné parametr upravovat, je třeba, aby bylo nastaveno na true (pravda)"
 
 msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
 msgstr ""

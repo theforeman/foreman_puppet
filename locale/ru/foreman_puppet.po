@@ -1,0 +1,827 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Denis Denis <stereodenis@gmail.com>, 2021
+# Alexander Savchenko, 2021
+# Andrei Burd <burdandrei@gmail.com>, 2021
+# Yulia <yulia.poyarkova@redhat.com>, 2021
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2021
+# Bryan Kearney <bryan.kearney@gmail.com>, 2021
+# Vladimir Pavlov <v.pavlov@i-teco.ru>, 2021
+# Pavel Ershov <yosho1@yandex.ru>, 2021
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-02-03 16:30+0000\n"
+"Last-Translator: Pavel Ershov <yosho1@yandex.ru>, 2021\n"
+"Language-Team: Russian (https://www.transifex.com/foreman/teams/114/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=1"
+"1 && n%100<=14)? 2 : 3);\n"
+
+msgid " Remove"
+msgstr "Удалить"
+
+msgid "%s is not in environment"
+msgstr "%s не является окружением"
+
+msgid "%s out of sync disabled"
+msgstr ""
+
+msgid "%{model} with id '%{id}' was not found"
+msgstr "%{model} с идентификатором «%{id}» не обнаружено"
+
+msgid "%{name} has %{num_tag} class"
+msgid_plural "%{name} has %{num_tag} classes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%{puppetclass} does not belong to the %{environment} environment"
+msgstr ""
+
+msgid "*Clear environment*"
+msgstr "*Сбросить окружение*"
+
+msgid "*Inherit from host group*"
+msgstr "*Наследовать от группы*"
+
+msgid ""
+"<b>Description:</b> %{desc}<br/>\n"
+"        <b>Type:</b> %{type}<br/>\n"
+"        <b>Matcher:</b> %{matcher}<br/>\n"
+"        <b>Inherited value:</b> %{inherited_value}"
+msgstr ""
+
+msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
+msgstr ""
+
+msgid "Action with sub plans"
+msgstr "Действия с подпланами"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Add Combination"
+msgstr "Добавить комбинацию"
+
+msgid "Add a Puppet class to host"
+msgstr "Добавить класс Puppet к узлу"
+
+msgid "Add a Puppet class to host group"
+msgstr "Добавить класс Puppet к группе узлов"
+
+msgid "Add a template combination"
+msgstr "Добавить комбинацию шаблонов"
+
+msgid "Add:"
+msgstr "Добавить:"
+
+msgid "All environments - (not filtered)"
+msgstr "Все окружения (без фильтра)"
+
+msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
+msgstr ""
+
+msgid "Available Classes"
+msgstr "Доступные классы"
+
+msgid "Available Config Groups"
+msgstr "Доступные группы конфигурации"
+
+msgid "Can't find a valid Foreman Proxy with a Puppet feature"
+msgstr "Не удалось найти прокси Foreman с поддержкой Puppet"
+
+msgid "Can't find a valid Proxy with a Puppet feature"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Change Environment"
+msgstr "Изменить окружение"
+
+msgid "Change Puppet Master"
+msgstr "Изменить мастер-сервер Puppet"
+
+msgid "Changed environments"
+msgstr "Изменение окружений"
+
+msgid "Check/Uncheck all"
+msgstr "Выбрать все/Отменить выбор"
+
+msgid "Check/Uncheck all %s changes"
+msgstr "Выбрать/отменить выбор всех изменений %s"
+
+msgid "Check/Uncheck new"
+msgstr "Выбрать новые/Отменить выбор"
+
+msgid "Check/Uncheck obsolete"
+msgstr "Выбрать устаревшие/Отменить выбор"
+
+msgid "Check/Uncheck updated"
+msgstr "Выбрать обновленные/Отменить выбор"
+
+msgid "Classes"
+msgstr "Классы"
+
+msgid "Click to add %s"
+msgstr "Нажмите, чтобы добавить %s"
+
+msgid "Click to remove %s"
+msgstr "Нажмите, чтобы удалить %s"
+
+msgid "Click to remove config group"
+msgstr "Нажмите, чтобы удалить группу конфигурации"
+
+msgid "Config Groups"
+msgstr ""
+
+msgid "Config Management"
+msgstr ""
+
+msgid "Create Config Group"
+msgstr ""
+
+msgid "Create Environment"
+msgstr ""
+
+msgid "Create Puppet Environment"
+msgstr ""
+
+msgid "Create a Puppet class"
+msgstr "Создать класс Puppet"
+
+msgid "Create a config group"
+msgstr "Создать группу конфигурации"
+
+msgid "Create an environment"
+msgstr "Создать окружение"
+
+msgid "Create an override value for a specific smart class parameter"
+msgstr "Создать переопределение смарт-параметра"
+
+msgid "Default Puppet environment"
+msgstr "Окружение Puppet по умолчанию"
+
+msgid "Default value"
+msgstr "Исходное значение"
+
+msgid "Delete %s?"
+msgstr "Удалить %s?"
+
+msgid "Delete a Puppet class"
+msgstr "Удалить класс Puppet"
+
+msgid "Delete a config group"
+msgstr "Удалить группу конфигурации"
+
+msgid "Delete an environment"
+msgstr "Удалить окружение"
+
+msgid "Delete an override value for a specific smart class parameter"
+msgstr "Удалить значение переопределения смарт-параметра"
+
+msgid "Deleted environment"
+msgstr "Окружение удалено"
+
+msgid "Deleted environment %{env} and %{pcs}"
+msgstr "Удалено окружение %{env} и %{pcs}"
+
+msgid "Deprecated in favor of host/puppet_attributes/config_group_ids"
+msgstr ""
+
+msgid "Deprecated in favor of host/puppet_attributes/environment_id"
+msgstr ""
+
+msgid "Deprecated in favor of host/puppet_attributes/puppetclass_ids"
+msgstr ""
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/config_group_ids"
+msgstr ""
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/environment_id"
+msgstr ""
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/puppetclass_ids"
+msgstr ""
+
+msgid "Description of smart class"
+msgstr "Описание переопределяемого класса"
+
+msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
+msgstr "Запретить переход состояния конфигурации узла в \"несинхронизированно\" в течение %s после того, как отчёт не поступил в течение заданного интервала"
+
+msgid "Display hidden values"
+msgstr "Показать скрытые значения"
+
+msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
+msgstr ""
+
+msgid "ENC environment"
+msgstr "Окружение ENC"
+
+msgid "Edit %s"
+msgstr "Изменить %s"
+
+msgid "Edit Puppet Class %s"
+msgstr "Изменение класса Puppet %s"
+
+msgid "Empty environment"
+msgstr "Пустое окружение"
+
+msgid "Environment"
+msgstr "Окружение"
+
+msgid "Environment only"
+msgstr "Только окружение"
+
+msgid "Environments"
+msgstr "Окружения"
+
+msgid "Environment|Name"
+msgstr "Имя"
+
+msgid "Facts"
+msgstr "Факты"
+
+msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
+msgstr "Не удалось импортировать %{klass} для %{name}: не найден в нашей базе данных. Игнорируется..."
+
+msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr "Не удалось настроить %{proxy_type} в качестве прокси для %{host}."
+
+msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
+msgstr "Не удалось обновить окружения и классы Puppet в соответствии с дисковой установкой Puppet: %s"
+
+msgid "Failed to update the environments and Puppet classes from the on-disk puppet installation: %s"
+msgstr "Не удалось обновить окружения и классы Puppet в соответствии с дисковой установкой Puppet: %s"
+
+msgid "Filter by name"
+msgstr "Фильтровать по имени"
+
+msgid "Filter classes"
+msgstr "Фильтр классов"
+
+msgid "Foreman will default to this puppet environment if it cannot auto detect one"
+msgstr "Окружение Puppet, которое будет выбрано, если Foreman не сможет автоматически определить окружение"
+
+msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
+msgstr "Foreman передаст информацию об окружении Puppet в YAML-выводе ENC в явном виде — это позволит избежать конфликтов с окружением, заданным в puppet.conf"
+
+msgid "Foreman will not send this parameter in classification output"
+msgstr ""
+
+msgid "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter"
+msgstr ""
+
+msgid "Foreman will update a host's environment from its facts"
+msgstr "Обновлять окружение узла на основании фактов статистики"
+
+msgid "General"
+msgstr "Общие"
+
+msgid "Host Groups"
+msgstr "Группы узлов"
+
+msgid "Host group and Environment"
+msgstr "Группа узлов и окружение"
+
+msgid "Host group only"
+msgstr "Только группа"
+
+msgid "Host groups"
+msgstr "Группы узлов"
+
+msgid "Hostgroup"
+msgstr "Группа узлов"
+
+msgid "Hosts"
+msgstr "Узлы"
+
+msgid "Hosts managed:"
+msgstr "Контролируемые узлы:"
+
+msgid "ID of Puppet class"
+msgstr "Код класса Puppet"
+
+msgid "ID of Puppet environment"
+msgstr ""
+
+msgid "ID of Puppetclass"
+msgstr ""
+
+msgid "ID of associated puppet Environment"
+msgstr ""
+
+msgid "ID of environment"
+msgstr "Код окружения"
+
+msgid "ID of host"
+msgstr "Код узла"
+
+msgid "ID of host group"
+msgstr "Код группы узлов"
+
+msgid "ID of puppet environment"
+msgstr ""
+
+msgid "IDs of associated ConfigGroups"
+msgstr ""
+
+msgid "IDs of associated Puppetclasses"
+msgstr ""
+
+msgid "If true, will raise an error if there is no default value and no matcher provide a value"
+msgstr "Если установлено, вызовет ошибку, если не установлено значение по умолчанию и не найдет поставщик значения"
+
+msgid "Ignored classes in the environments: %s"
+msgstr ""
+
+msgid "Ignored environment"
+msgstr ""
+
+msgid "Ignored environment names resulting in booleans found. Please quote strings like true/false and yes/no in config/ignored_environments.yml"
+msgstr ""
+
+msgid "Ignored environments: %s"
+msgstr ""
+
+msgid "Ignored:"
+msgstr ""
+
+msgid "Import"
+msgstr "Импорт"
+
+msgid "Import Puppet classes"
+msgstr "Импорт классов Puppet"
+
+msgid "Import classes from %s"
+msgstr ""
+
+msgid "Import environments from %s"
+msgstr ""
+
+msgid "Import facts"
+msgstr "Импорт фактов"
+
+msgid "Import puppet classes from puppet proxy"
+msgstr "Импорт классов puppet из puppet-прокси "
+
+msgid "Import puppet classes from puppet proxy for an environment"
+msgstr "Импорт классов Puppet из прокси Puppet в окружение"
+
+msgid "Include default value when merging all matching values"
+msgstr "При объединении совпадающих значений также включить значение, используемое по умолчанию"
+
+msgid "Included Classes"
+msgstr "Включенные классы"
+
+msgid "Included Config Groups"
+msgstr "Включенные группы конфигурации"
+
+msgid "Inherited Classes from %s"
+msgstr ""
+
+msgid "Invalid proxy selected!"
+msgstr "Выбран неверный прокси."
+
+msgid "List all Puppet class IDs for host"
+msgstr "Список всех кодов классов Puppet для узла"
+
+msgid "List all Puppet class IDs for host group"
+msgstr "Список всех кодов классов Puppet для группы узлов"
+
+msgid "List all Puppet classes"
+msgstr "Список всех классов Puppet"
+
+msgid "List all Puppet classes for a host"
+msgstr "Список всех классов Puppet узла"
+
+msgid "List all Puppet classes for a host group"
+msgstr "Список всех классов Puppet группы узлов"
+
+msgid "List all Puppet classes for an environment"
+msgstr "Список всех классов Puppet окружения"
+
+msgid "List all environments"
+msgstr "Список окружений"
+
+msgid "List all host groups for a Puppet class"
+msgstr "Список всех групп для класса Puppet"
+
+msgid "List all smart class parameters"
+msgstr "Список всех переопределяемых классов параметров"
+
+msgid "List environments of Puppet class"
+msgstr "Список окружений для классов Puppet"
+
+msgid "List environments per location"
+msgstr "Список окружений по местоположениям"
+
+msgid "List environments per organization"
+msgstr "Список окружений по организациям"
+
+msgid "List hosts per environment"
+msgstr "Список узлов по окружениям"
+
+msgid "List of config groups"
+msgstr "Список групп конфигурации"
+
+msgid "List of override values for a specific smart class parameter"
+msgstr "Список заменяемых значений для определенного смарт-параметра"
+
+msgid "List of smart class parameters for a specific Puppet class"
+msgstr "Список смарт-параметров для определенного класса Puppet"
+
+msgid "List of smart class parameters for a specific environment"
+msgstr "Список смарт-параметров для определенного окружения"
+
+msgid "List of smart class parameters for a specific environment/Puppet class combination"
+msgstr "Список смарт-параметров для определенной комбинации окружение/класс Puppet"
+
+msgid "List of smart class parameters for a specific host"
+msgstr "Список всех переопределяемых классов параметров для определенного узла"
+
+msgid "List of smart class parameters for a specific host group"
+msgstr "Список всех переопределяемых классов параметров для определенной группы узлов"
+
+msgid "List template combination"
+msgstr "Список комбинаций шаблонов"
+
+msgid "Loading parameters..."
+msgstr "Загрузка параметров..."
+
+msgid "Locations"
+msgstr "Местоположения"
+
+msgid "Merge all matching values (only array/hash type)"
+msgstr "Слить все совпадающие значения (только для типов массив/хэш)"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "New"
+msgstr "Новое"
+
+msgid "No changes to your environments detected"
+msgstr "Нет изменений в окружениях"
+
+msgid "No environment selected!"
+msgstr "Окружение не выбрано."
+
+msgid "No environments found"
+msgstr "Окружений не найдено."
+
+msgid "No parameters to override for Puppet class %s"
+msgstr "Нет параметров для перезаписи в классе Puppet %s"
+
+msgid "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled."
+msgstr "Не найден прокси для импорта классов. Убедитесь, что в капсуле включены функции Puppet."
+
+msgid "No proxy selected!"
+msgstr "Прокси не выбран."
+
+msgid "No smart proxy was found to import environments from, ensure that at least one smart proxy is registered with the 'puppet' feature"
+msgstr ""
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Not authorized to edit classes"
+msgstr "Недостаточно разрешений для изменения классов"
+
+msgid "Notice"
+msgstr "Примечание"
+
+msgid "Number of Overrides"
+msgstr ""
+
+msgid "Number of classes"
+msgstr "Классы"
+
+msgid "Obsolete"
+msgstr "Устарело"
+
+msgid "Omit"
+msgstr "Пропустить"
+
+msgid "Omit from classification output"
+msgstr ""
+
+msgid "Operating System"
+msgstr "Операционная система"
+
+msgid "Operating system default"
+msgstr "Стандартный для операционной системы"
+
+msgid "Operation"
+msgstr "Операция"
+
+msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes"
+msgstr ""
+
+msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the value will be empty.</i><br/>"
+msgstr ""
+
+msgid "Organizations"
+msgstr "Организации"
+
+msgid "Original value info"
+msgstr "Сведения об исходном значении"
+
+msgid "Overridden"
+msgstr ""
+
+msgid "Override all parameters"
+msgstr "Перезаписать все параметры"
+
+msgid "Override match"
+msgstr "Условие переопределения"
+
+msgid "Override this value"
+msgstr "Переопределить значение"
+
+msgid "Override value, required if omit is false"
+msgstr ""
+
+msgid "Parameter"
+msgstr "Параметр"
+
+msgid "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers)."
+msgstr ""
+
+msgid "Parameters"
+msgstr "Параметры"
+
+msgid "Please select an environment first"
+msgstr "Выберите окружение"
+
+msgid "Puppet"
+msgstr "Puppet"
+
+msgid "Puppet CA"
+msgstr "Центр сертификации Puppet"
+
+msgid "Puppet Class"
+msgstr "Класс Puppet"
+
+msgid "Puppet Class Parameters"
+msgstr ""
+
+msgid "Puppet Classes"
+msgstr "Классы Puppet"
+
+msgid "Puppet ENC"
+msgstr ""
+
+msgid "Puppet Environment"
+msgstr "Окружение Puppet"
+
+msgid "Puppet Environments"
+msgstr "Окружения Puppet"
+
+msgid "Puppet Modules"
+msgstr "Модули Puppet"
+
+msgid "Puppet YAML"
+msgstr ""
+
+msgid "Puppet environments"
+msgstr "Окружения Puppet"
+
+msgid "Puppet external nodes YAML dump"
+msgstr "Описание внешних узлов Puppet в формате YAML"
+
+msgid "Puppet interval"
+msgstr "Интервал Puppet"
+
+msgid "Puppet parameter"
+msgstr "Параметр Puppet"
+
+msgid "Puppetclass|Name"
+msgstr "Имя"
+
+msgid "Remote action:"
+msgstr "Удаленное действие:"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Remove Combination"
+msgstr ""
+
+msgid "Remove a Puppet class from host"
+msgstr "Удалить класс Puppet из узла"
+
+msgid "Remove a Puppet class from host group"
+msgstr "Удалить класс Puppet из группы узлов"
+
+msgid "Remove duplicate values (only array type)"
+msgstr "Удалить повторяющиеся значения (только для массива)"
+
+msgid "Remove this override"
+msgstr "Удалить переопределение"
+
+msgid "Remove:"
+msgstr "Удалить:"
+
+msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
+msgstr "Обязательный параметр без значения.<br/><b>Необходимо переопределить.</b><br/>"
+
+msgid "Select environment"
+msgstr "Выберите окружение"
+
+msgid "Select the changes you want to apply to Foreman"
+msgstr ""
+
+msgid "Set parameters to defaults"
+msgstr "Параметры по умолчанию"
+
+msgid "Show a Puppet class"
+msgstr "Показать класс Puppet"
+
+msgid "Show a Puppet class for a host group"
+msgstr "Показать класс Puppet группы узлов"
+
+msgid "Show a Puppet class for an environment"
+msgstr "Показать класс Puppet окружения"
+
+msgid "Show a Puppet class for host"
+msgstr "Показать класс Puppet узла"
+
+msgid "Show a config group"
+msgstr "Показать группу конфигурации"
+
+msgid "Show a smart class parameter"
+msgstr "Создать смарт-параметр"
+
+msgid "Show an environment"
+msgstr "Показать окружение"
+
+msgid "Show an override value for a specific smart class parameter"
+msgstr "Показать значение переопределения для смарт-параметра"
+
+msgid "Show template combination"
+msgstr "Показать комбинацию шаблонов"
+
+msgid "Smart Class Parameter"
+msgstr "Смарт-параметры"
+
+msgid "Smart Class Parameters"
+msgstr ""
+
+msgid "Successfully overridden all parameters of Puppet class %s"
+msgstr "Успешно перезаписаны все параметры в классе Puppet %s"
+
+msgid "Successfully reset all parameters of Puppet class %s to their default values"
+msgstr "Исходные значения параметров класса Puppet %s восстановлены."
+
+msgid "Successfully updated environments and Puppet classes from the on-disk Puppet installation"
+msgstr "Окружения и классы Puppet обновлены в соответствии с дисковой установкой Puppet"
+
+msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
+msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "The %{proxy_type} proxy of the selected hosts was cleared."
+msgstr "Прокси %{proxy_type} был удален для выбранных узлов."
+
+msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
+msgstr ""
+
+msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
+msgstr "%{proxy_name} был настроен как %{proxy_type} для выбранных узлов."
+
+msgid "The class could not be saved because of an error in one of the class parameters."
+msgstr ""
+
+msgid "The final entry, Operating System default, can be set by editing the %s page."
+msgstr "Стандартный шаблон для операционной системы можно настроить на странице %s."
+
+msgid "The order in which values are resolved"
+msgstr "Порядок обработки значений"
+
+msgid "The requested environment cannot be found."
+msgstr ""
+
+msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
+msgstr "На этом мастер-сервере Puppet не настроено ни одного окружения Puppet. Проверьте настройки мастер-сервера."
+
+msgid "This Puppet class has no parameters in its signature."
+msgstr "Подпись класса Puppet не содержит параметров."
+
+msgid "This will reset parameters of the class %s to their default values. Continue?"
+msgstr "Будут восстановлены исходные параметры класса %s. Продолжить?"
+
+msgid "This will set all parameters of the class %s as overridden. Continue?"
+msgstr "Это установит все параметры класса %s как перезаписываемые. Продолжить?"
+
+msgid "To update the class signature, go to the Puppet Classes page and select \"Import\"."
+msgstr "Чтобы обновить подпись, перейдите на страницу классов Puppet и нажмите «Импорт»."
+
+msgid "Toggle"
+msgstr "Состояние"
+
+msgid "Total"
+msgstr "Всего"
+
+msgid "Types of validation values"
+msgstr "Типы значений проверок"
+
+msgid "Types of variable values"
+msgstr "Типы значений переменных"
+
+msgid "Unable to generate output, Check log files"
+msgstr "Не удалось создать выход, проверьте файлы журналов"
+
+msgid "Update"
+msgstr "Обновить"
+
+msgid "Update a Puppet class"
+msgstr "Изменить класс Puppet"
+
+msgid "Update a config group"
+msgstr "Изменить группу конфигурации"
+
+msgid "Update a smart class parameter"
+msgstr "Изменить смарт-параметр"
+
+msgid "Update an environment"
+msgstr "Обновить окружение"
+
+msgid "Update an override value for a specific smart class parameter"
+msgstr "Обновить значение переопределения смарт-параметра"
+
+msgid "Update environment from facts"
+msgstr "Обновлять окружение на основе фактов"
+
+msgid "Update template combination"
+msgstr "Обновить комбинацию шаблонов"
+
+msgid "Update:"
+msgstr "Обновление:"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "Updated hosts: changed environment"
+msgstr "Обновление узлов: окружение изменено"
+
+msgid "Used to enforce certain values for the parameter values"
+msgstr "Используется для обеспечения определенных значений для значений параметров"
+
+msgid "Valid Host Group and Environment Combinations"
+msgstr ""
+
+msgid "Value"
+msgstr "Значение"
+
+msgid "Value to use when there is no match"
+msgstr "Значение, которое будет использоваться по умолчанию"
+
+msgid ""
+"When a Host requests a template (e.g. during provisioning), Foreman \\\n"
+"  will select the best match from the available templates of that type, in the \\\n"
+"  following order:"
+msgstr ""
+
+msgid ""
+"When editing a template, you must assign a list \\\n"
+"  of operating systems which this template can be used with. Optionally, you can \\\n"
+"  restrict a template to a list of host groups and/or environments."
+msgstr ""
+
+msgid "When enabled the parameter is hidden in the UI"
+msgstr "Если включено, параметр будет скрыт"
+
+msgid "Whether the smart class parameter value is managed by Foreman"
+msgstr "Разрешает Foreman контролировать значение смарт-параметра"
+
+msgid "belongs to config group"
+msgstr "принадлежит группе конфигурации"
+
+msgid "environment id"
+msgstr "ID окружения"
+
+msgid "included already from parent"
+msgstr "унаследована от родителя"
+
+msgid "must be true to edit the parameter"
+msgstr "должно быть установлено в true для редактирования параметра"
+
+msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
+msgstr ""

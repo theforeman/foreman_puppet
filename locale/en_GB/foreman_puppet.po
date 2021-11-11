@@ -1,22 +1,29 @@
-# foreman_puppet
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is distributed under the same license as foreman_puppet.
+# Translators:
+# Andi Chandler <andi@gowling.com>, 2021
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2021
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2014-08-20 08:54+0100\n"
-"Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-02-03 16:30+0000\n"
+"Last-Translator: 0868a4d1af5275b3f70b0a6dac4c99a4, 2021\n"
+"Language-Team: English (United Kingdom) (https://www.transifex.com/foreman/tea"
+"ms/114/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " Remove"
-msgstr ""
+msgstr " Remove"
 
 msgid "%s is not in environment"
 msgstr ""
@@ -52,10 +59,10 @@ msgid "A config group provides a one-step method of associating many Puppet clas
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Action with sub plans"
 
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 msgid "Add"
 msgstr ""
@@ -94,7 +101,7 @@ msgid "Can't find a valid Proxy with a Puppet feature"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 msgid "Change Environment"
 msgstr ""
@@ -127,10 +134,10 @@ msgid "Click to add %s"
 msgstr ""
 
 msgid "Click to remove %s"
-msgstr ""
+msgstr "Click to remove %s"
 
 msgid "Click to remove config group"
-msgstr ""
+msgstr "Click to remove config group"
 
 msgid "Config Groups"
 msgstr ""
@@ -166,7 +173,7 @@ msgid "Default value"
 msgstr ""
 
 msgid "Delete %s?"
-msgstr ""
+msgstr "Delete %s?"
 
 msgid "Delete a Puppet class"
 msgstr ""
@@ -220,7 +227,7 @@ msgid "ENC environment"
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Edit %s"
 
 msgid "Edit Puppet Class %s"
 msgstr ""
@@ -238,7 +245,7 @@ msgid "Environments"
 msgstr ""
 
 msgid "Environment|Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Facts"
 msgstr ""
@@ -292,10 +299,10 @@ msgid "Host groups"
 msgstr ""
 
 msgid "Hostgroup"
-msgstr ""
+msgstr "Host Group"
 
 msgid "Hosts"
-msgstr ""
+msgstr "Hosts"
 
 msgid "Hosts managed:"
 msgstr ""
@@ -352,7 +359,7 @@ msgid "Import"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Import Puppet classes"
 
 msgid "Import classes from %s"
 msgstr ""
@@ -361,7 +368,7 @@ msgid "Import environments from %s"
 msgstr ""
 
 msgid "Import facts"
-msgstr ""
+msgstr "Import facts"
 
 msgid "Import puppet classes from puppet proxy"
 msgstr ""
@@ -418,7 +425,7 @@ msgid "List environments per location"
 msgstr ""
 
 msgid "List environments per organization"
-msgstr ""
+msgstr "List environments per organisation"
 
 msgid "List hosts per environment"
 msgstr ""
@@ -451,13 +458,13 @@ msgid "Loading parameters..."
 msgstr ""
 
 msgid "Locations"
-msgstr ""
+msgstr "Locations"
 
 msgid "Merge all matching values (only array/hash type)"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "New"
 msgstr ""
@@ -487,7 +494,7 @@ msgid "None"
 msgstr ""
 
 msgid "Not authorized to edit classes"
-msgstr ""
+msgstr "Not authorised to edit classes"
 
 msgid "Notice"
 msgstr ""
@@ -523,7 +530,7 @@ msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the va
 msgstr ""
 
 msgid "Organizations"
-msgstr ""
+msgstr "Organisations"
 
 msgid "Original value info"
 msgstr ""
@@ -544,7 +551,7 @@ msgid "Override value, required if omit is false"
 msgstr ""
 
 msgid "Parameter"
-msgstr ""
+msgstr "Parameter"
 
 msgid "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers)."
 msgstr ""
@@ -598,10 +605,10 @@ msgid "Puppet parameter"
 msgstr ""
 
 msgid "Puppetclass|Name"
-msgstr ""
+msgstr "Class name"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "Remote action:"
 
 msgid "Remove"
 msgstr ""
@@ -774,7 +781,7 @@ msgid "Valid Host Group and Environment Combinations"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Value"
 
 msgid "Value to use when there is no match"
 msgstr ""
@@ -798,7 +805,7 @@ msgid "Whether the smart class parameter value is managed by Foreman"
 msgstr ""
 
 msgid "belongs to config group"
-msgstr ""
+msgstr "belongs to config group"
 
 msgid "environment id"
 msgstr ""

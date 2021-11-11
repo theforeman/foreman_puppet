@@ -1,31 +1,41 @@
-# foreman_puppet
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is distributed under the same license as foreman_puppet.
+# Translators:
+# EmielK <emiel@kremers.us>, 2021
+# Wouter Wijsman <wwijsman@live.nl>, 2021
+# Maxim Burgerhout <maxim@wzzrd.com>, 2021
+# dschutterop <daniel@schutterop.nl>, 2021
+# Mark Olie <mark.transifex@oliekoets.nl>, 2021
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2014-08-20 08:54+0100\n"
-"Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-02-03 16:30+0000\n"
+"Last-Translator: Mark Olie <mark.transifex@oliekoets.nl>, 2021\n"
+"Language-Team: Dutch (Netherlands) (https://www.transifex.com/foreman/teams/11"
+"4/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " Remove"
-msgstr ""
+msgstr "Verwijder"
 
 msgid "%s is not in environment"
-msgstr ""
+msgstr "%s is niet in omgeving"
 
 msgid "%s out of sync disabled"
 msgstr ""
 
 msgid "%{model} with id '%{id}' was not found"
-msgstr ""
+msgstr "%{model} met id '%{id}' is niet gevonden"
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
@@ -36,10 +46,10 @@ msgid "%{puppetclass} does not belong to the %{environment} environment"
 msgstr ""
 
 msgid "*Clear environment*"
-msgstr ""
+msgstr "*Omgeving leegmaken*"
 
 msgid "*Inherit from host group*"
-msgstr ""
+msgstr "*Erven van host group*"
 
 msgid ""
 "<b>Description:</b> %{desc}<br/>\n"
@@ -55,7 +65,7 @@ msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
-msgstr ""
+msgstr "Acties"
 
 msgid "Add"
 msgstr ""
@@ -64,16 +74,16 @@ msgid "Add Combination"
 msgstr ""
 
 msgid "Add a Puppet class to host"
-msgstr ""
+msgstr "Een Puppet class toevoegen aan de host"
 
 msgid "Add a Puppet class to host group"
-msgstr ""
+msgstr "Een Puppet class aan een host groep toevoegen"
 
 msgid "Add a template combination"
-msgstr ""
+msgstr "Een template combinatie toevoegen"
 
 msgid "Add:"
-msgstr ""
+msgstr "Toevoegen:"
 
 msgid "All environments - (not filtered)"
 msgstr ""
@@ -82,55 +92,55 @@ msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
 msgid "Available Classes"
-msgstr ""
+msgstr "Beschikbare Classes"
 
 msgid "Available Config Groups"
-msgstr ""
+msgstr "Beschikbare Config Groepen"
 
 msgid "Can't find a valid Foreman Proxy with a Puppet feature"
-msgstr ""
+msgstr "Kan geen valide Foreman Proxy met Puppet eigenschap vinden"
 
 msgid "Can't find a valid Proxy with a Puppet feature"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 msgid "Change Environment"
-msgstr ""
+msgstr "Wijzig Omgeving"
 
 msgid "Change Puppet Master"
 msgstr ""
 
 msgid "Changed environments"
-msgstr ""
+msgstr "Gewijzigde omgevingen"
 
 msgid "Check/Uncheck all"
-msgstr ""
+msgstr "Vink alles aan/uit"
 
 msgid "Check/Uncheck all %s changes"
-msgstr ""
+msgstr "Vink alle %s wijzigingen aan/uit"
 
 msgid "Check/Uncheck new"
-msgstr ""
+msgstr "Vink nieuw aan/uit"
 
 msgid "Check/Uncheck obsolete"
-msgstr ""
+msgstr "Vink overtollige aan/uit"
 
 msgid "Check/Uncheck updated"
-msgstr ""
+msgstr "Vink bijgewerkte aan/uit"
 
 msgid "Classes"
-msgstr ""
+msgstr "Classes"
 
 msgid "Click to add %s"
-msgstr ""
+msgstr "Klik om %s toe te voegen"
 
 msgid "Click to remove %s"
-msgstr ""
+msgstr "Klik om %s te verwijderen"
 
 msgid "Click to remove config group"
-msgstr ""
+msgstr "Klik om config groep te verwijderen"
 
 msgid "Config Groups"
 msgstr ""
@@ -145,19 +155,19 @@ msgid "Create Environment"
 msgstr ""
 
 msgid "Create Puppet Environment"
-msgstr ""
+msgstr "Maak Puppet Environment"
 
 msgid "Create a Puppet class"
-msgstr ""
+msgstr "Maak een Puppet class"
 
 msgid "Create a config group"
-msgstr ""
+msgstr "Maak een config groep"
 
 msgid "Create an environment"
-msgstr ""
+msgstr "Maak een omgeving"
 
 msgid "Create an override value for a specific smart class parameter"
-msgstr ""
+msgstr "Maak een override waarde voor een specifieke smart class parameter"
 
 msgid "Default Puppet environment"
 msgstr ""
@@ -166,19 +176,19 @@ msgid "Default value"
 msgstr ""
 
 msgid "Delete %s?"
-msgstr ""
+msgstr "%s verwijderen?"
 
 msgid "Delete a Puppet class"
-msgstr ""
+msgstr "Verwijder een Puppet class"
 
 msgid "Delete a config group"
-msgstr ""
+msgstr "Verwijder een config group"
 
 msgid "Delete an environment"
-msgstr ""
+msgstr "Verwijder een omgeving"
 
 msgid "Delete an override value for a specific smart class parameter"
-msgstr ""
+msgstr "Verwijder een override waarde voor een specifieke smart class parameter"
 
 msgid "Deleted environment"
 msgstr ""
@@ -205,13 +215,13 @@ msgid "Deprecated in favor of hostgroup/puppet_attributes/puppetclass_ids"
 msgstr ""
 
 msgid "Description of smart class"
-msgstr ""
+msgstr "Beschrijving van een smart class"
 
 msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
 msgstr ""
 
 msgid "Display hidden values"
-msgstr ""
+msgstr "Bekijk verstopte waarden"
 
 msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
 msgstr ""
@@ -220,10 +230,10 @@ msgid "ENC environment"
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Bewerken %s"
 
 msgid "Edit Puppet Class %s"
-msgstr ""
+msgstr "Bewerk Puppet Class %s"
 
 msgid "Empty environment"
 msgstr ""
@@ -247,13 +257,13 @@ msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - i
 msgstr ""
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
-msgstr ""
+msgstr "Niet gelukt om %{proxy_type} te zetten op proxy voor %{host}."
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
-msgstr ""
+msgstr "Het is niet gelukt om de omgevingen te wijzigigen vanuit de Puppet classes on-disk Puppet installatie: %s"
 
 msgid "Failed to update the environments and Puppet classes from the on-disk puppet installation: %s"
-msgstr ""
+msgstr "Wijzigen van de omgevingen is niet gelukt van de on-disk puppet installatie: %s"
 
 msgid "Filter by name"
 msgstr ""
@@ -301,7 +311,7 @@ msgid "Hosts managed:"
 msgstr ""
 
 msgid "ID of Puppet class"
-msgstr ""
+msgstr "ID van de Puppet class"
 
 msgid "ID of Puppet environment"
 msgstr ""
@@ -313,13 +323,13 @@ msgid "ID of associated puppet Environment"
 msgstr ""
 
 msgid "ID of environment"
-msgstr ""
+msgstr "ID van de omgeving"
 
 msgid "ID of host"
-msgstr ""
+msgstr "ID van de host"
 
 msgid "ID of host group"
-msgstr ""
+msgstr "ID van de host groep"
 
 msgid "ID of puppet environment"
 msgstr ""
@@ -331,25 +341,25 @@ msgid "IDs of associated Puppetclasses"
 msgstr ""
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
-msgstr ""
+msgstr "Als gezet, wordt er een fout gegenereerd als er geen standaardwaarde is en geen matcher een waarde aanbiedt"
 
 msgid "Ignored classes in the environments: %s"
-msgstr ""
+msgstr "Genegeerde classes in de omgevingen: %s"
 
 msgid "Ignored environment"
 msgstr ""
 
 msgid "Ignored environment names resulting in booleans found. Please quote strings like true/false and yes/no in config/ignored_environments.yml"
-msgstr ""
+msgstr "Genegeerde omgevings namen gevonden in de boolean resultaten. Gebruikquoted strings zoals true/false en yes/no in config/ignored_environments.yml"
 
 msgid "Ignored environments: %s"
-msgstr ""
+msgstr "Genegeerde omgevingen: %s"
 
 msgid "Ignored:"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Geimporteerd"
 
 msgid "Import Puppet classes"
 msgstr ""
@@ -367,10 +377,10 @@ msgid "Import puppet classes from puppet proxy"
 msgstr ""
 
 msgid "Import puppet classes from puppet proxy for an environment"
-msgstr ""
+msgstr "Importeer puppet classes van de puppet proxy voor een omgeving"
 
 msgid "Include default value when merging all matching values"
-msgstr ""
+msgstr "Voeg een default value toe wanneer alle matching waarden worden samengevoegd"
 
 msgid "Included Classes"
 msgstr ""
@@ -382,112 +392,112 @@ msgid "Inherited Classes from %s"
 msgstr ""
 
 msgid "Invalid proxy selected!"
-msgstr ""
+msgstr "Ongeldige proxy geselecteerd!"
 
 msgid "List all Puppet class IDs for host"
-msgstr ""
+msgstr "Som alle puppet class IDs voor de host op"
 
 msgid "List all Puppet class IDs for host group"
-msgstr ""
+msgstr "Som alle Puppet class IDs voor de host groep op"
 
 msgid "List all Puppet classes"
-msgstr ""
+msgstr "Som alle Puppet classes op"
 
 msgid "List all Puppet classes for a host"
-msgstr ""
+msgstr "Som alle Puppet classes op voor een host"
 
 msgid "List all Puppet classes for a host group"
-msgstr ""
+msgstr "Som alle Puppet classes op voor een host groep"
 
 msgid "List all Puppet classes for an environment"
-msgstr ""
+msgstr "Som alle Puppet classes op voor een omgeving"
 
 msgid "List all environments"
-msgstr ""
+msgstr "Som alle omgevingen op"
 
 msgid "List all host groups for a Puppet class"
-msgstr ""
+msgstr "Som alle host groepen voor een Puppet class op"
 
 msgid "List all smart class parameters"
-msgstr ""
+msgstr "Som alle smart class parameters op"
 
 msgid "List environments of Puppet class"
-msgstr ""
+msgstr "Bekijk omgevingen van Puppet class"
 
 msgid "List environments per location"
-msgstr ""
+msgstr "Bekijk omgevingen per locatie"
 
 msgid "List environments per organization"
-msgstr ""
+msgstr "Bekijk omgevingen per organisatie"
 
 msgid "List hosts per environment"
-msgstr ""
+msgstr "Bekijk hosts per omgeving"
 
 msgid "List of config groups"
-msgstr ""
+msgstr "Lijst van config groupen"
 
 msgid "List of override values for a specific smart class parameter"
-msgstr ""
+msgstr "Som alle override waarden op voor een specifieke smart class parameter"
 
 msgid "List of smart class parameters for a specific Puppet class"
-msgstr ""
+msgstr "Som alle smart class parameters op voor een specifieke Puppet class"
 
 msgid "List of smart class parameters for a specific environment"
-msgstr ""
+msgstr "Som alle smart class parameters op voor een specifieke omgeving"
 
 msgid "List of smart class parameters for a specific environment/Puppet class combination"
-msgstr ""
+msgstr "Som alle smart class parameters op voor een specifieke omgeving/Puppet class combinatie"
 
 msgid "List of smart class parameters for a specific host"
-msgstr ""
+msgstr "Som alle smart class parameters op voor een specifieke host"
 
 msgid "List of smart class parameters for a specific host group"
-msgstr ""
+msgstr "Som alle smart class parameters op voor een specifieke host groep"
 
 msgid "List template combination"
-msgstr ""
+msgstr "Som de template combinatie op"
 
 msgid "Loading parameters..."
-msgstr ""
+msgstr "Laad parameters..."
 
 msgid "Locations"
 msgstr ""
 
 msgid "Merge all matching values (only array/hash type)"
-msgstr ""
+msgstr "Voeg alle matching values samen (alleen array/hash types)"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "New"
 msgstr ""
 
 msgid "No changes to your environments detected"
-msgstr ""
+msgstr "Geen wijzigingen in je omgevingen gedetecteerd"
 
 msgid "No environment selected!"
-msgstr ""
+msgstr "Geen omgeving geselecteerd!"
 
 msgid "No environments found"
 msgstr ""
 
 msgid "No parameters to override for Puppet class %s"
-msgstr ""
+msgstr "Geen parameters te overriden voor Puppet class %s"
 
 msgid "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled."
-msgstr ""
+msgstr "Geen proxy gevonden om classes van te importeren, check dat de smart proxy de Puppet feature geinstalleerd heeft staan."
 
 msgid "No proxy selected!"
-msgstr ""
+msgstr "Geen proxy geselecteerd!"
 
 msgid "No smart proxy was found to import environments from, ensure that at least one smart proxy is registered with the 'puppet' feature"
-msgstr ""
+msgstr "Er waren geen smart proxies gevonden waarvandaan omgevingen geimporteerd konden worden, check dat tenminste een smart proxy is geregistreerd met de 'puppet' feature"
 
 msgid "None"
 msgstr ""
 
 msgid "Not authorized to edit classes"
-msgstr ""
+msgstr "Niet geautoriseerd om classes te bewerken"
 
 msgid "Notice"
 msgstr ""
@@ -535,13 +545,13 @@ msgid "Override all parameters"
 msgstr ""
 
 msgid "Override match"
-msgstr ""
+msgstr "Override overeenkomst"
 
 msgid "Override this value"
 msgstr ""
 
 msgid "Override value, required if omit is false"
-msgstr ""
+msgstr "Override waarde, verplicht als uitsluiten uit staat"
 
 msgid "Parameter"
 msgstr ""
@@ -556,10 +566,10 @@ msgid "Please select an environment first"
 msgstr ""
 
 msgid "Puppet"
-msgstr ""
+msgstr "Puppet"
 
 msgid "Puppet CA"
-msgstr ""
+msgstr "Puppet CA"
 
 msgid "Puppet Class"
 msgstr ""
@@ -610,13 +620,13 @@ msgid "Remove Combination"
 msgstr ""
 
 msgid "Remove a Puppet class from host"
-msgstr ""
+msgstr "Verwijder een Puppet class van de host"
 
 msgid "Remove a Puppet class from host group"
-msgstr ""
+msgstr "Verwijder een Puppet class van een host groep"
 
 msgid "Remove duplicate values (only array type)"
-msgstr ""
+msgstr "Verwijder dubbele waarden (alleen array type)"
 
 msgid "Remove this override"
 msgstr ""
@@ -637,31 +647,31 @@ msgid "Set parameters to defaults"
 msgstr ""
 
 msgid "Show a Puppet class"
-msgstr ""
+msgstr "Toon een Puppet class"
 
 msgid "Show a Puppet class for a host group"
-msgstr ""
+msgstr "Toon een Puppet class voor een host groep"
 
 msgid "Show a Puppet class for an environment"
-msgstr ""
+msgstr "Toon een Puppet class voor een omgeving"
 
 msgid "Show a Puppet class for host"
-msgstr ""
+msgstr "Toon een Puppet class voor een host"
 
 msgid "Show a config group"
-msgstr ""
+msgstr "Bekijk een config group"
 
 msgid "Show a smart class parameter"
-msgstr ""
+msgstr "Toon een smart class parameter"
 
 msgid "Show an environment"
-msgstr ""
+msgstr "Bekijk een omgeving"
 
 msgid "Show an override value for a specific smart class parameter"
-msgstr ""
+msgstr "Bekijk een override waarde voor een specifieke smart class parameter"
 
 msgid "Show template combination"
-msgstr ""
+msgstr "Toon template combinatie"
 
 msgid "Smart Class Parameter"
 msgstr ""
@@ -670,13 +680,13 @@ msgid "Smart Class Parameters"
 msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
-msgstr ""
+msgstr "Alle parameters van puppet class %s zijn succesvol overridden."
 
 msgid "Successfully reset all parameters of Puppet class %s to their default values"
-msgstr ""
+msgstr "Alle parameters van puppet class %s zijn succesvol terug naar hun standaard waarden gezet"
 
 msgid "Successfully updated environments and Puppet classes from the on-disk Puppet installation"
-msgstr ""
+msgstr "Het is gelukt om de omgevingen te wijzigen vanuit de Puppet classes on-disk Puppet installatie"
 
 msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
 msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
@@ -684,22 +694,22 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "The %{proxy_type} proxy of the selected hosts was cleared."
-msgstr ""
+msgstr "De %{proxy_type} proxy van de geselecteerde hosts zijn verwijderd."
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
-msgstr ""
+msgstr "De %{proxy_type} proxy van de geselecteerde hosts werd gezet op %{proxy_name}"
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
-msgstr ""
+msgstr "De %{proxy_type} proxy van de geselecteerde hosts werd gezet op %{proxy_name}."
 
 msgid "The class could not be saved because of an error in one of the class parameters."
 msgstr ""
 
 msgid "The final entry, Operating System default, can be set by editing the %s page."
-msgstr ""
+msgstr "De laatste inschrijving. Besturingssysteem standaard. kan worden gezet door de %s pagina te bewerken."
 
 msgid "The order in which values are resolved"
-msgstr ""
+msgstr "De volgorde waarin waarden worden opgezocht"
 
 msgid "The requested environment cannot be found."
 msgstr ""
@@ -726,37 +736,37 @@ msgid "Total"
 msgstr ""
 
 msgid "Types of validation values"
-msgstr ""
+msgstr "Types van validatie waarden"
 
 msgid "Types of variable values"
-msgstr ""
+msgstr "Types van variabelen"
 
 msgid "Unable to generate output, Check log files"
-msgstr ""
+msgstr "Er kan geen uitvoer gemaakt worden, check de log files"
 
 msgid "Update"
 msgstr ""
 
 msgid "Update a Puppet class"
-msgstr ""
+msgstr "Wijzig een Puppet class"
 
 msgid "Update a config group"
-msgstr ""
+msgstr "Wijzig een config group"
 
 msgid "Update a smart class parameter"
-msgstr ""
+msgstr "Wijzig  een smart class parameter"
 
 msgid "Update an environment"
-msgstr ""
+msgstr "Wijzig een omgeving"
 
 msgid "Update an override value for a specific smart class parameter"
-msgstr ""
+msgstr "Wijzig een override waarde voor een specifieke smart class parameter"
 
 msgid "Update environment from facts"
 msgstr ""
 
 msgid "Update template combination"
-msgstr ""
+msgstr "Wijzig template combinatie"
 
 msgid "Update:"
 msgstr ""
@@ -765,19 +775,19 @@ msgid "Updated"
 msgstr ""
 
 msgid "Updated hosts: changed environment"
-msgstr ""
+msgstr "Gewijzigde hosts: veranderde omgeving"
 
 msgid "Used to enforce certain values for the parameter values"
-msgstr ""
+msgstr "Gebruikt om sommige waarden af te dwingen voor de parameterwaarden"
 
 msgid "Valid Host Group and Environment Combinations"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Waarde"
 
 msgid "Value to use when there is no match"
-msgstr ""
+msgstr "Waarde om te gebruiken als er geen match is"
 
 msgid ""
 "When a Host requests a template (e.g. during provisioning), Foreman \\\n"
@@ -792,16 +802,16 @@ msgid ""
 msgstr ""
 
 msgid "When enabled the parameter is hidden in the UI"
-msgstr ""
+msgstr "Als aangezet dan wordt de parameter wordt hidden in de UI"
 
 msgid "Whether the smart class parameter value is managed by Foreman"
-msgstr ""
+msgstr "Of de smart class parameter waarde wordt gemanaged door Foreman"
 
 msgid "belongs to config group"
-msgstr ""
+msgstr "hoort bij config group"
 
 msgid "environment id"
-msgstr ""
+msgstr "Omgevings ID"
 
 msgid "included already from parent"
 msgstr ""

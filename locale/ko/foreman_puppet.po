@@ -1,31 +1,37 @@
-# foreman_puppet
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is distributed under the same license as foreman_puppet.
+# Translators:
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2021
+# Bryan Kearney <bryan.kearney@gmail.com>, 2021
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2014-08-20 08:54+0100\n"
-"Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-02-03 16:30+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2021\n"
+"Language-Team: Korean (https://www.transifex.com/foreman/teams/114/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " Remove"
-msgstr ""
+msgstr "삭제 "
 
 msgid "%s is not in environment"
-msgstr ""
+msgstr "%s은(는) 환경에 없습니다 "
 
 msgid "%s out of sync disabled"
 msgstr ""
 
 msgid "%{model} with id '%{id}' was not found"
-msgstr ""
+msgstr "ID가 '%{id}'인 %{model}이(가) 없습니다."
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
@@ -36,10 +42,10 @@ msgid "%{puppetclass} does not belong to the %{environment} environment"
 msgstr ""
 
 msgid "*Clear environment*"
-msgstr ""
+msgstr "*환경 삭제*"
 
 msgid "*Inherit from host group*"
-msgstr ""
+msgstr "*호스트 그룹에서 상속*"
 
 msgid ""
 "<b>Description:</b> %{desc}<br/>\n"
@@ -52,85 +58,85 @@ msgid "A config group provides a one-step method of associating many Puppet clas
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "하위 계획이 있는 작업"
 
 msgid "Actions"
-msgstr ""
+msgstr "동작 "
 
 msgid "Add"
-msgstr ""
+msgstr "추가 "
 
 msgid "Add Combination"
 msgstr ""
 
 msgid "Add a Puppet class to host"
-msgstr ""
+msgstr "호스트에 Puppet 클래스 추가 "
 
 msgid "Add a Puppet class to host group"
-msgstr ""
+msgstr "호스트 그룹에 Puppet 클래스 추가 "
 
 msgid "Add a template combination"
-msgstr ""
+msgstr "템플릿 조합 추가 "
 
 msgid "Add:"
-msgstr ""
+msgstr "추가:"
 
 msgid "All environments - (not filtered)"
-msgstr ""
+msgstr "모든 환경 - (필터링되지 않음)"
 
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
 msgid "Available Classes"
-msgstr ""
+msgstr "사용 가능한 클래스 "
 
 msgid "Available Config Groups"
-msgstr ""
+msgstr "사용 가능한 설정 그룹 "
 
 msgid "Can't find a valid Foreman Proxy with a Puppet feature"
-msgstr ""
+msgstr "Puppet 기능이 있는 유효한 Foreman Proxy를 찾을 수 없습니다 "
 
 msgid "Can't find a valid Proxy with a Puppet feature"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "취소 "
 
 msgid "Change Environment"
-msgstr ""
+msgstr "환경 변경 "
 
 msgid "Change Puppet Master"
-msgstr ""
+msgstr "Puppet 마스터 변경"
 
 msgid "Changed environments"
-msgstr ""
+msgstr "변경된 환경 "
 
 msgid "Check/Uncheck all"
-msgstr ""
+msgstr "모두 선택/선택 해제 "
 
 msgid "Check/Uncheck all %s changes"
-msgstr ""
+msgstr "전체 %s 변경 선택/선택 해제 "
 
 msgid "Check/Uncheck new"
-msgstr ""
+msgstr "새로운 사항 선택/선택 해제 "
 
 msgid "Check/Uncheck obsolete"
-msgstr ""
+msgstr "이전 버전 선택/ 선택 해제 "
 
 msgid "Check/Uncheck updated"
-msgstr ""
+msgstr "업데이트 선택/선택 해제 "
 
 msgid "Classes"
-msgstr ""
+msgstr "클래스 "
 
 msgid "Click to add %s"
-msgstr ""
+msgstr "클릭하여 %s 추가 "
 
 msgid "Click to remove %s"
-msgstr ""
+msgstr "클릭하여 %s 삭제 "
 
 msgid "Click to remove config group"
-msgstr ""
+msgstr "클릭하여 설정 그룹 삭제 "
 
 msgid "Config Groups"
 msgstr ""
@@ -148,43 +154,43 @@ msgid "Create Puppet Environment"
 msgstr ""
 
 msgid "Create a Puppet class"
-msgstr ""
+msgstr "Puppet 클래스 생성 "
 
 msgid "Create a config group"
-msgstr ""
+msgstr "설정 그룹 생성 "
 
 msgid "Create an environment"
-msgstr ""
+msgstr "환경 생성 "
 
 msgid "Create an override value for a specific smart class parameter"
-msgstr ""
+msgstr "특정 스마트 클래스 매개 변수의 덮어쓰기 값 생성 "
 
 msgid "Default Puppet environment"
-msgstr ""
+msgstr "기본 Puppet 환경"
 
 msgid "Default value"
-msgstr ""
+msgstr "기본값 "
 
 msgid "Delete %s?"
-msgstr ""
+msgstr "%s 을(를) 삭제하시겠습니까?"
 
 msgid "Delete a Puppet class"
-msgstr ""
+msgstr "Puppet 클래스 삭제 "
 
 msgid "Delete a config group"
-msgstr ""
+msgstr "설정 그룹 삭제 "
 
 msgid "Delete an environment"
-msgstr ""
+msgstr "환경 삭제 "
 
 msgid "Delete an override value for a specific smart class parameter"
-msgstr ""
+msgstr "특정 스마트 클랙스 매개 변수의 덮어쓰기 값 삭제 "
 
 msgid "Deleted environment"
-msgstr ""
+msgstr "삭제된 환경 "
 
 msgid "Deleted environment %{env} and %{pcs}"
-msgstr ""
+msgstr "삭제된 환경 %{env} 및 %{pcs}"
 
 msgid "Deprecated in favor of host/puppet_attributes/config_group_ids"
 msgstr ""
@@ -205,7 +211,7 @@ msgid "Deprecated in favor of hostgroup/puppet_attributes/puppetclass_ids"
 msgstr ""
 
 msgid "Description of smart class"
-msgstr ""
+msgstr "스마트 클래스 설명"
 
 msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
 msgstr ""
@@ -217,55 +223,55 @@ msgid "Duration in minutes after servers reporting via Puppet are classed as out
 msgstr ""
 
 msgid "ENC environment"
-msgstr ""
+msgstr "ENC 환경"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "%s 편집 "
 
 msgid "Edit Puppet Class %s"
-msgstr ""
+msgstr "Puppet 클래스 %s 편집 "
 
 msgid "Empty environment"
-msgstr ""
+msgstr "빈 환경 "
 
 msgid "Environment"
-msgstr ""
+msgstr "환경 "
 
 msgid "Environment only"
-msgstr ""
+msgstr "환경만 "
 
 msgid "Environments"
-msgstr ""
+msgstr "환경 "
 
 msgid "Environment|Name"
-msgstr ""
+msgstr "이름 "
 
 msgid "Facts"
-msgstr ""
+msgstr "팩트 "
 
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
-msgstr ""
+msgstr "%{name}의 %{klass} 가져오기에 실패했습니다: 데이터베이스에 존재하지 않습니다 - 무시합니다 "
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
-msgstr ""
+msgstr "%{host}의 %{proxy_type} 프록시를 설정하지 못했습니다."
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
-msgstr ""
+msgstr "온디스크 Puppet 설치에서 환경 및 Puppet 클래스 업데이트에 실패했습니다: %s"
 
 msgid "Failed to update the environments and Puppet classes from the on-disk puppet installation: %s"
-msgstr ""
+msgstr "온디스크 Puppet 설치에서 환경 및 Puppet 클래스 업데이트에 실패했습니다: %s"
 
 msgid "Filter by name"
-msgstr ""
+msgstr "이름에 따라 필터링 "
 
 msgid "Filter classes"
-msgstr ""
+msgstr "필터 클래스 "
 
 msgid "Foreman will default to this puppet environment if it cannot auto detect one"
-msgstr ""
+msgstr "Foreman은 자동으로 검색하지 못 할 경우 puppet 환경에 기본값 설정됩니다 "
 
 msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
-msgstr ""
+msgstr "Foreman은 ENC yaml 출력에서 puppet 환경을 명시적으로 설정합니다. 이로 인해 puppet.conf의 환경과 Foreman으로 설정되는 환경 간의 충돌을 방지할 수 있습니다  "
 
 msgid "Foreman will not send this parameter in classification output"
 msgstr ""
@@ -274,34 +280,34 @@ msgid "Foreman will not send this parameter in classification output.Puppet will
 msgstr ""
 
 msgid "Foreman will update a host's environment from its facts"
-msgstr ""
+msgstr "Foreman은 정보에서 호스트 환경을 업데이트합니다 "
 
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 msgid "Host Groups"
-msgstr ""
+msgstr "호스트 그룹 "
 
 msgid "Host group and Environment"
-msgstr ""
+msgstr "호스트 그룹 및 환경 "
 
 msgid "Host group only"
-msgstr ""
+msgstr "호스트 그룹만 "
 
 msgid "Host groups"
-msgstr ""
+msgstr "호스트 그룹 "
 
 msgid "Hostgroup"
-msgstr ""
+msgstr "호스트 그룹 "
 
 msgid "Hosts"
-msgstr ""
+msgstr "호스트"
 
 msgid "Hosts managed:"
-msgstr ""
+msgstr "관리되는 호스트:"
 
 msgid "ID of Puppet class"
-msgstr ""
+msgstr "Puppet 클래스 ID "
 
 msgid "ID of Puppet environment"
 msgstr ""
@@ -313,13 +319,13 @@ msgid "ID of associated puppet Environment"
 msgstr ""
 
 msgid "ID of environment"
-msgstr ""
+msgstr "환경 ID "
 
 msgid "ID of host"
-msgstr ""
+msgstr "호스트 ID "
 
 msgid "ID of host group"
-msgstr ""
+msgstr "호스트 그룹 ID "
 
 msgid "ID of puppet environment"
 msgstr ""
@@ -331,7 +337,7 @@ msgid "IDs of associated Puppetclasses"
 msgstr ""
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
-msgstr ""
+msgstr "true인 경우, 기본값이 없고 matcher에서 값이 제공되지 않으면 오류가 발생합니다."
 
 msgid "Ignored classes in the environments: %s"
 msgstr ""
@@ -349,10 +355,10 @@ msgid "Ignored:"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "불러오기"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Puppet 클래스 가져오기"
 
 msgid "Import classes from %s"
 msgstr ""
@@ -361,145 +367,145 @@ msgid "Import environments from %s"
 msgstr ""
 
 msgid "Import facts"
-msgstr ""
+msgstr "팩트 불러오기"
 
 msgid "Import puppet classes from puppet proxy"
 msgstr ""
 
 msgid "Import puppet classes from puppet proxy for an environment"
-msgstr ""
+msgstr "환경에 대한 Puppet 프록시에서 Puppet 클래스를 가져옵니다"
 
 msgid "Include default value when merging all matching values"
-msgstr ""
+msgstr "일치하는 모든 값을 병합할 때 기본값 포함"
 
 msgid "Included Classes"
-msgstr ""
+msgstr "내장된 클래스 "
 
 msgid "Included Config Groups"
-msgstr ""
+msgstr "내장된 설정 그룹 "
 
 msgid "Inherited Classes from %s"
 msgstr ""
 
 msgid "Invalid proxy selected!"
-msgstr ""
+msgstr "잘못된 프록시를 선택했습니다."
 
 msgid "List all Puppet class IDs for host"
-msgstr ""
+msgstr "호스트의 모든 Puppet 클래스 ID 나열 "
 
 msgid "List all Puppet class IDs for host group"
-msgstr ""
+msgstr "호스트 그룹의 모든 Puppet 클래스 ID 나열 "
 
 msgid "List all Puppet classes"
-msgstr ""
+msgstr "모든 Puppet 클래스 나열 "
 
 msgid "List all Puppet classes for a host"
-msgstr ""
+msgstr "호스트의 모든 Puppet 클래스 나열 "
 
 msgid "List all Puppet classes for a host group"
-msgstr ""
+msgstr "호스트 그룹의 모든 Puppet 클래스 나열 "
 
 msgid "List all Puppet classes for an environment"
-msgstr ""
+msgstr "환경의 모든 Puppet 클래스 나열 "
 
 msgid "List all environments"
-msgstr ""
+msgstr "모든 환경 목록 나열 "
 
 msgid "List all host groups for a Puppet class"
-msgstr ""
+msgstr "Puppet 클래스의 모든 호스트 그룹 목록 나열 "
 
 msgid "List all smart class parameters"
-msgstr ""
+msgstr "모든 스마트 클래스 매개 변수 나열 "
 
 msgid "List environments of Puppet class"
-msgstr ""
+msgstr "Puppet 클래스 환경 목록 나열 "
 
 msgid "List environments per location"
-msgstr ""
+msgstr "위치 별 환경 나열 "
 
 msgid "List environments per organization"
-msgstr ""
+msgstr "조직 별 환경 나열 "
 
 msgid "List hosts per environment"
-msgstr ""
+msgstr "환경 별 호스트 나열 "
 
 msgid "List of config groups"
-msgstr ""
+msgstr "설정 그룹 목록"
 
 msgid "List of override values for a specific smart class parameter"
-msgstr ""
+msgstr "특정 스마트 클래스 매개 변수의 덮어쓰기 값 목록 "
 
 msgid "List of smart class parameters for a specific Puppet class"
-msgstr ""
+msgstr "특정 Puppet 클래스의 스마트 클래스 매개 변수 목록 "
 
 msgid "List of smart class parameters for a specific environment"
-msgstr ""
+msgstr "특정 환경의 스마트 클래스 매개 변수 목록 "
 
 msgid "List of smart class parameters for a specific environment/Puppet class combination"
-msgstr ""
+msgstr "특정 환경/Puppet 클래스 조합의 스마트 클래스 매개 변수 목록 "
 
 msgid "List of smart class parameters for a specific host"
-msgstr ""
+msgstr "특정 호스트의 스마트 클래스 매개 변수 목록 "
 
 msgid "List of smart class parameters for a specific host group"
-msgstr ""
+msgstr "특정 호스트 그룹의 스마트 클래스 매개 변수 목록 "
 
 msgid "List template combination"
-msgstr ""
+msgstr "템플릿 조합 목록 나열 "
 
 msgid "Loading parameters..."
-msgstr ""
+msgstr "매개 변수 로딩 중..."
 
 msgid "Locations"
-msgstr ""
+msgstr "위치 "
 
 msgid "Merge all matching values (only array/hash type)"
-msgstr ""
+msgstr "일치하는 모든 값 병합(배열/해시 유형만)"
 
 msgid "Name"
-msgstr ""
+msgstr "이름 "
 
 msgid "New"
-msgstr ""
+msgstr "신규"
 
 msgid "No changes to your environments detected"
-msgstr ""
+msgstr "환경에서 변경 사항을 감지할 수 없음 "
 
 msgid "No environment selected!"
-msgstr ""
+msgstr "선택된 환경이 없습니다!"
 
 msgid "No environments found"
-msgstr ""
+msgstr "환경을 찾을 수 없음"
 
 msgid "No parameters to override for Puppet class %s"
-msgstr ""
+msgstr "Puppet 클래스 %s에 덮어쓰기할 매개 변수가 없음 "
 
 msgid "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled."
-msgstr ""
+msgstr "클래스를 가져오기할 프록시를 찾을 수 없습니다. 스마트 프록시에서 Puppet 기능이 활성화되어 있는지 확인합니다. "
 
 msgid "No proxy selected!"
-msgstr ""
+msgstr "프록시를 선택하지 않았습니다."
 
 msgid "No smart proxy was found to import environments from, ensure that at least one smart proxy is registered with the 'puppet' feature"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "없음 "
 
 msgid "Not authorized to edit classes"
-msgstr ""
+msgstr "클래스를 편집할 권한이 없습니다 "
 
 msgid "Notice"
-msgstr ""
+msgstr "주의 "
 
 msgid "Number of Overrides"
 msgstr ""
 
 msgid "Number of classes"
-msgstr ""
+msgstr "클래스 수"
 
 msgid "Obsolete"
-msgstr ""
+msgstr "이전 버전 "
 
 msgid "Omit"
 msgstr ""
@@ -508,13 +514,13 @@ msgid "Omit from classification output"
 msgstr ""
 
 msgid "Operating System"
-msgstr ""
+msgstr "운영체제"
 
 msgid "Operating system default"
-msgstr ""
+msgstr "기본값 운영 체제 "
 
 msgid "Operation"
-msgstr ""
+msgstr "작업 "
 
 msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes"
 msgstr ""
@@ -523,160 +529,160 @@ msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the va
 msgstr ""
 
 msgid "Organizations"
-msgstr ""
+msgstr "조직"
 
 msgid "Original value info"
-msgstr ""
+msgstr "원래 값 정보"
 
 msgid "Overridden"
 msgstr ""
 
 msgid "Override all parameters"
-msgstr ""
+msgstr "모든 매개 변수 덮어쓰기 "
 
 msgid "Override match"
-msgstr ""
+msgstr "일치 항목 덮어쓰기"
 
 msgid "Override this value"
-msgstr ""
+msgstr "이 값 덮어쓰기 "
 
 msgid "Override value, required if omit is false"
 msgstr ""
 
 msgid "Parameter"
-msgstr ""
+msgstr "매개 변수 "
 
 msgid "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers)."
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "매개 변수 "
 
 msgid "Please select an environment first"
-msgstr ""
+msgstr "먼저 환경을 선택하십시오 "
 
 msgid "Puppet"
-msgstr ""
+msgstr "Puppet"
 
 msgid "Puppet CA"
-msgstr ""
+msgstr "Puppet CA"
 
 msgid "Puppet Class"
-msgstr ""
+msgstr "Puppet 클래스 "
 
 msgid "Puppet Class Parameters"
 msgstr ""
 
 msgid "Puppet Classes"
-msgstr ""
+msgstr "Puppet 클래스 "
 
 msgid "Puppet ENC"
 msgstr ""
 
 msgid "Puppet Environment"
-msgstr ""
+msgstr "Puppet 환경 "
 
 msgid "Puppet Environments"
-msgstr ""
+msgstr "Puppet 환경"
 
 msgid "Puppet Modules"
-msgstr ""
+msgstr "Puppet 모듈 "
 
 msgid "Puppet YAML"
 msgstr ""
 
 msgid "Puppet environments"
-msgstr ""
+msgstr "Puppet 환경"
 
 msgid "Puppet external nodes YAML dump"
-msgstr ""
+msgstr "Puppet 외부 노드 YAML 덤프 "
 
 msgid "Puppet interval"
-msgstr ""
+msgstr "Puppet 간격"
 
 msgid "Puppet parameter"
-msgstr ""
+msgstr "Puppet 매개 변수"
 
 msgid "Puppetclass|Name"
-msgstr ""
+msgstr "이름 "
 
 msgid "Remote action:"
-msgstr ""
+msgstr "원격 작업:"
 
 msgid "Remove"
-msgstr ""
+msgstr "삭제 "
 
 msgid "Remove Combination"
 msgstr ""
 
 msgid "Remove a Puppet class from host"
-msgstr ""
+msgstr "호스트에 Puppet 클래스 삭제 "
 
 msgid "Remove a Puppet class from host group"
-msgstr ""
+msgstr "호스트 그룹에서 Puppet 클래스 삭제 "
 
 msgid "Remove duplicate values (only array type)"
-msgstr ""
+msgstr "중복 값 삭제(배열 유형만)"
 
 msgid "Remove this override"
-msgstr ""
+msgstr "이 덮어쓰기 삭제"
 
 msgid "Remove:"
-msgstr ""
+msgstr "삭제: "
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
-msgstr ""
+msgstr "필수 매개 변수에 값이 없습니다.<br/><b>덮어쓰십시오.</b><br/>"
 
 msgid "Select environment"
-msgstr ""
+msgstr "환경 선택 "
 
 msgid "Select the changes you want to apply to Foreman"
 msgstr ""
 
 msgid "Set parameters to defaults"
-msgstr ""
+msgstr "매개 변수를 기본값으로 설정 "
 
 msgid "Show a Puppet class"
-msgstr ""
+msgstr "Puppet 클래스 표시 "
 
 msgid "Show a Puppet class for a host group"
-msgstr ""
+msgstr "호스트 그룹의 Puppet 클래스 표시 "
 
 msgid "Show a Puppet class for an environment"
-msgstr ""
+msgstr "환경의 Puppet 클래스 표시 "
 
 msgid "Show a Puppet class for host"
-msgstr ""
+msgstr "호스트의 Puppet 클래스 표시 "
 
 msgid "Show a config group"
-msgstr ""
+msgstr "설정 그룹 표시 "
 
 msgid "Show a smart class parameter"
-msgstr ""
+msgstr "스마트 클래스 매개 변수 표시"
 
 msgid "Show an environment"
-msgstr ""
+msgstr "환경 표시 "
 
 msgid "Show an override value for a specific smart class parameter"
-msgstr ""
+msgstr "특정 스마트 클래스 매개 변수의 덮어쓰기 값 표시 "
 
 msgid "Show template combination"
-msgstr ""
+msgstr "템플릿 조합 표시 "
 
 msgid "Smart Class Parameter"
-msgstr ""
+msgstr "스마트 클래스 매개 변수 "
 
 msgid "Smart Class Parameters"
 msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
-msgstr ""
+msgstr "Puppet 클래스 %s의 모든 매개 변수를 성공적으로 덮어쓰기했습니다  "
 
 msgid "Successfully reset all parameters of Puppet class %s to their default values"
-msgstr ""
+msgstr "Puppet 클래스 %s의 모든 매개 변수를 기본값으로 성공적으로 덮어쓰기했습니다 "
 
 msgid "Successfully updated environments and Puppet classes from the on-disk Puppet installation"
-msgstr ""
+msgstr "온디스크 Puppet 설치에서 환경 및 Puppet 클래스를 성공적으로 업데이트했습니다 "
 
 msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
 msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
@@ -684,100 +690,100 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "The %{proxy_type} proxy of the selected hosts was cleared."
-msgstr ""
+msgstr "선택한 호스트의 %{proxy_type} 프록시를 삭제했습니다."
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
 msgstr ""
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
-msgstr ""
+msgstr "선택한 호스트의 %{proxy_type} 프록시가 %{proxy_name}(으)로 설정되었습니다."
 
 msgid "The class could not be saved because of an error in one of the class parameters."
 msgstr ""
 
 msgid "The final entry, Operating System default, can be set by editing the %s page."
-msgstr ""
+msgstr "최종 엔트리, 운영 체제 기본값은 %s 페이지를 편집하여 설정할 수 있습니다. "
 
 msgid "The order in which values are resolved"
-msgstr ""
+msgstr "값이 해결되는 순서 "
 
 msgid "The requested environment cannot be found."
 msgstr ""
 
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
-msgstr ""
+msgstr "이 Puppet 마스터에 설정된 Puppet 환경이 없습니다. Puppet 마스터 구성을 확인하십시오."
 
 msgid "This Puppet class has no parameters in its signature."
-msgstr ""
+msgstr "Puppet 클래스 서명에는 매개 변수가 없습니다."
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
-msgstr ""
+msgstr "이는 클래스 %s의 매개 변수를 기본값으로 재설정합니다. 계속 진행하시겠습니까? "
 
 msgid "This will set all parameters of the class %s as overridden. Continue?"
-msgstr ""
+msgstr "이는 클래스 %s의 모든 매개 변수를 덮어쓰기된 것으로 설정합니다. 계속 진행하시겠습니까? "
 
 msgid "To update the class signature, go to the Puppet Classes page and select \"Import\"."
-msgstr ""
+msgstr "클래스 서명을 업데이트하려면 Puppet 클래스 페이지로 가서 \"가져오기\"를 선택합니다. "
 
 msgid "Toggle"
-msgstr ""
+msgstr "토글 "
 
 msgid "Total"
-msgstr ""
+msgstr "전체"
 
 msgid "Types of validation values"
-msgstr ""
+msgstr "검증 값의 유형"
 
 msgid "Types of variable values"
-msgstr ""
+msgstr "변수 값의 유형"
 
 msgid "Unable to generate output, Check log files"
-msgstr ""
+msgstr "출력을 생성할 수 없습니다. 로그 파일을 확인하십시오."
 
 msgid "Update"
-msgstr ""
+msgstr "업데이트 "
 
 msgid "Update a Puppet class"
-msgstr ""
+msgstr "Puppet 클래스 업데이트 "
 
 msgid "Update a config group"
-msgstr ""
+msgstr "설정 그룹 업데이트 "
 
 msgid "Update a smart class parameter"
-msgstr ""
+msgstr "스마트 클래스 매개 변수 업데이트 "
 
 msgid "Update an environment"
-msgstr ""
+msgstr "환경 업데이트 "
 
 msgid "Update an override value for a specific smart class parameter"
-msgstr ""
+msgstr "특정 스마트 클래스 매개 변수의 덮어쓰기 값 업데이트  "
 
 msgid "Update environment from facts"
-msgstr ""
+msgstr "팩트에서 환경 업데이트"
 
 msgid "Update template combination"
-msgstr ""
+msgstr "템플릿 조합 업데이트"
 
 msgid "Update:"
-msgstr ""
+msgstr "업데이트: "
 
 msgid "Updated"
-msgstr ""
+msgstr "업데이트 일시 "
 
 msgid "Updated hosts: changed environment"
-msgstr ""
+msgstr "업데이트된 호스트: 변경된 환경 "
 
 msgid "Used to enforce certain values for the parameter values"
-msgstr ""
+msgstr "특정 값을 매개 변수 값에 적용하는 데 사용됩니다."
 
 msgid "Valid Host Group and Environment Combinations"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "값 "
 
 msgid "Value to use when there is no match"
-msgstr ""
+msgstr "일치하지 않는 경우 사용할 값 "
 
 msgid ""
 "When a Host requests a template (e.g. during provisioning), Foreman \\\n"
@@ -792,19 +798,19 @@ msgid ""
 msgstr ""
 
 msgid "When enabled the parameter is hidden in the UI"
-msgstr ""
+msgstr "활성화된 경우 매개 변수가 UI에서 숨겨집니다."
 
 msgid "Whether the smart class parameter value is managed by Foreman"
-msgstr ""
+msgstr "스마트 클래스 매개 변수 값을 Foreman에서 관리하는지 여부"
 
 msgid "belongs to config group"
-msgstr ""
+msgstr "설정 그룹에 속합니다 "
 
 msgid "environment id"
-msgstr ""
+msgstr "환경 ID "
 
 msgid "included already from parent"
-msgstr ""
+msgstr "이미 부모에게서 포함되어 있습니다 "
 
 msgid "must be true to edit the parameter"
 msgstr ""
