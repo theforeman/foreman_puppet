@@ -5,7 +5,7 @@ module ForemanPuppet
 
       included do
         has_many :environments, through: :template_combinations
-        before_destroy ActiveRecord::Base::EnsureNotUsedBy.new(:environments)
+        before_destroy EnsureNotUsedBy.new(:environments)
 
         scoped_search relation: :environments, on: :name, rename: :environment, complete_value: true
 
