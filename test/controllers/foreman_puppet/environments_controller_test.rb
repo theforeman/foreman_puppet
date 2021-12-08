@@ -107,7 +107,7 @@ module ForemanPuppet
               { 'env3' => '[]' } } }, session: set_session_user
         assert_redirected_to environments_url
         assert_equal 'Successfully updated environments and Puppet classes from the on-disk Puppet installation', flash[:success]
-        assert_equal [], Environment.unscoped.find_by(name: 'env3').puppetclasses.map(&:name).sort
+        assert_empty Environment.unscoped.find_by(name: 'env3').puppetclasses.map(&:name).sort
       end
 
       test 'should fail to remove active environments' do

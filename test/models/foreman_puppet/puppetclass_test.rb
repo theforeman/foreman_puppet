@@ -17,7 +17,7 @@ module ForemanPuppet
     end
 
     test 'looking for a nonexistent host returns no puppetclasses' do
-      assert_equal [], Puppetclass.search_for('host = imaginaryhost.nodomain.what')
+      assert_empty Puppetclass.search_for('host = imaginaryhost.nodomain.what')
     end
 
     test 'Puppetclass singularize from custom inflection' do

@@ -28,7 +28,7 @@ module ForemanPuppet
       end
 
       it 'does not fail without puppet facet' do
-        assert_equal({}, cg_info.host_info)
+        assert_empty(cg_info.host_info)
       end
     end
   end

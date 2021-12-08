@@ -32,9 +32,9 @@ module ForemanPuppet
         assert tmplt.save
       end
       assert_nil tmplt.template_kind
-      assert_equal [], tmplt.hostgroups
-      assert_equal [], tmplt.environments
-      assert_equal [], tmplt.template_combinations
+      assert_empty tmplt.hostgroups
+      assert_empty tmplt.environments
+      assert_empty tmplt.template_combinations
     end
 
     test '#template_includes adds environment include' do

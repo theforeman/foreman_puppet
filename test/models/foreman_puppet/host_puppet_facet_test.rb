@@ -107,13 +107,13 @@ module ForemanPuppet
       test 'should return empty array if host has no hostgroup' do
         host = FactoryBot.create(:host, :with_puppet_enc)
         assert_not host.hostgroup
-        assert_equal [], host.puppet.parent_config_groups
+        assert_empty host.puppet.parent_config_groups
       end
 
       test 'should return empty array if hostgroup do not have puppet data' do
         hostgroup = FactoryBot.create(:hostgroup)
         host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hostgroup)
-        assert_equal [], host.puppet.parent_config_groups
+        assert_empty host.puppet.parent_config_groups
       end
     end
 
