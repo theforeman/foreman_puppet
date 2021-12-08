@@ -1,5 +1,4 @@
-require 'test_puppet_helper'
-require 'integration_test_helper'
+require 'integration_puppet_helper'
 require 'integration/shared/host_finders'
 require 'integration/shared/host_orchestration_stubs'
 

@@ -1,5 +1,4 @@
-require_relative '../../test_puppet_helper'
-require 'integration_test_helper'
+require 'integration_puppet_helper'
 
 module ForemanPuppet
   class SmartclassParameterJSTest < IntegrationTestWithJavascript

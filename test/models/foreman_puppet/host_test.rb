@@ -4,13 +4,13 @@ module ForemanPuppet
   class HostTest < ActiveSupport::TestCase
     test 'should read the Puppetserver URL from its proxy settings' do
       host = FactoryBot.build_stubbed(:host)
-      assert_nil host.puppet_server_uri
-      assert_empty host.puppetmaster
+      expect(host.puppet_server_uri).must_be_nil
+      expect(host.puppetmaster).must_be_empty
 
       proxy = FactoryBot.create(:puppet_smart_proxy, url: 'https://smartproxy.example.com:8443')
       host.puppet_proxy = proxy
-      assert_equal 'https://smartproxy.example.com:8140', host.puppet_server_uri.to_s
-      assert_equal 'smartproxy.example.com', host.puppetmaster
+      expect(host.puppet_server_uri.to_s).must_equal 'https://smartproxy.example.com:8140'
+      expect(host.puppetmaster).must_equal 'smartproxy.example.com'
 
       features = {
         'puppet' => {
@@ -18,8 +18,8 @@ module ForemanPuppet
         },
       }
       SmartProxyFeature.import_features(proxy, features)
-      assert_equal 'https://puppet.example.com:8140', host.puppet_server_uri.to_s
-      assert_equal 'puppet.example.com', host.puppetmaster
+      expect(host.puppet_server_uri.to_s).must_equal 'https://puppet.example.com:8140'
+      expect(host.puppetmaster).must_equal 'puppet.example.com'
     end
 
     test 'should find smart proxy ids' do
@@ -141,12 +141,12 @@ module ForemanPuppet
         host = FactoryBot.create(:host, :with_puppet_enc, :with_config_group, :with_puppetclass, :with_parameter,
           hostgroup: hostgroup, environment: hostgroup.puppet.environment)
         copy = host.clone
-        assert_equal host.puppet.individual_puppetclasses.map(&:id), copy.puppet.individual_puppetclasses.map(&:id)
-        assert_equal host.puppet.classes_in_groups.map(&:id), copy.puppet.classes_in_groups.map(&:id)
-        assert_equal host.puppet.classes.map(&:id), copy.puppet.classes.map(&:id)
-        assert_equal host.puppet.available_puppetclasses.map(&:id), copy.puppet.available_puppetclasses.map(&:id)
-        assert_equal host.puppet.host_classes.map(&:puppetclass_id), copy.puppet.host_classes.map(&:puppetclass_id)
-        assert_equal host.puppet.host_config_groups.map(&:config_group_id), copy.puppet.host_config_groups.map(&:config_group_id)
+        expect(copy.puppet.individual_puppetclasses.map(&:id)).must_equal(host.puppet.individual_puppetclasses.map(&:id))
+        expect(copy.puppet.classes_in_groups.map(&:id)).must_equal(host.puppet.classes_in_groups.map(&:id))
+        expect(copy.puppet.classes.map(&:id)).must_equal(host.puppet.classes.map(&:id))
+        expect(copy.puppet.available_puppetclasses.map(&:id)).must_equal(host.puppet.available_puppetclasses.map(&:id))
+        expect(copy.puppet.host_classes.map(&:puppetclass_id)).must_equal(host.puppet.host_classes.map(&:puppetclass_id))
+        expect(copy.puppet.host_config_groups.map(&:config_group_id)).must_equal(host.puppet.host_config_groups.map(&:config_group_id))
       end
     end
 
@@ -232,20 +232,20 @@ module ForemanPuppet
       nodeinfo['parameters']['special_info'] = 'secret' # smart variable on apache
 
       info = host.info
-      assert_includes info.keys, 'environment'
-      assert_equal env.name, host.puppet.environment.name
-      assert_includes info.keys, 'parameters'
-      assert_includes info.keys, 'classes'
+      expect(host.puppet.environment.name).must_equal(env.name)
+      expect(info.keys).must_include 'environment'
+      expect(info.keys).must_include 'parameters'
+      expect(info.keys).must_include 'classes'
       # This worked in core, but it's beyond me how could have :shrug:
       # assert_equal(classes_params, info['classes'])
       # We are only importing classes in the method
-      assert_equal(classes_params.keys.sort, info['classes'].keys.sort)
+      expect(info['classes'].keys.sort).must_equal(classes_params.keys.sort)
       parameters = info['parameters']
-      assert_equal 'puppet', parameters['puppetmaster']
-      assert_equal 'xybxa6JUkz63w', parameters['root_pw']
-      assert_includes parameters.keys, 'foreman_subnets'
-      assert_includes parameters.keys, 'foreman_interfaces'
-      assert_equal '3.3.4.12', parameters['foreman_interfaces'].first['ip']
+      expect(parameters['puppetmaster']).must_equal 'puppet'
+      expect(parameters['root_pw']).must_equal 'xybxa6JUkz63w'
+      expect(parameters['foreman_interfaces'].first['ip']).must_equal '3.3.4.12'
+      expect(parameters.keys).must_include 'foreman_subnets'
+      expect(parameters.keys).must_include 'foreman_interfaces'
     end
 
     test 'should import from non-parameterized external nodes output' do

@@ -11,27 +11,33 @@ module ForemanPuppet
         let(:environment_attrs) { { name: 'Development' } }
         let(:environment) { FactoryBot.create(:environment) }
 
-        test 'should get index' do
-          environment
-          get :index
-          assert_response :success
-          assert_not_nil assigns(:environments)
-          envs = ActiveSupport::JSON.decode(@response.body)
-          assert_not envs.empty?
-        end
+        describe 'GET #index' do
+          it 'gets index' do
+            environment
+            get :index
+            assert_response :success
+            assert_not_nil assigns(:environments)
+            envs = ActiveSupport::JSON.decode(@response.body)
+            assert_not envs.empty?
+          end
 
-        test 'should show environment by id or name' do
-          get :show, params: { id: environment.id }
-          assert_response :success
-          assert_equal environment.name, JSON.parse(@response.body)['name']
+          it 'shows environment by id' do
+            get :show, params: { id: environment.id }
+            assert_response :success
+            assert_equal environment.name, JSON.parse(@response.body)['name']
+          end
 
-          get :show, params: { id: environment.to_param }
-          assert_response :success
-          assert_equal environment.name, JSON.parse(@response.body)['name']
+          it 'shows environment by to_param' do
+            get :show, params: { id: environment.to_param }
+            assert_response :success
+            assert_equal environment.name, JSON.parse(@response.body)['name']
+          end
 
-          get :show, params: { id: environment.name }
-          assert_response :success
-          assert_equal environment.name, JSON.parse(@response.body)['name']
+          it 'shows environment by name' do
+            get :show, params: { id: environment.name }
+            assert_response :success
+            assert_equal environment.name, JSON.parse(@response.body)['name']
+          end
         end
 
         test 'should create environment' do
