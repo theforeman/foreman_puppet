@@ -1,5 +1,4 @@
-require 'test_puppet_helper'
-require 'integration_test_helper'
+require 'integration_puppet_helper'
 require 'integration/shared/host_finders'
 require 'integration/shared/host_orchestration_stubs'
 
@@ -214,7 +213,7 @@ module ForemanPuppet
                                                      puppetclass: host.puppet.puppetclasses.first, overrides: { host.lookup_value_matcher => 'hostOverride' })
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
-          assert_equal('hostOverride', puppetclass_params.find('textarea').value)
+          expect(puppetclass_params.find('textarea').value).must_equal('hostOverride')
           assert puppetclass_params.find('textarea:enabled')
           puppetclass_params.find("a[data-tag='remove']").click
           assert puppetclass_params.find('textarea:disabled')
@@ -222,17 +221,17 @@ module ForemanPuppet
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
-          assert_equal('default', puppetclass_params.find('textarea').value)
-          assert puppetclass_params.find('textarea:disabled')
+          expect(puppetclass_params.find('textarea').value).must_equal('default')
+          expect(puppetclass_params).must_have_selector('textarea:disabled')
           puppetclass_params.find("a[data-tag='override']").click
-          assert puppetclass_params.find('textarea:enabled')
+          expect(puppetclass_params).must_have_selector('textarea:enabled')
           puppetclass_params.find('textarea').set('userCustom')
           click_on_submit
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
-          assert_equal('userCustom', puppetclass_params.find('textarea').value)
-          assert puppetclass_params.find('textarea:enabled')
+          expect(puppetclass_params.find('textarea').value).must_equal('userCustom')
+          expect(puppetclass_params).must_have_selector('textarea:enabled')
         end
 
         test 'can override puppetclass lookup values' do
@@ -241,22 +240,22 @@ module ForemanPuppet
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
-          assert puppetclass_params.has_selector?("a[data-tag='remove']", visible: :visible)
-          assert puppetclass_params.has_selector?("a[data-tag='override']", visible: :hidden)
-          assert_equal('hostOverride', puppetclass_params.find('textarea').value)
-          assert puppetclass_params.find('textarea:enabled')
+          expect(puppetclass_params).must_have_selector("a[data-tag='remove']", visible: :visible)
+          expect(puppetclass_params).must_have_selector("a[data-tag='override']", visible: :hidden)
+          expect(puppetclass_params.find('textarea').value).must_equal('hostOverride')
+          expect(puppetclass_params).must_have_selector('textarea:enabled')
 
           puppetclass_params.find("a[data-tag='remove']").click
-          assert puppetclass_params.has_selector?("a[data-tag='remove']", visible: :hidden)
-          assert puppetclass_params.has_selector?("a[data-tag='override']", visible: :visible)
+          expect(puppetclass_params).must_have_selector("a[data-tag='remove']", visible: :hidden)
+          expect(puppetclass_params).must_have_selector("a[data-tag='override']", visible: :visible)
           assert_equal('default', puppetclass_params.find('textarea').value)
           assert puppetclass_params.find('textarea:disabled')
 
           puppetclass_params.find("a[data-tag='override']").click
-          assert puppetclass_params.has_selector?("a[data-tag='remove']", visible: :visible)
-          assert puppetclass_params.has_selector?("a[data-tag='override']", visible: :hidden)
-          assert_equal('default', puppetclass_params.find('textarea').value)
-          assert puppetclass_params.find('textarea:enabled')
+          expect(puppetclass_params).must_have_selector("a[data-tag='remove']", visible: :visible)
+          expect(puppetclass_params).must_have_selector("a[data-tag='override']", visible: :hidden)
+          expect(puppetclass_params.find('textarea').value).must_equal('default')
+          expect(puppetclass_params).must_have_selector('textarea:enabled')
         end
 
         context 'with non-admin user' do

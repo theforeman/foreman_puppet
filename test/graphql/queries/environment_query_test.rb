@@ -42,10 +42,10 @@ module Queries
     test 'fetching environment attributes' do
       assert_empty result['errors']
 
-      assert_equal global_id, data['id']
-      assert_equal environment.created_at.utc.iso8601, data['createdAt']
-      assert_equal environment.updated_at.utc.iso8601, data['updatedAt']
-      assert_equal environment.name, data['name']
+      expect(data['name']).must_equal(environment.name)
+      expect(data['id']).must_equal(global_id)
+      expect(data['createdAt']).must_equal(environment.created_at.utc.iso8601)
+      expect(data['updatedAt']).must_equal(environment.updated_at.utc.iso8601)
 
       assert_collection environment.locations, data['locations']
       assert_collection environment.organizations, data['organizations']

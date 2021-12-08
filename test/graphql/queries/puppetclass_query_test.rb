@@ -55,10 +55,10 @@ module Queries
     test 'fetching puppetclass attributes' do
       assert_empty result['errors']
 
-      assert_equal global_id, data['id']
-      assert_equal puppetclass.created_at.utc.iso8601, data['createdAt']
-      assert_equal puppetclass.updated_at.utc.iso8601, data['updatedAt']
-      assert_equal puppetclass.name, data['name']
+      expect(data['id']).must_equal global_id
+      expect(data['createdAt']).must_equal puppetclass.created_at.utc.iso8601
+      expect(data['updatedAt']).must_equal puppetclass.updated_at.utc.iso8601
+      expect(data['name']).must_equal puppetclass.name
 
       assert_collection puppetclass.environments, data['environments']
       assert_collection puppetclass.locations, data['locations']
