@@ -3,7 +3,7 @@ require 'test_puppet_helper'
 module ForemanPuppet
   class TemplateRenderingTest < ActiveSupport::TestCase
     let(:host) { FactoryBot.build_stubbed(:host, :with_puppet_enc) }
-    let(:template) { OpenStruct.new(name: 'Test', template: 'Test') }
+    let(:template) { stub(name: 'Test', template: 'Test') }
     let(:source) { Foreman::Renderer::Source::Database.new(template) }
     let(:scope) do
       Class.new(Foreman::Renderer::Scope::Base) do
