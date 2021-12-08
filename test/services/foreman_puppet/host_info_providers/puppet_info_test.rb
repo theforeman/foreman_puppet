@@ -98,7 +98,7 @@ module ForemanPuppet
         puppetclass: puppetclass)
 
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
-      assert enc[puppetclass.name][lkey.key].nil?
+      assert_nil enc[puppetclass.name][lkey.key]
     end
 
     test '#enc should not return class parameters when lookup_value should use puppet default' do
@@ -113,7 +113,7 @@ module ForemanPuppet
 
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
 
-      assert enc[puppetclass.name][lkey.key].nil?
+      assert_nil enc[puppetclass.name][lkey.key]
     end
 
     test '#enc should return class parameters when default value and lookup_values should not use puppet default' do
@@ -160,7 +160,7 @@ module ForemanPuppet
 
       enc = HostInfoProviders::PuppetInfo.new(@host).puppetclass_parameters
 
-      assert enc[puppetclass.name][key.key].nil?
+      assert_nil enc[puppetclass.name][key.key]
     end
 
     test '#enc should return correct merged override to host when multiple overrides for inherited hostgroups exist' do

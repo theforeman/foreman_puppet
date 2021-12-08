@@ -421,7 +421,7 @@ module ForemanPuppet
 
         test_attributes pid: 'd5d5f084-fa62-4ec3-90ea-9fcabd7bda4f'
         test 'validate default value with list' do
-          values_list = [RFauxFactory.gen_alpha, RFauxFactory.gen_alphanumeric, rand(100..1 << 64), [true, false].sample]
+          values_list = [RFauxFactory.gen_alpha, RFauxFactory.gen_alphanumeric, rand(100..(1 << 64)), [true, false].sample]
           values_list_str = values_list.join(', ')
           value = values_list.sample
           put :update, params: { id: lookup_key.id, smart_class_parameter: { override: true,
@@ -437,7 +437,7 @@ module ForemanPuppet
 
         test_attributes pid: 'd5df7804-9633-4ef8-a065-10807351d230'
         test 'validate default value with regexp' do
-          value = rand(1..1 << 64)
+          value = rand(1..(1 << 64))
           put :update, params: { id: lookup_key.id, smart_class_parameter: { override: true,
                                                                              default_value: value,
                                                                              validator_type: 'regexp',

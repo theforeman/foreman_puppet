@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = 'foreman_puppet'
   s.version     = ForemanPuppet::VERSION
   s.license     = 'GPL-3.0'
-  s.authors     = IO.readlines(File.expand_path('AUTHORS', __dir__), encoding: 'utf-8').map(&:strip)
+  s.authors     = File.readlines(File.expand_path('AUTHORS', __dir__), encoding: 'utf-8').map(&:strip)
   s.email       = ['foreman-dev@googlegroups.com']
   s.homepage    = 'https://github.com/theforeman/foreman_puppet'
   s.summary     = 'Add Puppet features to Foreman'
