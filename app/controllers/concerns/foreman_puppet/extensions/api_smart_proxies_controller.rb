@@ -3,6 +3,8 @@ module ForemanPuppet
     module ApiSmartProxiesController
       extend ActiveSupport::Concern
 
+      NewEnvironment = Struct.new('Environment', :name)
+
       included do
         before_action :find_required_puppet_proxy, only: [:import_puppetclasses]
         before_action :find_environment_id, only: [:import_puppetclasses]
@@ -70,7 +72,7 @@ module ForemanPuppet
                              @changed['updated'].keys + @changed['ignored'].keys).uniq.sort
 
         @environments = environment_names.map do |name|
-          OpenStruct.new(name: name)
+          NewEnvironment.new(name)
         end
 
         unless @environments.any?
@@ -87,6 +89,7 @@ module ForemanPuppet
         @environments.any?
       end
 
+      # rubocop:disable Metrics/MethodLength
       def import_changed_proxy_environments
         opts = { url: @smart_proxy.url }
         opts[:env] = if @environment.present?
@@ -98,7 +101,8 @@ module ForemanPuppet
         changed = @importer.changes
 
         # check if environemnt id passed in URL is name of NEW environment in puppetmaster that doesn't exist in db
-        if @environment || (changed['new'].key?(@env_id) && (@environment ||= OpenStruct.new(name: @env_id)))
+        @environment ||= NewEnvironment.new(@env_id) if changed['new'].key?(@env_id)
+        if @environment
           # only return :keys equal to @environment in @changed hash
           %w[new obsolete updated ignored].each do |kind|
             changed[kind].slice!(@environment.name) unless changed[kind].empty?
@@ -115,6 +119,7 @@ module ForemanPuppet
         render_message(msg, status: :internal_server_error)
         nil
       end
+      # rubocop:enable Metrics/MethodLength
 
       def find_required_puppet_proxy
         id = params.key?('smart_proxy_id') ? params['smart_proxy_id'] : params['id']
