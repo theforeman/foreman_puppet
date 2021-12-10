@@ -1,4 +1,8 @@
-<%= content_tag_for :li, config_group, (added ? :selected : nil), :id => "config_group_#{config_group.id}", :class => css_class.to_s do %>
+<%
+  li_id = "#{added ? 'selected_' : '' }config_group_#{config_group.id}"
+  li_class = "#{added ? 'selected_config_group' : 'config_group'} #{css_class}"
+%>
+<%= content_tag :li, id: li_id, class: li_class do %>
   <%= hidden_field_tag("#{type}[config_group_ids][]", config_group.id) if added == 'manually' %>
   <span>
    <%= link_to(icon_text('plus', config_group.name), '#', :rel=>'twipsy', :class => 'config_group_name',
