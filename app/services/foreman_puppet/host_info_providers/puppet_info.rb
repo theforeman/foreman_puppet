@@ -45,7 +45,7 @@ module ForemanPuppet
       end
 
       def ca_defined?
-        SETTINGS[:unattended] && host.puppetca_exists?
+        host.puppetca_exists?
       end
 
       def has_environment?
