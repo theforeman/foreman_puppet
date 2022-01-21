@@ -3,7 +3,7 @@ module ForemanPuppet
     module HostsControllerExtensions
       extend ActiveSupport::Concern
 
-      PUPPETMASTER_ACTIONS = %i[externalNodes lookup].freeze
+      PUPPETMASTER_ACTIONS = %i[externalNodes].freeze
       PUPPET_AJAX_REQUESTS = %w[hostgroup_or_environment_selected puppetclass_parameters].freeze
 
       MULTIPLE_EDIT_ACTIONS = %w[select_multiple_environment update_multiple_environment
