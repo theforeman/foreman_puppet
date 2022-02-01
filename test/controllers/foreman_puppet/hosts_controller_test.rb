@@ -201,7 +201,6 @@ module ForemanPuppet
       test 'hosts with a registered smart proxy on should get externalNodes successfully' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = false
 
         Resolv.any_instance.stubs(:getnames).returns(['else.where'])
         get :externalNodes, params: { name: host1.name, format: 'yml' }
@@ -211,7 +210,6 @@ module ForemanPuppet
       test 'hosts without a registered smart proxy on should not be able to get externalNodes' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = false
 
         Resolv.any_instance.stubs(:getnames).returns(['another.host'])
         get :externalNodes, params: { name: host1.name, format: 'yml' }
@@ -221,7 +219,6 @@ module ForemanPuppet
       test 'hosts with a registered smart proxy and SSL cert should get externalNodes successfully' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
 
         @request.env['HTTPS'] = 'on'
         @request.env['SSL_CLIENT_S_DN'] = 'CN=else.where'
@@ -234,7 +231,6 @@ module ForemanPuppet
       test 'hosts in trusted hosts list and SSL cert should get externalNodes successfully' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
         Setting[:trusted_hosts] = ['else.where']
 
         @request.env['HTTPS'] = 'on'
@@ -248,7 +244,6 @@ module ForemanPuppet
       test 'hosts with comma-separated SSL DN should get externalNodes successfully' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
         Setting[:trusted_hosts] = ['foreman.example']
 
         @request.env['HTTPS'] = 'on'
@@ -262,7 +257,6 @@ module ForemanPuppet
       test 'hosts with slash-separated SSL DN should get externalNodes successfully' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
         Setting[:trusted_hosts] = ['foreman.linux.lab.local']
 
         @request.env['HTTPS'] = 'on'
@@ -276,53 +270,37 @@ module ForemanPuppet
       test 'hosts without a registered smart proxy but with an SSL cert should not be able to get externalNodes' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
 
         @request.env['HTTPS'] = 'on'
         @request.env['SSL_CLIENT_S_DN'] = 'CN=another.host'
         @request.env['SSL_CLIENT_VERIFY'] = 'SUCCESS'
         get :externalNodes, params: { name: host1.name, format: 'yml' }
-        assert_equal 403, @response.status
+        assert_response :forbidden
       end
 
       test 'hosts with an unverified SSL cert should not be able to get externalNodes' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
 
         @request.env['HTTPS'] = 'on'
         @request.env['SSL_CLIENT_S_DN'] = 'CN=else.where'
         @request.env['SSL_CLIENT_VERIFY'] = 'FAILURE'
         get :externalNodes, params: { name: host1.name, format: 'yml' }
-        assert_equal 403, @response.status
+        assert_response :forbidden
       end
 
-      test 'when "require_ssl_smart_proxies" and "require_ssl" are true, HTTP requests should not be able to get externalNodes' do
+      test 'when "require_ssl" is true, HTTP requests should not be able to get externalNodes' do
         User.current = nil
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
         SETTINGS[:require_ssl] = true
 
         Resolv.any_instance.stubs(:getnames).returns(['else.where'])
         get :externalNodes, params: { name: host1.name, format: 'yml' }
-        assert_equal 403, @response.status
-      end
-
-      test 'when "require_ssl_smart_proxies" is true and "require_ssl" is false, HTTP requests should be able to get externalNodes' do
-        User.current = nil
-        # since require_ssl_smart_proxies is only applicable to HTTPS connections, both should be set
-        Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
-        SETTINGS[:require_ssl] = false
-
-        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
-        get :externalNodes, params: { name: host1.name, format: 'yml' }
-        assert_response :success
+        assert_response :redirect
       end
 
       test 'authenticated users over HTTP should be able to get externalNodes' do
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
         SETTINGS[:require_ssl] = false
 
         Resolv.any_instance.stubs(:getnames).returns(['users.host'])
@@ -332,7 +310,6 @@ module ForemanPuppet
 
       test 'authenticated users over HTTPS should be able to get externalNodes' do
         Setting[:restrict_registered_smart_proxies] = true
-        Setting[:require_ssl_smart_proxies] = true
         SETTINGS[:require_ssl] = false
 
         Resolv.any_instance.stubs(:getnames).returns(['users.host'])
