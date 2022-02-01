@@ -11,13 +11,14 @@
   <% end %>
 
   <%= render 'foreman_puppet/puppetclasses/class_selection', obj: obj, resource_type: resource_type %>
+
+  <fieldset id="puppet_klasses_parameters" data-url="<%= foreman_puppet.url_for(controller: resource_type.to_s.pluralize.to_sym, action: :puppetclass_parameters, only_path: true) %>">
+    <h2><%= _('Puppet Class Parameters') %></h2>
+    <%= render 'foreman_puppet/puppetclasses/classes_parameters', obj: subject %>
+  </fieldset>
 <% else %>
   <%= alert(class: alert_class(:info),
             header: _('Notice'),
             text: _('Please select an environment first')) %>
 <% end %>
 
-<fieldset id="puppet_klasses_parameters" data-url="<%= foreman_puppet.url_for(controller: resource_type.to_s.pluralize.to_sym, action: :puppetclass_parameters, only_path: true) %>">
-  <h2><%= _('Puppet Class Parameters') %></h2>
-  <%= render 'foreman_puppet/puppetclasses/classes_parameters', obj: subject %>
-</fieldset>
