@@ -60,7 +60,8 @@ module ForemanPuppet
 
         close_interfaces_modal
 
-        click_on_submit
+        click_button('Submit')
+        find('h5', text: /myhost1*/)
 
         host = Host::Managed.search_for('name ~ "myhost1"').first
         assert_equal env2.name, host.puppet.environment.name
@@ -94,8 +95,8 @@ module ForemanPuppet
         fill_in 'host_interfaces_attributes_0_mac', with: '00:11:11:11:11:11'
         fill_in 'host_interfaces_attributes_0_ip', with: '1.1.1.1'
         close_interfaces_modal
-        click_on_submit
-        find('#host-show') # wait for host details page
+        click_button('Submit')
+        find('h5', text: /myhost1*/) # wait for host details page
 
         host = Host::Managed.search_for('name ~ "myhost1"').first
         assert_equal env.name, host.puppet.environment.name
@@ -111,8 +112,9 @@ module ForemanPuppet
         visit edit_host_path(host)
 
         select2 env1.name, from: 'host_puppet_attributes_environment_id'
-        click_on_submit
-        assert_current_path(host_path(host), ignore_query: true)
+        click_button('Submit')
+        find('h5', text: /#{host.name}/)
+        assert_current_path(host_details_page_path(host), ignore_query: true)
 
         host.reload
         assert_equal env1.name, host.puppet.environment.name
@@ -201,7 +203,8 @@ module ForemanPuppet
           assert puppetclass_params.has_selector?("a[data-tag='override']", visible: :hidden)
           assert_equal('false', find("#s2id_host_lookup_values_attributes_#{lookup_key.id}_value .select2-chosen").text)
           select2 'true', from: "host_lookup_values_attributes_#{lookup_key.id}_value"
-          click_on_submit
+          click_button('Submit')
+          find('h5', text: /#{host.name}/)
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
@@ -217,7 +220,8 @@ module ForemanPuppet
           assert puppetclass_params.find('textarea:enabled')
           puppetclass_params.find("a[data-tag='remove']").click
           assert puppetclass_params.find('textarea:disabled')
-          click_on_submit
+          click_button('Submit')
+          find('h5', text: /#{host.name}/)
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
@@ -226,7 +230,8 @@ module ForemanPuppet
           puppetclass_params.find("a[data-tag='override']").click
           expect(puppetclass_params).must_have_selector('textarea:enabled')
           puppetclass_params.find('textarea').set('userCustom')
-          click_on_submit
+          click_button('Submit')
+          find('h5', text: /#{host.name}/)
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
@@ -271,7 +276,7 @@ module ForemanPuppet
             switch_form_tab('Puppet ENC')
             assert puppetclass_params.find('textarea').disabled?
             click_button('Submit')
-            assert page.has_link?('Edit')
+            find('h5', text: /#{host.name}/)
           end
         end
 
