@@ -147,7 +147,8 @@ Foreman::Plugin.register :foreman_puppet do
     permission :import_puppetclasses, { 'foreman_puppet/puppetclasses' => %i[import_environments obsolete_and_new],
                                         'foreman_puppet/api/v2/environments' => [:import_puppetclasses] },
       resource_type: 'ForemanPuppet::Puppetclass'
-    permission :edit_classes, { 'foreman_puppet/api/v2/host_classes': %i[index create destroy] },
+    permission :edit_classes, { :host_editing => [:edit_classes],
+                                'foreman_puppet/api/v2/host_classes' => %i[index create destroy] },
       resource_type: 'ForemanPuppet::HostClass'
   end
 
