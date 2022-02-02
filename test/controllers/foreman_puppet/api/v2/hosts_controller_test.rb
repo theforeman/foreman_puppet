@@ -79,11 +79,21 @@ module ForemanPuppet
 
           test 'should update with puppet class' do
             puppetclass = environment.puppetclasses.first
+            # uses the deprecated version of params passing without namespace, to test it works :)
             put :update, params: { id: host.id, host: { environment_id: environment.id, puppetclass_ids: [puppetclass.id] } }
             assert_response :success
             response = JSON.parse(@response.body)
             assert_equal environment.id, response['environment_id'], "Can't update host with environment #{environment}"
             assert_equal puppetclass.id, response['puppetclasses'][0]['id'], "Can't update host with puppetclass #{puppetclass}"
+          end
+
+          test 'should remove puppetclass by passing empty array' do
+            host2 = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
+
+            put :update, params: { id: host2.id, host: { puppet_attributes: { puppetclass_ids: [] } } }
+            assert_response :success
+            response = JSON.parse(@response.body)
+            assert_empty(response['puppetclasses'], 'Can not remove puppetclasses')
           end
         end
 
