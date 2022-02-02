@@ -53,6 +53,17 @@ module ForemanPuppet
       end
     end
 
+    describe '#puppetclass_ids=' do
+      test 'allows empting classes' do
+        host = FactoryBot.create(:host, :with_puppet_enc,
+          environment: environment,
+          puppetclasses: [puppetclass_both])
+        host.attributes = { puppet_attributes: { puppetclass_ids: [] } }
+        assert host.save, 'Host could not be saved after updating puppetclasses'
+        assert_empty host.reload.all_puppetclasses, 'Puppetclasses were not removed successfuly'
+      end
+    end
+
     describe '#all_puppetclasses' do
       test 'should return all classes for environment only' do
         host = FactoryBot.create(:host, :with_puppet_enc,
