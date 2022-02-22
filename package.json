@@ -21,17 +21,17 @@
     "url": "http://projects.theforeman.org/projects/foreman_puppet/issues"
   },
   "peerDependencies": {
-    "@theforeman/vendor": "^8.15.0"
+    "@theforeman/vendor": "^10.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.0",
     "@sheerun/mutationobserver-shim": "^0.3.3",
-    "@theforeman/builder": "^8.15.0",
-    "@theforeman/eslint-plugin-foreman": "^8.15.0",
-    "@theforeman/find-foreman": "^8.15.0",
-    "@theforeman/stories": "^8.15.0",
-    "@theforeman/test": "^8.15.0",
-    "@theforeman/vendor-dev": "^8.15.0",
+    "@theforeman/builder": "^10.1.0",
+    "@theforeman/eslint-plugin-foreman": "^10.1.0",
+    "@theforeman/find-foreman": "^10.1.0",
+    "@theforeman/stories": "^10.1.0",
+    "@theforeman/test": "^10.1.0",
+    "@theforeman/vendor-dev": "^10.1.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "jed": "^1.1.1",
