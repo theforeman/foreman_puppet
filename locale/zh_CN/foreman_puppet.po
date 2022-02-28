@@ -10,7 +10,6 @@
 # Bryan Kearney <bryan.kearney@gmail.com>, 2021
 # Amit Upadhye <aupadhye@redhat.com>, 2021
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
@@ -94,6 +93,9 @@ msgstr "所有环境 - （未过滤）"
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
+msgid "Autosign entries"
+msgstr ""
+
 msgid "Available Classes"
 msgstr "可用类"
 
@@ -108,6 +110,9 @@ msgstr "找不到具有 Puppet 功能的有效代理"
 
 msgid "Cancel"
 msgstr "取消"
+
+msgid "Certificates"
+msgstr ""
 
 msgid "Change Environment"
 msgstr "改变环境"
@@ -345,6 +350,9 @@ msgstr "与 Puppetclasses 关联的 ID"
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr "如为 true，则会在没有默认值且没有匹配程序提供参数值时出错"
+
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
+msgstr ""
 
 msgid "Ignored classes in the environments: %s"
 msgstr "环境中忽略的类别： %s"
@@ -681,6 +689,9 @@ msgstr "智能代理参数"
 
 msgid "Smart Class Parameters"
 msgstr "智能类参数"
+
+msgid "Some Puppet Classes are unavailable in the selected environment"
+msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "成功覆盖 Puppet 类 %s 的所有参数"

@@ -25,6 +25,9 @@ msgstr "Suprimeix"
 msgid "%s is not in environment"
 msgstr ""
 
+msgid "%s out of sync disabled"
+msgstr ""
+
 msgid "%{model} with id '%{id}' was not found"
 msgstr ""
 
@@ -70,6 +73,9 @@ msgstr "Afegeix una classe de Puppet a un amfitrió"
 msgid "Add a Puppet class to host group"
 msgstr "Afegeix una classe de Puppet a un grup d'amfitrions"
 
+msgid "Add a template combination"
+msgstr ""
+
 msgid "Add:"
 msgstr "Afegeix:"
 
@@ -77,6 +83,9 @@ msgid "All environments - (not filtered)"
 msgstr "Tots els entorns - (sense filtrar)"
 
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
+msgstr ""
+
+msgid "Autosign entries"
 msgstr ""
 
 msgid "Available Classes"
@@ -93,6 +102,9 @@ msgstr ""
 
 msgid "Cancel"
 msgstr "Cancel·la"
+
+msgid "Certificates"
+msgstr ""
 
 msgid "Change Environment"
 msgstr "Canvia l'entorn"
@@ -133,6 +145,9 @@ msgstr "Feu clic per suprimir el grup de configuracions"
 msgid "Config Groups"
 msgstr "Grups de configuracions"
 
+msgid "Config Management"
+msgstr ""
+
 msgid "Create Config Group"
 msgstr "Crea un grup de configuracions"
 
@@ -152,6 +167,9 @@ msgid "Create an environment"
 msgstr "Crea un entorn"
 
 msgid "Create an override value for a specific smart class parameter"
+msgstr ""
+
+msgid "Default Puppet environment"
 msgstr ""
 
 msgid "Default value"
@@ -199,8 +217,17 @@ msgstr ""
 msgid "Description of smart class"
 msgstr "Descripció de la classe intel·ligent"
 
+msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
+msgstr ""
+
 msgid "Display hidden values"
 msgstr "Mostra els valors ocults"
+
+msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
+msgstr ""
+
+msgid "ENC environment"
+msgstr ""
 
 msgid "Edit %s"
 msgstr "Edita %s"
@@ -223,6 +250,9 @@ msgstr "Entorns"
 msgid "Environment|Name"
 msgstr "Nom"
 
+msgid "Facts"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr ""
 
@@ -241,10 +271,19 @@ msgstr "Filtra amb el nom"
 msgid "Filter classes"
 msgstr "Filtra les classes"
 
+msgid "Foreman will default to this puppet environment if it cannot auto detect one"
+msgstr ""
+
+msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
+msgstr ""
+
 msgid "Foreman will not send this parameter in classification output"
 msgstr ""
 
 msgid "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter"
+msgstr ""
+
+msgid "Foreman will update a host's environment from its facts"
 msgstr ""
 
 msgid "General"
@@ -274,6 +313,9 @@ msgstr ""
 msgid "ID of Puppet class"
 msgstr "ID de classe de Puppet"
 
+msgid "ID of Puppet environment"
+msgstr ""
+
 msgid "ID of Puppetclass"
 msgstr ""
 
@@ -300,6 +342,9 @@ msgstr ""
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr "En cas que sigui cert, es produirà un error si no hi ha cap valor per defecte i no hi ha cap classificador que proporcioni un valor"
+
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
+msgstr ""
 
 msgid "Ignored classes in the environments: %s"
 msgstr ""
@@ -411,6 +456,9 @@ msgstr "Llista tots els paràmetres de la classe intel·ligent per a un amfitri�
 
 msgid "List of smart class parameters for a specific host group"
 msgstr "Llista tots els paràmetres de la classe intel·ligent per a un grup d'amfitrions específic"
+
+msgid "List template combination"
+msgstr ""
 
 msgid "Loading parameters..."
 msgstr "S'estan carregant els paràmetres..."
@@ -556,6 +604,9 @@ msgstr "Entorns de Puppet"
 msgid "Puppet external nodes YAML dump"
 msgstr ""
 
+msgid "Puppet interval"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr "Paràmetre de Puppet"
 
@@ -622,11 +673,17 @@ msgstr "Mostra un entorn"
 msgid "Show an override value for a specific smart class parameter"
 msgstr ""
 
+msgid "Show template combination"
+msgstr ""
+
 msgid "Smart Class Parameter"
 msgstr "Paràmetre de la classe intel·ligent"
 
 msgid "Smart Class Parameters"
 msgstr "Paràmetres de les classes intel·ligents"
+
+msgid "Some Puppet Classes are unavailable in the selected environment"
+msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "S'han redefinit correctament tots els paràmetres de la classe de Puppet %s"
@@ -659,6 +716,9 @@ msgstr "L'última de les entrades, valor predeterminat del sistema operatiu, es 
 
 msgid "The order in which values are resolved"
 msgstr "L'ordre en què es resolen els valors"
+
+msgid "The requested environment cannot be found."
+msgstr ""
 
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
 msgstr ""
@@ -708,6 +768,12 @@ msgstr "Actualitza un entorn"
 msgid "Update an override value for a specific smart class parameter"
 msgstr ""
 
+msgid "Update environment from facts"
+msgstr ""
+
+msgid "Update template combination"
+msgstr ""
+
 msgid "Update:"
 msgstr "Actualitza:"
 
@@ -749,6 +815,9 @@ msgstr ""
 
 msgid "belongs to config group"
 msgstr "pertany al grup de configuracions"
+
+msgid "environment id"
+msgstr ""
 
 msgid "included already from parent"
 msgstr ""

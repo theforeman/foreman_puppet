@@ -7,7 +7,6 @@
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2021
 # Bryan Kearney <bryan.kearney@gmail.com>, 2021
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
@@ -87,6 +86,9 @@ msgstr "모든 환경 - (필터링되지 않음)"
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
+msgid "Autosign entries"
+msgstr ""
+
 msgid "Available Classes"
 msgstr "사용 가능한 클래스 "
 
@@ -101,6 +103,9 @@ msgstr ""
 
 msgid "Cancel"
 msgstr "취소 "
+
+msgid "Certificates"
+msgstr ""
 
 msgid "Change Environment"
 msgstr "환경 변경 "
@@ -338,6 +343,9 @@ msgstr ""
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr "true인 경우, 기본값이 없고 matcher에서 값이 제공되지 않으면 오류가 발생합니다."
+
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
+msgstr ""
 
 msgid "Ignored classes in the environments: %s"
 msgstr ""
@@ -673,6 +681,9 @@ msgid "Smart Class Parameter"
 msgstr "스마트 클래스 매개 변수 "
 
 msgid "Smart Class Parameters"
+msgstr ""
+
+msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"

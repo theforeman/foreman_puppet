@@ -8,7 +8,6 @@
 # sziolkow <sziolkow@gmail.com>, 2021
 # Michał Foryt <michal.foryt@gmail.com>, 2021
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
@@ -90,6 +89,9 @@ msgstr "Wszystkie środowiska - (nie filtrowane)"
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
+msgid "Autosign entries"
+msgstr ""
+
 msgid "Available Classes"
 msgstr "Dostępne klasy"
 
@@ -104,6 +106,9 @@ msgstr ""
 
 msgid "Cancel"
 msgstr "Anuluj"
+
+msgid "Certificates"
+msgstr ""
 
 msgid "Change Environment"
 msgstr "Zmień środowisko"
@@ -341,6 +346,9 @@ msgstr ""
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr "Jeśli to prawda, zgłosi błąd, jeśli nie ma wartości domyślnej ani podanej dopasowanej wartości"
+
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
+msgstr ""
 
 msgid "Ignored classes in the environments: %s"
 msgstr ""
@@ -676,6 +684,9 @@ msgid "Smart Class Parameter"
 msgstr "Parametr inteligentnej klasy"
 
 msgid "Smart Class Parameters"
+msgstr ""
+
+msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
