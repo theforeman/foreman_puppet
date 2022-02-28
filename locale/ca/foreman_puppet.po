@@ -8,7 +8,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 1.0.0\n"
+"Project-Id-Version: foreman_puppet 3.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2021\n"
@@ -74,7 +74,7 @@ msgid "Add a Puppet class to host group"
 msgstr "Afegeix una classe de Puppet a un grup d'amfitrions"
 
 msgid "Add a template combination"
-msgstr ""
+msgstr "Afegeix una combinació de plantilles"
 
 msgid "Add:"
 msgstr "Afegeix:"
@@ -146,7 +146,7 @@ msgid "Config Groups"
 msgstr "Grups de configuracions"
 
 msgid "Config Management"
-msgstr ""
+msgstr "Gestió de la configuració"
 
 msgid "Create Config Group"
 msgstr "Crea un grup de configuracions"
@@ -170,7 +170,7 @@ msgid "Create an override value for a specific smart class parameter"
 msgstr ""
 
 msgid "Default Puppet environment"
-msgstr ""
+msgstr "Entorn de Puppet per defecte"
 
 msgid "Default value"
 msgstr "Valor per defecte"
@@ -227,7 +227,7 @@ msgid "Duration in minutes after servers reporting via Puppet are classed as out
 msgstr ""
 
 msgid "ENC environment"
-msgstr ""
+msgstr "Entorn ENC"
 
 msgid "Edit %s"
 msgstr "Edita %s"
@@ -251,7 +251,7 @@ msgid "Environment|Name"
 msgstr "Nom"
 
 msgid "Facts"
-msgstr ""
+msgstr "Objectes d'interès"
 
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr ""
@@ -272,10 +272,10 @@ msgid "Filter classes"
 msgstr "Filtra les classes"
 
 msgid "Foreman will default to this puppet environment if it cannot auto detect one"
-msgstr ""
+msgstr "Foreman utilitzarà per defecte aquest entorn de puppet si no en pot detectar automàticament un"
 
 msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
-msgstr ""
+msgstr "Foreman establirà explícitament l'entorn de puppet a la sortida YAML ENC. Això evitarà conflictes entre l'entorn establert al puppet.conf i l'entorn establert a Foreman"
 
 msgid "Foreman will not send this parameter in classification output"
 msgstr ""
@@ -284,7 +284,7 @@ msgid "Foreman will not send this parameter in classification output.Puppet will
 msgstr ""
 
 msgid "Foreman will update a host's environment from its facts"
-msgstr ""
+msgstr "Foreman actualitzarà l'entorn d'un amfitrió a partir dels seus objectes d'interès"
 
 msgid "General"
 msgstr "General"
@@ -605,7 +605,7 @@ msgid "Puppet external nodes YAML dump"
 msgstr ""
 
 msgid "Puppet interval"
-msgstr ""
+msgstr "Interval de Puppet"
 
 msgid "Puppet parameter"
 msgstr "Paràmetre de Puppet"
@@ -674,7 +674,7 @@ msgid "Show an override value for a specific smart class parameter"
 msgstr ""
 
 msgid "Show template combination"
-msgstr ""
+msgstr "Mostra una combinació de plantilles"
 
 msgid "Smart Class Parameter"
 msgstr "Paràmetre de la classe intel·ligent"
@@ -769,10 +769,10 @@ msgid "Update an override value for a specific smart class parameter"
 msgstr ""
 
 msgid "Update environment from facts"
-msgstr ""
+msgstr "Actualitza l'entorn des dels objectes d'interès"
 
 msgid "Update template combination"
-msgstr ""
+msgstr "Actualitza una combinació de plantilles"
 
 msgid "Update:"
 msgstr "Actualitza:"
@@ -817,7 +817,7 @@ msgid "belongs to config group"
 msgstr "pertany al grup de configuracions"
 
 msgid "environment id"
-msgstr ""
+msgstr "id d'entorn"
 
 msgid "included already from parent"
 msgstr ""

@@ -21,13 +21,14 @@
 # Christina Gurski <Gurski_christina@yahoo.de>, 2021
 # Martin Zimmermann <martin.zimmermann@gmx.com>, 2021
 # Crited <Alexander.Stoll@netways.de>, 2021
+# Mathias Reichardt, 2022
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
+"Project-Id-Version: foreman_puppet 3.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Crited <Alexander.Stoll@netways.de>, 2021\n"
+"Last-Translator: Mathias Reichardt, 2022\n"
 "Language-Team: German (https://www.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,8 +50,8 @@ msgstr "%{model} mit ID '%{id}' nicht gefunden"
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{name} hat %{num_tag} Klasse"
+msgstr[1] "%{name} hat %{num_tag} Klassen"
 
 msgid "%{puppetclass} does not belong to the %{environment} environment"
 msgstr "%{puppetclass} gehört nicht zur %{environment}-Umgebung"
@@ -67,10 +68,10 @@ msgid ""
 "        <b>Matcher:</b> %{matcher}<br/>\n"
 "        <b>Inherited value:</b> %{inherited_value}"
 msgstr ""
-"<b>Beschreibung</b>: %{desc}<br/>\n"
-"<b>Typ</b>: %{Typ} <br/>\n"
-"<b> Matcher</b>: %{matcher}<br/>\n"
-"<b>Geerbter Wert:</b> %{inherited_value}"
+"<b>Beschreibung:</b> %{desc}<br/>\n"
+"     <b>Typ:</b> %{type}<br/>\n"
+"     <b>Prüfwert:</b> %{matcher}<br/>\n"
+"     <b>Vererbter Wert:</b> %{inherited_value}"
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "Eine Konfigurationsgruppe bietet eine Methode, mit der viele Puppet Klassen einem Host oder einer Hostgruppe zugewiesen werden können. Dadurch kann man typischerweise ein bestimmtes Applikationsprofil oder Stack in einem Schritt zuweisen."
@@ -334,7 +335,7 @@ msgid "ID of Puppet class"
 msgstr "Kennung der Puppet-Klasse"
 
 msgid "ID of Puppet environment"
-msgstr ""
+msgstr "ID der Puppet Umgebung"
 
 msgid "ID of Puppetclass"
 msgstr "Kennung der Puppet-Klasse"
@@ -716,8 +717,8 @@ msgstr "Umgebungen und Puppet-Klassen wurden erfolgreich von der Puppet-Festplat
 
 msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
 msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Der %{proxy_type} Puppet CA Proxy konnte für folgendes System nicht gesetzt werden: %{host_names}."
+msgstr[1] "Der %{proxy_type} Puppet CA Proxy konnte für folgende Systeme nicht gesetzt werden: %{host_names}."
 
 msgid "The %{proxy_type} proxy of the selected hosts was cleared."
 msgstr "Der %{proxy_type} Proxy der ausgewählten Hosts wurde gelöscht."
@@ -738,7 +739,7 @@ msgid "The order in which values are resolved"
 msgstr "Reihenfolge, in der Werte aufgelöst werden"
 
 msgid "The requested environment cannot be found."
-msgstr ""
+msgstr "Die angeforderte Umgebung konnte nicht gefunden werden."
 
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
 msgstr "Auf diesem Puppet-Master sind keine Puppet-Umgebungen eingerichtet. Bitte überprüfen Sie die Konfiguration des Puppet-Master."
