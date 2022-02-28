@@ -81,6 +81,9 @@ msgstr ""
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
+msgid "Autosign entries"
+msgstr ""
+
 msgid "Available Classes"
 msgstr ""
 
@@ -94,6 +97,9 @@ msgid "Can't find a valid Proxy with a Puppet feature"
 msgstr ""
 
 msgid "Cancel"
+msgstr ""
+
+msgid "Certificates"
 msgstr ""
 
 msgid "Change Environment"
@@ -331,6 +337,9 @@ msgid "IDs of associated Puppetclasses"
 msgstr ""
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
+msgstr ""
+
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
 msgstr ""
 
 msgid "Ignored classes in the environments: %s"
@@ -667,6 +676,9 @@ msgid "Smart Class Parameter"
 msgstr ""
 
 msgid "Smart Class Parameters"
+msgstr ""
+
+msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
