@@ -22,7 +22,6 @@
 # Martin Zimmermann <martin.zimmermann@gmx.com>, 2021
 # Crited <Alexander.Stoll@netways.de>, 2021
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
@@ -106,6 +105,9 @@ msgstr "Alle Umgebungen - (nicht gefiltert)"
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr "Erlauben Sie es Puppet-Umgebungen und -Klassenzu Foreman-Hosts zuzuweisen"
 
+msgid "Autosign entries"
+msgstr ""
+
 msgid "Available Classes"
 msgstr "Verfügbare Klassen"
 
@@ -120,6 +122,9 @@ msgstr "Kann keinen gültigen Proxy mit einer Puppet-Funktion finden"
 
 msgid "Cancel"
 msgstr "Abbrechen"
+
+msgid "Certificates"
+msgstr ""
 
 msgid "Change Environment"
 msgstr "Umgebung ändern"
@@ -357,6 +362,9 @@ msgstr "IDs der zugehörigen Puppetklassen"
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr "Falls \"True\", wird dies einen Fehler erzeugen, wenn es keinen Standardwert gibt und kein Treffer einen Wert liefert"
+
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
+msgstr ""
 
 msgid "Ignored classes in the environments: %s"
 msgstr "Ignorierte Klassen in den Umgebungen: %s"
@@ -693,6 +701,9 @@ msgstr "Smart-Class-Parameter"
 
 msgid "Smart Class Parameters"
 msgstr "Smart-Class-Parameter"
+
+msgid "Some Puppet Classes are unavailable in the selected environment"
+msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "Alle Parameter von Puppet-Klasse %s erfolgreich überschrieben"
