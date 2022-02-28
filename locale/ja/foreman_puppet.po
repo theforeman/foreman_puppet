@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
+"Project-Id-Version: foreman_puppet 3.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2021\n"
@@ -321,7 +321,7 @@ msgid "ID of Puppet class"
 msgstr "Puppet クラスの ID"
 
 msgid "ID of Puppet environment"
-msgstr ""
+msgstr "Puppet 環境の ID"
 
 msgid "ID of Puppetclass"
 msgstr "Puppet クラスの ID"
@@ -724,7 +724,7 @@ msgid "The order in which values are resolved"
 msgstr "値が解決される順序"
 
 msgid "The requested environment cannot be found."
-msgstr ""
+msgstr "要求された環境は見つかりません。"
 
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
 msgstr "この puppet マスターには puppet 環境がセットアップされていません。puppet マスター設定を確認してください。"
