@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 2.0.0.alpha.2\n"
+"Project-Id-Version: foreman_puppet 3.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2021\n"
@@ -322,7 +322,7 @@ msgid "ID of Puppet class"
 msgstr "Puppet 类别 ID"
 
 msgid "ID of Puppet environment"
-msgstr ""
+msgstr "Puppet 环境的 ID"
 
 msgid "ID of Puppetclass"
 msgstr "Puppetclass ID"
@@ -331,7 +331,7 @@ msgid "ID of associated puppet Environment"
 msgstr "与 puppet 环境关联的 ID"
 
 msgid "ID of environment"
-msgstr "环境的 ID"
+msgstr "环境 ID"
 
 msgid "ID of host"
 msgstr "主機的 ID"
@@ -725,7 +725,7 @@ msgid "The order in which values are resolved"
 msgstr "值解析的順序"
 
 msgid "The requested environment cannot be found."
-msgstr ""
+msgstr "无法找到请求的环境。"
 
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
 msgstr "这台 puppet 主服务器中未设置任何 puppet 环境。请检查 puppet 主服务器配置。"
