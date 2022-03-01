@@ -1,3 +1,3 @@
 module ForemanPuppet
-  VERSION = '3.0.3'.freeze
+  VERSION = '3.0.4'.freeze
 end
