@@ -289,16 +289,6 @@ module ForemanPuppet
         assert_response :forbidden
       end
 
-      test 'when "require_ssl" is true, HTTP requests should not be able to get externalNodes' do
-        User.current = nil
-        Setting[:restrict_registered_smart_proxies] = true
-        SETTINGS[:require_ssl] = true
-
-        Resolv.any_instance.stubs(:getnames).returns(['else.where'])
-        get :externalNodes, params: { name: host1.name, format: 'yml' }
-        assert_response :redirect
-      end
-
       test 'authenticated users over HTTP should be able to get externalNodes' do
         Setting[:restrict_registered_smart_proxies] = true
         SETTINGS[:require_ssl] = false
