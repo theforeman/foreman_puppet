@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Tabs, Tab, TabTitleText } from '@patternfly/react-core';
+import { STATUS } from 'foremanReact/constants';
+
 import SecondaryTabRoutes from './Routes';
 import { activeTab } from './helpers';
 import { SECONDARY_TABS } from './constants';
 
-const PuppetTab = ({ response, location: { pathname } }) => {
+const PuppetTab = ({ response, status, location: { pathname } }) => {
   const hashHistory = useHistory();
   return (
     <>
@@ -24,13 +26,18 @@ const PuppetTab = ({ response, location: { pathname } }) => {
           />
         ))}
       </Tabs>
-      <SecondaryTabRoutes hostName={response.name} />
+      <SecondaryTabRoutes
+        hostName={response.name}
+        hostInfo={response}
+        status={status}
+      />
     </>
   );
 };
 
 PuppetTab.propTypes = {
   response: PropTypes.object,
+  status: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }),
@@ -38,6 +45,7 @@ PuppetTab.propTypes = {
 PuppetTab.defaultProps = {
   location: { pathname: '' },
   response: { name: '' },
+  status: STATUS.PENDING,
 };
 
 export default PuppetTab;
