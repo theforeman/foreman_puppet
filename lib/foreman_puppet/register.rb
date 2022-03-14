@@ -153,7 +153,6 @@ Foreman::Plugin.register :foreman_puppet do
   end
 
   add_all_permissions_to_default_roles
-  Foreman::Plugin::RbacSupport::AUTO_EXTENDED_ROLES |= ['Site manager']
   add_permissions_to_default_roles(
     'Site manager' => %w[view_puppetclasses import_puppetclasses view_environments import_environments
                          view_external_parameters create_external_parameters edit_external_parameters destroy_external_parameters]
