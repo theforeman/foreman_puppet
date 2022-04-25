@@ -75,8 +75,12 @@ module ForemanPuppet
               post :create, params: { smart_class_parameter_id: lookup_key.id, override_value: override_value }
             end
             response = ActiveSupport::JSON.decode(@response.body)
-            param_not_posted = (override_value.keys.first.to_s == 'match') ? 'Value' : 'Match' # The opposite of override_value is missing
-            assert_match(/Validation failed: #{param_not_posted} can't be blank/, response['error']['message'])
+            if override_value.keys.first.to_s == 'match'
+              # The opposite of override_value is missing and should fail
+              assert_match(/Validation failed: Value can't be blank/, response['error']['message'])
+            else # match is missing
+              assert_match(/Failed to save the record/, response['error']['message'])
+            end
             assert_response :error
           end
         end
