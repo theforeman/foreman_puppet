@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Grid, GridItem } from '@patternfly/react-core';
-import Slot from 'foremanReact/components/common/Slot';
+import ReportsTab from 'foremanReact/components/HostDetails/Tabs/ReportsTab';
 import CardTemplate from 'foremanReact/components/HostDetails/Templates/CardItem/CardTemplate';
 import { translate as __ } from 'foremanReact/common/I18n';
 import './styles.scss';
@@ -32,7 +32,7 @@ const Reports = ({
         />
       </GridItem>
       <GridItem span={12}>
-        <Slot hostName={hostName} id="[puppet]-reports" />
+        <ReportsTab hostName={hostName} origin="Puppet" />
       </GridItem>
     </Grid>
   </div>
