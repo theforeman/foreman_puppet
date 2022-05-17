@@ -2,10 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Grid, GridItem } from '@patternfly/react-core';
 import ReportsTab from 'foremanReact/components/HostDetails/Tabs/ReportsTab';
-import CardTemplate from 'foremanReact/components/HostDetails/Templates/CardItem/CardTemplate';
-import { translate as __ } from 'foremanReact/common/I18n';
-import './styles.scss';
 import DescriptionCard from './components/DescriptionCard';
+import './styles.scss';
 
 const Reports = ({
   hostName,
@@ -18,11 +16,6 @@ const Reports = ({
 }) => (
   <div className="report-tab">
     <Grid hasGutter>
-      <GridItem span={8}>
-        <CardTemplate header={__('Last config status')} expandable>
-          TBD
-        </CardTemplate>
-      </GridItem>
       <GridItem span={4}>
         <DescriptionCard
           proxyName={proxyName}
