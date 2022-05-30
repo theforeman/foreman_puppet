@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { route } from './helpers';
 import EmptyPage from './SubTabs/EmptyPage';
 import Reports from './SubTabs/Reports';
+import ENCPreview from './SubTabs/ENCPreview';
 
 const SecondaryTabRoutes = ({ hostName, hostInfo, status }) => (
   <Switch>
@@ -21,7 +22,11 @@ const SecondaryTabRoutes = ({ hostName, hostInfo, status }) => (
       <EmptyPage header="Smart class parameters" />
     </Route>
     <Route path={route('yaml')}>
-      <EmptyPage header="YAML" />
+      {hostName ? (
+        <ENCPreview hostName={hostName} />
+      ) : (
+        <EmptyPage header="ENC Preview" />
+      )}
     </Route>
     <Redirect to={route('reports')} />
   </Switch>
