@@ -37,6 +37,7 @@ You can install it on Foreman 2.5 to prepare for the Foreman update.
 
 |Foreman version|Plugin version|Notes                                     |
 |---------------|--------------|------------------------------------------|
+| >= 3.3        | ~> 4.0       | Required                                 |
 | >= 3.2        | ~> 3.0       | Required                                 |
 | ~> 3.1        | ~> 2.0       | Required                                 |
 | ~> 3.0        | ~> 1.0       | Required                                 |
@@ -78,7 +79,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) *2021* *The Foreman developers*
+Copyright (c) *2022* *The Foreman developers*
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
