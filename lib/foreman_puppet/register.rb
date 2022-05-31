@@ -145,7 +145,8 @@ Foreman::Plugin.register :foreman_puppet do
                                          'foreman_puppet/api/v2/puppetclasses' => [:destroy] },
       resource_type: 'ForemanPuppet::Puppetclass'
     permission :import_puppetclasses, { 'foreman_puppet/puppetclasses' => %i[import_environments obsolete_and_new],
-                                        'foreman_puppet/api/v2/environments' => [:import_puppetclasses] },
+                                        'foreman_puppet/api/v2/environments' => [:import_puppetclasses],
+                                        'api/v2/smart_proxies' => [:import_puppetclasses] },
       resource_type: 'ForemanPuppet::Puppetclass'
     permission :edit_classes, { :host_editing => [:edit_classes],
                                 'foreman_puppet/api/v2/host_classes' => %i[index create destroy] },
