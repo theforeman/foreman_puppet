@@ -23,49 +23,6 @@ jobs:
           bundler-cache: true
       - name: Run rubocop
         run: bundle exec rubocop -P --format github
-  view_specs:
-    runs-on: ubuntu-latest
-    env:
-      working-directory: './foreman_puppet'
-      BUNDLE_WITHOUT: journald:development:console:libvirt
-    needs: rubocop
-    services:
-      postgres:
-        image: postgres:12.1
-        ports: ['5432:5432']
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-    steps:
-      - run: |
-          sudo apt-get update
-          sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
-      - uses: actions/checkout@v2
-        with:
-          repository: 'ezr-ondrej/foreman'
-          ref: plugin_base_rake
-          path: foreman
-      - uses: actions/checkout@v2
-        with:
-          path: foreman_puppet
-      - name: Setup Bundler
-        working-directory: ${{env.working-directory}}
-        run: |
-          echo "gem 'foreman_puppet', path: '../foreman_puppet'" > ../foreman/bundler.d/foreman_puppet.local.rb
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.5
-          bundler-cache: true
-          working-directory: ${{env.working-directory}}
-      - name: Prepare test env
-        if: github.event_name != 'push'
-        working-directory: ${{env.working-directory}}
-        run: |
-          bundle exec rake app:db:create
-          bundle exec rake app:db:migrate
-      - name: Run view specs
-        if: github.event_name != 'push'
-        working-directory: ${{env.working-directory}}
-        run: bundle exec rake spec
   test_ruby:
     runs-on: ubuntu-latest
     needs: rubocop
