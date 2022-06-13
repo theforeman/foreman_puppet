@@ -32,12 +32,13 @@ const Reports = ({
 );
 
 Reports.propTypes = {
-  hostName: PropTypes.string.isRequired,
+  hostName: PropTypes.string,
   hostInfo: PropTypes.object,
   status: PropTypes.string,
 };
 
 Reports.defaultProps = {
+  hostName: undefined,
   hostInfo: {},
   status: undefined,
 };
