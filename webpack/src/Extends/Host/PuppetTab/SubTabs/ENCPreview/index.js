@@ -23,21 +23,20 @@ const ENCPreview = ({ hostName }) => {
     return <Skeleton count={5} />;
   }
 
-  if (status === STATUS.ERROR) {
+  if (status === STATUS.ERROR || !hostName) {
+    const description = !hostName
+      ? __("Couldn't find any ENC data for this host")
+      : response?.response?.data?.message;
     const icon = (
       <EmptyStateIcon icon={ExclamationCircleIcon} color={dangerColor.value} />
     );
     return (
-      <EmptyState
-        header={__('Error!')}
-        icon={icon}
-        description={response?.response?.data?.message}
-      />
+      <EmptyState header={__('Error!')} icon={icon} description={description} />
     );
   }
   if (response !== '' || response !== undefined) {
     return (
-      <div className="yaml-tab" padding="16px 24px">
+      <div className="enc-preview-tab" padding="16px 24px">
         <ENCTab encData={response} />
       </div>
     );
@@ -47,7 +46,11 @@ const ENCPreview = ({ hostName }) => {
 };
 
 ENCPreview.propTypes = {
-  hostName: PropTypes.string.isRequired,
+  hostName: PropTypes.string,
+};
+
+ENCPreview.defaultProps = {
+  hostName: undefined,
 };
 
 export default ENCPreview;
