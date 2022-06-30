@@ -23,7 +23,9 @@ const DescriptionCard = ({ proxyName, caProxy, env, status }) => (
             status={status}
           >
             {env && (
-              <a href={`/foreman_puppet/environments/${env}/edit`}>{env}</a>
+              <a href={`/foreman_puppet/environments/?search=name+%3D+${env}`}>
+                {env}
+              </a>
             )}
           </SkeletonLoader>
         </DescriptionListDescription>
