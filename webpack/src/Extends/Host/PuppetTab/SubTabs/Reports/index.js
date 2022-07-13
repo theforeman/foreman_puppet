@@ -12,6 +12,8 @@ const Reports = ({
     puppet_proxy_name: proxyName,
     puppet_ca_proxy_name: caProxy,
     environment_name: env,
+    puppet_proxy_id: proxyId,
+    puppet_ca_proxy_id: caProxyId,
   },
 }) => (
   <div className="report-tab">
@@ -20,6 +22,8 @@ const Reports = ({
         <DescriptionCard
           proxyName={proxyName}
           caProxy={caProxy}
+          proxyId={proxyId}
+          caProxyId={caProxyId}
           env={env}
           status={status}
         />

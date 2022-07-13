@@ -12,7 +12,14 @@ import DefaultLoaderEmptyState from 'foremanReact/components/HostDetails/Details
 import { STATUS } from 'foremanReact/constants';
 import { translate as __ } from 'foremanReact/common/I18n';
 
-const DescriptionCard = ({ proxyName, caProxy, env, status }) => (
+const DescriptionCard = ({
+  proxyName,
+  caProxy,
+  proxyId,
+  caProxyId,
+  env,
+  status,
+}) => (
   <CardTemplate header={__('Puppet details')} expandable>
     <DescriptionList isCompact>
       <DescriptionListGroup>
@@ -31,24 +38,28 @@ const DescriptionCard = ({ proxyName, caProxy, env, status }) => (
         </DescriptionListDescription>
       </DescriptionListGroup>
       <DescriptionListGroup>
-        <DescriptionListTerm>{__('Puppet smart proxy')}</DescriptionListTerm>
+        <DescriptionListTerm>{__('Puppet Smart Proxy')}</DescriptionListTerm>
         <DescriptionListDescription>
           <SkeletonLoader
             emptyState={<DefaultLoaderEmptyState />}
             status={status}
           >
-            {proxyName}
+            {proxyName && (
+              <a href={`/smart_proxies/${proxyId}#puppet`}>{proxyName}</a>
+            )}
           </SkeletonLoader>
         </DescriptionListDescription>
       </DescriptionListGroup>
       <DescriptionListGroup>
-        <DescriptionListTerm>{__('Puppet server CA')}</DescriptionListTerm>
+        <DescriptionListTerm>{__('Puppet CA Smart Proxy')}</DescriptionListTerm>
         <DescriptionListDescription>
           <SkeletonLoader
             emptyState={<DefaultLoaderEmptyState />}
             status={status}
           >
-            {caProxy}
+            {caProxy && (
+              <a href={`/smart_proxies/${caProxyId}#puppet-ca`}>{caProxy}</a>
+            )}
           </SkeletonLoader>
         </DescriptionListDescription>
       </DescriptionListGroup>
@@ -58,14 +69,18 @@ const DescriptionCard = ({ proxyName, caProxy, env, status }) => (
 
 DescriptionCard.propTypes = {
   caProxy: PropTypes.string,
+  caProxyId: PropTypes.number,
   env: PropTypes.string,
+  proxyId: PropTypes.number,
   proxyName: PropTypes.string,
   status: PropTypes.string,
 };
 
 DescriptionCard.defaultProps = {
   caProxy: undefined,
+  caProxyId: undefined,
   env: undefined,
+  proxyId: undefined,
   proxyName: undefined,
   status: STATUS.PENDING,
 };
