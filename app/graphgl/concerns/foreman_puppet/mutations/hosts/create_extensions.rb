@@ -4,16 +4,20 @@ module ForemanPuppet
   module Mutations
     module Hosts
       module CreateExtensions
-        PUPPET_PARAMS = %i[
-          environment
-          puppetclasses
-        ].freeze
-
         extend ActiveSupport::Concern
 
         included do
+          prepend PatchMethods
+
           argument :environment_id, GraphQL::Types::ID, loads: ForemanPuppet::Types::Environment
           argument :puppetclass_ids, [GraphQL::Types::ID], loads: ForemanPuppet::Types::Puppetclass, as: :puppetclasses
+        end
+
+        module PatchMethods
+          PUPPET_PARAMS = %i[
+            environment
+            puppetclasses
+          ].freeze
 
           private
 

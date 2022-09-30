@@ -6,7 +6,18 @@ module ForemanPuppet
       class CreateMutationTest < GraphQLQueryTestCase
         let(:hostname) { 'my-graphql-host' }
         let(:tax_location) { FactoryBot.create(:location) }
+        let(:location_id) { Foreman::GlobalId.for(tax_location) }
         let(:organization) { FactoryBot.create(:organization) }
+        let(:organization_id) { Foreman::GlobalId.for(organization) }
+        let(:domain) { FactoryBot.create(:domain) }
+        let(:domain_id) { Foreman::GlobalId.for(domain) }
+        let(:operatingsystem) { FactoryBot.create(:operatingsystem, :with_grub, :with_associations) }
+        let(:operatingsystem_id) { Foreman::GlobalId.for(operatingsystem) }
+        let(:ptable_id) { Foreman::GlobalId.for(operatingsystem.ptables.first) }
+        let(:medium_id) { Foreman::GlobalId.for(operatingsystem.media.first) }
+        let(:architecture_id) { Foreman::GlobalId.for(operatingsystem.architectures.first) }
+        let(:ip) { '192.0.2.1' }
+
         let(:environment) { FactoryBot.create(:environment, locations: [tax_location], organizations: [organization]) }
         let(:environment_id) { Foreman::GlobalId.for(environment) }
         let(:puppetclass) { FactoryBot.create(:puppetclass) }
@@ -16,6 +27,14 @@ module ForemanPuppet
           {
             name: hostname,
             environmentId: environment_id,
+            ip: ip,
+            locationId: location_id,
+            organizationId: organization_id,
+            domainId: domain_id,
+            operatingsystemId: operatingsystem_id,
+            ptableId: ptable_id,
+            mediumId: medium_id,
+            architectureId: architecture_id,
             puppetclassIds: [puppetclass_id],
             interfacesAttributes: [
               {
@@ -37,12 +56,29 @@ module ForemanPuppet
             mutation createHostMutation(
                 $name: String!,
                 $environmentId: ID,
+                $ip: String,
+                $locationId: ID!,
+                $organizationId: ID!,
+                $domainId: ID,
+                $operatingsystemId: ID,
+                $architectureId: ID,
+                $ptableId: ID,
+                $mediumId: ID,
                 $puppetclassIds: [ID!],
                 $interfacesAttributes: [InterfaceAttributesInput!]
               ) {
               createHost(input: {
                 name: $name,
                 environmentId: $environmentId,
+                ip: $ip,
+                architectureId: $architectureId,
+                locationId: $locationId,
+                organizationId: $organizationId,
+                domainId: $domainId,
+                operatingsystemId: $operatingsystemId,
+                architectureId: $architectureId,
+                ptableId: $ptableId,
+                mediumId: $mediumId,
                 puppetclassIds: $puppetclassIds,
                 interfacesAttributes: $interfacesAttributes,
               }) {
@@ -77,6 +113,8 @@ module ForemanPuppet
             assert interface.primary
             assert interface.provision
             assert interface.managed
+
+            assert_not_nil host.pxe_loader
 
             assert_not_nil data
           end
