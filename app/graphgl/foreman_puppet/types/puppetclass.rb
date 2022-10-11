@@ -1,6 +1,7 @@
 module ForemanPuppet
   module Types
     class Puppetclass < ::Types::BaseObject
+      graphql_name 'ForemanPuppet_Puppetclass'
       model_class ForemanPuppet::Puppetclass
       description 'A Puppetclass'
 
@@ -11,10 +12,6 @@ module ForemanPuppet
       has_many :environments, ForemanPuppet::Types::Environment
       has_many :locations, ::Types::Location
       has_many :organizations, ::Types::Organization
-
-      def self.graphql_definition
-        super.tap { |type| type.instance_variable_set(:@name, 'ForemanPuppet::Puppetclass') }
-      end
     end
   end
 end
