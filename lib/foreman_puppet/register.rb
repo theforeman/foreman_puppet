@@ -1,5 +1,5 @@
 Foreman::Plugin.register :foreman_puppet do
-  requires_foreman '>= 3.3.0'
+  requires_foreman '>= 3.4.0'
   # Add Global JS file for extending foreman-core components and routes
   register_global_js_file 'global'
 
@@ -225,8 +225,10 @@ Foreman::Plugin.register :foreman_puppet do
         priority: 100
     end
   end
-  extend_page 'hosts/_list' do |cx|
-    cx.add_pagelet :hosts_table_column_header, resource_type: 'host', partial: 'hosts/foreman_puppet/form_list_env_field_header', priority: 100
-    cx.add_pagelet :hosts_table_column_content, resource_type: 'host', partial: 'hosts/foreman_puppet/form_list_env_field_content', priority: 100
+  extend_page 'hosts/_list' do |context|
+    context.with_profile :puppet, _('Puppet'), default: true do
+      add_pagelet :hosts_table_column_header, key: :environment, label: s_('Environment name'), sortable: true, width: '10%', class: 'hidden-xs'
+      add_pagelet :hosts_table_column_content, key: :environment, callback: ->(host) { host.environment }, class: 'hidden-xs ellipsis'
+    end
   end
 end
