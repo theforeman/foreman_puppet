@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { translate as __ } from 'foremanReact/common/I18n';
 import { route } from './helpers';
-import EmptyPage from './SubTabs/EmptyPage';
 import Reports from './SubTabs/Reports';
 import ENCPreview from './SubTabs/ENCPreview';
 
@@ -12,7 +10,7 @@ const SecondaryTabRoutes = ({ hostName, hostInfo, status }) => (
     <Route path={route('reports')}>
       <Reports hostName={hostName} hostInfo={hostInfo} status={status} />
     </Route>
-    <Route path={route('assigned')}>
+    {/* <Route path={route('assigned')}>
       <EmptyPage
         header={__('Assigned classes')}
         description={__('This tab is still a work in progress')}
@@ -23,7 +21,7 @@ const SecondaryTabRoutes = ({ hostName, hostInfo, status }) => (
         header={__('Smart class parameters')}
         description={__('This tab is still a work in progress')}
       />
-    </Route>
+    </Route> */}
     <Route path={route('yaml')}>
       <ENCPreview hostName={hostName} />
     </Route>
