@@ -1,5 +1,5 @@
 Foreman::Plugin.register :foreman_puppet do
-  requires_foreman '>= 3.4.0'
+  requires_foreman '>= 3.5.0'
   # Add Global JS file for extending foreman-core components and routes
   register_global_js_file 'global'
 
