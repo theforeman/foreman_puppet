@@ -94,7 +94,7 @@ msgstr "Все окружения (без фильтра)"
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
-msgid "Autosign entries"
+msgid "Assigned classes"
 msgstr ""
 
 msgid "Available Classes"
@@ -111,9 +111,6 @@ msgstr ""
 
 msgid "Cancel"
 msgstr "Отмена"
-
-msgid "Certificates"
-msgstr ""
 
 msgid "Change Environment"
 msgstr "Изменить окружение"
@@ -155,6 +152,9 @@ msgid "Config Groups"
 msgstr ""
 
 msgid "Config Management"
+msgstr ""
+
+msgid "Couldn't find any ENC data for this host"
 msgstr ""
 
 msgid "Create Config Group"
@@ -235,6 +235,9 @@ msgstr "Показать скрытые значения"
 msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
 msgstr ""
 
+msgid "ENC Preview"
+msgstr ""
+
 msgid "ENC environment"
 msgstr "Окружение ENC"
 
@@ -250,6 +253,9 @@ msgstr "Пустое окружение"
 msgid "Environment"
 msgstr "Окружение"
 
+msgid "Environment name"
+msgstr ""
+
 msgid "Environment only"
 msgstr "Только окружение"
 
@@ -258,6 +264,9 @@ msgstr "Окружения"
 
 msgid "Environment|Name"
 msgstr "Имя"
+
+msgid "Error!"
+msgstr ""
 
 msgid "Facts"
 msgstr "Факты"
@@ -297,6 +306,9 @@ msgstr "Обновлять окружение узла на основании �
 
 msgid "General"
 msgstr "Общие"
+
+msgid "Help"
+msgstr ""
 
 msgid "Host Groups"
 msgstr "Группы узлов"
@@ -583,6 +595,9 @@ msgstr "Puppet"
 msgid "Puppet CA"
 msgstr "Центр сертификации Puppet"
 
+msgid "Puppet CA Smart Proxy"
+msgstr ""
+
 msgid "Puppet Class"
 msgstr "Класс Puppet"
 
@@ -604,7 +619,16 @@ msgstr "Окружения Puppet"
 msgid "Puppet Modules"
 msgstr "Модули Puppet"
 
+msgid "Puppet Smart Proxy"
+msgstr ""
+
 msgid "Puppet YAML"
+msgstr ""
+
+msgid "Puppet details"
+msgstr ""
+
+msgid "Puppet environment"
 msgstr ""
 
 msgid "Puppet environments"
@@ -645,6 +669,9 @@ msgstr "Удалить переопределение"
 
 msgid "Remove:"
 msgstr "Удалить:"
+
+msgid "Reports"
+msgstr ""
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "Обязательный параметр без значения.<br/><b>Необходимо переопределить.</b><br/>"
@@ -691,6 +718,9 @@ msgstr "Смарт-параметры"
 msgid "Smart Class Parameters"
 msgstr ""
 
+msgid "Smart class parameters"
+msgstr ""
+
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""
 
@@ -734,6 +764,9 @@ msgstr "На этом мастер-сервере Puppet не настроено
 
 msgid "This Puppet class has no parameters in its signature."
 msgstr "Подпись класса Puppet не содержит параметров."
+
+msgid "This tab is still a work in progress"
+msgstr ""
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
 msgstr "Будут восстановлены исходные параметры класса %s. Продолжить?"

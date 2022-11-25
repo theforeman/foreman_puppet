@@ -93,7 +93,7 @@ msgstr "所有环境 - （未过滤）"
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
-msgid "Autosign entries"
+msgid "Assigned classes"
 msgstr ""
 
 msgid "Available Classes"
@@ -110,9 +110,6 @@ msgstr "找不到具有 Puppet 功能的有效代理"
 
 msgid "Cancel"
 msgstr "取消"
-
-msgid "Certificates"
-msgstr ""
 
 msgid "Change Environment"
 msgstr "改变环境"
@@ -155,6 +152,9 @@ msgstr "配置组"
 
 msgid "Config Management"
 msgstr "配置管理"
+
+msgid "Couldn't find any ENC data for this host"
+msgstr ""
 
 msgid "Create Config Group"
 msgstr "创建配置组"
@@ -234,6 +234,9 @@ msgstr "显示隐藏值"
 msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
 msgstr "在其时间后（以分钟为单位）经过 Puppet 的服务器报告被认为已不同步。"
 
+msgid "ENC Preview"
+msgstr ""
+
 msgid "ENC environment"
 msgstr "ENC 环境"
 
@@ -249,6 +252,9 @@ msgstr "空环境"
 msgid "Environment"
 msgstr "环境"
 
+msgid "Environment name"
+msgstr ""
+
 msgid "Environment only"
 msgstr "仅环境"
 
@@ -257,6 +263,9 @@ msgstr "环境"
 
 msgid "Environment|Name"
 msgstr "Environment|Name"
+
+msgid "Error!"
+msgstr ""
 
 msgid "Facts"
 msgstr "事实"
@@ -296,6 +305,9 @@ msgstr "Foreman 将根据其详情更新主机环境"
 
 msgid "General"
 msgstr "常规"
+
+msgid "Help"
+msgstr ""
 
 msgid "Host Groups"
 msgstr "主机组"
@@ -582,6 +594,9 @@ msgstr "Puppet"
 msgid "Puppet CA"
 msgstr "Puppet CA"
 
+msgid "Puppet CA Smart Proxy"
+msgstr ""
+
 msgid "Puppet Class"
 msgstr "Puppet 类"
 
@@ -603,8 +618,17 @@ msgstr "Puppet 环境"
 msgid "Puppet Modules"
 msgstr "Puppet 模組"
 
+msgid "Puppet Smart Proxy"
+msgstr ""
+
 msgid "Puppet YAML"
 msgstr "Puppet YAML"
+
+msgid "Puppet details"
+msgstr ""
+
+msgid "Puppet environment"
+msgstr ""
 
 msgid "Puppet environments"
 msgstr "Puppet 环境"
@@ -644,6 +668,9 @@ msgstr "删除此覆盖"
 
 msgid "Remove:"
 msgstr "删除："
+
+msgid "Reports"
+msgstr ""
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "需要的参数没有值。<br/><b>请覆盖</b><br/>"
@@ -690,6 +717,9 @@ msgstr "智能代理参数"
 msgid "Smart Class Parameters"
 msgstr "智能类参数"
 
+msgid "Smart class parameters"
+msgstr ""
+
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""
 
@@ -732,6 +762,9 @@ msgstr "这台 puppet 主服务器中未设置任何 puppet 环境。请检查 p
 
 msgid "This Puppet class has no parameters in its signature."
 msgstr "这个 Puppet 类别在其签名中没有参数。"
+
+msgid "This tab is still a work in progress"
+msgstr ""
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
 msgstr "这会将类 %s 的参数重置为其默认值。继续吗？"

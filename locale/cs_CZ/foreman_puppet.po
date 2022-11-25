@@ -90,7 +90,7 @@ msgstr ""
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
-msgid "Autosign entries"
+msgid "Assigned classes"
 msgstr ""
 
 msgid "Available Classes"
@@ -107,9 +107,6 @@ msgstr ""
 
 msgid "Cancel"
 msgstr "Storno"
-
-msgid "Certificates"
-msgstr ""
 
 msgid "Change Environment"
 msgstr "Změnit prostředí"
@@ -152,6 +149,9 @@ msgstr ""
 
 msgid "Config Management"
 msgstr "Správa nastavení"
+
+msgid "Couldn't find any ENC data for this host"
+msgstr ""
 
 msgid "Create Config Group"
 msgstr ""
@@ -231,6 +231,9 @@ msgstr "Zobrazit skryté hodnoty"
 msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
 msgstr ""
 
+msgid "ENC Preview"
+msgstr ""
+
 msgid "ENC environment"
 msgstr "ENC prostředí"
 
@@ -246,6 +249,9 @@ msgstr "Prázdné prostředí"
 msgid "Environment"
 msgstr "Prostředí"
 
+msgid "Environment name"
+msgstr ""
+
 msgid "Environment only"
 msgstr "Pouze prostředí"
 
@@ -254,6 +260,9 @@ msgstr "Prostředí"
 
 msgid "Environment|Name"
 msgstr "Environment|Název"
+
+msgid "Error!"
+msgstr ""
 
 msgid "Facts"
 msgstr "Fakta"
@@ -293,6 +302,9 @@ msgstr ""
 
 msgid "General"
 msgstr "Obecné"
+
+msgid "Help"
+msgstr ""
 
 msgid "Host Groups"
 msgstr "Skupiny hostitelů"
@@ -579,6 +591,9 @@ msgstr "Puppet"
 msgid "Puppet CA"
 msgstr "Certif. autorita pro Puppet"
 
+msgid "Puppet CA Smart Proxy"
+msgstr ""
+
 msgid "Puppet Class"
 msgstr "Puppet třída"
 
@@ -600,7 +615,16 @@ msgstr "Puppet prostředí"
 msgid "Puppet Modules"
 msgstr "Puppet moduly"
 
+msgid "Puppet Smart Proxy"
+msgstr ""
+
 msgid "Puppet YAML"
+msgstr ""
+
+msgid "Puppet details"
+msgstr ""
+
+msgid "Puppet environment"
 msgstr ""
 
 msgid "Puppet environments"
@@ -641,6 +665,9 @@ msgstr ""
 
 msgid "Remove:"
 msgstr "Odebrat:"
+
+msgid "Reports"
+msgstr ""
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr ""
@@ -687,6 +714,9 @@ msgstr ""
 msgid "Smart Class Parameters"
 msgstr ""
 
+msgid "Smart class parameters"
+msgstr ""
+
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""
 
@@ -730,6 +760,9 @@ msgstr ""
 
 msgid "This Puppet class has no parameters in its signature."
 msgstr "Tato Puppet třída nemá žádné parametry ve svém podpisu."
+
+msgid "This tab is still a work in progress"
+msgstr ""
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
 msgstr ""

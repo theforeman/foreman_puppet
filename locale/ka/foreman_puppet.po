@@ -1,0 +1,866 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# NorwayFun <temuri.doghonadze@gmail.com>, 2022
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_puppet 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-02-03 16:30+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>, 2022\n"
+"Language-Team: Georgian (https://www.transifex.com/foreman/teams/114/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid " Remove"
+msgstr " წაშლა"
+
+msgid "%s is not in environment"
+msgstr "%s გარემოს არ წარმოადგენს"
+
+msgid "%s out of sync disabled"
+msgstr "%s არადასინქული, გამორთულია"
+
+msgid "%{model} with id '%{id}' was not found"
+msgstr "%{model} ID-ით '%{id}' ვერ მოიძებნა"
+
+msgid "%{name} has %{num_tag} class"
+msgid_plural "%{name} has %{num_tag} classes"
+msgstr[0] "%{name} has %{num_tag} class"
+msgstr[1] "%{name} has %{num_tag} classes"
+
+msgid "%{puppetclass} does not belong to the %{environment} environment"
+msgstr "%{puppetclass} არ მიეკუთვნებოდა გარემოს: %{environment}"
+
+msgid "*Clear environment*"
+msgstr "*გარემოს გასუფთავება*"
+
+msgid "*Inherit from host group*"
+msgstr "*მემკვიდრეობით ჰოსტების ჯგუფისგან*"
+
+msgid ""
+"<b>Description:</b> %{desc}<br/>\n"
+"        <b>Type:</b> %{type}<br/>\n"
+"        <b>Matcher:</b> %{matcher}<br/>\n"
+"        <b>Inherited value:</b> %{inherited_value}"
+msgstr ""
+"<b>აღწერა:</b> %{desc}<br/>\n"
+"        <b>ტიპი:</b> %{type}<br/>\n"
+"        <b>დამთხვევა:</b> %{matcher}<br/>\n"
+"        <b>მემკვიდრეობითი მნიშვნელობა:</b> %{inherited_value}"
+
+msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
+msgstr ""
+
+msgid "Action with sub plans"
+msgstr "ქმედება ქვე-გეგმებით"
+
+msgid "Actions"
+msgstr "ქმედებები"
+
+msgid "Add"
+msgstr "დამატება"
+
+msgid "Add Combination"
+msgstr "კომბინაციის დამატება"
+
+msgid "Add a Puppet class to host"
+msgstr "ჰოსტისთვის Puppet-ის კლასის ჩამატება"
+
+msgid "Add a Puppet class to host group"
+msgstr "ჰოსტების ჯგუფში Puppet-ის კლასის ჩამატება"
+
+msgid "Add a template combination"
+msgstr "შაბლონის კომბინაციის დამატება"
+
+msgid "Add:"
+msgstr "დამატება:"
+
+msgid "All environments - (not filtered)"
+msgstr "ყველა გარემოები - (ფილტრის გარეშე)"
+
+msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
+msgstr "Puppet-ის გარემოების და კლასების Foreman-ის ჰოსტებისთვის მინიჭების ჩართვა."
+
+msgid "Assigned classes"
+msgstr ""
+
+msgid "Available Classes"
+msgstr "ხელმისაწვდომი კლასები"
+
+msgid "Available Config Groups"
+msgstr "კონფიგურაციის ხელმისაწვდომი ჯგუფები"
+
+msgid "Can't find a valid Foreman Proxy with a Puppet feature"
+msgstr "Puppet-ის ფუნქციით სწორი პროქსი არ არსებობს"
+
+msgid "Can't find a valid Proxy with a Puppet feature"
+msgstr "Puppet-ის ფუნქციით სწორი პროქსი არ არსებობს"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Change Environment"
+msgstr "გარემოს შეცვლა"
+
+msgid "Change Puppet Master"
+msgstr "Puppet-ის პირველადი სერვერის შეცვლა"
+
+msgid "Changed environments"
+msgstr "შეცვლილი გარემოები"
+
+msgid "Check/Uncheck all"
+msgstr "ყველას ჩართ/გამორთ"
+
+msgid "Check/Uncheck all %s changes"
+msgstr "%s-ის ყველა ცვლილების ჩართ/გამორთ"
+
+msgid "Check/Uncheck new"
+msgstr "ახლების ჩართ/გამორთ"
+
+msgid "Check/Uncheck obsolete"
+msgstr "მოძველებულების ჩართ/გამორთ"
+
+msgid "Check/Uncheck updated"
+msgstr "განახლებულების ჩართ/გამორთ"
+
+msgid "Classes"
+msgstr "კლასები"
+
+msgid "Click to add %s"
+msgstr "წკაპი %s-ის დასამატებლად"
+
+msgid "Click to remove %s"
+msgstr "წკაპი %s-ის წასაშლელად"
+
+msgid "Click to remove config group"
+msgstr "წკაპი კონფიგურაციის ჯგუფის წასაშლელად"
+
+msgid "Config Groups"
+msgstr "კონფიგურაციის ჯგუფები"
+
+msgid "Config Management"
+msgstr "კონფიგურაციის მართვა"
+
+msgid "Couldn't find any ENC data for this host"
+msgstr ""
+
+msgid "Create Config Group"
+msgstr "კონფიგურაციის ჯგუფის შექმნა"
+
+msgid "Create Environment"
+msgstr "გარემოს შექმნა"
+
+msgid "Create Puppet Environment"
+msgstr "Puppet-ის გარემოს შექმნა"
+
+msgid "Create a Puppet class"
+msgstr "Puppet-ის კლასის შექმნა"
+
+msgid "Create a config group"
+msgstr "კონფიგურაციის ჯგუფის შექმნა"
+
+msgid "Create an environment"
+msgstr "გარემოს შექმნა"
+
+msgid "Create an override value for a specific smart class parameter"
+msgstr "მითითებული ჭკვიანი კლასის პარამეტრის გადაფარვის შექმნა"
+
+msgid "Default Puppet environment"
+msgstr "Puppet-ის ნაგულისხმები გარემო"
+
+msgid "Default value"
+msgstr "ნაგულისხმები მნიშვნელობა"
+
+msgid "Delete %s?"
+msgstr "წავშალო \"%s\"?"
+
+msgid "Delete a Puppet class"
+msgstr "Puppet-ის კლასის წაშლა"
+
+msgid "Delete a config group"
+msgstr "კონფიგურაციის ჯგუფის წაშლა"
+
+msgid "Delete an environment"
+msgstr "გარემოს წაშლა"
+
+msgid "Delete an override value for a specific smart class parameter"
+msgstr "მითითებული ჭკვიანი კლასის პარამეტრის გადაფარვის წაშლა"
+
+msgid "Deleted environment"
+msgstr "წაშლილიგარემო"
+
+msgid "Deleted environment %{env} and %{pcs}"
+msgstr "წაშლილი გარემო %{env} და %{pcs}"
+
+msgid "Deprecated in favor of host/puppet_attributes/config_group_ids"
+msgstr "მოძველებულია ფუნქციონალის host/puppet_attributes/config_group_ids-ში გადატანის გამო"
+
+msgid "Deprecated in favor of host/puppet_attributes/environment_id"
+msgstr "მოძველებულია ფუნქციონალის host/puppet_attributes/environment_id-ში გადატანის გამო"
+
+msgid "Deprecated in favor of host/puppet_attributes/puppetclass_ids"
+msgstr "მოძველებულია ფუნქციონალის host/puppet_attributes/puppetclass_ids-ში გადატანის გამო"
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/config_group_ids"
+msgstr "მოძველებულია ფუნქციონალის hostgroup/puppet_attributes/config_group_ids-ში გადატანის გამო"
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/environment_id"
+msgstr "მოძველებულია ფუნქციონალის  hostgroup/puppet_attributes/environment_id-ში გადატანის გამო"
+
+msgid "Deprecated in favor of hostgroup/puppet_attributes/puppetclass_ids"
+msgstr "მოძველებულია ფუნქციონალის  hostgroup/puppet_attributes/puppetclass_ids-ში გადატანის გამო"
+
+msgid "Description of smart class"
+msgstr "ჭკვიანი კლასის აღწერა"
+
+msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
+msgstr ""
+
+msgid "Display hidden values"
+msgstr "დამალული მნიშვნელობების ჩვენება"
+
+msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
+msgstr "წუთების რაოდენობა, რომლის გასვლის სემდეგაც Puppet-ში ჩამატებული სერვერები სინქიდან ამოვარდნილად გამოცხადდებიან."
+
+msgid "ENC Preview"
+msgstr ""
+
+msgid "ENC environment"
+msgstr "ENC გარემო"
+
+msgid "Edit %s"
+msgstr "%s-ის ჩასწორება"
+
+msgid "Edit Puppet Class %s"
+msgstr "Puppet-ის კლასის ჩასწორება: %s"
+
+msgid "Empty environment"
+msgstr "ცარიელი გარემო"
+
+msgid "Environment"
+msgstr "გარემო"
+
+msgid "Environment name"
+msgstr ""
+
+msgid "Environment only"
+msgstr "მხოლოდ გარემო"
+
+msgid "Environments"
+msgstr "გარემო"
+
+msgid "Environment|Name"
+msgstr "გარემო|სახელი"
+
+msgid "Error!"
+msgstr ""
+
+msgid "Facts"
+msgstr "ფაქტები"
+
+msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
+msgstr "%{name}-სთვის %{klass}-ის შემოტანის შეცდომა: ის ჩვენს ბაზაში არ არსებობს - იგნორი"
+
+msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr "დაყენების შეცდომა: %{proxy_type} პროქსი %{host}-სთვის."
+
+msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
+msgstr "დისკზე მყოფი Puppet-ის აგებაში გარემოებისა და კლასების განახლების შეცდომა: %s"
+
+msgid "Failed to update the environments and Puppet classes from the on-disk puppet installation: %s"
+msgstr "დისკზე მყოფი Puppet-ის აგებაში გარემოებისა და კლასების განახლების შეცდომა: %s"
+
+msgid "Filter by name"
+msgstr "გაფილტვრა სახელის მიხედვით"
+
+msgid "Filter classes"
+msgstr "ფილტრის კლასები"
+
+msgid "Foreman will default to this puppet environment if it cannot auto detect one"
+msgstr "თუ სხვას ავტომატურად ვერ იპოვის, Foreman-ი Puppet-ის ამ გარემოს ნაგულისხმებად გამოიყენებს"
+
+msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
+msgstr ""
+
+msgid "Foreman will not send this parameter in classification output"
+msgstr "Foreman-ი ამ პარამეტრს კლასიფიკაციის გამოტანაში არ გააგზავნის"
+
+msgid "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter"
+msgstr ""
+
+msgid "Foreman will update a host's environment from its facts"
+msgstr "Foreman-ი ჰოსტის გარემოს მისი ფაქტებიდან განაახლებს"
+
+msgid "General"
+msgstr "მთავარი"
+
+msgid "Help"
+msgstr ""
+
+msgid "Host Groups"
+msgstr "ჰოსტის ჯგუფები"
+
+msgid "Host group and Environment"
+msgstr "ჰოსტების ჯგუფი და გარემო"
+
+msgid "Host group only"
+msgstr "მხოლოდ ჰოსტების ჯგუფი"
+
+msgid "Host groups"
+msgstr "ჰოსტის ჯგუფები"
+
+msgid "Hostgroup"
+msgstr "ჰოსტების ჯგუფი"
+
+msgid "Hosts"
+msgstr "ჰოსტები"
+
+msgid "Hosts managed:"
+msgstr "მართული ჰოსტები:"
+
+msgid "ID of Puppet class"
+msgstr "Puppet-ის კლასის ID"
+
+msgid "ID of Puppet environment"
+msgstr "Puppet-ის გარემოს ID"
+
+msgid "ID of Puppetclass"
+msgstr "Puppetclass-ის ID"
+
+msgid "ID of associated puppet Environment"
+msgstr "Puppet-ის ასოცირებული გარემოს ID"
+
+msgid "ID of environment"
+msgstr "გარემოს ID"
+
+msgid "ID of host"
+msgstr "ჰოსტის ID"
+
+msgid "ID of host group"
+msgstr "ჰოსტების ჯგუფის ID"
+
+msgid "ID of puppet environment"
+msgstr "Puppet-ის გარემოს ID"
+
+msgid "IDs of associated ConfigGroups"
+msgstr "ასოცირებული ConfigGroups-ის ID"
+
+msgid "IDs of associated Puppetclasses"
+msgstr "Puppet-ის ასოცირებული კლასების ID-ები"
+
+msgid "If true, will raise an error if there is no default value and no matcher provide a value"
+msgstr ""
+
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
+msgstr ""
+
+msgid "Ignored classes in the environments: %s"
+msgstr "გარემოების იგნორირებული კლასები: %s"
+
+msgid "Ignored environment"
+msgstr "იგნორირებული გარემო"
+
+msgid "Ignored environment names resulting in booleans found. Please quote strings like true/false and yes/no in config/ignored_environments.yml"
+msgstr "იგნორირებული გარემოების სახელების შედეგი ნაპოვნი ლოგიკური ცვლადებია. გთხოვთ, სტრიქონები, მაგალითად \"true/false/yes/no\" ფაილში config/ignored_environments.yml ბრჭყალებში ჩასვათ"
+
+msgid "Ignored environments: %s"
+msgstr "იგნორირებული გარემოები: %s"
+
+msgid "Ignored:"
+msgstr "იგნორი:"
+
+msgid "Import"
+msgstr "იმპორტი"
+
+msgid "Import Puppet classes"
+msgstr "Puppet-ის კლასების შემოტანა"
+
+msgid "Import classes from %s"
+msgstr "კლასების შემოტანა %s-დან"
+
+msgid "Import environments from %s"
+msgstr "გარემოს შემოტანა %s-დან"
+
+msgid "Import facts"
+msgstr "ფაქტების შემოტანა"
+
+msgid "Import puppet classes from puppet proxy"
+msgstr "კლასების შემოტანა Puppet-ის პროქსიდან"
+
+msgid "Import puppet classes from puppet proxy for an environment"
+msgstr "გარემოსთვის კლასების Puppet-ის პროქსიდან შემოტანა"
+
+msgid "Include default value when merging all matching values"
+msgstr "ყველა დამთხვეული მნიშვნელობის შერწყმისას ნაგულისხმები მნიშვნელობების გათვალისწნება"
+
+msgid "Included Classes"
+msgstr "ჩასმული კლასები"
+
+msgid "Included Config Groups"
+msgstr "კონფიგურაციის ჩასმული ჯგუფები"
+
+msgid "Inherited Classes from %s"
+msgstr "კლასები მემკვიდრეობითაა %s-სგან"
+
+msgid "Invalid proxy selected!"
+msgstr "არჩეული პროქსი არასწორია!"
+
+msgid "List all Puppet class IDs for host"
+msgstr "ჰოსტისთვის Puppet-ის კლასის ყველა ID-ის ჩვენება"
+
+msgid "List all Puppet class IDs for host group"
+msgstr "ჰოსტის ჯგუფის Puppet-ის კლასის ყველა ID-ის ჩვენება"
+
+msgid "List all Puppet classes"
+msgstr "Puppet-ის ყველა კლასის სია"
+
+msgid "List all Puppet classes for a host"
+msgstr "ჰოსტისთვის Puppet-ის ყველა კლასის სია"
+
+msgid "List all Puppet classes for a host group"
+msgstr "ჰოსტის ჯგუფისთვის Puppet-ის ყველა კლასის სია"
+
+msgid "List all Puppet classes for an environment"
+msgstr "გარემოსთვის Puppet-ის ყველა კლასის სია"
+
+msgid "List all environments"
+msgstr "ყველა გარემოს სია"
+
+msgid "List all host groups for a Puppet class"
+msgstr "Puppet-ის კლასის ჰოსტების ყველა ჯგუფების სია"
+
+msgid "List all smart class parameters"
+msgstr "ჭკვიანი კლასის პარამეტრების სია"
+
+msgid "List environments of Puppet class"
+msgstr "Puppet-ის კლასის გარემოების სია"
+
+msgid "List environments per location"
+msgstr "მდებარეობის გარემოების სია"
+
+msgid "List environments per organization"
+msgstr "ორგანიზაციის გარემოების სია"
+
+msgid "List hosts per environment"
+msgstr "ჰოსტების სია თითოეული გარემოსთვის"
+
+msgid "List of config groups"
+msgstr "კონფიგურაციის ჯგუფების სია"
+
+msgid "List of override values for a specific smart class parameter"
+msgstr "მითითებული ჭკვიანი კლასის პარამეტრის გადასაფარი მნიშვნელობების სია"
+
+msgid "List of smart class parameters for a specific Puppet class"
+msgstr "Puppet-ის მითითებული კლასის ჭკვიანი კლასის პარამეტრების სია"
+
+msgid "List of smart class parameters for a specific environment"
+msgstr "მითითებული გარემოს ჭკვიანი კლასის პარამეტრების სია"
+
+msgid "List of smart class parameters for a specific environment/Puppet class combination"
+msgstr "Puppet-ის მითითებული კლასის ჭკვიანი კლასის პარამეტრების სია/Puppet-ის კლასის კომბინაცია"
+
+msgid "List of smart class parameters for a specific host"
+msgstr "ჭკვიანი კლასის პარამეტრების სია მითითებული ჰოსტისთვის"
+
+msgid "List of smart class parameters for a specific host group"
+msgstr "ჭკვიანი კლასის პარამეტრების სია მითითებული ჰოსტების მითითებული ჯგუფისთვის"
+
+msgid "List template combination"
+msgstr "შაბლონის კომბინაციების სია"
+
+msgid "Loading parameters..."
+msgstr "პარამეტრების ჩატვირთვა..."
+
+msgid "Locations"
+msgstr "მდებარეობები"
+
+msgid "Merge all matching values (only array/hash type)"
+msgstr "ყველა ერთნაირი მნიშვნელობის შერწყმა (მხოლოდ მასივის/ჰეშის ტიპი)"
+
+msgid "Name"
+msgstr "სახელი"
+
+msgid "New"
+msgstr "ახალი"
+
+msgid "No changes to your environments detected"
+msgstr "თქვენს გარემოებში ცვლილებები არაა"
+
+msgid "No environment selected!"
+msgstr "გარემო არჩეული არაა!"
+
+msgid "No environments found"
+msgstr "კლასების გარეშე"
+
+msgid "No parameters to override for Puppet class %s"
+msgstr "Puppet-ის კლასის (%s) გადასაფარი პარამეტრების გარეშე"
+
+msgid "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled."
+msgstr "პროქსი, რომლიდანაც კლასებს შემოვიტან, არ არსებობს. დარწმუნდით, რომ არსებობს ერთი ჭკვიანი პროქსი მაინც, რომელზეც 'Puppet' ფუნქცია ჩართულია."
+
+msgid "No proxy selected!"
+msgstr "პროქსი არჩეული არაა!"
+
+msgid "No smart proxy was found to import environments from, ensure that at least one smart proxy is registered with the 'puppet' feature"
+msgstr "გარემოების შემოსატანად ჭკვიანი პროქსი აღმოჩენილი არაა. დარწმუნდით, რომ რეგისტრირებულია \"puppet\" ფუნქციის მქონე ერთი ჭკვიანი პროქსი მაინც"
+
+msgid "None"
+msgstr "არაფერი"
+
+msgid "Not authorized to edit classes"
+msgstr "კლასების ჩასწორებისთვის ავტორიზებული არ ბრძანდებით"
+
+msgid "Notice"
+msgstr "გაფრთხილება"
+
+msgid "Number of Overrides"
+msgstr "გადაფარვების რაოდენობა"
+
+msgid "Number of classes"
+msgstr "კლასების რაოდენობა"
+
+msgid "Obsolete"
+msgstr "მოძველებული"
+
+msgid "Omit"
+msgstr "ამოღება"
+
+msgid "Omit from classification output"
+msgstr "კლასიფიკაციის გამოტანის ამოღება"
+
+msgid "Operating System"
+msgstr "ოპერაციული სისტემა"
+
+msgid "Operating system default"
+msgstr "ოპერაციული სისტემის ნაგულისხმები მნიშვნელობა"
+
+msgid "Operation"
+msgstr "ოეპრაცია"
+
+msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes"
+msgstr "შემოტანილი Puppet-ის კლასების შემოსატანის შესაზღუდად არასავალდებულო, მძიმით გამოყოფილი სტრიქონები, რომელიც 'new' (ახალი), 'updated' (განახლებული) ან 'obsolete' (მოძველებული) გამოიყენება"
+
+msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the value will be empty.</i><br/>"
+msgstr ""
+
+msgid "Organizations"
+msgstr "ორგანიზაციები"
+
+msgid "Original value info"
+msgstr "ინფორმაცია საწყისი მნიშვნელობის შესახებ"
+
+msgid "Overridden"
+msgstr "გადაფარული"
+
+msgid "Override all parameters"
+msgstr "ყველა პარამეტრის გადაფარვა"
+
+msgid "Override match"
+msgstr "დამთხვევის გადაფარვა"
+
+msgid "Override this value"
+msgstr "მნიშვნელობის გადაფარვა"
+
+msgid "Override value, required if omit is false"
+msgstr "მნიშვნელობის გადაფარვა. საჭიროა, თუ ამოგდება გამორთულია"
+
+msgid "Parameter"
+msgstr "პარამეტრი"
+
+msgid "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers)."
+msgstr ""
+
+msgid "Parameters"
+msgstr "პარამეტრები"
+
+msgid "Please select an environment first"
+msgstr "ჯერ აირჩიეთ გარემო"
+
+msgid "Puppet"
+msgstr "Puppet"
+
+msgid "Puppet CA"
+msgstr "Puppet CA"
+
+msgid "Puppet CA Smart Proxy"
+msgstr ""
+
+msgid "Puppet Class"
+msgstr "Puppet-ის კლასი"
+
+msgid "Puppet Class Parameters"
+msgstr "Puppet-ის კლასის მორგება"
+
+msgid "Puppet Classes"
+msgstr "Puppet-ის კლასები"
+
+msgid "Puppet ENC"
+msgstr "Puppet ENC"
+
+msgid "Puppet Environment"
+msgstr "Puppet-ის გარემო"
+
+msgid "Puppet Environments"
+msgstr "Puppet-ის გარემოები"
+
+msgid "Puppet Modules"
+msgstr "Puppet-ის მოდულები"
+
+msgid "Puppet Smart Proxy"
+msgstr ""
+
+msgid "Puppet YAML"
+msgstr "Puppet YAML"
+
+msgid "Puppet details"
+msgstr ""
+
+msgid "Puppet environment"
+msgstr ""
+
+msgid "Puppet environments"
+msgstr "Puppet-ის გარემოები"
+
+msgid "Puppet external nodes YAML dump"
+msgstr "Puppet-ის გარე კვანძების YAML ტექსტი"
+
+msgid "Puppet interval"
+msgstr "Puppet-ის ინტერვალი"
+
+msgid "Puppet parameter"
+msgstr "Puppet-ის პარამეტრი"
+
+msgid "Puppetclass|Name"
+msgstr "Puppet-ის კლასი|სახელი"
+
+msgid "Remote action:"
+msgstr "დაშორებული ქმედება:"
+
+msgid "Remove"
+msgstr "წაშლა"
+
+msgid "Remove Combination"
+msgstr "კომბინაციის წაშლა"
+
+msgid "Remove a Puppet class from host"
+msgstr "ჰოსტიდან Puppet-ის კლასის წაშლა"
+
+msgid "Remove a Puppet class from host group"
+msgstr "ჰოსტების ჯგუფში Puppet-ის კლასის წაშლა"
+
+msgid "Remove duplicate values (only array type)"
+msgstr "დუბლირებული მნიშვნელობების წაშლა (მხოლოდ მასივის ტიპი)"
+
+msgid "Remove this override"
+msgstr "გადაფარვის მოცილება"
+
+msgid "Remove:"
+msgstr "წაშლა:"
+
+msgid "Reports"
+msgstr ""
+
+msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
+msgstr "აუცილებელი პარამეტრი მნიშვნელობის გარეშე.<br/><b>გადაფარეთ!</b><br/>"
+
+msgid "Select environment"
+msgstr "აირჩიეთ გარემო"
+
+msgid "Select the changes you want to apply to Foreman"
+msgstr "აირჩიეთ ცვლილებები, რომლებიც გნებავთ Foreman-ს გადაატაროთ"
+
+msgid "Set parameters to defaults"
+msgstr "პარამეტრების ნაგულისხმები მნიშვნელობების დაყენება"
+
+msgid "Show a Puppet class"
+msgstr "Puppet-ის კლასის ჩვენება"
+
+msgid "Show a Puppet class for a host group"
+msgstr "ჰოსტის ჯგუფისთვის Puppet-ის კლასის ჩვენება"
+
+msgid "Show a Puppet class for an environment"
+msgstr "გარემოსთვის Puppet-ის კლასის ჩვენება"
+
+msgid "Show a Puppet class for host"
+msgstr "ჰოსტისთვის Puppet-ის კლასის ჩვენება"
+
+msgid "Show a config group"
+msgstr "კონფიგურაციის ჯგუფის ჩვენება"
+
+msgid "Show a smart class parameter"
+msgstr "ჭკვიანი კლასის პარამეტრის ჩვენება"
+
+msgid "Show an environment"
+msgstr "გარემოს ჩვენება"
+
+msgid "Show an override value for a specific smart class parameter"
+msgstr "მითითებული ჭკვიანი კლასის პარამეტრის გადაფარვის მნიშვნელობის ჩვენება"
+
+msgid "Show template combination"
+msgstr "შაბლონის კომბინაციის ჩვენება"
+
+msgid "Smart Class Parameter"
+msgstr "ჭკვიანი კლასის პარამეტრი"
+
+msgid "Smart Class Parameters"
+msgstr "ჭკვიანი კლასის მორგება"
+
+msgid "Smart class parameters"
+msgstr ""
+
+msgid "Some Puppet Classes are unavailable in the selected environment"
+msgstr "Puppet-ის ზოგიერთი კლასი მიუწვდომელია მითითებულ გარემოში"
+
+msgid "Successfully overridden all parameters of Puppet class %s"
+msgstr "Puppet-ის კლასის (%s) ყველა პარამეტრი წარმატებით გადაიფარა"
+
+msgid "Successfully reset all parameters of Puppet class %s to their default values"
+msgstr "Puppet-ის კლასის (%s) ყველა პარამეტრი წარმატებით დაბრუნდა ნაგულისხმები მნიშვნელობებზე"
+
+msgid "Successfully updated environments and Puppet classes from the on-disk Puppet installation"
+msgstr "დისკზე ნაპოვნი Puppet-ის წყაროდან გარემოების და Puppet-ის კლასების განახლება წარმატებულია"
+
+msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
+msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
+msgstr[0] "მონიშნული ჰოსტის %{proxy_type} ტიპის პროქსის დაყენების შეცდომა ჰოსტებზე: %{host_names}."
+msgstr[1] "მონიშნული ჰოსტის %{proxy_type} ტიპის პროქსის დაყენების შეცდომა ჰოსტებზე: %{host_names}."
+
+msgid "The %{proxy_type} proxy of the selected hosts was cleared."
+msgstr "მონიშნული ჰოსტის %{proxy_type} პროქსი გასუფთავებულია."
+
+msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
+msgstr "მონიშნული ჰოსტის %{proxy_type} პროქსი დაყენებულია %{proxy_name}-ზე"
+
+msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
+msgstr "მონიშნული ჰოსტის %{proxy_type} პროქსი დაყენებულია %{proxy_name}-ზე."
+
+msgid "The class could not be saved because of an error in one of the class parameters."
+msgstr ""
+
+msgid "The final entry, Operating System default, can be set by editing the %s page."
+msgstr ""
+
+msgid "The order in which values are resolved"
+msgstr "მიმდევრობა, რომლითაც მნიშვნელობების ამოხსნა ხდება"
+
+msgid "The requested environment cannot be found."
+msgstr "მითითებული გარემო ნაპოვნი არაა."
+
+msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
+msgstr ""
+
+msgid "This Puppet class has no parameters in its signature."
+msgstr "Puppet-ის კლასს მის ხელმოწერაში პარამეტრები არ გააჩნია."
+
+msgid "This tab is still a work in progress"
+msgstr ""
+
+msgid "This will reset parameters of the class %s to their default values. Continue?"
+msgstr "კლასის (%s) ყველა პარამეტრი ნაგულიხმებ მნიშვნელობებზე დაბრუნდება. გავაგრძლო?"
+
+msgid "This will set all parameters of the class %s as overridden. Continue?"
+msgstr "კლასის (%s) ყველა პარამეტრი გადაფარულად გამოცხადდება. გავაგრძელო?"
+
+msgid "To update the class signature, go to the Puppet Classes page and select \"Import\"."
+msgstr "კლასის ხელმოწერის გასაახლებლად გადადით Puppet-ის კლასებში და აირჩიეთ \"სემოტანა\"."
+
+msgid "Toggle"
+msgstr "გადართვა"
+
+msgid "Total"
+msgstr "ჯამში"
+
+msgid "Types of validation values"
+msgstr "შემოწმების მნიშვნელობის ტიპები"
+
+msgid "Types of variable values"
+msgstr "ცვლადის მნიშვნელობის ტიპები"
+
+msgid "Unable to generate output, Check log files"
+msgstr "გამოტანის შეცდომა, შეამოწმეთ ჟურნალი"
+
+msgid "Update"
+msgstr "განახლება"
+
+msgid "Update a Puppet class"
+msgstr "Puppet-ის კლასის განახლება"
+
+msgid "Update a config group"
+msgstr "კონფიგურაციის ჯგუფის განახლება"
+
+msgid "Update a smart class parameter"
+msgstr "ჭკვიანი კლასის პარამეტრის განახლება"
+
+msgid "Update an environment"
+msgstr "გარემოს განახლება"
+
+msgid "Update an override value for a specific smart class parameter"
+msgstr "მითითებული ჭკვიანი კლასის პარამეტრის გადაფარვის განახლება"
+
+msgid "Update environment from facts"
+msgstr "გარემოს ფაქტებიდან გამართვა"
+
+msgid "Update template combination"
+msgstr "შაბლონის კომბინაციის განახლება"
+
+msgid "Update:"
+msgstr "განახლება:"
+
+msgid "Updated"
+msgstr "განახლდა"
+
+msgid "Updated hosts: changed environment"
+msgstr "ჰოსტები განახლდა: გარემო შეიცვალა"
+
+msgid "Used to enforce certain values for the parameter values"
+msgstr "გამოიყენება ზოგიერთი მნიშვნელობების პარამეტრების მნიშვნელობებად ძალით დასაყენებლად"
+
+msgid "Valid Host Group and Environment Combinations"
+msgstr "სწორი ჰოსტის ჯგუფისა და გარემოს კომბინაციები"
+
+msgid "Value"
+msgstr "მნიშვნელობა"
+
+msgid "Value to use when there is no match"
+msgstr "მნიშვნელობა, რომელიც გამოიყენება, როცა დამთხვევები არაა"
+
+msgid ""
+"When a Host requests a template (e.g. during provisioning), Foreman \\\n"
+"  will select the best match from the available templates of that type, in the \\\n"
+"  following order:"
+msgstr ""
+
+msgid ""
+"When editing a template, you must assign a list \\\n"
+"  of operating systems which this template can be used with. Optionally, you can \\\n"
+"  restrict a template to a list of host groups and/or environments."
+msgstr ""
+
+msgid "When enabled the parameter is hidden in the UI"
+msgstr "როცა ჩართულია, UI-ში პარმეტრი დამალულია"
+
+msgid "Whether the smart class parameter value is managed by Foreman"
+msgstr "იმართება თუ არა ჭკვიანი კლასის პარამეტრის მნიშვნელობა Foreman-ის მიერ"
+
+msgid "belongs to config group"
+msgstr "ეკუთვნის კონფიგურაციის ჯგუფს"
+
+msgid "environment id"
+msgstr "გარემოს id"
+
+msgid "included already from parent"
+msgstr "უკვე ჩასმულია მშობლის მიერ"
+
+msgid "must be true to edit the parameter"
+msgstr "პარამეტრის ჩასასწორებლად ჩართული უნდა იყოს"
+
+msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
+msgstr ""

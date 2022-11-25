@@ -90,7 +90,7 @@ msgstr ""
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
-msgid "Autosign entries"
+msgid "Assigned classes"
 msgstr ""
 
 msgid "Available Classes"
@@ -107,9 +107,6 @@ msgstr ""
 
 msgid "Cancel"
 msgstr "Annuleren"
-
-msgid "Certificates"
-msgstr ""
 
 msgid "Change Environment"
 msgstr "Wijzig Omgeving"
@@ -151,6 +148,9 @@ msgid "Config Groups"
 msgstr ""
 
 msgid "Config Management"
+msgstr ""
+
+msgid "Couldn't find any ENC data for this host"
 msgstr ""
 
 msgid "Create Config Group"
@@ -231,6 +231,9 @@ msgstr "Bekijk verstopte waarden"
 msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
 msgstr ""
 
+msgid "ENC Preview"
+msgstr ""
+
 msgid "ENC environment"
 msgstr ""
 
@@ -246,6 +249,9 @@ msgstr ""
 msgid "Environment"
 msgstr ""
 
+msgid "Environment name"
+msgstr ""
+
 msgid "Environment only"
 msgstr ""
 
@@ -253,6 +259,9 @@ msgid "Environments"
 msgstr ""
 
 msgid "Environment|Name"
+msgstr ""
+
+msgid "Error!"
 msgstr ""
 
 msgid "Facts"
@@ -292,6 +301,9 @@ msgid "Foreman will update a host's environment from its facts"
 msgstr ""
 
 msgid "General"
+msgstr ""
+
+msgid "Help"
 msgstr ""
 
 msgid "Host Groups"
@@ -579,6 +591,9 @@ msgstr "Puppet"
 msgid "Puppet CA"
 msgstr "Puppet CA"
 
+msgid "Puppet CA Smart Proxy"
+msgstr ""
+
 msgid "Puppet Class"
 msgstr ""
 
@@ -600,7 +615,16 @@ msgstr ""
 msgid "Puppet Modules"
 msgstr ""
 
+msgid "Puppet Smart Proxy"
+msgstr ""
+
 msgid "Puppet YAML"
+msgstr ""
+
+msgid "Puppet details"
+msgstr ""
+
+msgid "Puppet environment"
 msgstr ""
 
 msgid "Puppet environments"
@@ -640,6 +664,9 @@ msgid "Remove this override"
 msgstr ""
 
 msgid "Remove:"
+msgstr ""
+
+msgid "Reports"
 msgstr ""
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
@@ -687,6 +714,9 @@ msgstr ""
 msgid "Smart Class Parameters"
 msgstr ""
 
+msgid "Smart class parameters"
+msgstr ""
+
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""
 
@@ -729,6 +759,9 @@ msgid "There are no puppet environments set up on this puppet master. Please che
 msgstr ""
 
 msgid "This Puppet class has no parameters in its signature."
+msgstr ""
+
+msgid "This tab is still a work in progress"
 msgstr ""
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"

@@ -94,7 +94,7 @@ msgstr "Todos los entornos - (no filtrados)"
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr ""
 
-msgid "Autosign entries"
+msgid "Assigned classes"
 msgstr ""
 
 msgid "Available Classes"
@@ -111,9 +111,6 @@ msgstr ""
 
 msgid "Cancel"
 msgstr "Cancelar"
-
-msgid "Certificates"
-msgstr ""
 
 msgid "Change Environment"
 msgstr "Cambiar entorno"
@@ -156,6 +153,9 @@ msgstr "Grupos de configuración"
 
 msgid "Config Management"
 msgstr "Administración de configuración"
+
+msgid "Couldn't find any ENC data for this host"
+msgstr ""
 
 msgid "Create Config Group"
 msgstr "Crear grupo de configuración"
@@ -235,6 +235,9 @@ msgstr "Mostrar valores ocultos"
 msgid "Duration in minutes after servers reporting via Puppet are classed as out of sync."
 msgstr "Duración en minutos después de que los servidores que informan mediante Puppet se clasifiquen como fuera de sincronización."
 
+msgid "ENC Preview"
+msgstr ""
+
 msgid "ENC environment"
 msgstr "Entorno ENC"
 
@@ -250,6 +253,9 @@ msgstr "Entorno vacío"
 msgid "Environment"
 msgstr "Entorno"
 
+msgid "Environment name"
+msgstr ""
+
 msgid "Environment only"
 msgstr "Solo entorno"
 
@@ -258,6 +264,9 @@ msgstr "Entornos"
 
 msgid "Environment|Name"
 msgstr "Nombre"
+
+msgid "Error!"
+msgstr ""
 
 msgid "Facts"
 msgstr "Eventos"
@@ -297,6 +306,9 @@ msgstr "Foreman actualizará el entorno del host mediante eventos"
 
 msgid "General"
 msgstr "General"
+
+msgid "Help"
+msgstr ""
 
 msgid "Host Groups"
 msgstr "Grupo del host"
@@ -583,6 +595,9 @@ msgstr "Puppet"
 msgid "Puppet CA"
 msgstr "CA Puppet"
 
+msgid "Puppet CA Smart Proxy"
+msgstr ""
+
 msgid "Puppet Class"
 msgstr "Clase Puppet"
 
@@ -604,7 +619,16 @@ msgstr "Entornos Puppet"
 msgid "Puppet Modules"
 msgstr "Módulos Puppet"
 
+msgid "Puppet Smart Proxy"
+msgstr ""
+
 msgid "Puppet YAML"
+msgstr ""
+
+msgid "Puppet details"
+msgstr ""
+
+msgid "Puppet environment"
 msgstr ""
 
 msgid "Puppet environments"
@@ -645,6 +669,9 @@ msgstr "Eliminar esta sustitución"
 
 msgid "Remove:"
 msgstr "Eliminar:"
+
+msgid "Reports"
+msgstr ""
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "Parámetro requerido sin valor.<br/><b>¡Sustituir!</b><br/>"
@@ -691,6 +718,9 @@ msgstr "Parámetro de clase Inteligente"
 msgid "Smart Class Parameters"
 msgstr "Parámetros de clase inteligente"
 
+msgid "Smart class parameters"
+msgstr ""
+
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""
 
@@ -734,6 +764,9 @@ msgstr "No hay entornos Puppet configurados en este puppetmaster. Verifique la c
 
 msgid "This Puppet class has no parameters in its signature."
 msgstr "Esta clase Puppet no tiene parámetros en su firma."
+
+msgid "This tab is still a work in progress"
+msgstr ""
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
 msgstr "Esto restablecerá los parámetros de la clase %s a los valores predeterminados. ¿Continuar?"

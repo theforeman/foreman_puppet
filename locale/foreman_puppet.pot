@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-28 12:33+0100\n"
-"PO-Revision-Date: 2022-02-28 12:33+0100\n"
+"POT-Creation-Date: 2022-11-25 14:24+0100\n"
+"PO-Revision-Date: 2022-11-25 14:24+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -255,6 +255,8 @@ msgstr ""
 
 #:
 #: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:204
+#: ../lib/foreman_puppet/register.rb:229
+#: ../webpack/src/Extends/Fills/index.js:12
 msgid "Puppet"
 msgstr ""
 
@@ -580,6 +582,11 @@ msgstr ""
 msgid "Create Puppet Environment"
 msgstr ""
 
+#: ../app/helpers/foreman_puppet/environments_helper.rb:14
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:7
+msgid "Help"
+msgstr ""
+
 #: ../app/helpers/foreman_puppet/hosts_helper.rb:11
 msgid "Change Environment"
 msgstr ""
@@ -597,6 +604,7 @@ msgid "Puppet external nodes YAML dump"
 msgstr ""
 
 #: ../app/helpers/foreman_puppet/hosts_helper.rb:34
+#: ../app/views/hosts/foreman_puppet/_form_list_env_field_header.html.erb:1
 msgid "Puppet Environment"
 msgstr ""
 
@@ -896,35 +904,35 @@ msgstr ""
 msgid "Config Groups"
 msgstr ""
 
-#: ../app/views/foreman_puppet/config_groups/index.html.erb:5
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:6
 #: ../app/views/foreman_puppet/config_groups/new.html.erb:1
 #: ../app/views/foreman_puppet/config_groups/welcome.html.erb:5
 msgid "Create Config Group"
 msgstr ""
 
-#: ../app/views/foreman_puppet/config_groups/index.html.erb:11
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:13
 #: ../app/views/foreman_puppet/puppetclasses/index.html.erb:1
 msgid "Puppet Classes"
 msgstr ""
 
-#: ../app/views/foreman_puppet/config_groups/index.html.erb:12
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:14
 #: ../app/views/foreman_puppet/environments/index.html.erb:9
 #: ../app/views/foreman_puppet/puppetclasses/index.html.erb:12
 msgid "Hosts"
 msgstr ""
 
-#: ../app/views/foreman_puppet/config_groups/index.html.erb:13
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:15
 #: ../app/views/foreman_puppet/puppetclasses/index.html.erb:11
 msgid "Host Groups"
 msgstr ""
 
-#: ../app/views/foreman_puppet/config_groups/index.html.erb:14
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:16
 #: ../app/views/foreman_puppet/environments/index.html.erb:10
 #: ../app/views/foreman_puppet/puppetclasses/index.html.erb:14
 msgid "Actions"
 msgstr ""
 
-#: ../app/views/foreman_puppet/config_groups/index.html.erb:25
+#: ../app/views/foreman_puppet/config_groups/index.html.erb:27
 #: ../app/views/foreman_puppet/puppetclasses/index.html.erb:36
 msgid "Delete %s?"
 msgstr ""
@@ -1164,21 +1172,11 @@ msgid "Add Combination"
 msgstr ""
 
 #: ../app/views/smart_proxies/plugins/_puppet.html.erb:3
-#: ../app/views/smart_proxies/plugins/_puppet_ca.html.erb:2
 msgid "General"
 msgstr ""
 
 #: ../app/views/smart_proxies/plugins/_puppet.html.erb:12
-#: ../app/views/smart_proxies/plugins/_puppet_ca.html.erb:16
 msgid "Hosts managed:"
-msgstr ""
-
-#: ../app/views/smart_proxies/plugins/_puppet_ca.html.erb:4
-msgid "Certificates"
-msgstr ""
-
-#: ../app/views/smart_proxies/plugins/_puppet_ca.html.erb:7
-msgid "Autosign entries"
 msgstr ""
 
 #: ../lib/foreman_puppet/register.rb:7
@@ -1240,6 +1238,10 @@ msgstr ""
 msgid "Puppet ENC"
 msgstr ""
 
+#: ../lib/foreman_puppet/register.rb:230
+msgid "Environment name"
+msgstr ""
+
 #: ../webpack/src/Components/Environments/Welcome.js:13
 msgid ""
 "If you are planning to use Foreman as an external node classifier you should p"
@@ -1247,6 +1249,57 @@ msgid ""
 "mmonly imported from a pre-existing Puppet configuration by the use of the <a "
 "target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and envi"
 "ronment importer.</a>"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/Routes.js:15
+#: ../webpack/src/Extends/Host/PuppetTab/constants.js:6
+msgid "Assigned classes"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/Routes.js:16
+#: ../webpack/src/Extends/Host/PuppetTab/Routes.js:22
+msgid "This tab is still a work in progress"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/Routes.js:21
+#: ../webpack/src/Extends/Host/PuppetTab/constants.js:7
+msgid "Smart class parameters"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/index.js:28
+msgid "Couldn't find any ENC data for this host"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/index.js:34
+msgid "Error!"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/DescriptionCard.js:23
+msgid "Puppet details"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/DescriptionCard.js:26
+msgid "Puppet environment"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/DescriptionCard.js:41
+msgid "Puppet Smart Proxy"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/DescriptionCard.js:54
+msgid "Puppet CA Smart Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/constants.js:4
+msgid "Reports"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/constants.js:9
+msgid "ENC Preview"
 msgstr ""
 
 #: ../webpack/src/foreman_class_edit.js:146
