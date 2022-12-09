@@ -37,6 +37,7 @@ You can install it on Foreman 2.5 to prepare for the Foreman update.
 
 |Foreman version|Plugin version|Notes                                     |
 |---------------|--------------|------------------------------------------|
+| >= 3.5        | ~> 5.0       | Required                                 |
 | >= 3.3        | ~> 4.0       | Required                                 |
 | >= 3.2        | ~> 3.0       | Required                                 |
 | ~> 3.1        | ~> 2.0       | Required                                 |
