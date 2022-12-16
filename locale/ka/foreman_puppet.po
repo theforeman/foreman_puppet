@@ -4,14 +4,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# NorwayFun <temuri.doghonadze@gmail.com>, 2022
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 1.0.0\n"
+"Project-Id-Version: foreman_puppet 5.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>, 2022\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022\n"
 "Language-Team: Georgian (https://www.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +58,7 @@ msgstr ""
 "        <b>მემკვიდრეობითი მნიშვნელობა:</b> %{inherited_value}"
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
-msgstr ""
+msgstr "კონფიგურაციის ჯგუფი უზრუნველყოფს ერთნაბიჯიან მეთოდს Puppet-ის ბევრი კლასის ჰოსტთან ან ჰოსტების ჯგუფთან ასოცირებისთვის. ჩვეულებრივ ეს კონკრეტული აპლიკაციის პროფილის ან სტეკის ერთი მოქმედებით დასამატებლად გამოიყენება."
 
 msgid "Action with sub plans"
 msgstr "ქმედება ქვე-გეგმებით"
@@ -90,7 +91,7 @@ msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
 msgstr "Puppet-ის გარემოების და კლასების Foreman-ის ჰოსტებისთვის მინიჭების ჩართვა."
 
 msgid "Assigned classes"
-msgstr ""
+msgstr "მინიჭებული კლასები"
 
 msgid "Available Classes"
 msgstr "ხელმისაწვდომი კლასები"
@@ -150,7 +151,7 @@ msgid "Config Management"
 msgstr "კონფიგურაციის მართვა"
 
 msgid "Couldn't find any ENC data for this host"
-msgstr ""
+msgstr "ამ ჰოსტისთვის ENC მონაცემების პოვნა შეუძლებელია"
 
 msgid "Create Config Group"
 msgstr "კონფიგურაციის ჯგუფის შექმნა"
@@ -222,7 +223,7 @@ msgid "Description of smart class"
 msgstr "ჭკვიანი კლასის აღწერა"
 
 msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
-msgstr ""
+msgstr "ჰოსტის კონფიგურაციის სტატუსის გამორთვა სინქრონიზაციის გარეშე მყოფი %s-სთვის, ანგარიშის მითითებული დროის არ-მიღებს შემდეგ"
 
 msgid "Display hidden values"
 msgstr "დამალული მნიშვნელობების ჩვენება"
@@ -231,7 +232,7 @@ msgid "Duration in minutes after servers reporting via Puppet are classed as out
 msgstr "წუთების რაოდენობა, რომლის გასვლის სემდეგაც Puppet-ში ჩამატებული სერვერები სინქიდან ამოვარდნილად გამოცხადდებიან."
 
 msgid "ENC Preview"
-msgstr ""
+msgstr "ENC გადახედვა"
 
 msgid "ENC environment"
 msgstr "ENC გარემო"
@@ -249,7 +250,7 @@ msgid "Environment"
 msgstr "გარემო"
 
 msgid "Environment name"
-msgstr ""
+msgstr "გარემოს სახელი"
 
 msgid "Environment only"
 msgstr "მხოლოდ გარემო"
@@ -261,7 +262,7 @@ msgid "Environment|Name"
 msgstr "გარემო|სახელი"
 
 msgid "Error!"
-msgstr ""
+msgstr "შეცდომა!"
 
 msgid "Facts"
 msgstr "ფაქტები"
@@ -288,13 +289,13 @@ msgid "Foreman will default to this puppet environment if it cannot auto detect 
 msgstr "თუ სხვას ავტომატურად ვერ იპოვის, Foreman-ი Puppet-ის ამ გარემოს ნაგულისხმებად გამოიყენებს"
 
 msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
-msgstr ""
+msgstr "Foreman დაუფარავად დააყენებს Puppet-ის გარემოს ENC-ის yaml გამონატანში. ეს puppet.conf-ისა და Foreman-ში დაყენებულ გარემოებს შორის კონფლიქტს თავიდან აიცილებს"
 
 msgid "Foreman will not send this parameter in classification output"
 msgstr "Foreman-ი ამ პარამეტრს კლასიფიკაციის გამოტანაში არ გააგზავნის"
 
 msgid "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter"
-msgstr ""
+msgstr "Foreman -ი ამ პარამეტრს კლასიფიკაციის გამოტანაში არ გააგზავნის. Puppet ამ მნიშვნელობას ამ პარამეტრის Puppet-ის მანიფესტში გამოიყენებს"
 
 msgid "Foreman will update a host's environment from its facts"
 msgstr "Foreman-ი ჰოსტის გარემოს მისი ფაქტებიდან განაახლებს"
@@ -303,7 +304,7 @@ msgid "General"
 msgstr "მთავარი"
 
 msgid "Help"
-msgstr ""
+msgstr "დახმარება"
 
 msgid "Host Groups"
 msgstr "ჰოსტის ჯგუფები"
@@ -357,10 +358,10 @@ msgid "IDs of associated Puppetclasses"
 msgstr "Puppet-ის ასოცირებული კლასების ID-ები"
 
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
-msgstr ""
+msgstr "თუ მონიშნულია, წარმოიქმნება შეცდომა, თუ არ არის ნაგულისხმევი მნიშვნელობა და არცერთი დამთხვევა მნიშვნელობას არ იძლევა"
 
 msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
-msgstr ""
+msgstr "თუ თქვენ აპირებთ Foreman- ის , როგორც გარე კვანძის კლასიფიკატორის გამოყენებას, უნდა მიაწოდოთ ინფორმაცია ერთი ან მეტი გარემოს შესახებ.<br/> ეს ინფორმაცია ჩვეულებრივ იმპორტირებულია წინასწარ არსებული მარიონეტული კონფიგურაციიდან <a target=\"_blank\" href=\"${getManualURL(\" '4.2.2classes'=\"\" )}=\"\">მარიონეტული კლასებისა და გარემოს იმპორტიორის გამოყენებით.</a>"
 
 msgid "Ignored classes in the environments: %s"
 msgstr "გარემოების იგნორირებული კლასები: %s"
@@ -549,7 +550,7 @@ msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'ob
 msgstr "შემოტანილი Puppet-ის კლასების შემოსატანის შესაზღუდად არასავალდებულო, მძიმით გამოყოფილი სტრიქონები, რომელიც 'new' (ახალი), 'updated' (განახლებული) ან 'obsolete' (მოძველებული) გამოიყენება"
 
 msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the value will be empty.</i><br/>"
-msgstr ""
+msgstr "არასავალდებულო პარამეტრი მნიშვნელობის გარეშე.<br/><i>ის ჯერ კიდევ Foreman-ის მიერაა მართული. მნიშვნელობა ცარიელი იქნება.</i><br/>"
 
 msgid "Organizations"
 msgstr "ორგანიზაციები"
@@ -576,7 +577,7 @@ msgid "Parameter"
 msgstr "პარამეტრი"
 
 msgid "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers)."
-msgstr ""
+msgstr "პარამეტრიზებულ კლასს აქვს პარამეტრების აღმოჩენის, შემოტანის და გადაცემის საშუალება კლასებისთვის, რომელსაც მისი მხარდაჭერა გააჩნიათ, ENC-ის გავლით და დამოკიდებულია წესების ნაკრებზე (ჭკვიანი დამთხვევები)."
 
 msgid "Parameters"
 msgstr "პარამეტრები"
@@ -591,7 +592,7 @@ msgid "Puppet CA"
 msgstr "Puppet CA"
 
 msgid "Puppet CA Smart Proxy"
-msgstr ""
+msgstr "Puppet CA ჭკვიანი პროქსი"
 
 msgid "Puppet Class"
 msgstr "Puppet-ის კლასი"
@@ -615,16 +616,16 @@ msgid "Puppet Modules"
 msgstr "Puppet-ის მოდულები"
 
 msgid "Puppet Smart Proxy"
-msgstr ""
+msgstr "Puppet -ის ჭკვიანი პროქსი"
 
 msgid "Puppet YAML"
 msgstr "Puppet YAML"
 
 msgid "Puppet details"
-msgstr ""
+msgstr "Puppet -ის დეტალები"
 
 msgid "Puppet environment"
-msgstr ""
+msgstr "Puppet-ის გარემო"
 
 msgid "Puppet environments"
 msgstr "Puppet-ის გარემოები"
@@ -666,7 +667,7 @@ msgid "Remove:"
 msgstr "წაშლა:"
 
 msgid "Reports"
-msgstr ""
+msgstr "ანგარიშები"
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "აუცილებელი პარამეტრი მნიშვნელობის გარეშე.<br/><b>გადაფარეთ!</b><br/>"
@@ -714,7 +715,7 @@ msgid "Smart Class Parameters"
 msgstr "ჭკვიანი კლასის მორგება"
 
 msgid "Smart class parameters"
-msgstr ""
+msgstr "ჭკვიანი კლასის პარამეტრები"
 
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr "Puppet-ის ზოგიერთი კლასი მიუწვდომელია მითითებულ გარემოში"
@@ -743,10 +744,10 @@ msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
 msgstr "მონიშნული ჰოსტის %{proxy_type} პროქსი დაყენებულია %{proxy_name}-ზე."
 
 msgid "The class could not be saved because of an error in one of the class parameters."
-msgstr ""
+msgstr "კლასის შენახვა შეუძლებელია მის ერთ ან მეტ პარამეტრში შეცდომის გამო."
 
 msgid "The final entry, Operating System default, can be set by editing the %s page."
-msgstr ""
+msgstr "საბოლოო ჩანაწერი, ოპერაციული სისტემის ნაგულისხმები, შეიძლება დაყენდეს %s გვერდის რედაქტირებით."
 
 msgid "The order in which values are resolved"
 msgstr "მიმდევრობა, რომლითაც მნიშვნელობების ამოხსნა ხდება"
@@ -755,13 +756,13 @@ msgid "The requested environment cannot be found."
 msgstr "მითითებული გარემო ნაპოვნი არაა."
 
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
-msgstr ""
+msgstr "Puppet-ის ამ ძირითად სერვერზე Puppet-ის გარემო აწყობილი არაა. შეცვალეთ Puppet-ის ძირითადი სერვერის კონფიგურაცია."
 
 msgid "This Puppet class has no parameters in its signature."
 msgstr "Puppet-ის კლასს მის ხელმოწერაში პარამეტრები არ გააჩნია."
 
 msgid "This tab is still a work in progress"
-msgstr ""
+msgstr "ეს ჩანართი ჯერ კიდევ მიმდინარეობს"
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
 msgstr "კლასის (%s) ყველა პარამეტრი ნაგულიხმებ მნიშვნელობებზე დაბრუნდება. გავაგრძლო?"
@@ -837,12 +838,18 @@ msgid ""
 "  will select the best match from the available templates of that type, in the \\\n"
 "  following order:"
 msgstr ""
+"როდესაც ჰოსტი მოითხოვს შაბლონს (მაგ. სამუშაოდ მომზადების დროს), Foreman-ი \\\n"
+"   საუკეთესო შესატყვისს ამ ტიპის არსებული შაბლონებიდან,\n"
+"   შემდეგი თანამიმდევრობით შეარჩევს:"
 
 msgid ""
 "When editing a template, you must assign a list \\\n"
 "  of operating systems which this template can be used with. Optionally, you can \\\n"
 "  restrict a template to a list of host groups and/or environments."
 msgstr ""
+"შაბლონის რედაქტირებისას თქვენ უნდა მიანიჭოთ სია \\\n"
+"  ოპერაციული სისტემებისა, რომლებთანაც შესაძლებელია ამ შაბლონის გამოყენება. სურვილისამებრ, შეგიძლიათ \\\n"
+"  შაბლონი ჰოსტების ჯგუფების სიით ან/და გარემოებით შეზღუდოთ."
 
 msgid "When enabled the parameter is hidden in the UI"
 msgstr "როცა ჩართულია, UI-ში პარმეტრი დამალულია"
@@ -863,4 +870,4 @@ msgid "must be true to edit the parameter"
 msgstr "პარამეტრის ჩასასწორებლად ჩართული უნდა იყოს"
 
 msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
-msgstr ""
+msgstr "id-ით %{object_id} არ არსებობს ან არ არის მინიჭებული სათანადო ორგანიზაციასა და/ან მდებარეობაზე"

@@ -4,18 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# 0868a4d1af5275b3f70b0a6dac4c99a4, 2021
-# Bryan Kearney <bryan.kearney@gmail.com>, 2021
 # 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2021
-# Transifex Bot <>, 2021
-# Amit Upadhye <aupadhye@redhat.com>, 2021
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# Transifex Bot <>, 2022
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2022
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 3.0.2\n"
+"Project-Id-Version: foreman_puppet 5.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2021\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
 "Language-Team: Japanese (https://www.transifex.com/foreman/teams/114/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,10 +38,10 @@ msgstr "id '%{id}' の %{model} が見つかりませんでした"
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
-msgstr[0] "%{name} には ％{num_tag} クラスが含まれます"
+msgstr[0] "%{name} には ％{num_tag}クラスが含まれます"
 
 msgid "%{puppetclass} does not belong to the %{environment} environment"
-msgstr "%{puppetclass} は %{environment} 環境に属していません"
+msgstr "%{puppetclass} は %{environment} 環境に所属していません"
 
 msgid "*Clear environment*"
 msgstr "*環境をクリア*"
@@ -54,9 +55,9 @@ msgid ""
 "        <b>Matcher:</b> %{matcher}<br/>\n"
 "        <b>Inherited value:</b> %{inherited_value}"
 msgstr ""
-"<b>説明:</b> %{desc}<br/>\n"
-"     <b>タイプ:</b> %{type}<br/>\n"
-"     <b>Matcher:</b> %{matcher}<br/>\n"
+"<b>説明:</b> %%{desc}<br/>\n"
+"     <b>タイプ:</b> %%{type}<br/>\n"
+"     <b>Matcher:</b> %%{matcher}<br/>\n"
 "     <b>継承値:</b> %{inherited_value}"
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
@@ -90,10 +91,10 @@ msgid "All environments - (not filtered)"
 msgstr "すべての環境 - (フィルターなし)"
 
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
-msgstr ""
+msgstr "Puppet 環境とクラスを Foreman ホストに割り当てることを許可します。"
 
 msgid "Assigned classes"
-msgstr ""
+msgstr "割り当てられたクラス"
 
 msgid "Available Classes"
 msgstr "利用可能なクラス"
@@ -153,7 +154,7 @@ msgid "Config Management"
 msgstr "設定管理"
 
 msgid "Couldn't find any ENC data for this host"
-msgstr ""
+msgstr "このホストの ENC データを見つけられませんでした"
 
 msgid "Create Config Group"
 msgstr "設定グループの作成"
@@ -195,7 +196,7 @@ msgid "Delete an environment"
 msgstr "環境の削除"
 
 msgid "Delete an override value for a specific smart class parameter"
-msgstr "特定スマートクラスパラメーターの上書き値の削除"
+msgstr "特定スマートクラスパラメーターの上書き値を削除"
 
 msgid "Deleted environment"
 msgstr "削除済みの環境"
@@ -234,7 +235,7 @@ msgid "Duration in minutes after servers reporting via Puppet are classed as out
 msgstr "Puppet 経由で報告するサーバーが非同期として分類されるまでの期間 (分単位)。"
 
 msgid "ENC Preview"
-msgstr ""
+msgstr "ENC プレビュー"
 
 msgid "ENC environment"
 msgstr "ENC 環境"
@@ -252,7 +253,7 @@ msgid "Environment"
 msgstr "環境"
 
 msgid "Environment name"
-msgstr ""
+msgstr "環境名"
 
 msgid "Environment only"
 msgstr "環境のみ"
@@ -264,7 +265,7 @@ msgid "Environment|Name"
 msgstr "名前"
 
 msgid "Error!"
-msgstr ""
+msgstr "エラー!"
 
 msgid "Facts"
 msgstr "ファクト"
@@ -306,7 +307,7 @@ msgid "General"
 msgstr "全般"
 
 msgid "Help"
-msgstr ""
+msgstr "ヘルプ"
 
 msgid "Host Groups"
 msgstr "ホストグループ"
@@ -363,7 +364,7 @@ msgid "If true, will raise an error if there is no default value and no matcher 
 msgstr "true の場合は、デフォルト値がなく、Matcher が値を提供しないときにエラーが発生します"
 
 msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
-msgstr ""
+msgstr "Foreman を外部ノードの分類子として使用予定の場合には、1 つまたは複数の環境に関する情報を指定する必要があります。<br/>この情報は一般的に、<a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet クラスおよび環境インポーター</a> を使用して、既存の Puppet 設定からインポートされます。"
 
 msgid "Ignored classes in the environments: %s"
 msgstr "環境内で無視されたクラス: %s"
@@ -477,7 +478,7 @@ msgid "List of smart class parameters for a specific host group"
 msgstr "特定ホストグループのスマートクラスパラメーターの一覧"
 
 msgid "List template combination"
-msgstr "テンプレートの組み合わせを一覧表示"
+msgstr "テンプレートの組み合わせの一覧表示"
 
 msgid "Loading parameters..."
 msgstr "パラメーターのロード中..."
@@ -522,7 +523,7 @@ msgid "Not authorized to edit classes"
 msgstr "クラスを編集する権限がありません"
 
 msgid "Notice"
-msgstr "通知"
+msgstr "注意"
 
 msgid "Number of Overrides"
 msgstr "上書き数"
@@ -594,7 +595,7 @@ msgid "Puppet CA"
 msgstr "Puppet CA"
 
 msgid "Puppet CA Smart Proxy"
-msgstr ""
+msgstr "Puppet CA Smart Proxy"
 
 msgid "Puppet Class"
 msgstr "Puppet クラス"
@@ -618,16 +619,16 @@ msgid "Puppet Modules"
 msgstr "Puppet モジュール"
 
 msgid "Puppet Smart Proxy"
-msgstr ""
+msgstr "Puppet Smart Proxy"
 
 msgid "Puppet YAML"
 msgstr "Puppet YAML"
 
 msgid "Puppet details"
-msgstr ""
+msgstr "Puppet の詳細"
 
 msgid "Puppet environment"
-msgstr ""
+msgstr "Puppet 環境"
 
 msgid "Puppet environments"
 msgstr "Puppet 環境"
@@ -657,7 +658,7 @@ msgid "Remove a Puppet class from host"
 msgstr "ホストから Puppet クラスを削除"
 
 msgid "Remove a Puppet class from host group"
-msgstr "ホストグループからの Puppet クラスの削除"
+msgstr "ホストグループから Puppet クラスを削除"
 
 msgid "Remove duplicate values (only array type)"
 msgstr "重複する値の削除 (配列タイプのみ)"
@@ -669,7 +670,7 @@ msgid "Remove:"
 msgstr "削除:"
 
 msgid "Reports"
-msgstr ""
+msgstr "レポート"
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "値なしの必須パラメーターです。<br/><b>上書きしてください!</b><br/>"
@@ -717,10 +718,10 @@ msgid "Smart Class Parameters"
 msgstr "スマートクラスパラメーター"
 
 msgid "Smart class parameters"
-msgstr ""
+msgstr "スマートクラスパラメーター"
 
 msgid "Some Puppet Classes are unavailable in the selected environment"
-msgstr ""
+msgstr "選択した環境では、一部の Puppet クラスは利用できません"
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "Puppet クラス %s のすべてのパラメーターが正常に上書きされました"
@@ -763,7 +764,7 @@ msgid "This Puppet class has no parameters in its signature."
 msgstr "この Puppet クラスの署名にはパラメーターがありません。"
 
 msgid "This tab is still a work in progress"
-msgstr ""
+msgstr "このタブはまだ進行中です"
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
 msgstr "この操作ではクラス %s のパラメーターをデフォルト値にリセットします。続行しますか?"
@@ -871,4 +872,4 @@ msgid "must be true to edit the parameter"
 msgstr "パラメーターを編集するには true に設定する必要があります"
 
 msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
-msgstr "id %{object_id} が存在しないか、適切な組織またはロケーションに割り当てられていません"
+msgstr "id {object_id} が存在しないか、適切な組織またはロケーションに割り当てられていません"

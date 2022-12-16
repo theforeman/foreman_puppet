@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-25 14:24+0100\n"
-"PO-Revision-Date: 2022-11-25 14:24+0100\n"
+"POT-Creation-Date: 2022-12-13 19:47+0100\n"
+"PO-Revision-Date: 2022-12-13 19:47+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1239,7 +1239,7 @@ msgid "Puppet ENC"
 msgstr ""
 
 #: ../lib/foreman_puppet/register.rb:230
-msgid "Environment name"
+msgid "Puppet env"
 msgstr ""
 
 #: ../webpack/src/Components/Environments/Welcome.js:13
