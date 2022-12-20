@@ -36,7 +36,7 @@ const ENCPreview = ({ hostName }) => {
   }
   if (response !== '' || response !== undefined) {
     return (
-      <div className="enc-preview-tab" padding="16px 24px">
+      <div className="enc-preview-tab" style={{ padding: '16px 24px' }}>
         <ENCTab encData={response} />
       </div>
     );

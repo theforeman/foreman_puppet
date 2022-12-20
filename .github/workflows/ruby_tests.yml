@@ -37,7 +37,7 @@ jobs:
       fail-fast: true
       matrix:
         foreman-repo: [theforeman/foreman]
-        foreman-core-branch: [develop]
+        foreman-core-branch: [3.3-stable]
         ruby-version: [2.7]
         node-version: [12]
     steps:
