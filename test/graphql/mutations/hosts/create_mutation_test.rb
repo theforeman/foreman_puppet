@@ -72,7 +72,7 @@ module ForemanPuppet
             assert_equal 1, host.interfaces.count
             interface = host.interfaces.first
             assert_equal 'Nic::Bond', interface.type
-            assert_equal 'eth0, eth1', interface.attached_to
+            assert_same_elements %w[eth0 eth1], interface.attached_to.split(', ')
             assert_equal 'bond0', interface.identifier
             assert interface.primary
             assert interface.provision
