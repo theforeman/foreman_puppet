@@ -31,18 +31,15 @@ Some features will remain in core:
 
 ## Compatibility
 
-Foreman 3.0 will be the first release where the Puppet functionality is mostly extracted.
-Therefore, this plugin is only required for 3.0 and onwards.
-You can install it on Foreman 2.5 to prepare for the Foreman update.
-
 |Foreman version|Plugin version|Notes                                     |
 |---------------|--------------|------------------------------------------|
 | >= 3.5        | ~> 5.0       | Required                                 |
-| >= 3.3        | ~> 4.0       | Required                                 |
-| >= 3.2        | ~> 3.0       | Required                                 |
+| ~> 3.4        | ~> 4.1       | Required                                 |
+| ~> 3.3        | ~> 4.0       | Required                                 |
+| ~> 3.2        | ~> 3.0       | Required                                 |
 | ~> 3.1        | ~> 2.0       | Required                                 |
 | ~> 3.0        | ~> 1.0       | Required                                 |
-| >= 2.5        | ~> 0.1       | Optional; replaces Core features         |
+| ~> 2.5        | ~> 0.1       | Optional; replaces Core features         |
 | < 2.5         | -            | Not supported (functionality is in Core) |
 
 ## Installation
