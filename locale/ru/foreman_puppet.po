@@ -8,17 +8,18 @@
 # Alexander Savchenko, 2021
 # Andrei Burd <burdandrei@gmail.com>, 2021
 # Yulia <yulia.poyarkova@redhat.com>, 2021
-# 0868a4d1af5275b3f70b0a6dac4c99a4, 2021
-# Bryan Kearney <bryan.kearney@gmail.com>, 2021
 # Vladimir Pavlov <v.pavlov@i-teco.ru>, 2021
 # KotUchoniy <yosho1@yandex.ru>, 2021
+# Bryan Kearney <bryan.kearney@gmail.com>, 2022
+# 0868a4d1af5275b3f70b0a6dac4c99a4, 2022
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 3.0.2\n"
+"Project-Id-Version: foreman_puppet 5.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: KotUchoniy <yosho1@yandex.ru>, 2021\n"
+"Last-Translator: 0868a4d1af5275b3f70b0a6dac4c99a4, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/foreman/teams/114/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -254,7 +255,7 @@ msgid "Environment"
 msgstr "Окружение"
 
 msgid "Environment name"
-msgstr ""
+msgstr "Имя окружения"
 
 msgid "Environment only"
 msgstr "Только окружение"
@@ -308,7 +309,7 @@ msgid "General"
 msgstr "Общие"
 
 msgid "Help"
-msgstr ""
+msgstr "Справка"
 
 msgid "Host Groups"
 msgstr "Группы узлов"
@@ -671,7 +672,7 @@ msgid "Remove:"
 msgstr "Удалить:"
 
 msgid "Reports"
-msgstr ""
+msgstr "Отчеты"
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "Обязательный параметр без значения.<br/><b>Необходимо переопределить.</b><br/>"
@@ -719,7 +720,7 @@ msgid "Smart Class Parameters"
 msgstr ""
 
 msgid "Smart class parameters"
-msgstr ""
+msgstr "Смарт-параметры"
 
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr ""

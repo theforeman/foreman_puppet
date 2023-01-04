@@ -5,17 +5,18 @@
 #
 # Translators:
 # Martin Liu <liuzh66@gmail.com>, 2021
-# tim123, 2021
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2021
 # Bryan Kearney <bryan.kearney@gmail.com>, 2021
-# Amit Upadhye <aupadhye@redhat.com>, 2021
+# tim123, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2022
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 3.0.2\n"
+"Project-Id-Version: foreman_puppet 5.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2021\n"
+"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +39,7 @@ msgstr "找不到 ID 为 '%{id}' 的 %{model}"
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
-msgstr[0] "%{name} 具有 ％{num_tag} 类"
+msgstr[0] "%{name} 具有 ％{num_tag}类"
 
 msgid "%{puppetclass} does not belong to the %{environment} environment"
 msgstr "%{puppetclass} 不属于 %{environment} 环境"
@@ -55,10 +56,10 @@ msgid ""
 "        <b>Matcher:</b> %{matcher}<br/>\n"
 "        <b>Inherited value:</b> %{inherited_value}"
 msgstr ""
-"<b>描述：</b> %{desc}<br/>\n"
-"     <b>类型：</b> %{type}<br/>\n"
-"     <b>匹配器：</b> %{matcher}<br/>\n"
-"     <b>继承的值：</b> %{inherited_value}"
+"<b>描述：</b> %{desc}<br/> \n"
+" <b>type:</b> %{type}<br/> \n"
+" <b>Matcher:</b> %{matcher}<br/> \n"
+" <b>inherited value:</b> %{inherited_value}"
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "配置组提供了将多个 Puppet 类关联到一个主机或主机组的一步方法。此方法一般用于通过一个步骤添加特定的应用配置文件或堆栈。"
@@ -91,10 +92,10 @@ msgid "All environments - (not filtered)"
 msgstr "所有环境 - （未过滤）"
 
 msgid "Allow assigning Puppet environments and classes to the Foreman Hosts."
-msgstr ""
+msgstr "允许将 Puppet 环境和类分配给 Foreman 主机。"
 
 msgid "Assigned classes"
-msgstr ""
+msgstr "分配的类"
 
 msgid "Available Classes"
 msgstr "可用类"
@@ -154,7 +155,7 @@ msgid "Config Management"
 msgstr "配置管理"
 
 msgid "Couldn't find any ENC data for this host"
-msgstr ""
+msgstr "无法找到此主机的任何 ENC 数据"
 
 msgid "Create Config Group"
 msgstr "创建配置组"
@@ -235,7 +236,7 @@ msgid "Duration in minutes after servers reporting via Puppet are classed as out
 msgstr "在其时间后（以分钟为单位）经过 Puppet 的服务器报告被认为已不同步。"
 
 msgid "ENC Preview"
-msgstr ""
+msgstr "ENC 预览"
 
 msgid "ENC environment"
 msgstr "ENC 环境"
@@ -253,7 +254,7 @@ msgid "Environment"
 msgstr "环境"
 
 msgid "Environment name"
-msgstr ""
+msgstr "環境名稱"
 
 msgid "Environment only"
 msgstr "仅环境"
@@ -262,19 +263,19 @@ msgid "Environments"
 msgstr "环境"
 
 msgid "Environment|Name"
-msgstr "Environment|Name"
+msgstr "名称"
 
 msgid "Error!"
-msgstr ""
+msgstr "错误！"
 
 msgid "Facts"
-msgstr "事实"
+msgstr "Facts"
 
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "为 %{name} 导入 %{klass} 失败：不存在于我们的数据库中 -- 忽略"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
-msgstr "无法为 %{host} 设置 %{proxy_type} 代理服务器。"
+msgstr "无法为 %{host} 设置 {proxy_type} 代理服务器。"
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "无法使用磁盘 Puppet 安装更新环境及 Puppet 类别：%s"
@@ -289,10 +290,10 @@ msgid "Filter classes"
 msgstr "筛选类"
 
 msgid "Foreman will default to this puppet environment if it cannot auto detect one"
-msgstr "如果无法自动探测到环境，Foreman 将默认使用这个 puppet 环境。"
+msgstr "如果无法自动探测到环境，Foreman 将默认使用这个 puppet 环境"
 
 msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
-msgstr "Foreman 将在 ENC yaml 输出中明确设置这个 puppet 环境。这样可以避免 puppet.conf 以及 Foreman 中设置的环境冲突。"
+msgstr "Foreman 将在 ENC yaml 输出中明确设置这个 puppet 环境。这样可以避免 puppet.conf 以及 Foreman 中设置的环境冲突"
 
 msgid "Foreman will not send this parameter in classification output"
 msgstr "Foreman 不会在分类输出中发送此参数"
@@ -307,7 +308,7 @@ msgid "General"
 msgstr "常规"
 
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 msgid "Host Groups"
 msgstr "主机组"
@@ -346,7 +347,7 @@ msgid "ID of environment"
 msgstr "环境 ID"
 
 msgid "ID of host"
-msgstr "主機的 ID"
+msgstr "主机 ID"
 
 msgid "ID of host group"
 msgstr "主机组 ID"
@@ -364,7 +365,7 @@ msgid "If true, will raise an error if there is no default value and no matcher 
 msgstr "如为 true，则会在没有默认值且没有匹配程序提供参数值时出错"
 
 msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
-msgstr ""
+msgstr "如果您计划将 Foreman 用作外部节点分类器，您应当提供一个或多个环境的信息。<br/>此信息通常使用 <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet 类和环境导入器</a>从预先存在的 Puppet 配置中导入。"
 
 msgid "Ignored classes in the environments: %s"
 msgstr "环境中忽略的类别： %s"
@@ -454,7 +455,7 @@ msgid "List environments per organization"
 msgstr "列出各个机构的环境"
 
 msgid "List hosts per environment"
-msgstr "列出每个环境的主机"
+msgstr "列出各个环境的主机"
 
 msgid "List of config groups"
 msgstr "配置组列表"
@@ -493,7 +494,7 @@ msgid "Name"
 msgstr "名称"
 
 msgid "New"
-msgstr "新增"
+msgstr "新"
 
 msgid "No changes to your environments detected"
 msgstr "未探测到您的环境有任何变化"
@@ -550,7 +551,7 @@ msgid "Operation"
 msgstr "操作"
 
 msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes"
-msgstr "自选用逗号分开包含 'new'、'updated' 或 'obsolete' 的字符串，用来限制导入的 Puppet 类别。"
+msgstr "自选用逗号分开包含 'new'、'updated' 或 'obsolete' 的字符串，用来限制导入的 Puppet 类别"
 
 msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the value will be empty.</i><br/>"
 msgstr "可选的参数没有值。<br/><i>仍由 Foreman 管理，该值将为空。</i><br/>"
@@ -595,7 +596,7 @@ msgid "Puppet CA"
 msgstr "Puppet CA"
 
 msgid "Puppet CA Smart Proxy"
-msgstr ""
+msgstr "Puppet CA 智能代理"
 
 msgid "Puppet Class"
 msgstr "Puppet 类"
@@ -619,16 +620,16 @@ msgid "Puppet Modules"
 msgstr "Puppet 模組"
 
 msgid "Puppet Smart Proxy"
-msgstr ""
+msgstr "Puppet 智能代理"
 
 msgid "Puppet YAML"
 msgstr "Puppet YAML"
 
 msgid "Puppet details"
-msgstr ""
+msgstr "Puppet 详情"
 
 msgid "Puppet environment"
-msgstr ""
+msgstr "Puppet 环境"
 
 msgid "Puppet environments"
 msgstr "Puppet 环境"
@@ -643,7 +644,7 @@ msgid "Puppet parameter"
 msgstr "Puppet 参数"
 
 msgid "Puppetclass|Name"
-msgstr "Puppetclass|Name"
+msgstr "Puppetclass|名称"
 
 msgid "Remote action:"
 msgstr "远程操作："
@@ -661,7 +662,7 @@ msgid "Remove a Puppet class from host group"
 msgstr "从主机组中删除一个 Puppet 类"
 
 msgid "Remove duplicate values (only array type)"
-msgstr "删除重复值（仅用于数组类型）"
+msgstr "删除重复值（仅用于阵列类型）"
 
 msgid "Remove this override"
 msgstr "删除此覆盖"
@@ -670,7 +671,7 @@ msgid "Remove:"
 msgstr "删除："
 
 msgid "Reports"
-msgstr ""
+msgstr "报表"
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "需要的参数没有值。<br/><b>请覆盖</b><br/>"
@@ -718,10 +719,10 @@ msgid "Smart Class Parameters"
 msgstr "智能类参数"
 
 msgid "Smart class parameters"
-msgstr ""
+msgstr "智能类参数"
 
 msgid "Some Puppet Classes are unavailable in the selected environment"
-msgstr ""
+msgstr "某些 Puppet 类在所选的环境中不可用"
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "成功覆盖 Puppet 类 %s 的所有参数"
@@ -764,7 +765,7 @@ msgid "This Puppet class has no parameters in its signature."
 msgstr "这个 Puppet 类别在其签名中没有参数。"
 
 msgid "This tab is still a work in progress"
-msgstr ""
+msgstr "这个标签页仍在进行中"
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
 msgstr "这会将类 %s 的参数重置为其默认值。继续吗？"
@@ -779,7 +780,7 @@ msgid "Toggle"
 msgstr "切換"
 
 msgid "Total"
-msgstr "總計"
+msgstr "总计"
 
 msgid "Types of validation values"
 msgstr "验证值类型"
