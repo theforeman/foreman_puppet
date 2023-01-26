@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import { translate as __ } from 'foremanReact/common/I18n';
 import EmptyState from 'foremanReact/components/common/EmptyState';
 import { foremanUrl, getManualURL } from 'foremanReact/common/helpers';
@@ -10,16 +11,34 @@ export const WelcomeEnv = ({ canCreate }) => {
     url: foremanUrl('/foreman_puppet/environments/new'),
   };
 
-  const content = __(`If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/>
-  This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target="_blank" href=${getManualURL(
-    '4.2.2Classes'
-  )}>Puppet classes and environment importer.</a>`);
+  const description = (
+    <>
+      <FormattedMessage
+        id="puppetenv-welcome"
+        defaultMessage={__(
+          'If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClasses}.'
+        )}
+        values={{
+          newLine: <br />,
+          puppetClasses: (
+            <a
+              target="_blank"
+              href={getManualURL('4.2.2Classes')}
+              rel="noreferrer"
+            >
+              {__('Puppet classes and environment importer')}
+            </a>
+          ),
+        }}
+      />
+    </>
+  );
   return (
     <EmptyState
       icon="th"
       iconType="fa"
       header={__('Environments')}
-      description={<div dangerouslySetInnerHTML={{ __html: content }} />}
+      description={description}
       documentation={{ url: getManualURL('4.2.1Environments') }}
       action={action}
     />
