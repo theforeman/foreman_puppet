@@ -21,6 +21,8 @@ const PuppetTab = ({ response, status, location: { pathname } }) => {
         {SECONDARY_TABS.map(({ key, title }) => (
           <Tab
             key={key}
+            id={`puppet-subtab-${key}`}
+            ouiaId={`puppet-subtab-${key}`}
             eventKey={key}
             title={<TabTitleText>{title}</TabTitleText>}
           />
