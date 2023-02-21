@@ -16,17 +16,17 @@ export const WelcomeEnv = ({ canCreate }) => {
       <FormattedMessage
         id="puppetenv-welcome"
         defaultMessage={__(
-          'If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClasses}.'
+          'If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer.'
         )}
         values={{
           newLine: <br />,
-          puppetClasses: (
+          puppetClassesLinkToDocs: (
             <a
               target="_blank"
               href={getManualURL('4.2.2Classes')}
               rel="noreferrer"
             >
-              {__('Puppet classes and environment importer')}
+              {__('Puppet classes')}
             </a>
           ),
         }}
