@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-13 19:47+0100\n"
-"PO-Revision-Date: 2022-12-13 19:47+0100\n"
+"POT-Creation-Date: 2023-02-23 10:03+0000\n"
+"PO-Revision-Date: 2023-02-23 10:03+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -578,7 +578,7 @@ msgstr ""
 
 #: ../app/helpers/foreman_puppet/environments_helper.rb:13
 #: ../app/views/foreman_puppet/environments/new.html.erb:5
-#: ../webpack/src/Components/Environments/Welcome.js:9
+#: ../webpack/src/Components/Environments/Welcome.js:10
 msgid "Create Puppet Environment"
 msgstr ""
 
@@ -1107,7 +1107,7 @@ msgstr ""
 #: ../app/views/foreman_puppet/puppetclasses/index.html.erb:10
 #: ../app/views/smart_proxies/plugins/_puppet.html.erb:4
 #: ../lib/foreman_puppet/register.rb:166
-#: ../webpack/src/Components/Environments/Welcome.js:21
+#: ../webpack/src/Components/Environments/Welcome.js:40
 msgid "Environments"
 msgstr ""
 
@@ -1242,13 +1242,16 @@ msgstr ""
 msgid "Puppet env"
 msgstr ""
 
-#: ../webpack/src/Components/Environments/Welcome.js:13
+#: ../webpack/src/Components/Environments/Welcome.js:18
 msgid ""
 "If you are planning to use Foreman as an external node classifier you should p"
-"rovide information about one or more environments.<br/> This information is co"
-"mmonly imported from a pre-existing Puppet configuration by the use of the <a "
-"target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and envi"
-"ronment importer.</a>"
+"rovide information about one or more environments.{newLine}This information is"
+" commonly imported from a pre-existing Puppet configuration by the use of the "
+"{puppetClassesLinkToDocs} and environment importer."
+msgstr ""
+
+#: ../webpack/src/Components/Environments/Welcome.js:29
+msgid "Puppet classes"
 msgstr ""
 
 #: ../webpack/src/Extends/Host/PuppetTab/Routes.js:15

@@ -10,7 +10,6 @@
 # dschutterop <daniel@schutterop.nl>, 2021
 # Mark Olie <mark.transifex@oliekoets.nl>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 5.0.0\n"
@@ -250,9 +249,6 @@ msgstr ""
 msgid "Environment"
 msgstr ""
 
-msgid "Environment name"
-msgstr ""
-
 msgid "Environment only"
 msgstr ""
 
@@ -361,7 +357,7 @@ msgstr ""
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr "Als gezet, wordt er een fout gegenereerd als er geen standaardwaarde is en geen matcher een waarde aanbiedt"
 
-msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer."
 msgstr ""
 
 msgid "Ignored classes in the environments: %s"
@@ -622,7 +618,13 @@ msgstr ""
 msgid "Puppet YAML"
 msgstr ""
 
+msgid "Puppet classes"
+msgstr ""
+
 msgid "Puppet details"
+msgstr ""
+
+msgid "Puppet env"
 msgstr ""
 
 msgid "Puppet environment"
