@@ -10,7 +10,6 @@
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 5.0.0\n"
@@ -252,9 +251,6 @@ msgstr "空の環境"
 msgid "Environment"
 msgstr "環境"
 
-msgid "Environment name"
-msgstr "環境名"
-
 msgid "Environment only"
 msgstr "環境のみ"
 
@@ -363,8 +359,8 @@ msgstr "関連する Puppet クラスの ID"
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr "true の場合は、デフォルト値がなく、Matcher が値を提供しないときにエラーが発生します"
 
-msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
-msgstr "Foreman を外部ノードの分類子として使用予定の場合には、1 つまたは複数の環境に関する情報を指定する必要があります。<br/>この情報は一般的に、<a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet クラスおよび環境インポーター</a> を使用して、既存の Puppet 設定からインポートされます。"
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer."
+msgstr ""
 
 msgid "Ignored classes in the environments: %s"
 msgstr "環境内で無視されたクラス: %s"
@@ -624,8 +620,14 @@ msgstr "Puppet Smart Proxy"
 msgid "Puppet YAML"
 msgstr "Puppet YAML"
 
+msgid "Puppet classes"
+msgstr ""
+
 msgid "Puppet details"
 msgstr "Puppet の詳細"
+
+msgid "Puppet env"
+msgstr ""
 
 msgid "Puppet environment"
 msgstr "Puppet 環境"

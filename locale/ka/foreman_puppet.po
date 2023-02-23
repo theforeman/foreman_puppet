@@ -6,7 +6,6 @@
 # Translators:
 # Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 5.0.0\n"
@@ -249,9 +248,6 @@ msgstr "ცარიელი გარემო"
 msgid "Environment"
 msgstr "გარემო"
 
-msgid "Environment name"
-msgstr "გარემოს სახელი"
-
 msgid "Environment only"
 msgstr "მხოლოდ გარემო"
 
@@ -360,8 +356,8 @@ msgstr "Puppet-ის ასოცირებული კლასების
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr "თუ მონიშნულია, წარმოიქმნება შეცდომა, თუ არ არის ნაგულისხმევი მნიშვნელობა და არცერთი დამთხვევა მნიშვნელობას არ იძლევა"
 
-msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
-msgstr "თუ თქვენ აპირებთ Foreman- ის , როგორც გარე კვანძის კლასიფიკატორის გამოყენებას, უნდა მიაწოდოთ ინფორმაცია ერთი ან მეტი გარემოს შესახებ.<br/> ეს ინფორმაცია ჩვეულებრივ იმპორტირებულია წინასწარ არსებული მარიონეტული კონფიგურაციიდან <a target=\"_blank\" href=\"${getManualURL(\" '4.2.2classes'=\"\" )}=\"\">მარიონეტული კლასებისა და გარემოს იმპორტიორის გამოყენებით.</a>"
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer."
+msgstr ""
 
 msgid "Ignored classes in the environments: %s"
 msgstr "გარემოების იგნორირებული კლასები: %s"
@@ -621,8 +617,14 @@ msgstr "Puppet -ის ჭკვიანი პროქსი"
 msgid "Puppet YAML"
 msgstr "Puppet YAML"
 
+msgid "Puppet classes"
+msgstr ""
+
 msgid "Puppet details"
 msgstr "Puppet -ის დეტალები"
+
+msgid "Puppet env"
+msgstr ""
 
 msgid "Puppet environment"
 msgstr "Puppet-ის გარემო"

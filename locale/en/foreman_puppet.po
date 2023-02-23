@@ -348,7 +348,7 @@ msgstr ""
 msgid "If true, will raise an error if there is no default value and no matcher provide a value"
 msgstr ""
 
-msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.<br/> This information is commonly imported from a pre-existing Puppet configuration by the use of the <a target=\"_blank\" href=${getManualURL( '4.2.2Classes' )}>Puppet classes and environment importer.</a>"
+msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer."
 msgstr ""
 
 msgid "Ignored classes in the environments: %s"
@@ -607,6 +607,9 @@ msgid "Puppet Smart Proxy"
 msgstr ""
 
 msgid "Puppet YAML"
+msgstr ""
+
+msgid "Puppet classes"
 msgstr ""
 
 msgid "Puppet details"
