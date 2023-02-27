@@ -30,7 +30,7 @@ module ForemanPuppet
         def search_by_puppetclass(_key, operator, value)
           conditions = sanitize_sql_for_conditions(["puppetclasses.name #{operator} ?", value_to_sql(operator, value)])
           config_group_ids = ForemanPuppet::ConfigGroup.joins(:puppetclasses).where(conditions).pluck(:id)
-          host_ids         = ::Host.authorized(:view_hosts, Host).joins(puppet: :puppetclasses).where(conditions).distinct.pluck(:id)
+          host_ids         = ::Host.authorized(:view_hosts).joins(puppet: :puppetclasses).where(conditions).distinct.pluck(:id)
           host_ids        += ForemanPuppet::HostConfigGroup
                              .where(host_type: 'ForemanPuppet::HostPuppetFacet')
                              .where(config_group_id: config_group_ids)
