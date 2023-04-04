@@ -1,4 +1,9 @@
 <% content_for(:title, _("Puppet environments")) %>
+<%= breadcrumbs(:switchable => false,
+                :items => [
+                  { :caption => _('Puppet Environments'), :url => environments_path },
+                  { caption: @page_header }
+                ]) %>
 
 <%= webpacked_plugins_js_for :foreman_puppet %>
 <%= react_component('WelcomeEnv', {canCreate: authorized_for(action: :new)}) %>
