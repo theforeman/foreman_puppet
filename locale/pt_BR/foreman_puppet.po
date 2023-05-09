@@ -154,6 +154,9 @@ msgstr "Grupos de configuração"
 msgid "Config Management"
 msgstr "Gerenciamento de configuração"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Couldn't find any ENC data for this host"
 msgstr ""
 
@@ -726,6 +729,9 @@ msgstr "Parâmetros de classe inteligentes"
 
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr "Algumas classes de bonecos não estão disponíveis no ambiente selecionado"
+
+msgid "Successfully copied to clipboard!"
+msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "Anulou com sucesso todos os parâmetros da classe Puppet %s"

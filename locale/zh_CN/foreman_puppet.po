@@ -153,6 +153,9 @@ msgstr "配置组"
 msgid "Config Management"
 msgstr "配置管理"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Couldn't find any ENC data for this host"
 msgstr "无法找到此主机的任何 ENC 数据"
 
@@ -725,6 +728,9 @@ msgstr "智能类参数"
 
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr "某些 Puppet 类在所选的环境中不可用"
+
+msgid "Successfully copied to clipboard!"
+msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "成功覆盖 Puppet 类 %s 的所有参数"

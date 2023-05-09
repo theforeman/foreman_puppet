@@ -149,6 +149,9 @@ msgstr "კონფიგურაციის ჯგუფები"
 msgid "Config Management"
 msgstr "კონფიგურაციის მართვა"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Couldn't find any ENC data for this host"
 msgstr "ამ ჰოსტისთვის ENC მონაცემების პოვნა შეუძლებელია"
 
@@ -721,6 +724,9 @@ msgstr "ჭკვიანი კლასის პარამეტრებ�
 
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr "Puppet-ის ზოგიერთი კლასი მიუწვდომელია მითითებულ გარემოში"
+
+msgid "Successfully copied to clipboard!"
+msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "Puppet-ის კლასის (%s) ყველა პარამეტრი წარმატებით გადაიფარა"

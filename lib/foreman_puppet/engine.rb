@@ -91,11 +91,5 @@ module ForemanPuppet
         ForemanPuppet::Engine.load_seed
       end
     end
-
-    initializer 'foreman_puppet.register_gettext', after: :load_config_initializers do |_app|
-      locale_dir = File.join(File.expand_path('../..', __dir__), 'locale')
-      locale_domain = 'foreman_puppet'
-      Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
-    end
   end
 end

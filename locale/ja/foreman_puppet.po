@@ -152,6 +152,9 @@ msgstr "設定グループ"
 msgid "Config Management"
 msgstr "設定管理"
 
+msgid "Copy to clipboard"
+msgstr ""
+
 msgid "Couldn't find any ENC data for this host"
 msgstr "このホストの ENC データを見つけられませんでした"
 
@@ -724,6 +727,9 @@ msgstr "スマートクラスパラメーター"
 
 msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr "選択した環境では、一部の Puppet クラスは利用できません"
+
+msgid "Successfully copied to clipboard!"
+msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "Puppet クラス %s のすべてのパラメーターが正常に上書きされました"

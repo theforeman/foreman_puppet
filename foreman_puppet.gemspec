@@ -1,5 +1,11 @@
 require File.expand_path('lib/foreman_puppet/version', __dir__)
 
+Dir['locale/**/*.po'].each do |po|
+  mo = po.sub(/foreman_puppet\.po$/, 'LC_MESSAGES/foreman_puppet.mo')
+  warn "WARNING: File #{mo} does not exist, generate with 'make all-mo'!" unless File.exist?(mo)
+  warn "WARNING: File #{mo} outdated, regenerate with 'make all-mo'" if File.mtime(po) > File.mtime(mo)
+end
+
 Gem::Specification.new do |s|
   s.name        = 'foreman_puppet'
   s.version     = ForemanPuppet::VERSION
