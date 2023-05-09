@@ -6,6 +6,7 @@ import {
   CodeBlockCode,
   ClipboardCopyButton,
 } from '@patternfly/react-core';
+import { translate as __ } from 'foremanReact/common/I18n';
 
 export const ENCTab = ({ encData }) => {
   const [copied, setCopied] = React.useState(false);
@@ -38,7 +39,9 @@ export const ENCTab = ({ encData }) => {
         maxWidth="110px"
         variant="plain"
       >
-        {copied ? 'Successfully copied to clipboard!' : 'Copy to clipboard'}
+        {copied
+          ? __('Successfully copied to clipboard!')
+          : __('Copy to clipboard')}
       </ClipboardCopyButton>
     </CodeBlockAction>
   );

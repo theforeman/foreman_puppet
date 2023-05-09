@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-23 10:03+0000\n"
-"PO-Revision-Date: 2023-02-23 10:03+0000\n"
+"POT-Creation-Date: 2023-05-15 16:02+0200\n"
+"PO-Revision-Date: 2023-05-15 16:02+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -255,7 +255,7 @@ msgstr ""
 
 #:
 #: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:204
-#: ../lib/foreman_puppet/register.rb:229
+#: ../lib/foreman_puppet/register.rb:231
 #: ../webpack/src/Extends/Fills/index.js:12
 msgid "Puppet"
 msgstr ""
@@ -900,7 +900,7 @@ msgstr ""
 #: ../app/views/foreman_puppet/config_groups/index.html.erb:3
 #: ../app/views/foreman_puppet/config_groups/welcome.html.erb:1
 #: ../app/views/foreman_puppet/config_groups/welcome.html.erb:9
-#: ../lib/foreman_puppet/register.rb:172
+#: ../lib/foreman_puppet/register.rb:174
 msgid "Config Groups"
 msgstr ""
 
@@ -955,6 +955,8 @@ msgstr ""
 #: ../app/views/foreman_puppet/environments/edit.html.erb:5
 #: ../app/views/foreman_puppet/environments/index.html.erb:1
 #: ../app/views/foreman_puppet/environments/new.html.erb:4
+#: ../app/views/foreman_puppet/environments/welcome.html.erb:4
+#: ../webpack/src/Components/Environments/Welcome.js:40
 msgid "Puppet Environments"
 msgstr ""
 
@@ -963,7 +965,7 @@ msgid "Environment|Name"
 msgstr ""
 
 #: ../app/views/foreman_puppet/environments/index.html.erb:22
-#: ../lib/foreman_puppet/register.rb:169
+#: ../lib/foreman_puppet/register.rb:171
 msgid "Classes"
 msgstr ""
 
@@ -997,7 +999,7 @@ msgstr ""
 #: ../app/views/foreman_puppet/puppetclass_lookup_keys/index.html.erb:1
 #: ../app/views/foreman_puppet/puppetclass_lookup_keys/welcome.html.erb:1
 #: ../app/views/foreman_puppet/puppetclass_lookup_keys/welcome.html.erb:8
-#: ../lib/foreman_puppet/register.rb:175
+#: ../lib/foreman_puppet/register.rb:177
 msgid "Smart Class Parameters"
 msgstr ""
 
@@ -1106,8 +1108,7 @@ msgstr ""
 
 #: ../app/views/foreman_puppet/puppetclasses/index.html.erb:10
 #: ../app/views/smart_proxies/plugins/_puppet.html.erb:4
-#: ../lib/foreman_puppet/register.rb:166
-#: ../webpack/src/Components/Environments/Welcome.js:40
+#: ../lib/foreman_puppet/register.rb:168
 msgid "Environments"
 msgstr ""
 
@@ -1179,66 +1180,66 @@ msgstr ""
 msgid "Hosts managed:"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:7
+#: ../lib/foreman_puppet/register.rb:9
 msgid "Facts"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:10
+#: ../lib/foreman_puppet/register.rb:12
 msgid "Foreman will default to this puppet environment if it cannot auto detect one"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:12
+#: ../lib/foreman_puppet/register.rb:14
 msgid "Default Puppet environment"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:16
+#: ../lib/foreman_puppet/register.rb:18
 msgid ""
 "Foreman will explicitly set the puppet environment in the ENC yaml output. Thi"
 "s will avoid conflicts between the environment in puppet.conf and the environm"
 "ent set in Foreman"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:19
+#: ../lib/foreman_puppet/register.rb:21
 msgid "ENC environment"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:22
+#: ../lib/foreman_puppet/register.rb:24
 msgid "Foreman will update a host's environment from its facts"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:24
+#: ../lib/foreman_puppet/register.rb:26
 msgid "Update environment from facts"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:27
+#: ../lib/foreman_puppet/register.rb:29
 msgid "Config Management"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:30
+#: ../lib/foreman_puppet/register.rb:32
 msgid ""
 "Duration in minutes after servers reporting via Puppet are classed as out of s"
 "ync."
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:32
+#: ../lib/foreman_puppet/register.rb:34
 msgid "Puppet interval"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:35
+#: ../lib/foreman_puppet/register.rb:37
 msgid ""
 "Disable host configuration status turning to out of sync for %s after report d"
 "oes not arrive within configured interval"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:37
+#: ../lib/foreman_puppet/register.rb:39
 msgid "%s out of sync disabled"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:163 ../lib/foreman_puppet/register.rb:216
+#: ../lib/foreman_puppet/register.rb:165 ../lib/foreman_puppet/register.rb:218
 msgid "Puppet ENC"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:230
+#: ../lib/foreman_puppet/register.rb:232
 msgid "Puppet env"
 msgstr ""
 
@@ -1267,6 +1268,15 @@ msgstr ""
 #: ../webpack/src/Extends/Host/PuppetTab/Routes.js:21
 #: ../webpack/src/Extends/Host/PuppetTab/constants.js:7
 msgid "Smart class parameters"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/ENCTab.js:36
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/ENCTab.js:42
+msgid "Copy to clipboard"
+msgstr ""
+
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/ENCTab.js:42
+msgid "Successfully copied to clipboard!"
 msgstr ""
 
 #: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/index.js:28
