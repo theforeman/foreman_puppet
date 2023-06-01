@@ -2,7 +2,7 @@
 host = https://app.transifex.com
 
 [o:foreman:p:foreman:r:foreman_puppet]
-file_filter   = locale/<lang>/foreman_puppet.po
+file_filter   = locale/<lang>/foreman_puppet.edit.po
 source_file   = locale/foreman_puppet.pot
 source_lang   = en
 type          = PO
