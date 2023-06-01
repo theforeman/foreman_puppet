@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-15 16:02+0200\n"
-"PO-Revision-Date: 2023-05-15 16:02+0200\n"
+"POT-Creation-Date: 2023-06-01 14:06+0200\n"
+"PO-Revision-Date: 2023-06-01 14:06+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1270,13 +1270,12 @@ msgstr ""
 msgid "Smart class parameters"
 msgstr ""
 
-#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/ENCTab.js:36
-#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/ENCTab.js:42
-msgid "Copy to clipboard"
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/ENCTab.js:43
+msgid "Successfully copied to clipboard!"
 msgstr ""
 
-#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/ENCTab.js:42
-msgid "Successfully copied to clipboard!"
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/ENCTab.js:44
+msgid "Copy to clipboard"
 msgstr ""
 
 #: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/index.js:28
