@@ -13,6 +13,7 @@ const PuppetTab = ({ response, status, location: { pathname } }) => {
   return (
     <>
       <Tabs
+        ouiaId="puppet-tabs"
         className="margin-0-24"
         onSelect={(evt, subTab) => hashHistory.push(subTab)}
         isSecondary
