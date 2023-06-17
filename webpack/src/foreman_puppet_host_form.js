@@ -82,6 +82,9 @@ export function updatePuppetclasses(element) {
 export function reloadPuppetclassParams() {
   const hostId = $('form.hostresource-form').data('id');
   const url = $('#puppet_klasses_parameters').data('url');
+  if (!url) {
+    return;
+  }
   let data = window.serializeForm().replace('method=patch', 'method=post');
   if (url.match('hostgroups')) {
     data += `&hostgroup_id=${hostId}`;
