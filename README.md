@@ -33,7 +33,8 @@ Some features will remain in core:
 
 |Foreman version|Plugin version|Notes                                     |
 |---------------|--------------|------------------------------------------|
-| >= 3.5        | ~> 5.0       | Required                                 |
+| >= 3.7        | ~> 6.0       | Required                                 |
+| ~> 3.5, 3.6   | ~> 5.0       | Required                                 |
 | ~> 3.4        | ~> 4.1       | Required                                 |
 | ~> 3.3        | ~> 4.0       | Required                                 |
 | ~> 3.2        | ~> 3.0       | Required                                 |
@@ -51,7 +52,7 @@ You can manually install this plugin using:
 
 ```sh
 # On RedHat/CentOS
-yum install tfm-rubygem-foreman_puppet
+dnf install rubygem-foreman_puppet
 
 # On Debian
 apt install ruby-foreman-puppet
@@ -77,7 +78,7 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) *2022* *The Foreman developers*
+Copyright (c) *2020-2023* *The Foreman developers*
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
