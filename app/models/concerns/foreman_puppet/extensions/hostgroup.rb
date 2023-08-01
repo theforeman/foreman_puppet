@@ -17,6 +17,12 @@ module ForemanPuppet
         # will need through relation to work properly
         scoped_search relation: :environment, on: :name, complete_value: true, rename: :environment, only_explicit: true
         scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :class, only_explicit: true, operators: ['= ', '~ ']
+        scoped_search relation: :puppetclasses, on: :name,
+          complete_value: true,
+          rename: :puppetclass,
+          only_explicit: true,
+          operators: ['= ', '~ '],
+          ext_method: :search_by_puppetclass
         scoped_search relation: :config_groups, on: :name,
           complete_value: true,
           rename: :config_group,
@@ -34,6 +40,16 @@ module ForemanPuppet
           opts = 'hostgroups.id < 0'
           opts = "hostgroups.id IN(#{hostgroup_ids.join(',')})" if hostgroup_ids.present?
           { conditions: opts }
+        end
+
+        def search_by_puppetclass(_key, operator, value)
+          conditions = sanitize_sql_for_conditions(["puppetclasses.name #{operator} ?", value_to_sql(operator, value)])
+          hostgroup_ids = ::Hostgroup.joins(puppet: :puppetclasses).where(conditions).map(&:subtree_ids)
+
+          conds = []
+          conds << "hostgroups.id IN (#{hostgroup_ids.join(',')})" if hostgroup_ids.present?
+
+          { conditions: conds.join(' OR ').presence || 'hostgroups.id < 0' }
         end
       end
     end
