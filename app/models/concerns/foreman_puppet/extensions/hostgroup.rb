@@ -35,11 +35,12 @@ module ForemanPuppet
       module PatchedClassMethods
         def search_by_config_group(_key, operator, value)
           conditions = sanitize_sql_for_conditions(["config_groups.name #{operator} ?", value_to_sql(operator, value)])
-          hostgroup_ids = ::Hostgroup.unscoped.with_taxonomy_scope.joins(puppet: :config_groups).where(conditions).map(&:subtree_ids).flatten.uniq
+          hostgroup_ids = ::Hostgroup.joins(puppet: :config_groups).where(conditions).map(&:subtree_ids).flatten.uniq
 
-          opts = 'hostgroups.id < 0'
-          opts = "hostgroups.id IN(#{hostgroup_ids.join(',')})" if hostgroup_ids.present?
-          { conditions: opts }
+          conds = 'hostgroups.id < 0'
+          conds = "hostgroups.id IN(#{hostgroup_ids.join(',')})" if hostgroup_ids.present?
+
+          { conditions: conds }
         end
 
         def search_by_puppetclass(_key, operator, value)
