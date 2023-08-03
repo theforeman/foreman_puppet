@@ -16,7 +16,6 @@ module ForemanPuppet
 
         # will need through relation to work properly
         scoped_search relation: :environment, on: :name, complete_value: true, rename: :environment, only_explicit: true
-        scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :class, only_explicit: true, operators: ['= ', '~ ']
         scoped_search relation: :puppetclasses, on: :name,
           complete_value: true,
           rename: :puppetclass,
