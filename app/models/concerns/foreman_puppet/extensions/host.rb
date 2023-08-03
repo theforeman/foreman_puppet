@@ -13,8 +13,6 @@ module ForemanPuppet
         include_in_clone puppet: %i[config_groups host_config_groups host_classes]
 
         scoped_search relation: :environment, on: :name, complete_value: true, rename: :environment
-        scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :class, only_explicit: true, operators: ['= ', '~ '],
-          ext_method: :search_by_deprecated_class
         scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :puppetclass, only_explicit: true, operators: ['= ', '~ '],
           ext_method: :search_by_puppetclass
         scoped_search relation: :config_groups, on: :name, complete_value: true, rename: :config_group, only_explicit: true, operators: ['= ', '~ '],
@@ -22,11 +20,6 @@ module ForemanPuppet
       end
 
       class_methods do
-        def search_by_deprecated_class(key, operator, value)
-          Foreman::Deprecation.deprecation_warning('3.2', 'search by `class` has been deprecated, please search by `puppetclass` instead')
-          search_by_puppetclass(key, operator, value)
-        end
-
         def search_by_puppetclass(_key, operator, value)
           conditions = sanitize_sql_for_conditions(["puppetclasses.name #{operator} ?", value_to_sql(operator, value)])
           config_group_ids = ForemanPuppet::ConfigGroup.joins(:puppetclasses).where(conditions).pluck(:id)

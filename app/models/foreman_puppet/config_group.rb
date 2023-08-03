@@ -17,7 +17,7 @@ module ForemanPuppet
     validates :name, presence: true, uniqueness: true
 
     scoped_search on: :name, complete_value: true
-    scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :class, only_explicit: true, operators: ['= ', '~ ']
+    scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :puppetclass, only_explicit: true, operators: ['= ', '~ ']
 
     default_scope -> { order('config_groups.name') }
 

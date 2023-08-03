@@ -48,23 +48,31 @@ module ForemanPuppet
         assert_equal results, results2
       end
 
+      test 'deprecated search by class throws error' do
+        exception = assert_raises(Exception) do
+          host
+          Host.search_for("class = #{host.puppet.puppetclass_names.first}")
+        end
+        assert_equal("Field 'class' not recognized for searching!", exception.message)
+      end
+
       test 'can be found by puppetclass' do
         host
-        result = Host.search_for("class = #{host.puppet.puppetclass_names.first}")
+        result = Host.search_for("puppetclass = #{host.puppet.puppetclass_names.first}")
         assert_includes result, host
       end
 
       test 'search by puppetclass returns only host within that puppetclass' do
         host
         puppetclass = FactoryBot.create(:puppetclass)
-        result = Host.search_for("class = #{puppetclass.name}")
+        result = Host.search_for("puppetclass = #{puppetclass.name}")
         assert_not_includes result, host
       end
 
       test 'search hosts by inherited puppetclass from a hostgroup' do
         hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
         host_with_hg = FactoryBot.create(:host, hostgroup: hostgroup)
-        result = Host.search_for("class = #{hostgroup.puppet.puppetclass_names.first}")
+        result = Host.search_for("puppetclass = #{hostgroup.puppet.puppetclass_names.first}")
         assert_includes result, host_with_hg
       end
 
@@ -72,7 +80,7 @@ module ForemanPuppet
         parent_hg = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
         hg = FactoryBot.create(:hostgroup, parent: parent_hg)
         host = FactoryBot.create(:host, hostgroup: hg)
-        result = Host.search_for("class = #{parent_hg.puppet.puppetclass_names.first}")
+        result = Host.search_for("puppetclass = #{parent_hg.puppet.puppetclass_names.first}")
         assert_equal 1, result.count
         assert_includes result, host
       end
@@ -82,7 +90,7 @@ module ForemanPuppet
         host = FactoryBot.create(:host, :with_puppet_enc, hostgroup: hostgroup, environment: hostgroup.puppet.environment)
         config_group = FactoryBot.create(:config_group, :with_puppetclass)
         hostgroup.puppet.config_groups << config_group
-        result = Host.search_for("class = #{config_group.puppetclass_names.first}")
+        result = Host.search_for("puppetclass = #{config_group.puppetclass_names.first}")
         assert_equal 1, result.count
         assert_includes result, host
       end
