@@ -19,7 +19,7 @@
     "url": "http://projects.theforeman.org/projects/foreman_puppet/issues"
   },
   "peerDependencies": {
-    "@theforeman/vendor": ">= 10.1.0"
+    "@theforeman/vendor": ">= 12.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.0",
