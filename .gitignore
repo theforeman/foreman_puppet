@@ -14,4 +14,4 @@ Gemfile.lock
 coverage
 .idea/
 .eslintignore
-
+*.gem
