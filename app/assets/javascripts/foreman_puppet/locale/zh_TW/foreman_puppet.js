@@ -481,6 +481,9 @@
       "Changed environments": [
         "已更改的環境"
       ],
+      "Puppet Environments": [
+        "Puppet 環境"
+      ],
       "Select the changes you want to apply to Foreman": [
         ""
       ],
@@ -588,9 +591,6 @@
       ],
       "Organizations": [
         "組織"
-      ],
-      "Puppet Environments": [
-        "Puppet 環境"
       ],
       "Environment|Name": [
         "名稱"

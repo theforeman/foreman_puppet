@@ -481,6 +481,9 @@
       "Changed environments": [
         "변경된 환경 "
       ],
+      "Puppet Environments": [
+        "Puppet 환경"
+      ],
       "Select the changes you want to apply to Foreman": [
         ""
       ],
@@ -588,9 +591,6 @@
       ],
       "Organizations": [
         "조직"
-      ],
-      "Puppet Environments": [
-        "Puppet 환경"
       ],
       "Environment|Name": [
         "이름 "

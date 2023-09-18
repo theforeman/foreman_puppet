@@ -479,6 +479,9 @@
       "Changed environments": [
         "修改的环境"
       ],
+      "Puppet Environments": [
+        "Puppet 环境"
+      ],
       "Select the changes you want to apply to Foreman": [
         "选择您要应用到 Foreman 的更改"
       ],
@@ -586,9 +589,6 @@
       ],
       "Organizations": [
         "机构"
-      ],
-      "Puppet Environments": [
-        "Puppet 环境"
       ],
       "Environment|Name": [
         "名称"

@@ -481,6 +481,9 @@
       "Changed environments": [
         "Změněná prostředí"
       ],
+      "Puppet Environments": [
+        "Puppet prostředí"
+      ],
       "Select the changes you want to apply to Foreman": [
         "Vyberte změny které chcete uplatnit na Forman"
       ],
@@ -588,9 +591,6 @@
       ],
       "Organizations": [
         "Organizace"
-      ],
-      "Puppet Environments": [
-        "Puppet prostředí"
       ],
       "Environment|Name": [
         "Environment|Název"
