@@ -481,6 +481,9 @@
       "Changed environments": [
         "Zmieniono środowisko"
       ],
+      "Puppet Environments": [
+        "Środowiska Puppet"
+      ],
       "Select the changes you want to apply to Foreman": [
         ""
       ],
@@ -588,9 +591,6 @@
       ],
       "Organizations": [
         "Organizacje"
-      ],
-      "Puppet Environments": [
-        "Środowiska Puppet"
       ],
       "Environment|Name": [
         "Środowisko|Nazwa"

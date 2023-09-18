@@ -481,6 +481,9 @@
       "Changed environments": [
         "შეცვლილი გარემოები"
       ],
+      "Puppet Environments": [
+        "Puppet-ის გარემოები"
+      ],
       "Select the changes you want to apply to Foreman": [
         "აირჩიეთ ცვლილებები, რომლებიც გნებავთ Foreman-ს გადაატაროთ"
       ],
@@ -588,9 +591,6 @@
       ],
       "Organizations": [
         "ორგანიზაციები"
-      ],
-      "Puppet Environments": [
-        "Puppet-ის გარემოები"
       ],
       "Environment|Name": [
         "გარემო|სახელი"

@@ -479,6 +479,9 @@
       "Changed environments": [
         "変更済みの環境"
       ],
+      "Puppet Environments": [
+        "Puppet 環境"
+      ],
       "Select the changes you want to apply to Foreman": [
         "Foreman に適用する変更を選択してください"
       ],
@@ -586,9 +589,6 @@
       ],
       "Organizations": [
         "組織"
-      ],
-      "Puppet Environments": [
-        "Puppet 環境"
       ],
       "Environment|Name": [
         "名前"
