@@ -15,7 +15,7 @@ module ForemanPuppet
       end
 
       if authorized_for(controller: :hosts,
-        action: :edit) && SmartProxy.unscoped.authorized.with_features('Puppet CA').exists? && SmartProxy.unscoped.authorized.with_features('Puppet CA').exists?
+        action: :edit) && SmartProxy.unscoped.authorized.with_features('Puppet CA').exists?
         actions << { action: [_('Change Puppet CA'), select_multiple_puppet_ca_proxy_hosts_path],
 priority: 1051 }
       end
