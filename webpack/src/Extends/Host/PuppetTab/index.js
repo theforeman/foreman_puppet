@@ -8,13 +8,15 @@ import SecondaryTabRoutes from './Routes';
 import { activeTab } from './helpers';
 import { SECONDARY_TABS } from './constants';
 
+import './styles.scss';
+
 const PuppetTab = ({ response, status, location: { pathname } }) => {
   const hashHistory = useHistory();
   return (
     <>
       <Tabs
-        ouiaId="puppet-tabs"
-        className="margin-0-24"
+        ouiaId="foreman-puppet-host-details-tab"
+        className="foreman-puppet-host-details-tab"
         onSelect={(evt, subTab) => hashHistory.push(subTab)}
         isSecondary
         activeKey={activeTab(pathname)}
