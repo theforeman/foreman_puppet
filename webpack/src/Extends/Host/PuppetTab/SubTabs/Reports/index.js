@@ -3,6 +3,7 @@ import React from 'react';
 import { Grid, GridItem } from '@patternfly/react-core';
 import ReportsTab from 'foremanReact/components/HostDetails/Tabs/ReportsTab';
 import DescriptionCard from './components/DescriptionCard';
+import ConfigStatusCard from './components/ConfigStatusCard';
 import './styles.scss';
 
 const Reports = ({
@@ -18,6 +19,9 @@ const Reports = ({
 }) => (
   <div className="report-tab">
     <Grid hasGutter>
+      <GridItem span={8}>
+        <ConfigStatusCard hostName={hostName} parentStatus={status} />
+      </GridItem>
       <GridItem span={4}>
         <DescriptionCard
           proxyName={proxyName}

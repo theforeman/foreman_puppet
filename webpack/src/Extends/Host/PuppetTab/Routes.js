@@ -6,7 +6,7 @@ import Reports from './SubTabs/Reports';
 import ENCPreview from './SubTabs/ENCPreview';
 
 const SecondaryTabRoutes = ({ hostName, hostInfo, status }) => (
-  <Switch>
+  <Switch ouiaId="foreman-puppet-switch">
     <Route path={route('reports')}>
       <Reports hostName={hostName} hostInfo={hostInfo} status={status} />
     </Route>
