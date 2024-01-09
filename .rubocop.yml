@@ -8,6 +8,11 @@ inherit_mode:
   merge:
     - Exclude
 
+AllCops:
+  TargetRubyVersion: '2.7'
+  Exclude:
+    - 'vendor/bundle/**/*'
+    
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
   IndentationWidth: 2
@@ -28,3 +33,6 @@ Metrics/BlockLength:
     - 'config/*routes.rb'
     - 'lib/foreman_puppet/register.rb'
     - 'config/initializers/api_reroute.rb'
+
+Gemspec/RequiredRubyVersion:
+  Enabled: true
