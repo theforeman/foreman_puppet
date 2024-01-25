@@ -74,6 +74,8 @@ module ForemanPuppet
       within(:xpath, '//table') do
         click_link 'ssl'
       end
+      # see: https://projects.theforeman.org/issues/37251
+      page.driver.browser.file_detector = nil if page.driver.browser.respond_to?(:file_detector=)
       fill_in 'puppetclass_lookup_key_description', with: 'test'
       fill_in 'puppetclass_lookup_key_default_value', with: 'false'
       assert_submit_button(puppetclass_lookup_keys_path)
