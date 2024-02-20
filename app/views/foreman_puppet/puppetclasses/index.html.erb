@@ -29,7 +29,7 @@
                   main_app.hash_for_edit_hostgroup_path(id: hg).merge(auth_object: hg, authorizer: @hostgroups_authorizer)
               end.to_sentence.html_safe %>
         </td>
-        <td><%= link_to puppetclass.hosts_count, main_app.hosts_path(search: "class = #{puppetclass.name}")%></td>
+        <td><%= link_to puppetclass.hosts_count, main_app.hosts_path(search: "puppetclass = #{puppetclass.name}")%></td>
         <td><%= puppetclass.class_params.size %> </td>
         <td>
           <%
