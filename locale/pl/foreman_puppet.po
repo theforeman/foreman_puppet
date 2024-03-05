@@ -113,6 +113,9 @@ msgstr "Zmień środowisko"
 msgid "Change Puppet Master"
 msgstr "Zmień Puppet Master"
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "Zmieniono środowisko"
 
@@ -150,6 +153,9 @@ msgid "Config Management"
 msgstr ""
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -266,11 +272,17 @@ msgstr ""
 msgid "Facts"
 msgstr "Fakty"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "Nie udało się zaimportować %{klass} dla %{name}: nie istnieje w naszej bazie danych - ignoruj"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "Nie udało się ustawić %{proxy_type} proxy dla %{host}."
+
+msgid "Failed to start"
+msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "Nie udało się zaktualizować środowisk i klas puppet z instalacji Puppet na dysku: %s"
@@ -413,6 +425,9 @@ msgstr ""
 msgid "Invalid proxy selected!"
 msgstr "Wybrano nieprawidłowe proxy!"
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "Lista wszystkich ID klasy Puppet dla hostów"
 
@@ -488,11 +503,17 @@ msgstr "Scalanie wszystkie pasujących wartości (tylko tablica / typ hash)"
 msgid "Name"
 msgstr "Nazwa"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "Nowy"
 
 msgid "No changes to your environments detected"
 msgstr "Brak zmian dla twojego środowiska."
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "Nie wybrano środowiska!"
@@ -556,6 +577,9 @@ msgstr "Organizacje"
 
 msgid "Original value info"
 msgstr "Wartość oryginalnej informacji"
+
+msgid "Out of sync"
+msgstr ""
 
 msgid "Overridden"
 msgstr ""
@@ -641,6 +665,9 @@ msgstr "Węzły zewnętrzne Puppet przerzucone na YAML "
 msgid "Puppet interval"
 msgstr "interwał Puppet"
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr ""
 
@@ -677,6 +704,12 @@ msgstr "Raporty"
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "Wymagany parametr nie ma wartości.<br/><b>Proszę nadpisać!</b><br/>"
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr "Wybierz środowisko"
 
@@ -712,6 +745,9 @@ msgstr "Pokaż wartość nadpisaną dla konkretnego parametru inteligentnej klas
 
 msgid "Show template combination"
 msgstr "Pokaż kombinację szablonu"
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr "Parametr inteligentnej klasy"

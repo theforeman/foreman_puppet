@@ -113,6 +113,9 @@ msgstr "გარემოს შეცვლა"
 msgid "Change Puppet Master"
 msgstr "Puppet-ის პირველადი სერვერის შეცვლა"
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "შეცვლილი გარემოები"
 
@@ -150,6 +153,9 @@ msgid "Config Management"
 msgstr "კონფიგურაციის მართვა"
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -266,11 +272,17 @@ msgstr "შეცდომა!"
 msgid "Facts"
 msgstr "ფაქტები"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "%{name}-სთვის %{klass}-ის შემოტანის შეცდომა: ის ჩვენს ბაზაში არ არსებობს - იგნორი"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "დაყენების შეცდომა: %{proxy_type} პროქსი %{host}-სთვის."
+
+msgid "Failed to start"
+msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "დისკზე მყოფი Puppet-ის აგებაში გარემოებისა და კლასების განახლების შეცდომა: %s"
@@ -413,6 +425,9 @@ msgstr "კლასები მემკვიდრეობითაა %s-�
 msgid "Invalid proxy selected!"
 msgstr "არჩეული პროქსი არასწორია!"
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "ჰოსტისთვის Puppet-ის კლასის ყველა ID-ის ჩვენება"
 
@@ -488,11 +503,17 @@ msgstr "ყველა ერთნაირი მნიშვნელობ�
 msgid "Name"
 msgstr "სახელი"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "ახალი"
 
 msgid "No changes to your environments detected"
 msgstr "თქვენს გარემოებში ცვლილებები არაა"
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "გარემო არჩეული არაა!"
@@ -556,6 +577,9 @@ msgstr "ორგანიზაციები"
 
 msgid "Original value info"
 msgstr "ინფორმაცია საწყისი მნიშვნელობის შესახებ"
+
+msgid "Out of sync"
+msgstr ""
 
 msgid "Overridden"
 msgstr "გადაფარული"
@@ -641,6 +665,9 @@ msgstr "Puppet-ის გარე კვანძების YAML ტექს
 msgid "Puppet interval"
 msgstr "Puppet-ის ინტერვალი"
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr "Puppet-ის პარამეტრი"
 
@@ -677,6 +704,12 @@ msgstr "ანგარიშები"
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "აუცილებელი პარამეტრი მნიშვნელობის გარეშე.<br/><b>გადაფარეთ!</b><br/>"
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr "აირჩიეთ გარემო"
 
@@ -712,6 +745,9 @@ msgstr "მითითებული ჭკვიანი კლასის 
 
 msgid "Show template combination"
 msgstr "შაბლონის კომბინაციის ჩვენება"
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr "ჭკვიანი კლასის პარამეტრი"

@@ -116,6 +116,9 @@ msgstr "環境の変更"
 msgid "Change Puppet Master"
 msgstr "Puppet マスターの変更"
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "変更済みの環境"
 
@@ -153,6 +156,9 @@ msgid "Config Management"
 msgstr "設定管理"
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -269,11 +275,17 @@ msgstr "エラー!"
 msgid "Facts"
 msgstr "ファクト"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "%{name} の %{klass} のインポートに失敗しました: データベースに存在しません - 無視します"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "%{host} に %{proxy_type} プロキシーを設定できませんでした。"
+
+msgid "Failed to start"
+msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "オンディスクの Puppet インストールからの環境と Puppet クラスの更新に失敗しました: %s"
@@ -416,6 +428,9 @@ msgstr "%s から継承されたクラス"
 msgid "Invalid proxy selected!"
 msgstr "無効なプロキシーが選択されました!"
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "ホストのすべての Puppet クラス ID を一覧表示"
 
@@ -491,11 +506,17 @@ msgstr "一致するすべての値のマージ (配列/ハッシュタイプの
 msgid "Name"
 msgstr "名前"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "新規"
 
 msgid "No changes to your environments detected"
 msgstr "環境への変更が検出されませんでした"
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "環境が選択されていません!"
@@ -559,6 +580,9 @@ msgstr "組織"
 
 msgid "Original value info"
 msgstr "元の値の情報"
+
+msgid "Out of sync"
+msgstr ""
 
 msgid "Overridden"
 msgstr "上書き済み"
@@ -644,6 +668,9 @@ msgstr "Puppet 外部ノード YAML ダンプ"
 msgid "Puppet interval"
 msgstr "Puppet の間隔"
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr "Puppet パラメーター"
 
@@ -680,6 +707,12 @@ msgstr "レポート"
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "値なしの必須パラメーターです。<br/><b>上書きしてください!</b><br/>"
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr "環境の選択"
 
@@ -715,6 +748,9 @@ msgstr "特定スマートクラスパラメーターの上書き値を表示"
 
 msgid "Show template combination"
 msgstr "テンプレートの組み合わせの表示"
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr "スマートクラスパラメーター"

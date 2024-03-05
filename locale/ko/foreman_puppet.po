@@ -110,6 +110,9 @@ msgstr "환경 변경 "
 msgid "Change Puppet Master"
 msgstr "Puppet 마스터 변경"
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "변경된 환경 "
 
@@ -147,6 +150,9 @@ msgid "Config Management"
 msgstr ""
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -263,11 +269,17 @@ msgstr ""
 msgid "Facts"
 msgstr "팩트 "
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "%{name}의 %{klass} 가져오기에 실패했습니다: 데이터베이스에 존재하지 않습니다 - 무시합니다 "
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "%{host}의 %{proxy_type} 프록시를 설정하지 못했습니다."
+
+msgid "Failed to start"
+msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "온디스크 Puppet 설치에서 환경 및 Puppet 클래스 업데이트에 실패했습니다: %s"
@@ -410,6 +422,9 @@ msgstr ""
 msgid "Invalid proxy selected!"
 msgstr "잘못된 프록시를 선택했습니다."
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "호스트의 모든 Puppet 클래스 ID 나열 "
 
@@ -485,11 +500,17 @@ msgstr "일치하는 모든 값 병합(배열/해시 유형만)"
 msgid "Name"
 msgstr "이름 "
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "신규"
 
 msgid "No changes to your environments detected"
 msgstr "환경에서 변경 사항을 감지할 수 없음 "
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "선택된 환경이 없습니다!"
@@ -553,6 +574,9 @@ msgstr "조직"
 
 msgid "Original value info"
 msgstr "원래 값 정보"
+
+msgid "Out of sync"
+msgstr ""
 
 msgid "Overridden"
 msgstr ""
@@ -638,6 +662,9 @@ msgstr "Puppet 외부 노드 YAML 덤프 "
 msgid "Puppet interval"
 msgstr "Puppet 간격"
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr "Puppet 매개 변수"
 
@@ -674,6 +701,12 @@ msgstr "보고서 "
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "필수 매개 변수에 값이 없습니다.<br/><b>덮어쓰십시오.</b><br/>"
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr "환경 선택 "
 
@@ -709,6 +742,9 @@ msgstr "특정 스마트 클래스 매개 변수의 덮어쓰기 값 표시 "
 
 msgid "Show template combination"
 msgstr "템플릿 조합 표시 "
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr "스마트 클래스 매개 변수 "

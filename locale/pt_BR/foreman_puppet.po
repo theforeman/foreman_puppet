@@ -118,6 +118,9 @@ msgstr "Mudar ambiente"
 msgid "Change Puppet Master"
 msgstr "Alterar Puppet Master"
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "Ambientes modificados"
 
@@ -155,6 +158,9 @@ msgid "Config Management"
 msgstr "Gerenciamento de configuração"
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -271,11 +277,17 @@ msgstr "Erro!"
 msgid "Facts"
 msgstr "Fatos"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "Falha na importação %{klass} para %{name}: não existe em nosso banco de dados - ignorando"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "Falha em estabelecer %{proxy_type} proxy para %{host}."
+
+msgid "Failed to start"
+msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "Falha na atualização de ambientes e classes de bonecos da instalação do Puppet em disco: %s"
@@ -418,6 +430,9 @@ msgstr "Aulas Herdadas de %s"
 msgid "Invalid proxy selected!"
 msgstr "Proxy inválido selecionado! "
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "Listar todos os IDs de classes puppet para host"
 
@@ -493,11 +508,17 @@ msgstr "Mesclar todos os valores correspondentes (somente tipo de hash/ matriz)"
 msgid "Name"
 msgstr "Nome"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "Novo"
 
 msgid "No changes to your environments detected"
 msgstr "Nenhuma mudança em seu ambiente foi detectada"
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "Nenhum ambiente selecionado!"
@@ -561,6 +582,9 @@ msgstr "Organizações"
 
 msgid "Original value info"
 msgstr "Informação de valor original "
+
+msgid "Out of sync"
+msgstr ""
 
 msgid "Overridden"
 msgstr "Substituído"
@@ -646,6 +670,9 @@ msgstr "Nós Externos de Puppet YAML dump"
 msgid "Puppet interval"
 msgstr "Intervalo de Puppet"
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr "Parâmetro do puppet"
 
@@ -682,6 +709,12 @@ msgstr "Relatórios"
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "Parâmetro necessário sem valor.<br/><b>Por favor, substitua!</b><br/>"
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr "Selecionar ambiente"
 
@@ -717,6 +750,9 @@ msgstr "Exibir um valor de substituição para um parâmetro de classe inteligen
 
 msgid "Show template combination"
 msgstr "Exibir combinação de modelo"
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr "Parâmetro de Classe Inteligente"

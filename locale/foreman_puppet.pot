@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-18 13:52+0200\n"
-"PO-Revision-Date: 2023-09-18 13:52+0200\n"
+"POT-Creation-Date: 2024-03-05 20:07+0100\n"
+"PO-Revision-Date: 2024-03-05 20:07+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -989,6 +989,7 @@ msgid "Number of classes"
 msgstr ""
 
 #: ../app/views/foreman_puppet/puppet_smart_proxies/_environments.html.erb:15
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:129
 msgid "Total"
 msgstr ""
 
@@ -1290,6 +1291,66 @@ msgstr ""
 
 #: ../webpack/src/Extends/Host/PuppetTab/SubTabs/ENCPreview/index.js:34
 msgid "Error!"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:45
+msgid "Last configuration status"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:58
+msgid "Never"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:76
+msgid "No configuration status available"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:108
+msgid "Failed"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:109
+msgid "Changed"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:110
+msgid "Scheduled"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:114
+msgid "Failed to start"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:117
+msgid "Restarted"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:119
+msgid "Corrective Change"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:124
+msgid "Skipped"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:126
+msgid "Out of sync"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Host/PuppetTab/SubTabs/Reports/components/ConfigStatusCard/index.js:161
+msgid "Puppet metrics"
 msgstr ""
 
 #:

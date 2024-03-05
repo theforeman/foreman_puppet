@@ -113,6 +113,9 @@ msgstr "Byt Miljö"
 msgid "Change Puppet Master"
 msgstr ""
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "Ändrade miljöer"
 
@@ -150,6 +153,9 @@ msgid "Config Management"
 msgstr ""
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -266,10 +272,16 @@ msgstr ""
 msgid "Facts"
 msgstr "Fakta"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "Misslyckades med att importera %{klass} på grund av att %{name}: inte existerar i vår databas - ignorerar"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr ""
+
+msgid "Failed to start"
 msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
@@ -413,6 +425,9 @@ msgstr ""
 msgid "Invalid proxy selected!"
 msgstr ""
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr ""
 
@@ -488,10 +503,16 @@ msgstr ""
 msgid "Name"
 msgstr "Namn"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "Ny"
 
 msgid "No changes to your environments detected"
+msgstr ""
+
+msgid "No configuration status available"
 msgstr ""
 
 msgid "No environment selected!"
@@ -555,6 +576,9 @@ msgid "Organizations"
 msgstr "Organisationer"
 
 msgid "Original value info"
+msgstr ""
+
+msgid "Out of sync"
 msgstr ""
 
 msgid "Overridden"
@@ -641,6 +665,9 @@ msgstr "Puppet externa noder YAML-export"
 msgid "Puppet interval"
 msgstr ""
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr ""
 
@@ -677,6 +704,12 @@ msgstr "Rapporter"
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr ""
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr "Välj miljö"
 
@@ -711,6 +744,9 @@ msgid "Show an override value for a specific smart class parameter"
 msgstr ""
 
 msgid "Show template combination"
+msgstr ""
+
+msgid "Skipped"
 msgstr ""
 
 msgid "Smart Class Parameter"
