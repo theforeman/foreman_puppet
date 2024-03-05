@@ -813,6 +813,42 @@
       "Error!": [
         "Erreur"
       ],
+      "Last configuration status": [
+        ""
+      ],
+      "Never": [
+        ""
+      ],
+      "No configuration status available": [
+        ""
+      ],
+      "Failed": [
+        ""
+      ],
+      "Changed": [
+        ""
+      ],
+      "Scheduled": [
+        ""
+      ],
+      "Failed to start": [
+        ""
+      ],
+      "Restarted": [
+        ""
+      ],
+      "Corrective Change": [
+        ""
+      ],
+      "Skipped": [
+        ""
+      ],
+      "Out of sync": [
+        ""
+      ],
+      "Puppet metrics": [
+        ""
+      ],
       "Puppet details": [
         "Détails Puppet"
       ],

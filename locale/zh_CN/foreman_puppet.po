@@ -117,6 +117,9 @@ msgstr "改变环境"
 msgid "Change Puppet Master"
 msgstr "更改 Puppet 主服务器"
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "修改的环境"
 
@@ -154,6 +157,9 @@ msgid "Config Management"
 msgstr "配置管理"
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -270,11 +276,17 @@ msgstr "错误！"
 msgid "Facts"
 msgstr "Facts"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "为 %{name} 导入 %{klass} 失败：不存在于我们的数据库中 -- 忽略"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "无法为 %{host} 设置 {proxy_type} 代理服务器。"
+
+msgid "Failed to start"
+msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "无法使用磁盘 Puppet 安装更新环境及 Puppet 类别：%s"
@@ -417,6 +429,9 @@ msgstr "从 %s 继承的类"
 msgid "Invalid proxy selected!"
 msgstr "所选代理服务器无效！"
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "列出主机的所有 Puppet 类 ID"
 
@@ -492,11 +507,17 @@ msgstr "合并所有匹配的值（仅用于阵列/哈希类型）"
 msgid "Name"
 msgstr "名称"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "新"
 
 msgid "No changes to your environments detected"
 msgstr "未探测到您的环境有任何变化"
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "没有选择环境！"
@@ -560,6 +581,9 @@ msgstr "机构"
 
 msgid "Original value info"
 msgstr "原始值信息"
+
+msgid "Out of sync"
+msgstr ""
 
 msgid "Overridden"
 msgstr "覆盖"
@@ -645,6 +669,9 @@ msgstr "Puppet 外部节点 YAML 转储"
 msgid "Puppet interval"
 msgstr "Puppet 间隔"
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr "Puppet 参数"
 
@@ -681,6 +708,12 @@ msgstr "报表"
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "需要的参数没有值。<br/><b>请覆盖</b><br/>"
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr "选择环境"
 
@@ -716,6 +749,9 @@ msgstr "显示具体智能类别参数的替代值"
 
 msgid "Show template combination"
 msgstr "显示模板组合"
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr "智能代理参数"

@@ -118,6 +118,9 @@ msgstr "Изменить окружение"
 msgid "Change Puppet Master"
 msgstr "Изменить мастер-сервер Puppet"
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "Изменение окружений"
 
@@ -155,6 +158,9 @@ msgid "Config Management"
 msgstr ""
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -271,11 +277,17 @@ msgstr ""
 msgid "Facts"
 msgstr "Факты"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "Не удалось импортировать %{klass} для %{name}: не найден в нашей базе данных. Игнорируется..."
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "Не удалось настроить %{proxy_type} в качестве прокси для %{host}."
+
+msgid "Failed to start"
+msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "Не удалось обновить окружения и классы Puppet в соответствии с дисковой установкой Puppet: %s"
@@ -418,6 +430,9 @@ msgstr ""
 msgid "Invalid proxy selected!"
 msgstr "Выбран неверный прокси."
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "Список всех кодов классов Puppet для узла"
 
@@ -493,11 +508,17 @@ msgstr "Слить все совпадающие значения (только 
 msgid "Name"
 msgstr "Имя"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "Новое"
 
 msgid "No changes to your environments detected"
 msgstr "Нет изменений в окружениях"
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "Окружение не выбрано."
@@ -561,6 +582,9 @@ msgstr "Организации"
 
 msgid "Original value info"
 msgstr "Сведения об исходном значении"
+
+msgid "Out of sync"
+msgstr ""
 
 msgid "Overridden"
 msgstr ""
@@ -646,6 +670,9 @@ msgstr "Описание внешних узлов Puppet в формате YAML
 msgid "Puppet interval"
 msgstr "Интервал Puppet"
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr "Параметр Puppet"
 
@@ -682,6 +709,12 @@ msgstr "Отчеты"
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "Обязательный параметр без значения.<br/><b>Необходимо переопределить.</b><br/>"
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr "Выберите окружение"
 
@@ -717,6 +750,9 @@ msgstr "Показать значение переопределения для 
 
 msgid "Show template combination"
 msgstr "Показать комбинацию шаблонов"
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr "Смарт-параметры"

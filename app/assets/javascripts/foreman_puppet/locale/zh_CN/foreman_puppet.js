@@ -809,6 +809,42 @@
       "Error!": [
         "错误！"
       ],
+      "Last configuration status": [
+        ""
+      ],
+      "Never": [
+        ""
+      ],
+      "No configuration status available": [
+        ""
+      ],
+      "Failed": [
+        ""
+      ],
+      "Changed": [
+        ""
+      ],
+      "Scheduled": [
+        ""
+      ],
+      "Failed to start": [
+        ""
+      ],
+      "Restarted": [
+        ""
+      ],
+      "Corrective Change": [
+        ""
+      ],
+      "Skipped": [
+        ""
+      ],
+      "Out of sync": [
+        ""
+      ],
+      "Puppet metrics": [
+        ""
+      ],
       "Puppet details": [
         "Puppet 详情"
       ],

@@ -105,6 +105,9 @@ msgstr ""
 msgid "Change Puppet Master"
 msgstr ""
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr ""
 
@@ -142,6 +145,9 @@ msgid "Config Management"
 msgstr ""
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -258,10 +264,16 @@ msgstr ""
 msgid "Facts"
 msgstr ""
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr ""
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr ""
+
+msgid "Failed to start"
 msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
@@ -405,6 +417,9 @@ msgstr ""
 msgid "Invalid proxy selected!"
 msgstr ""
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr ""
 
@@ -480,10 +495,16 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr ""
 
 msgid "No changes to your environments detected"
+msgstr ""
+
+msgid "No configuration status available"
 msgstr ""
 
 msgid "No environment selected!"
@@ -547,6 +568,9 @@ msgid "Organizations"
 msgstr ""
 
 msgid "Original value info"
+msgstr ""
+
+msgid "Out of sync"
 msgstr ""
 
 msgid "Overridden"
@@ -633,6 +657,9 @@ msgstr ""
 msgid "Puppet interval"
 msgstr ""
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr ""
 
@@ -669,6 +696,12 @@ msgstr ""
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr ""
 
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
 msgid "Select environment"
 msgstr ""
 
@@ -703,6 +736,9 @@ msgid "Show an override value for a specific smart class parameter"
 msgstr ""
 
 msgid "Show template combination"
+msgstr ""
+
+msgid "Skipped"
 msgstr ""
 
 msgid "Smart Class Parameter"

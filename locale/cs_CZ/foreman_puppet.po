@@ -114,6 +114,9 @@ msgstr "Změnit prostředí"
 msgid "Change Puppet Master"
 msgstr ""
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "Změněná prostředí"
 
@@ -151,6 +154,9 @@ msgid "Config Management"
 msgstr "Správa nastavení"
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -267,10 +273,16 @@ msgstr ""
 msgid "Facts"
 msgstr "Fakta"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "Nepodařilo se importovat %{klass} pro %{name}: neexistuje v databázi – bude ignorováno"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr ""
+
+msgid "Failed to start"
 msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
@@ -414,6 +426,9 @@ msgstr ""
 msgid "Invalid proxy selected!"
 msgstr ""
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "Vypsat všechny identifikátory Puppet tříd pro hostitele"
 
@@ -489,11 +504,17 @@ msgstr ""
 msgid "Name"
 msgstr "Název"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "Nové"
 
 msgid "No changes to your environments detected"
 msgstr "Nezjištěny žádné změny ve vašich prostředích"
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "Nevybráno prostředí!"
@@ -557,6 +578,9 @@ msgstr "Organizace"
 
 msgid "Original value info"
 msgstr "Informace o původní hodnotě"
+
+msgid "Out of sync"
+msgstr ""
 
 msgid "Overridden"
 msgstr ""
@@ -642,6 +666,9 @@ msgstr ""
 msgid "Puppet interval"
 msgstr ""
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr "Puppet parametr"
 
@@ -676,6 +703,12 @@ msgid "Reports"
 msgstr "Výkazy"
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
+msgstr ""
+
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
 msgstr ""
 
 msgid "Select environment"
@@ -713,6 +746,9 @@ msgstr ""
 
 msgid "Show template combination"
 msgstr "Zobrazit kombinaci šablony"
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr ""

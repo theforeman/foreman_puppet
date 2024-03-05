@@ -114,6 +114,9 @@ msgstr "Cambia ambiente"
 msgid "Change Puppet Master"
 msgstr ""
 
+msgid "Changed"
+msgstr ""
+
 msgid "Changed environments"
 msgstr "Ambienti modificati"
 
@@ -151,6 +154,9 @@ msgid "Config Management"
 msgstr ""
 
 msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
@@ -267,10 +273,16 @@ msgstr ""
 msgid "Facts"
 msgstr "Eventi"
 
+msgid "Failed"
+msgstr ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "Impossibile importare %{klass} per %{name}: non è presente non nostro database - operazione ignorata"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr ""
+
+msgid "Failed to start"
 msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
@@ -414,6 +426,9 @@ msgstr ""
 msgid "Invalid proxy selected!"
 msgstr ""
 
+msgid "Last configuration status"
+msgstr ""
+
 msgid "List all Puppet class IDs for host"
 msgstr "Elenca tutti gli ID delle classi puppet per l'host"
 
@@ -489,11 +504,17 @@ msgstr ""
 msgid "Name"
 msgstr "Nome"
 
+msgid "Never"
+msgstr ""
+
 msgid "New"
 msgstr "Nuovo"
 
 msgid "No changes to your environments detected"
 msgstr "Nessuan modifica rilevata negli ambienti"
+
+msgid "No configuration status available"
+msgstr ""
 
 msgid "No environment selected!"
 msgstr "Nessun ambiente selezionato!"
@@ -556,6 +577,9 @@ msgid "Organizations"
 msgstr "Organizzazioni"
 
 msgid "Original value info"
+msgstr ""
+
+msgid "Out of sync"
 msgstr ""
 
 msgid "Overridden"
@@ -642,6 +666,9 @@ msgstr "Dump YAML dei nodi esterni del puppet"
 msgid "Puppet interval"
 msgstr ""
 
+msgid "Puppet metrics"
+msgstr ""
+
 msgid "Puppet parameter"
 msgstr ""
 
@@ -676,6 +703,12 @@ msgid "Reports"
 msgstr "Notifiche"
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
+msgstr ""
+
+msgid "Restarted"
+msgstr ""
+
+msgid "Scheduled"
 msgstr ""
 
 msgid "Select environment"
@@ -713,6 +746,9 @@ msgstr "Mostra un valore override per uno specifico parametro di smart class"
 
 msgid "Show template combination"
 msgstr "Mostra combinazione di template"
+
+msgid "Skipped"
+msgstr ""
 
 msgid "Smart Class Parameter"
 msgstr "Parametro classe smart"
