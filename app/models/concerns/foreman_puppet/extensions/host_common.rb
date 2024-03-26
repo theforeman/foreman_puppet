@@ -9,8 +9,7 @@ module ForemanPuppet
       end
 
       def puppetclasses
-        return ForemanPuppet::Puppetclass.none unless puppet
-        puppet.puppetclasses
+        (puppet || build_puppet).puppetclasses
       end
     end
   end
