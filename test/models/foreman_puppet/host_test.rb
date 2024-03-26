@@ -325,5 +325,17 @@ module ForemanPuppet
       h.save!
       assert_empty h.puppet.config_groups
     end
+
+    test 'assign a puppet class to host without puppet facet' do
+      puppet_class = FactoryBot.create(:puppetclass)
+      host = FactoryBot.create(:host)
+      # This would raise the following exception
+      # NoMethodError: undefined method `<<' for #<ActiveRecord::Relation []>
+      host.puppetclasses << puppet_class
+
+      assert_not_nil host.puppet
+      assert_includes host.puppet.puppetclasses, puppet_class
+      assert_includes host.puppetclasses, puppet_class
+    end
   end
 end
