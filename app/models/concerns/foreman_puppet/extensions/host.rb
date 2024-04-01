@@ -24,10 +24,9 @@ module ForemanPuppet
           conditions = sanitize_sql_for_conditions(["puppetclasses.name #{operator} ?", value_to_sql(operator, value)])
           config_group_ids = ForemanPuppet::ConfigGroup.joins(:puppetclasses).where(conditions).pluck(:id)
           host_ids         = ::Host.authorized(:view_hosts).joins(puppet: :puppetclasses).where(conditions).distinct.pluck(:id)
-          host_ids        += ForemanPuppet::HostConfigGroup
-                             .where(host_type: 'ForemanPuppet::HostPuppetFacet')
-                             .where(config_group_id: config_group_ids)
-                             .pluck(:host_id)
+          host_ids        += ForemanPuppet::HostPuppetFacet.joins(:host_config_groups)
+                                                           .where(host_config_groups: { config_group_id: config_group_ids })
+                                                           .pluck(:host_id)
           hostgroup_ids = ::Hostgroup.unscoped.with_taxonomy_scope.joins(puppet: :puppetclasses).where(conditions).map(&:subtree_ids)
           if config_group_ids.any?
             hostgroup_cg_ids = ForemanPuppet::HostgroupPuppetFacet.joins(:host_config_groups)
