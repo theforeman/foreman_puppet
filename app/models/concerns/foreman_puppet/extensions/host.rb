@@ -55,6 +55,15 @@ module ForemanPuppet
       end
 
       module PrependedMethods
+        def environment_id=(id)
+          self.environment = ForemanPuppet::Environment.find(id)
+          save
+        end
+
+        def inherited_attributes
+          super.concat(%w[environment_id puppet_proxy_id puppet_ca_proxy_id])
+        end
+
         def provisioning_template(opts = {})
           opts[:environment_id] ||= puppet&.environment_id
           super(opts)

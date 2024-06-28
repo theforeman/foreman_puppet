@@ -30,6 +30,26 @@ module ForemanPuppet
           ext_method: :search_by_config_group
       end
 
+      def inherited_puppet_hostgroup_attribute(attribute)
+        if ancestry.present?
+          self[attribute] || self.class.sort_by_ancestry(ancestors.where.not(attribute => nil)).last.try(attribute)
+        else
+          send(attribute)
+        end
+      end
+
+      def inherited_environment_id
+        inherited_puppet_hostgroup_attribute(:environment_id)
+      end
+
+      def inherited_puppet_proxy_id
+        inherited_puppet_hostgroup_attribute(:puppet_proxy_id)
+      end
+
+      def inherited_puppet_ca_proxy_id
+        inherited_puppet_hostgroup_attribute(:puppet_ca_proxy_id)
+      end
+
       # Temporary, can be ordinary class_methods do, when removed from core
       module PatchedClassMethods
         def search_by_config_group(_key, operator, value)
