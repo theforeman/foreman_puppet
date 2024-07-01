@@ -38,10 +38,6 @@ module ForemanPuppet
         end
       end
 
-      def inherited_environment_id
-        inherited_puppet_hostgroup_attribute(:environment_id)
-      end
-
       def inherited_puppet_proxy_id
         inherited_puppet_hostgroup_attribute(:puppet_proxy_id)
       end
