@@ -54,6 +54,7 @@ module ForemanPuppet
 
       ::Api::V2::BaseController.include ForemanPuppet::Extensions::ApiBaseController
       ::Api::V2::HostsController.include ForemanPuppet::Extensions::ApiV2HostsController
+      ::Api::V2::RegistrationController.prepend ForemanPuppet::Extensions::ApiV2RegistrationControllerExtensions
       ::Api::V2::HostgroupsController.include ForemanPuppet::Extensions::ApiHostgroupsController
       ::Api::V2::TemplateCombinationsController.include ForemanPuppet::Extensions::ApiTemplateCombinationsController
       ::Api::V2::HostsController.include ForemanPuppet::Extensions::ParametersHost
