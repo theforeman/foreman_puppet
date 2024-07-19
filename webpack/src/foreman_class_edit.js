@@ -154,7 +154,7 @@ export function addConfigGroup(item) {
     .addClass('selected-marker')
     .hide();
 
-  const puppetclassIds = $.parseJSON($(item).attr('data-puppetclass-ids'));
+  const puppetclassIds = JSON.parse($(item).attr('data-puppetclass-ids'));
   const inheritedIds = _getInheritedIds();
 
   $.each(puppetclassIds, (index, puppetclassId) => {
@@ -182,7 +182,7 @@ export function removeConfigGroup(item) {
     .tooltip('hide');
   $(`#selected_config_group_${id}`).remove();
 
-  const puppetclassIds = $.parseJSON($(item).attr('data-puppetclass-ids'));
+  const puppetclassIds = JSON.parse($(item).attr('data-puppetclass-ids'));
   const inheritedIds = _getInheritedIds();
 
   $.each(puppetclassIds, (index, puppetclassId) => {
