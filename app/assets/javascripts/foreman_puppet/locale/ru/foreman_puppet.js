@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 5.0.0",
+        "Project-Id-Version": "foreman_puppet 7.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "0868a4d1af5275b3f70b0a6dac4c99a4, 2022",
-        "Language-Team": "Russian (https://www.transifex.com/foreman/teams/114/ru/)",
+        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2024",
+        "Language-Team": "Russian (https://app.transifex.com/foreman/teams/114/ru/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -17,94 +17,188 @@
         "domain": "foreman_puppet",
         "plural_forms": "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);"
       },
-      "Ignored environment names resulting in booleans found. Please quote strings like true/false and yes/no in config/ignored_environments.yml": [
+      " Remove": [
+        "Удалить"
+      ],
+      "%s is not in environment": [
+        "%s не является окружением"
+      ],
+      "%s out of sync disabled": [
         ""
       ],
-      "No changes to your environments detected": [
-        "Нет изменений в окружениях"
+      "%{model} with id '%{id}' was not found": [
+        "%{model} с идентификатором «%{id}» не обнаружено"
       ],
-      "Successfully updated environments and Puppet classes from the on-disk Puppet installation": [
-        "Окружения и классы Puppet обновлены в соответствии с дисковой установкой Puppet"
-      ],
-      "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s": [
-        "Не удалось обновить окружения и классы Puppet в соответствии с дисковой установкой Puppet: %s"
-      ],
-      "No smart proxy was found to import environments from, ensure that at least one smart proxy is registered with the 'puppet' feature": [
+      "%{name} has %{num_tag} class": [
+        "",
         ""
       ],
-      "Ignored environments: %s": [
+      "%{puppetclass} does not belong to the %{environment} environment": [
         ""
       ],
-      "Ignored classes in the environments: %s": [
+      "*Clear environment*": [
+        "*Сбросить окружение*"
+      ],
+      "*Inherit from host group*": [
+        "*Наследовать от группы*"
+      ],
+      "<b>Description:</b> %{desc}<br/>\\n        <b>Type:</b> %{type}<br/>\\n        <b>Matcher:</b> %{matcher}<br/>\\n        <b>Inherited value:</b> %{inherited_value}": [
         ""
       ],
-      "List all host groups for a Puppet class": [
-        "Список всех групп для класса Puppet"
-      ],
-      "ID of Puppetclass": [
+      "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         ""
       ],
-      "Deprecated in favor of hostgroup/puppet_attributes/environment_id": [
-        ""
+      "Action with sub plans": [
+        "Действия с подпланами"
       ],
-      "Deprecated in favor of hostgroup/puppet_attributes/puppetclass_ids": [
-        ""
+      "Actions": [
+        "Действия"
       ],
-      "Deprecated in favor of hostgroup/puppet_attributes/config_group_ids": [
-        ""
+      "Add": [
+        "Добавить"
       ],
-      "ID of associated puppet Environment": [
-        ""
+      "Add Combination": [
+        "Добавить комбинацию"
       ],
-      "IDs of associated Puppetclasses": [
-        ""
+      "Add a Puppet class to host": [
+        "Добавить класс Puppet к узлу"
       ],
-      "IDs of associated ConfigGroups": [
-        ""
-      ],
-      "Import puppet classes from puppet proxy": [
-        "Импорт классов puppet из puppet-прокси "
-      ],
-      "Import puppet classes from puppet proxy for an environment": [
-        "Импорт классов Puppet из прокси Puppet в окружение"
-      ],
-      "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes": [
-        ""
-      ],
-      "Failed to update the environments and Puppet classes from the on-disk puppet installation: %s": [
-        "Не удалось обновить окружения и классы Puppet в соответствии с дисковой установкой Puppet: %s"
-      ],
-      "The requested environment cannot be found.": [
-        ""
-      ],
-      "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled.": [
-        "Не найден прокси для импорта классов. Убедитесь, что в капсуле включены функции Puppet."
-      ],
-      "List template combination": [
-        "Список комбинаций шаблонов"
+      "Add a Puppet class to host group": [
+        "Добавить класс Puppet к группе узлов"
       ],
       "Add a template combination": [
         "Добавить комбинацию шаблонов"
       ],
-      "Show template combination": [
-        "Показать комбинацию шаблонов"
+      "Add:": [
+        "Добавить:"
       ],
-      "Update template combination": [
-        "Обновить комбинацию шаблонов"
+      "All environments - (not filtered)": [
+        "Все окружения (без фильтра)"
       ],
-      "ID of Puppet environment": [
+      "Allow assigning Puppet environments and classes to the Foreman Hosts.": [
         ""
       ],
-      "environment id": [
-        "ID окружения"
+      "Assigned classes": [
+        ""
       ],
-      "ID of environment": [
-        "Код окружения"
+      "Available Classes": [
+        "Доступные классы"
       ],
-      "List hosts per environment": [
-        "Список узлов по окружениям"
+      "Available Config Groups": [
+        "Доступные группы конфигурации"
       ],
-      "ID of puppet environment": [
+      "Can't find a valid Foreman Proxy with a Puppet feature": [
+        "Не удалось найти прокси Foreman с поддержкой Puppet"
+      ],
+      "Can't find a valid Proxy with a Puppet feature": [
+        ""
+      ],
+      "Cancel": [
+        "Отмена"
+      ],
+      "Change Environment": [
+        "Изменить окружение"
+      ],
+      "Change Puppet Master": [
+        "Изменить мастер-сервер Puppet"
+      ],
+      "Changed": [
+        ""
+      ],
+      "Changed environments": [
+        "Изменение окружений"
+      ],
+      "Check/Uncheck all": [
+        "Выбрать все/Отменить выбор"
+      ],
+      "Check/Uncheck all %s changes": [
+        "Выбрать/отменить выбор всех изменений %s"
+      ],
+      "Check/Uncheck new": [
+        "Выбрать новые/Отменить выбор"
+      ],
+      "Check/Uncheck obsolete": [
+        "Выбрать устаревшие/Отменить выбор"
+      ],
+      "Check/Uncheck updated": [
+        "Выбрать обновленные/Отменить выбор"
+      ],
+      "Classes": [
+        "Классы"
+      ],
+      "Click to add %s": [
+        "Нажмите, чтобы добавить %s"
+      ],
+      "Click to remove %s": [
+        "Нажмите, чтобы удалить %s"
+      ],
+      "Click to remove config group": [
+        "Нажмите, чтобы удалить группу конфигурации"
+      ],
+      "Config Groups": [
+        ""
+      ],
+      "Config Management": [
+        ""
+      ],
+      "Copy to clipboard": [
+        "Скопировано в буфер обмена"
+      ],
+      "Corrective Change": [
+        ""
+      ],
+      "Couldn't find any ENC data for this host": [
+        ""
+      ],
+      "Create Config Group": [
+        ""
+      ],
+      "Create Environment": [
+        ""
+      ],
+      "Create Puppet Environment": [
+        ""
+      ],
+      "Create a Puppet class": [
+        "Создать класс Puppet"
+      ],
+      "Create a config group": [
+        "Создать группу конфигурации"
+      ],
+      "Create an environment": [
+        "Создать окружение"
+      ],
+      "Create an override value for a specific smart class parameter": [
+        "Создать переопределение смарт-параметра"
+      ],
+      "Default Puppet environment": [
+        "Окружение Puppet по умолчанию"
+      ],
+      "Default value": [
+        "Исходное значение"
+      ],
+      "Delete %s?": [
+        "Удалить %s?"
+      ],
+      "Delete a Puppet class": [
+        "Удалить класс Puppet"
+      ],
+      "Delete a config group": [
+        "Удалить группу конфигурации"
+      ],
+      "Delete an environment": [
+        "Удалить окружение"
+      ],
+      "Delete an override value for a specific smart class parameter": [
+        "Удалить значение переопределения смарт-параметра"
+      ],
+      "Deleted environment": [
+        "Окружение удалено"
+      ],
+      "Deleted environment %{env} and %{pcs}": [
+        "Удалено окружение %{env} и %{pcs}"
+      ],
+      "Deprecated in favor of host/puppet_attributes/config_group_ids": [
         ""
       ],
       "Deprecated in favor of host/puppet_attributes/environment_id": [
@@ -113,141 +207,221 @@
       "Deprecated in favor of host/puppet_attributes/puppetclass_ids": [
         ""
       ],
-      "Deprecated in favor of host/puppet_attributes/config_group_ids": [
+      "Deprecated in favor of hostgroup/puppet_attributes/config_group_ids": [
         ""
       ],
-      "No environment selected!": [
-        "Окружение не выбрано."
-      ],
-      "Updated hosts: changed environment": [
-        "Обновление узлов: окружение изменено"
-      ],
-      "Unable to generate output, Check log files": [
-        "Не удалось создать выход, проверьте файлы журналов"
-      ],
-      "No proxy selected!": [
-        "Прокси не выбран."
-      ],
-      "Invalid proxy selected!": [
-        "Выбран неверный прокси."
-      ],
-      "Failed to set %{proxy_type} proxy for %{host}.": [
-        "Не удалось настроить %{proxy_type} в качестве прокси для %{host}."
-      ],
-      "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}": [
+      "Deprecated in favor of hostgroup/puppet_attributes/environment_id": [
         ""
       ],
-      "The %{proxy_type} proxy of the selected hosts was cleared.": [
-        "Прокси %{proxy_type} был удален для выбранных узлов."
-      ],
-      "The %{proxy_type} proxy could not be set for host: %{host_names}.": [
-        "",
+      "Deprecated in favor of hostgroup/puppet_attributes/puppetclass_ids": [
         ""
       ],
-      "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}.": [
-        "%{proxy_name} был настроен как %{proxy_type} для выбранных узлов."
+      "Description of smart class": [
+        "Описание переопределяемого класса"
       ],
-      "Puppet": [
-        "Puppet"
-      ],
-      "Puppet CA": [
-        "Центр сертификации Puppet"
-      ],
-      "List of config groups": [
-        "Список групп конфигурации"
-      ],
-      "Show a config group": [
-        "Показать группу конфигурации"
-      ],
-      "Create a config group": [
-        "Создать группу конфигурации"
-      ],
-      "Update a config group": [
-        "Изменить группу конфигурации"
-      ],
-      "Delete a config group": [
-        "Удалить группу конфигурации"
-      ],
-      "List all environments": [
-        "Список окружений"
-      ],
-      "List environments of Puppet class": [
-        "Список окружений для классов Puppet"
-      ],
-      "List environments per location": [
-        "Список окружений по местоположениям"
-      ],
-      "List environments per organization": [
-        "Список окружений по организациям"
-      ],
-      "ID of Puppet class": [
-        "Код класса Puppet"
-      ],
-      "Show an environment": [
-        "Показать окружение"
-      ],
-      "Create an environment": [
-        "Создать окружение"
-      ],
-      "Update an environment": [
-        "Обновить окружение"
-      ],
-      "Delete an environment": [
-        "Удалить окружение"
-      ],
-      "List all Puppet class IDs for host": [
-        "Список всех кодов классов Puppet для узла"
-      ],
-      "Add a Puppet class to host": [
-        "Добавить класс Puppet к узлу"
-      ],
-      "ID of host": [
-        "Код узла"
-      ],
-      "Remove a Puppet class from host": [
-        "Удалить класс Puppet из узла"
-      ],
-      "List all Puppet class IDs for host group": [
-        "Список всех кодов классов Puppet для группы узлов"
-      ],
-      "Add a Puppet class to host group": [
-        "Добавить класс Puppet к группе узлов"
-      ],
-      "ID of host group": [
-        "Код группы узлов"
-      ],
-      "Remove a Puppet class from host group": [
-        "Удалить класс Puppet из группы узлов"
-      ],
-      "List of override values for a specific smart class parameter": [
-        "Список заменяемых значений для определенного смарт-параметра"
+      "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval": [
+        "Запретить переход состояния конфигурации узла в \\\"несинхронизированно\\\" в течение %s после того, как отчёт не поступил в течение заданного интервала"
       ],
       "Display hidden values": [
         "Показать скрытые значения"
       ],
-      "Show an override value for a specific smart class parameter": [
-        "Показать значение переопределения для смарт-параметра"
-      ],
-      "Override match": [
-        "Условие переопределения"
-      ],
-      "Override value, required if omit is false": [
+      "Duration in minutes after servers reporting via Puppet are classed as out of sync.": [
         ""
+      ],
+      "ENC Preview": [
+        ""
+      ],
+      "ENC environment": [
+        "Окружение ENC"
+      ],
+      "Edit %s": [
+        "Изменить %s"
+      ],
+      "Edit Puppet Class %s": [
+        "Изменение класса Puppet %s"
+      ],
+      "Empty environment": [
+        "Пустое окружение"
+      ],
+      "Environment": [
+        "Окружение"
+      ],
+      "Environment only": [
+        "Только окружение"
+      ],
+      "Environments": [
+        "Окружения"
+      ],
+      "Environment|Name": [
+        "Имя"
+      ],
+      "Error!": [
+        ""
+      ],
+      "Facts": [
+        "Факты"
+      ],
+      "Failed": [
+        "Сбой"
+      ],
+      "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
+        "Не удалось импортировать %{klass} для %{name}: не найден в нашей базе данных. Игнорируется..."
+      ],
+      "Failed to set %{proxy_type} proxy for %{host}.": [
+        "Не удалось настроить %{proxy_type} в качестве прокси для %{host}."
+      ],
+      "Failed to start": [
+        ""
+      ],
+      "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s": [
+        "Не удалось обновить окружения и классы Puppet в соответствии с дисковой установкой Puppet: %s"
+      ],
+      "Failed to update the environments and Puppet classes from the on-disk puppet installation: %s": [
+        "Не удалось обновить окружения и классы Puppet в соответствии с дисковой установкой Puppet: %s"
+      ],
+      "Filter by name": [
+        "Фильтровать по имени"
+      ],
+      "Filter classes": [
+        "Фильтр классов"
+      ],
+      "Foreman will default to this puppet environment if it cannot auto detect one": [
+        "Окружение Puppet, которое будет выбрано, если Foreman не сможет автоматически определить окружение"
+      ],
+      "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman": [
+        "Foreman передаст информацию об окружении Puppet в YAML-выводе ENC в явном виде — это позволит избежать конфликтов с окружением, заданным в puppet.conf"
       ],
       "Foreman will not send this parameter in classification output": [
         ""
       ],
-      "Create an override value for a specific smart class parameter": [
-        "Создать переопределение смарт-параметра"
+      "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter": [
+        ""
       ],
-      "Update an override value for a specific smart class parameter": [
-        "Обновить значение переопределения смарт-параметра"
+      "Foreman will update a host's environment from its facts": [
+        "Обновлять окружение узла на основании фактов статистики"
       ],
-      "Delete an override value for a specific smart class parameter": [
-        "Удалить значение переопределения смарт-параметра"
+      "General": [
+        "Общие"
       ],
-      "%{model} with id '%{id}' was not found": [
-        "%{model} с идентификатором «%{id}» не обнаружено"
+      "Help": [
+        "Справка"
+      ],
+      "Host Groups": [
+        "Группы узлов"
+      ],
+      "Host group and Environment": [
+        "Группа узлов и окружение"
+      ],
+      "Host group only": [
+        "Только группа"
+      ],
+      "Host groups": [
+        "Группы узлов"
+      ],
+      "Hostgroup": [
+        "Группа узлов"
+      ],
+      "Hosts": [
+        "Узлы"
+      ],
+      "Hosts managed:": [
+        "Контролируемые узлы:"
+      ],
+      "ID of Puppet class": [
+        "Код класса Puppet"
+      ],
+      "ID of Puppet environment": [
+        ""
+      ],
+      "ID of Puppetclass": [
+        ""
+      ],
+      "ID of associated puppet Environment": [
+        ""
+      ],
+      "ID of environment": [
+        "Код окружения"
+      ],
+      "ID of host": [
+        "Код узла"
+      ],
+      "ID of host group": [
+        "Код группы узлов"
+      ],
+      "ID of puppet environment": [
+        ""
+      ],
+      "IDs of associated ConfigGroups": [
+        ""
+      ],
+      "IDs of associated Puppetclasses": [
+        ""
+      ],
+      "If true, will raise an error if there is no default value and no matcher provide a value": [
+        "Если установлено, вызовет ошибку, если не установлено значение по умолчанию и не найдет поставщик значения"
+      ],
+      "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer.": [
+        ""
+      ],
+      "Ignored classes in the environments: %s": [
+        ""
+      ],
+      "Ignored environment": [
+        ""
+      ],
+      "Ignored environment names resulting in booleans found. Please quote strings like true/false and yes/no in config/ignored_environments.yml": [
+        ""
+      ],
+      "Ignored environments: %s": [
+        ""
+      ],
+      "Ignored:": [
+        ""
+      ],
+      "Import": [
+        "Импорт"
+      ],
+      "Import Puppet classes": [
+        "Импорт классов Puppet"
+      ],
+      "Import classes from %s": [
+        ""
+      ],
+      "Import environments from %s": [
+        ""
+      ],
+      "Import facts": [
+        "Импорт фактов"
+      ],
+      "Import puppet classes from puppet proxy": [
+        "Импорт классов puppet из puppet-прокси "
+      ],
+      "Import puppet classes from puppet proxy for an environment": [
+        "Импорт классов Puppet из прокси Puppet в окружение"
+      ],
+      "Include default value when merging all matching values": [
+        "При объединении совпадающих значений также включить значение, используемое по умолчанию"
+      ],
+      "Included Classes": [
+        "Включенные классы"
+      ],
+      "Included Config Groups": [
+        "Включенные группы конфигурации"
+      ],
+      "Inherited Classes from %s": [
+        ""
+      ],
+      "Invalid proxy selected!": [
+        "Выбран неверный прокси."
+      ],
+      "Last configuration status": [
+        ""
+      ],
+      "List all Puppet class IDs for host": [
+        "Список всех кодов классов Puppet для узла"
+      ],
+      "List all Puppet class IDs for host group": [
+        "Список всех кодов классов Puppet для группы узлов"
       ],
       "List all Puppet classes": [
         "Список всех классов Puppet"
@@ -261,35 +435,32 @@
       "List all Puppet classes for an environment": [
         "Список всех классов Puppet окружения"
       ],
-      "Show a Puppet class": [
-        "Показать класс Puppet"
+      "List all environments": [
+        "Список окружений"
       ],
-      "Show a Puppet class for host": [
-        "Показать класс Puppet узла"
-      ],
-      "Show a Puppet class for a host group": [
-        "Показать класс Puppet группы узлов"
-      ],
-      "Show a Puppet class for an environment": [
-        "Показать класс Puppet окружения"
-      ],
-      "Create a Puppet class": [
-        "Создать класс Puppet"
-      ],
-      "Update a Puppet class": [
-        "Изменить класс Puppet"
-      ],
-      "Delete a Puppet class": [
-        "Удалить класс Puppet"
+      "List all host groups for a Puppet class": [
+        "Список всех групп для класса Puppet"
       ],
       "List all smart class parameters": [
         "Список всех переопределяемых классов параметров"
       ],
-      "List of smart class parameters for a specific host": [
-        "Список всех переопределяемых классов параметров для определенного узла"
+      "List environments of Puppet class": [
+        "Список окружений для классов Puppet"
       ],
-      "List of smart class parameters for a specific host group": [
-        "Список всех переопределяемых классов параметров для определенной группы узлов"
+      "List environments per location": [
+        "Список окружений по местоположениям"
+      ],
+      "List environments per organization": [
+        "Список окружений по организациям"
+      ],
+      "List hosts per environment": [
+        "Список узлов по окружениям"
+      ],
+      "List of config groups": [
+        "Список групп конфигурации"
+      ],
+      "List of override values for a specific smart class parameter": [
+        "Список заменяемых значений для определенного смарт-параметра"
       ],
       "List of smart class parameters for a specific Puppet class": [
         "Список смарт-параметров для определенного класса Puppet"
@@ -300,50 +471,287 @@
       "List of smart class parameters for a specific environment/Puppet class combination": [
         "Список смарт-параметров для определенной комбинации окружение/класс Puppet"
       ],
-      "Show a smart class parameter": [
-        "Создать смарт-параметр"
+      "List of smart class parameters for a specific host": [
+        "Список всех переопределяемых классов параметров для определенного узла"
       ],
-      "Update a smart class parameter": [
-        "Изменить смарт-параметр"
+      "List of smart class parameters for a specific host group": [
+        "Список всех переопределяемых классов параметров для определенной группы узлов"
       ],
-      "Whether the smart class parameter value is managed by Foreman": [
-        "Разрешает Foreman контролировать значение смарт-параметра"
+      "List template combination": [
+        "Список комбинаций шаблонов"
       ],
-      "Description of smart class": [
-        "Описание переопределяемого класса"
+      "Loading parameters...": [
+        "Загрузка параметров..."
       ],
-      "Value to use when there is no match": [
-        "Значение, которое будет использоваться по умолчанию"
-      ],
-      "When enabled the parameter is hidden in the UI": [
-        "Если включено, параметр будет скрыт"
-      ],
-      "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter": [
-        ""
-      ],
-      "The order in which values are resolved": [
-        "Порядок обработки значений"
-      ],
-      "Types of validation values": [
-        "Типы значений проверок"
-      ],
-      "Used to enforce certain values for the parameter values": [
-        "Используется для обеспечения определенных значений для значений параметров"
-      ],
-      "Types of variable values": [
-        "Типы значений переменных"
-      ],
-      "If true, will raise an error if there is no default value and no matcher provide a value": [
-        "Если установлено, вызовет ошибку, если не установлено значение по умолчанию и не найдет поставщик значения"
+      "Locations": [
+        "Местоположения"
       ],
       "Merge all matching values (only array/hash type)": [
         "Слить все совпадающие значения (только для типов массив/хэш)"
       ],
-      "Include default value when merging all matching values": [
-        "При объединении совпадающих значений также включить значение, используемое по умолчанию"
+      "Name": [
+        "Имя"
+      ],
+      "Never": [
+        ""
+      ],
+      "New": [
+        "Новое"
+      ],
+      "No changes to your environments detected": [
+        "Нет изменений в окружениях"
+      ],
+      "No configuration status available": [
+        ""
+      ],
+      "No environment selected!": [
+        "Окружение не выбрано."
+      ],
+      "No environments found": [
+        "Окружений не найдено."
+      ],
+      "No parameters to override for Puppet class %s": [
+        "Нет параметров для перезаписи в классе Puppet %s"
+      ],
+      "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled.": [
+        "Не найден прокси для импорта классов. Убедитесь, что в капсуле включены функции Puppet."
+      ],
+      "No proxy selected!": [
+        "Прокси не выбран."
+      ],
+      "No smart proxy was found to import environments from, ensure that at least one smart proxy is registered with the 'puppet' feature": [
+        ""
+      ],
+      "None": [
+        "Нет"
+      ],
+      "Not authorized to edit classes": [
+        "Недостаточно разрешений для изменения классов"
+      ],
+      "Notice": [
+        "Примечание"
+      ],
+      "Number of Overrides": [
+        ""
+      ],
+      "Number of classes": [
+        "Классы"
+      ],
+      "Obsolete": [
+        "Устарело"
+      ],
+      "Omit": [
+        "Пропустить"
+      ],
+      "Omit from classification output": [
+        ""
+      ],
+      "Operating System": [
+        "Операционная система"
+      ],
+      "Operating system default": [
+        "Стандартный для операционной системы"
+      ],
+      "Operation": [
+        "Операция"
+      ],
+      "Optional comma-delimited stringcontaining either 'new', 'updated', or 'obsolete'that is used to limit the imported Puppet classes": [
+        ""
+      ],
+      "Optional parameter without value.<br/><i>Still managed by Foreman, the value will be empty.</i><br/>": [
+        ""
+      ],
+      "Organizations": [
+        "Организации"
+      ],
+      "Original value info": [
+        "Сведения об исходном значении"
+      ],
+      "Out of sync": [
+        ""
+      ],
+      "Overridden": [
+        ""
+      ],
+      "Override all parameters": [
+        "Перезаписать все параметры"
+      ],
+      "Override match": [
+        "Условие переопределения"
+      ],
+      "Override this value": [
+        "Переопределить значение"
+      ],
+      "Override value, required if omit is false": [
+        ""
+      ],
+      "Parameter": [
+        "Параметр"
+      ],
+      "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers).": [
+        ""
+      ],
+      "Parameters": [
+        "Параметры"
+      ],
+      "Please select an environment first": [
+        "Выберите окружение"
+      ],
+      "Puppet": [
+        "Puppet"
+      ],
+      "Puppet CA": [
+        "Центр сертификации Puppet"
+      ],
+      "Puppet CA Smart Proxy": [
+        ""
+      ],
+      "Puppet Class": [
+        "Класс Puppet"
+      ],
+      "Puppet Class Parameters": [
+        ""
+      ],
+      "Puppet Classes": [
+        "Классы Puppet"
+      ],
+      "Puppet ENC": [
+        ""
+      ],
+      "Puppet Environment": [
+        "Окружение Puppet"
+      ],
+      "Puppet Environments": [
+        "Окружения Puppet"
+      ],
+      "Puppet Modules": [
+        "Модули Puppet"
+      ],
+      "Puppet Smart Proxy": [
+        ""
+      ],
+      "Puppet YAML": [
+        ""
+      ],
+      "Puppet classes": [
+        "Классы Puppet"
+      ],
+      "Puppet details": [
+        ""
+      ],
+      "Puppet env": [
+        ""
+      ],
+      "Puppet environment": [
+        ""
+      ],
+      "Puppet environments": [
+        "Окружения Puppet"
+      ],
+      "Puppet external nodes YAML dump": [
+        "Описание внешних узлов Puppet в формате YAML"
+      ],
+      "Puppet interval": [
+        "Интервал Puppet"
+      ],
+      "Puppet metrics": [
+        ""
+      ],
+      "Puppet parameter": [
+        "Параметр Puppet"
+      ],
+      "Puppetclass|Name": [
+        "Имя"
+      ],
+      "Remote action:": [
+        "Удаленное действие:"
+      ],
+      "Remove": [
+        "Удалить"
+      ],
+      "Remove Combination": [
+        ""
+      ],
+      "Remove a Puppet class from host": [
+        "Удалить класс Puppet из узла"
+      ],
+      "Remove a Puppet class from host group": [
+        "Удалить класс Puppet из группы узлов"
       ],
       "Remove duplicate values (only array type)": [
         "Удалить повторяющиеся значения (только для массива)"
+      ],
+      "Remove this override": [
+        "Удалить переопределение"
+      ],
+      "Remove:": [
+        "Удалить:"
+      ],
+      "Reports": [
+        "Отчеты"
+      ],
+      "Required parameter without value.<br/><b>Please override!</b><br/>": [
+        "Обязательный параметр без значения.<br/><b>Необходимо переопределить.</b><br/>"
+      ],
+      "Restarted": [
+        ""
+      ],
+      "Scheduled": [
+        ""
+      ],
+      "Select environment": [
+        "Выберите окружение"
+      ],
+      "Select the changes you want to apply to Foreman": [
+        ""
+      ],
+      "Set parameters to defaults": [
+        "Параметры по умолчанию"
+      ],
+      "Show a Puppet class": [
+        "Показать класс Puppet"
+      ],
+      "Show a Puppet class for a host group": [
+        "Показать класс Puppet группы узлов"
+      ],
+      "Show a Puppet class for an environment": [
+        "Показать класс Puppet окружения"
+      ],
+      "Show a Puppet class for host": [
+        "Показать класс Puppet узла"
+      ],
+      "Show a config group": [
+        "Показать группу конфигурации"
+      ],
+      "Show a smart class parameter": [
+        "Создать смарт-параметр"
+      ],
+      "Show an environment": [
+        "Показать окружение"
+      ],
+      "Show an override value for a specific smart class parameter": [
+        "Показать значение переопределения для смарт-параметра"
+      ],
+      "Show template combination": [
+        "Показать комбинацию шаблонов"
+      ],
+      "Skipped": [
+        ""
+      ],
+      "Smart Class Parameter": [
+        "Смарт-параметры"
+      ],
+      "Smart Class Parameters": [
+        ""
+      ],
+      "Smart class parameters": [
+        "Смарт-параметры"
+      ],
+      "Some Puppet Classes are unavailable in the selected environment": [
+        ""
+      ],
+      "Successfully copied to clipboard!": [
+        ""
       ],
       "Successfully overridden all parameters of Puppet class %s": [
         "Успешно перезаписаны все параметры в классе Puppet %s"
@@ -351,545 +759,137 @@
       "Successfully reset all parameters of Puppet class %s to their default values": [
         "Исходные значения параметров класса Puppet %s восстановлены."
       ],
-      "No parameters to override for Puppet class %s": [
-        "Нет параметров для перезаписи в классе Puppet %s"
+      "Successfully updated environments and Puppet classes from the on-disk Puppet installation": [
+        "Окружения и классы Puppet обновлены в соответствии с дисковой установкой Puppet"
       ],
-      "Create Puppet Environment": [
-        ""
-      ],
-      "Help": [
-        "Справка"
-      ],
-      "Change Environment": [
-        "Изменить окружение"
-      ],
-      "Change Puppet Master": [
-        "Изменить мастер-сервер Puppet"
-      ],
-      "Puppet YAML": [
-        ""
-      ],
-      "Puppet external nodes YAML dump": [
-        "Описание внешних узлов Puppet в формате YAML"
-      ],
-      "Puppet Environment": [
-        "Окружение Puppet"
-      ],
-      "Omit from classification output": [
-        ""
-      ],
-      "Override this value": [
-        "Переопределить значение"
-      ],
-      "Remove this override": [
-        "Удалить переопределение"
-      ],
-      "Default value": [
-        "Исходное значение"
-      ],
-      "Original value info": [
-        "Сведения об исходном значении"
-      ],
-      "<b>Description:</b> %{desc}<br/>\\n        <b>Type:</b> %{type}<br/>\\n        <b>Matcher:</b> %{matcher}<br/>\\n        <b>Inherited value:</b> %{inherited_value}": [
-        ""
-      ],
-      "Required parameter without value.<br/><b>Please override!</b><br/>": [
-        "Обязательный параметр без значения.<br/><b>Необходимо переопределить.</b><br/>"
-      ],
-      "Optional parameter without value.<br/><i>Still managed by Foreman, the value will be empty.</i><br/>": [
-        ""
-      ],
-      "Empty environment": [
-        "Пустое окружение"
-      ],
-      "Deleted environment": [
-        "Окружение удалено"
-      ],
-      "Deleted environment %{env} and %{pcs}": [
-        "Удалено окружение %{env} и %{pcs}"
-      ],
-      "Ignored environment": [
-        ""
-      ],
-      "Import": [
-        "Импорт"
-      ],
-      "Import environments from %s": [
-        ""
-      ],
-      "Import classes from %s": [
-        ""
-      ],
-      "%{name} has %{num_tag} class": [
+      "The %{proxy_type} proxy could not be set for host: %{host_names}.": [
         "",
         ""
       ],
-      "Click to remove %s": [
-        "Нажмите, чтобы удалить %s"
+      "The %{proxy_type} proxy of the selected hosts was cleared.": [
+        "Прокси %{proxy_type} был удален для выбранных узлов."
       ],
-      "Click to add %s": [
-        "Нажмите, чтобы добавить %s"
-      ],
-      "None": [
-        "Нет"
-      ],
-      "When editing a template, you must assign a list \\\\\\n  of operating systems which this template can be used with. Optionally, you can \\\\\\n  restrict a template to a list of host groups and/or environments.": [
+      "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}": [
         ""
       ],
-      "When a Host requests a template (e.g. during provisioning), Foreman \\\\\\n  will select the best match from the available templates of that type, in the \\\\\\n  following order:": [
-        ""
-      ],
-      "Host group and Environment": [
-        "Группа узлов и окружение"
-      ],
-      "Host group only": [
-        "Только группа"
-      ],
-      "Environment only": [
-        "Только окружение"
-      ],
-      "Operating system default": [
-        "Стандартный для операционной системы"
-      ],
-      "The final entry, Operating System default, can be set by editing the %s page.": [
-        "Стандартный шаблон для операционной системы можно настроить на странице %s."
-      ],
-      "Operating System": [
-        "Операционная система"
-      ],
-      "Can't find a valid Foreman Proxy with a Puppet feature": [
-        "Не удалось найти прокси Foreman с поддержкой Puppet"
-      ],
-      "%{puppetclass} does not belong to the %{environment} environment": [
-        ""
-      ],
-      "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
-        "Не удалось импортировать %{klass} для %{name}: не найден в нашей базе данных. Игнорируется..."
-      ],
-      "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location": [
-        ""
-      ],
-      "must be true to edit the parameter": [
-        "должно быть установлено в true для редактирования параметра"
-      ],
-      "Puppet parameter": [
-        "Параметр Puppet"
-      ],
-      "Can't find a valid Proxy with a Puppet feature": [
-        ""
-      ],
-      "Changed environments": [
-        "Изменение окружений"
-      ],
-      "Puppet Environments": [
-        "Окружения Puppet"
-      ],
-      "Select the changes you want to apply to Foreman": [
-        ""
-      ],
-      "Toggle": [
-        "Состояние"
-      ],
-      "New": [
-        "Новое"
-      ],
-      "Check/Uncheck new": [
-        "Выбрать новые/Отменить выбор"
-      ],
-      "Updated": [
-        "Обновлено"
-      ],
-      "Check/Uncheck updated": [
-        "Выбрать обновленные/Отменить выбор"
-      ],
-      "Obsolete": [
-        "Устарело"
-      ],
-      "Check/Uncheck obsolete": [
-        "Выбрать устаревшие/Отменить выбор"
-      ],
-      "Check/Uncheck all": [
-        "Выбрать все/Отменить выбор"
-      ],
-      "Environment": [
-        "Окружение"
-      ],
-      "Operation": [
-        "Операция"
-      ],
-      "Puppet Modules": [
-        "Модули Puppet"
-      ],
-      "Check/Uncheck all %s changes": [
-        "Выбрать/отменить выбор всех изменений %s"
-      ],
-      "Add:": [
-        "Добавить:"
-      ],
-      "Remove:": [
-        "Удалить:"
-      ],
-      "Update:": [
-        "Обновление:"
-      ],
-      "Ignored:": [
-        ""
-      ],
-      "Cancel": [
-        "Отмена"
-      ],
-      "Update": [
-        "Обновить"
-      ],
-      "included already from parent": [
-        "унаследована от родителя"
-      ],
-      "Remove": [
-        "Удалить"
-      ],
-      "Add": [
-        "Добавить"
-      ],
-      "%s is not in environment": [
-        "%s не является окружением"
-      ],
-      "Included Config Groups": [
-        "Включенные группы конфигурации"
-      ],
-      "Available Config Groups": [
-        "Доступные группы конфигурации"
-      ],
-      "Edit %s": [
-        "Изменить %s"
-      ],
-      "Config Groups": [
-        ""
-      ],
-      "Create Config Group": [
-        ""
-      ],
-      "Puppet Classes": [
-        "Классы Puppet"
-      ],
-      "Hosts": [
-        "Узлы"
-      ],
-      "Host Groups": [
-        "Группы узлов"
-      ],
-      "Actions": [
-        "Действия"
-      ],
-      "Delete %s?": [
-        "Удалить %s?"
-      ],
-      "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
-        ""
-      ],
-      "Locations": [
-        "Местоположения"
-      ],
-      "Organizations": [
-        "Организации"
-      ],
-      "Environment|Name": [
-        "Имя"
-      ],
-      "Classes": [
-        "Классы"
-      ],
-      "Create Environment": [
-        ""
-      ],
-      "Puppet environments": [
-        "Окружения Puppet"
-      ],
-      "Number of classes": [
-        "Классы"
-      ],
-      "Total": [
-        "Всего"
-      ],
-      "No environments found": [
-        "Окружений не найдено."
-      ],
-      "There are no puppet environments set up on this puppet master. Please check the puppet master configuration.": [
-        "На этом мастер-сервере Puppet не настроено ни одного окружения Puppet. Проверьте настройки мастер-сервера."
-      ],
-      "Smart Class Parameters": [
-        ""
-      ],
-      "Parameter": [
-        "Параметр"
-      ],
-      "Puppet Class": [
-        "Класс Puppet"
-      ],
-      "Number of Overrides": [
-        ""
-      ],
-      "Parameterized class support permits detecting, importing, and supplying parameters directly to classes which support it, via the ENC and depending on a set of rules (Smart Matchers).": [
-        ""
-      ],
-      "Included Classes": [
-        "Включенные классы"
-      ],
-      "Not authorized to edit classes": [
-        "Недостаточно разрешений для изменения классов"
-      ],
-      "Inherited Classes from %s": [
-        ""
-      ],
-      "Available Classes": [
-        "Доступные классы"
-      ],
-      "Filter classes": [
-        "Фильтр классов"
-      ],
-      "belongs to config group": [
-        "принадлежит группе конфигурации"
-      ],
-      "Name": [
-        "Имя"
-      ],
-      "Value": [
-        "Значение"
-      ],
-      "Omit": [
-        "Пропустить"
+      "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}.": [
+        "%{proxy_name} был настроен как %{proxy_type} для выбранных узлов."
       ],
       "The class could not be saved because of an error in one of the class parameters.": [
         ""
       ],
-      "Smart Class Parameter": [
-        "Смарт-параметры"
+      "The final entry, Operating System default, can be set by editing the %s page.": [
+        "Стандартный шаблон для операционной системы можно настроить на странице %s."
       ],
-      "Host groups": [
-        "Группы узлов"
+      "The order in which values are resolved": [
+        "Порядок обработки значений"
+      ],
+      "The requested environment cannot be found.": [
+        ""
+      ],
+      "There are no puppet environments set up on this puppet master. Please check the puppet master configuration.": [
+        "На этом мастер-сервере Puppet не настроено ни одного окружения Puppet. Проверьте настройки мастер-сервера."
       ],
       "This Puppet class has no parameters in its signature.": [
         "Подпись класса Puppet не содержит параметров."
       ],
-      "To update the class signature, go to the Puppet Classes page and select \\\"Import\\\".": [
-        "Чтобы обновить подпись, перейдите на страницу классов Puppet и нажмите «Импорт»."
-      ],
-      "Filter by name": [
-        "Фильтровать по имени"
-      ],
-      "All environments - (not filtered)": [
-        "Все окружения (без фильтра)"
-      ],
-      "Overridden": [
+      "This tab is still a work in progress": [
         ""
-      ],
-      "Edit Puppet Class %s": [
-        "Изменение класса Puppet %s"
-      ],
-      "Puppetclass|Name": [
-        "Имя"
-      ],
-      "Environments": [
-        "Окружения"
-      ],
-      "Parameters": [
-        "Параметры"
-      ],
-      "Override all parameters": [
-        "Перезаписать все параметры"
-      ],
-      "This will set all parameters of the class %s as overridden. Continue?": [
-        "Это установит все параметры класса %s как перезаписываемые. Продолжить?"
-      ],
-      "Set parameters to defaults": [
-        "Параметры по умолчанию"
       ],
       "This will reset parameters of the class %s to their default values. Continue?": [
         "Будут восстановлены исходные параметры класса %s. Продолжить?"
       ],
-      "Puppet Class Parameters": [
-        ""
+      "This will set all parameters of the class %s as overridden. Continue?": [
+        "Это установит все параметры класса %s как перезаписываемые. Продолжить?"
       ],
-      "Notice": [
-        "Примечание"
+      "To update the class signature, go to the Puppet Classes page and select \\\"Import\\\".": [
+        "Чтобы обновить подпись, перейдите на страницу классов Puppet и нажмите «Импорт»."
       ],
-      "Please select an environment first": [
-        "Выберите окружение"
+      "Toggle": [
+        "Состояние"
       ],
-      "Select environment": [
-        "Выберите окружение"
+      "Total": [
+        "Всего"
       ],
-      "*Clear environment*": [
-        "*Сбросить окружение*"
+      "Types of validation values": [
+        "Типы значений проверок"
       ],
-      "*Inherit from host group*": [
-        "*Наследовать от группы*"
+      "Types of variable values": [
+        "Типы значений переменных"
       ],
-      "Hostgroup": [
-        "Группа узлов"
+      "Unable to generate output, Check log files": [
+        "Не удалось создать выход, проверьте файлы журналов"
       ],
-      "Remove Combination": [
-        ""
+      "Update": [
+        "Обновить"
       ],
-      "Valid Host Group and Environment Combinations": [
-        ""
+      "Update a Puppet class": [
+        "Изменить класс Puppet"
       ],
-      "Add Combination": [
-        "Добавить комбинацию"
+      "Update a config group": [
+        "Изменить группу конфигурации"
       ],
-      "General": [
-        "Общие"
+      "Update a smart class parameter": [
+        "Изменить смарт-параметр"
       ],
-      "Hosts managed:": [
-        "Контролируемые узлы:"
+      "Update an environment": [
+        "Обновить окружение"
       ],
-      "Facts": [
-        "Факты"
-      ],
-      "Foreman will default to this puppet environment if it cannot auto detect one": [
-        "Окружение Puppet, которое будет выбрано, если Foreman не сможет автоматически определить окружение"
-      ],
-      "Default Puppet environment": [
-        "Окружение Puppet по умолчанию"
-      ],
-      "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman": [
-        "Foreman передаст информацию об окружении Puppet в YAML-выводе ENC в явном виде — это позволит избежать конфликтов с окружением, заданным в puppet.conf"
-      ],
-      "ENC environment": [
-        "Окружение ENC"
-      ],
-      "Foreman will update a host's environment from its facts": [
-        "Обновлять окружение узла на основании фактов статистики"
+      "Update an override value for a specific smart class parameter": [
+        "Обновить значение переопределения смарт-параметра"
       ],
       "Update environment from facts": [
         "Обновлять окружение на основе фактов"
       ],
-      "Config Management": [
+      "Update template combination": [
+        "Обновить комбинацию шаблонов"
+      ],
+      "Update:": [
+        "Обновление:"
+      ],
+      "Updated": [
+        "Обновлено"
+      ],
+      "Updated hosts: changed environment": [
+        "Обновление узлов: окружение изменено"
+      ],
+      "Used to enforce certain values for the parameter values": [
+        "Используется для обеспечения определенных значений для значений параметров"
+      ],
+      "Valid Host Group and Environment Combinations": [
         ""
       ],
-      "Duration in minutes after servers reporting via Puppet are classed as out of sync.": [
+      "Value": [
+        "Значение"
+      ],
+      "Value to use when there is no match": [
+        "Значение, которое будет использоваться по умолчанию"
+      ],
+      "When a Host requests a template (e.g. during provisioning), Foreman \\\\\\n  will select the best match from the available templates of that type, in the \\\\\\n  following order:": [
         ""
       ],
-      "Puppet interval": [
-        "Интервал Puppet"
-      ],
-      "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval": [
-        "Запретить переход состояния конфигурации узла в \\\"несинхронизированно\\\" в течение %s после того, как отчёт не поступил в течение заданного интервала"
-      ],
-      "%s out of sync disabled": [
+      "When editing a template, you must assign a list \\\\\\n  of operating systems which this template can be used with. Optionally, you can \\\\\\n  restrict a template to a list of host groups and/or environments.": [
         ""
       ],
-      "Puppet ENC": [
-        ""
+      "When enabled the parameter is hidden in the UI": [
+        "Если включено, параметр будет скрыт"
       ],
-      "Puppet env": [
-        ""
+      "Whether the smart class parameter value is managed by Foreman": [
+        "Разрешает Foreman контролировать значение смарт-параметра"
       ],
-      "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer.": [
-        ""
+      "belongs to config group": [
+        "принадлежит группе конфигурации"
       ],
-      "Puppet classes": [
-        ""
+      "environment id": [
+        "ID окружения"
       ],
-      "Assigned classes": [
-        ""
+      "included already from parent": [
+        "унаследована от родителя"
       ],
-      "This tab is still a work in progress": [
-        ""
+      "must be true to edit the parameter": [
+        "должно быть установлено в true для редактирования параметра"
       ],
-      "Smart class parameters": [
-        "Смарт-параметры"
-      ],
-      "Successfully copied to clipboard!": [
-        ""
-      ],
-      "Copy to clipboard": [
-        ""
-      ],
-      "Couldn't find any ENC data for this host": [
-        ""
-      ],
-      "Error!": [
-        ""
-      ],
-      "Last configuration status": [
-        ""
-      ],
-      "Never": [
-        ""
-      ],
-      "No configuration status available": [
-        ""
-      ],
-      "Failed": [
-        ""
-      ],
-      "Changed": [
-        ""
-      ],
-      "Scheduled": [
-        ""
-      ],
-      "Failed to start": [
-        ""
-      ],
-      "Restarted": [
-        ""
-      ],
-      "Corrective Change": [
-        ""
-      ],
-      "Skipped": [
-        ""
-      ],
-      "Out of sync": [
-        ""
-      ],
-      "Puppet metrics": [
-        ""
-      ],
-      "Puppet details": [
-        ""
-      ],
-      "Puppet environment": [
-        ""
-      ],
-      "Puppet Smart Proxy": [
-        ""
-      ],
-      "Puppet CA Smart Proxy": [
-        ""
-      ],
-      "Reports": [
-        "Отчеты"
-      ],
-      "ENC Preview": [
-        ""
-      ],
-      "Click to remove config group": [
-        "Нажмите, чтобы удалить группу конфигурации"
-      ],
-      " Remove": [
-        "Удалить"
-      ],
-      "Loading parameters...": [
-        "Загрузка параметров..."
-      ],
-      "Some Puppet Classes are unavailable in the selected environment": [
-        ""
-      ],
-      "Action with sub plans": [
-        "Действия с подпланами"
-      ],
-      "Import facts": [
-        "Импорт фактов"
-      ],
-      "Import Puppet classes": [
-        "Импорт классов Puppet"
-      ],
-      "Remote action:": [
-        "Удаленное действие:"
-      ],
-      "Allow assigning Puppet environments and classes to the Foreman Hosts.": [
+      "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location": [
         ""
       ]
     }

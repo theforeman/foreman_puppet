@@ -8,18 +8,20 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2021
 # julien IPPOLITO <stuxboulot@gmail.com>, 2021
 # Baptiste Agasse <baptiste.agasse@gmail.com>, 2021
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
-# 21966816214bc546c1fc8a185e75ca1c, 2022
 # Claer <transiblu@claer.hammock.fr>, 2022
-# Amit Upadhye <aupadhye@redhat.com>, 2022
+# Amit Upadhye <aupadhye@redhat.com>, 2023
+# 21966816214bc546c1fc8a185e75ca1c, 2023
+# Bryan Kearney <bryan.kearney@gmail.com>, 2023
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2023
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 5.0.0\n"
+"Project-Id-Version: foreman_puppet 7.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
-"Language-Team: French (https://www.transifex.com/foreman/teams/114/fr/)\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2023\n"
+"Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,12 +43,12 @@ msgstr "%%{model} aynat pour id '%%{id}' n'a pas été trouvé"
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
-msgstr[0] "%%{name} a %{num_tag} classe"
-msgstr[1] "%%{name} a %{num_tag} classes"
-msgstr[2] "%%{name} a %{num_tag} classes"
+msgstr[0] "%%{name} a %%{num_tag} classe"
+msgstr[1] "%%{name} a %%{num_tag} classes"
+msgstr[2] "%%{name} a %%{num_tag} classes"
 
 msgid "%{puppetclass} does not belong to the %{environment} environment"
-msgstr "%%{puppetclass} n'appartient pas à l'environnement %%{environment}"
+msgstr "%{puppetclass} n'appartient pas à l'environnement %{environment}"
 
 msgid "*Clear environment*"
 msgstr "*Nettoyer l'environnement*"
@@ -63,7 +65,7 @@ msgstr ""
 "<b>Description :</b> %%{desc}<br/>\n"
 "     <b>Type :</b> %%{type}<br/>\n"
 "     <b>Correspondant :</b> %%{matcher}<br/>\n"
-"     <b>Valeur héritée :</b> %{inherited_value}"
+"     <b>Valeur héritée :</b> %%{inherited_value}"
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "Un groupe de configuration fournit une méthode en une seule étape pour associer de nombreuses classes Puppet à un hôte ou à un groupe d'hôtes. Typiquement, ceci serait utilisé pour ajouter un profil d'application particulier ou une pile en une seule étape."
@@ -141,7 +143,7 @@ msgid "Check/Uncheck obsolete"
 msgstr "Cocher / Décocher les obsolètes"
 
 msgid "Check/Uncheck updated"
-msgstr "Cocher / Décocher mis à jour "
+msgstr "Cocher / Décocher mis à jour"
 
 msgid "Classes"
 msgstr "Classes"
@@ -162,13 +164,13 @@ msgid "Config Management"
 msgstr "Gestion de configuration"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copier dans le presse-papiers"
 
 msgid "Corrective Change"
 msgstr ""
 
 msgid "Couldn't find any ENC data for this host"
-msgstr "Je n'ai pas trouvé de données ENC pour cet hôte."
+msgstr "Je n'ai pas trouvé de données ENC pour cet hôte"
 
 msgid "Create Config Group"
 msgstr "Créer un groupe de configuration"
@@ -216,7 +218,7 @@ msgid "Deleted environment"
 msgstr "A supprimé l'environnement"
 
 msgid "Deleted environment %{env} and %{pcs}"
-msgstr "A supprimé environnements %%{env} et %%{pcs}"
+msgstr "A supprimé environnements %{env} et %{pcs}"
 
 msgid "Deprecated in favor of host/puppet_attributes/config_group_ids"
 msgstr "Déprécié en faveur de host/puppet_attributes/config_group_ids"
@@ -276,7 +278,7 @@ msgid "Environment|Name"
 msgstr "Nom"
 
 msgid "Error!"
-msgstr "Erreur"
+msgstr "Erreur !"
 
 msgid "Facts"
 msgstr "Faits"
@@ -285,10 +287,10 @@ msgid "Failed"
 msgstr ""
 
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
-msgstr "Échec lors de l'importation de %%{klass}  pour %%{name} : l'entrée n'existe pas dans la base de donnée - ignore"
+msgstr "Échec lors de l'importation de %{klass} pour %{name} : l'entrée n'existe pas dans la base de donnée - ignore"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
-msgstr "N’a pas pu définir le proxy %{proxy_type} pour %%{host}."
+msgstr "N’a pas pu définir le proxy %%{proxy_type} pour %%{host}."
 
 msgid "Failed to start"
 msgstr ""
@@ -309,10 +311,10 @@ msgid "Foreman will default to this puppet environment if it cannot auto detect 
 msgstr "L'environnement Puppet par défaut si Foreman n'arrive pas à le détecter automatiquement"
 
 msgid "Foreman will explicitly set the puppet environment in the ENC yaml output. This will avoid conflicts between the environment in puppet.conf and the environment set in Foreman"
-msgstr "Foreman fournira l'environnement Puppet dans la sortie YAML de l'ENC. Cela supprime  les incohérences entre l'environnement dans puppet.conf et l'environnement dans l'ENC."
+msgstr "Foreman fournira l'environnement Puppet dans la sortie YAML de l'ENC. Cela supprime les incohérences entre l'environnement dans puppet.conf et l'environnement dans l'ENC"
 
 msgid "Foreman will not send this parameter in classification output"
-msgstr "Foreman n'enverra pas ce paramètre dans la sortie de classification."
+msgstr "Foreman n'enverra pas ce paramètre dans la sortie de classification"
 
 msgid "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter"
 msgstr "Foreman n'enverra pas ce paramètre dans la sortie de la classification. Puppet utilisera la valeur définie dans le manifeste de Puppet pour ce paramètre"
@@ -381,7 +383,7 @@ msgid "If true, will raise an error if there is no default value and no matcher 
 msgstr "Si coché, Foreman va générer une erreur s'il n'y a pas de valeur par défaut et aucun matcher ne fournit de valeur"
 
 msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer."
-msgstr ""
+msgstr "Si vous prévoyez d'utiliser Foreman comme classificateur de nœuds externes, vous devez fournir des informations sur un ou plusieurs environnements.{newLine}Ces informations sont généralement importées à partir d'une configuration Puppet préexistante à l'aide de {puppetClassesLinkToDocs} et de l'importateur d'environnement."
 
 msgid "Ignored classes in the environments: %s"
 msgstr "Classes ignorées dans les environnements : %s"
@@ -540,7 +542,7 @@ msgid "No proxy selected!"
 msgstr "Aucun proxy sélectionné."
 
 msgid "No smart proxy was found to import environments from, ensure that at least one smart proxy is registered with the 'puppet' feature"
-msgstr "Aucun smart proxy n'a été trouvé pour importer les environnements. Assurez vous qu'au moins un proxy smart est enregistré avec la fonction 'puppet'."
+msgstr "Aucun smart proxy n'a été trouvé pour importer les environnements. Assurez vous qu'au moins un proxy smart est enregistré avec la fonction 'puppet'"
 
 msgid "None"
 msgstr "Aucun(e)"
@@ -579,7 +581,7 @@ msgid "Optional comma-delimited stringcontaining either 'new', 'updated', or 'ob
 msgstr "Chaîne facultative délimitée par des virgules contenant soit \"nouveau\", \"mis à jour\" ou \"obsolète\", utilisée pour limiter les classes Puppet importées"
 
 msgid "Optional parameter without value.<br/><i>Still managed by Foreman, the value will be empty.</i><br/>"
-msgstr "Paramètre en option sans valeur..<br/><i>Toujours géré par Foreman, la valeur sera vide.</i><br/>"
+msgstr "Paramètre en option sans valeur.<br/><i>Toujours géré par Foreman, la valeur sera vide.</i><br/>"
 
 msgid "Organizations"
 msgstr "Organisations"
@@ -654,13 +656,13 @@ msgid "Puppet YAML"
 msgstr "Puppet YAML"
 
 msgid "Puppet classes"
-msgstr ""
+msgstr "Classes Puppet"
 
 msgid "Puppet details"
 msgstr "Détails Puppet"
 
 msgid "Puppet env"
-msgstr ""
+msgstr "Puppet env"
 
 msgid "Puppet environment"
 msgstr "Environnement Puppet"
@@ -771,7 +773,7 @@ msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr "Certaines classes Puppet sont indisponibles dans l'environnement sélectionné"
 
 msgid "Successfully copied to clipboard!"
-msgstr ""
+msgstr "Copié dans le presse-papiers"
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "Substitution de tous les paramètres de la classe Puppet %s réussie"
@@ -784,18 +786,18 @@ msgstr "Mise à jour réussie des environnements et classes Puppet depuis l'inst
 
 msgid "The %{proxy_type} proxy could not be set for host: %{host_names}."
 msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{host_names}"
-msgstr[0] "Le proxy %{proxy_type} n'a pas pu être défini pour l'hôte : %{host_names}."
-msgstr[1] "Le proxy %{proxy_type} puppet ca n'a pas pu être défini pour les hôtes : %{host_names}."
-msgstr[2] "Le proxy %{proxy_type} puppet ca n'a pas pu être défini pour les hôtes : %{host_names}."
+msgstr[0] "Le proxy %%{proxy_type} n'a pas pu être défini pour l'hôte : %%{host_names}."
+msgstr[1] "Le proxy %%{proxy_type} puppet ca n'a pas pu être défini pour les hôtes : %%{host_names}"
+msgstr[2] "Le proxy %%{proxy_type} puppet ca n'a pas pu être défini pour les hôtes : %%{host_names}"
 
 msgid "The %{proxy_type} proxy of the selected hosts was cleared."
-msgstr "Le proxy %{proxy_type}pour les hôtes sélectionnés a été effacé"
+msgstr "Le proxy % %{proxy_type} pour les hôtes sélectionnés a été effacé"
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
-msgstr "Le proxy %{proxy_type} pour les hôtes sélectionnés a été défini à %{proxy_name}"
+msgstr "Le proxy %%{proxy_type} pour les hôtes sélectionnés a été défini à %%{proxy_name}."
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
-msgstr "Le proxy %{proxy_type} pour les hôtes sélectionnés a été défini à %{proxy_name}."
+msgstr "Le proxy %%{proxy_type} pour les hôtes sélectionnés a été défini à %%{proxy_name}."
 
 msgid "The class could not be saved because of an error in one of the class parameters."
 msgstr "La classe n'a pas pu être enregistrée en raison d'une erreur dans l'un des paramètres de classe."
@@ -828,7 +830,7 @@ msgid "To update the class signature, go to the Puppet Classes page and select \
 msgstr "Pour mettre à jour les signatures des classes, allez sur la page Classes Puppet et choisissez \"Import depuis ...\"."
 
 msgid "Toggle"
-msgstr "Inverser"
+msgstr "Basculer"
 
 msgid "Total"
 msgstr "Total"
@@ -924,4 +926,4 @@ msgid "must be true to edit the parameter"
 msgstr "Doit être vrai pour éditer le paramètre"
 
 msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
-msgstr "avec id %{object_id} n'existe pas ou n'a pas été assigné à l'organisation et/ou emplacement qui convient"
+msgstr "avec id %%{object_id} n'existe pas ou n'a pas été assigné à l'organisation et/ou emplacement qui convient"
