@@ -6,8 +6,10 @@ module ForemanPuppet
     config.paths['db/migrate'] << 'db/migrate_foreman' if Gem::Dependency.new('', ">= #{ForemanPuppet::FOREMAN_DROP_MIGRATIONS_VERSION}").match?('', SETTINGS[:version].notag)
     config.paths['config/routes.rb'].unshift('config/api_routes.rb')
 
-    initializer 'foreman_puppet.register_plugin', before: :finisher_hook do |_app|
-      require 'foreman_puppet/register'
+    initializer 'foreman_puppet.register_plugin', before: :finisher_hook do |app|
+      app.reloader.to_prepare do
+        require_relative 'register'
+      end
       Apipie.configuration.checksum_path += ['/foreman_puppet/api/']
     end
 
@@ -23,14 +25,10 @@ module ForemanPuppet
       SETTINGS[:foreman_puppet] = { assets: { precompile: ['foreman_puppet.scss'] } }
     end
 
-    initializer 'foreman_puppet.patch_parameters' do
-      # Parameters should go ASAP as they need to be applied before they are included in core controller
-      Foreman::Controller::Parameters::TemplateCombination.include ForemanPuppet::Extensions::ParametersTemplateCombination
-    end
-
     # Include concerns in this config.to_prepare block
     # rubocop:disable Metrics/BlockLength
     config.to_prepare do
+      Foreman::Controller::Parameters::TemplateCombination.include ForemanPuppet::Extensions::ParametersTemplateCombination
       # Facets extenstion is applied too early - before the Hostgroup is complete
       # We redefine thing, so we need to wait until complete definition of Hostgroup
       # thus separate patching instead of using facet patching
