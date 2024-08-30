@@ -1,5 +1,5 @@
 Foreman::Plugin.register :foreman_puppet do
-  requires_foreman '>= 3.7'
+  requires_foreman '>= 3.13'
   register_gettext
 
   # Add Global JS file for extending foreman-core components and routes
