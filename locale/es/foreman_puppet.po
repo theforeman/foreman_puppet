@@ -10,19 +10,20 @@
 # Gustavo Varela <gustavo.varela@gmail.com>, 2021
 # Sergio Ocón-Cárdenas <sergio.ocon@redhat.com>, 2021
 # elobato <elobatocs@gmail.com>, 2021
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
-# Carmela Rubiños <carmela.rubinos@gmail.com>, 2022
 # Jared Nelson <jared@ajpadilla.com>, 2022
-# mbacovsky <martin.bacovsky@gmail.com>, 2022
-# Amit Upadhye <aupadhye@redhat.com>, 2022
+# Carmela Rubiños <carmela.rubinos@gmail.com>, 2023
+# Bryan Kearney <bryan.kearney@gmail.com>, 2023
+# Amit Upadhye <aupadhye@redhat.com>, 2024
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 5.0.0\n"
+"Project-Id-Version: foreman_puppet 8.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
-"Language-Team: Spanish (https://www.transifex.com/foreman/teams/114/es/)\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2024\n"
+"Language-Team: Spanish (https://app.transifex.com/foreman/teams/114/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +38,7 @@ msgid "%s is not in environment"
 msgstr "%s no está en el entorno"
 
 msgid "%s out of sync disabled"
-msgstr "%s desincronización desactivada"
+msgstr "%s fuera de sincronización deshabilitado"
 
 msgid "%{model} with id '%{id}' was not found"
 msgstr "%{model} con id '%{id}' no se encontró"
@@ -65,9 +66,6 @@ msgstr ""
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "Un grupo de configuración permite asociar muchas clases Puppet a un host o grupo de hosts en un solo paso. Normalmente, esto se utilizaría para añadir un perfil de aplicación particular o una pila en un solo paso."
-
-msgid "Action with sub plans"
-msgstr "Acción con subplanes"
 
 msgid "Actions"
 msgstr "Acciones"
@@ -121,7 +119,7 @@ msgid "Change Puppet Master"
 msgstr "Cambiar Puppetmaster"
 
 msgid "Changed"
-msgstr ""
+msgstr "已改变"
 
 msgid "Changed environments"
 msgstr "Entornos modificados"
@@ -160,7 +158,7 @@ msgid "Config Management"
 msgstr "Administración de configuración"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar al portapapeles"
 
 msgid "Corrective Change"
 msgstr ""
@@ -238,7 +236,7 @@ msgid "Description of smart class"
 msgstr "Descripción de clase inteligente"
 
 msgid "Disable host configuration status turning to out of sync for %s after report does not arrive within configured interval"
-msgstr "Desactivar el estado de configuración del host que pasa a fuera de sincronización para %s después de que el informe no llegue dentro del intervalo configurado."
+msgstr "Deshabilitar el estado de configuración de host que pasa a fuera de sincronización para %s si el informe no llega dentro del intervalo configurado"
 
 msgid "Display hidden values"
 msgstr "Mostrar valores ocultos"
@@ -256,7 +254,7 @@ msgid "Edit %s"
 msgstr "Editar %s"
 
 msgid "Edit Puppet Class %s"
-msgstr "Editar clase de marioneta %s"
+msgstr "Editar clase Puppet %s"
 
 msgid "Empty environment"
 msgstr "Entorno vacío"
@@ -292,10 +290,10 @@ msgid "Failed to start"
 msgstr ""
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
-msgstr "Error al actualizar entornos y clases de Puppet desde la instalación de Puppet en disco: %s"
+msgstr "Ocurrió un error al actualizar los entornos y las clases Puppet en la instalación de Puppet en el disco: %s"
 
 msgid "Failed to update the environments and Puppet classes from the on-disk puppet installation: %s"
-msgstr "Error al actualizar los entornos y las clases de Puppet desde la instalación de puppet en disco: %s"
+msgstr "Error al actualizar los entornos y clases Puppet desde el disco de instalación de puppet: %s"
 
 msgid "Filter by name"
 msgstr "Filtrar por nombre"
@@ -391,7 +389,7 @@ msgid "Ignored environment names resulting in booleans found. Please quote strin
 msgstr "Se hallaron nombres de entornos ignorados que resultaron en valores booleanos. Mencione las cadenas como verdadero/falso y sí/no en config/ignored_environments.yml"
 
 msgid "Ignored environments: %s"
-msgstr "Entornos ignorados: %s"
+msgstr "Entorno ignorado: %s"
 
 msgid "Ignored:"
 msgstr "Ignorado:"
@@ -399,17 +397,11 @@ msgstr "Ignorado:"
 msgid "Import"
 msgstr "Importar"
 
-msgid "Import Puppet classes"
-msgstr "Importar clases Puppet"
-
 msgid "Import classes from %s"
-msgstr "Importar clases de %s"
+msgstr "Importar clases desde %s"
 
 msgid "Import environments from %s"
 msgstr "Importar entornos desde %s"
-
-msgid "Import facts"
-msgstr "Importar datos"
 
 msgid "Import puppet classes from puppet proxy"
 msgstr "Importar clases puppet desde el proxy de puppet"
@@ -511,7 +503,7 @@ msgid "Name"
 msgstr "Nombre"
 
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 msgid "New"
 msgstr "Nuevo"
@@ -529,7 +521,7 @@ msgid "No environments found"
 msgstr "No se encontraron entornos"
 
 msgid "No parameters to override for Puppet class %s"
-msgstr "No hay parámetros para la clase Puppet %s"
+msgstr "No hay parámetros para sobrescribir la clase Puppet %s"
 
 msgid "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled."
 msgstr "No se encontró el Proxy para importar clases, asegúrese de que el proxy inteligente tenga la funcionalidad Puppet habilitada."
@@ -652,7 +644,7 @@ msgid "Puppet YAML"
 msgstr ""
 
 msgid "Puppet classes"
-msgstr ""
+msgstr "Clases Puppet"
 
 msgid "Puppet details"
 msgstr ""
@@ -680,9 +672,6 @@ msgstr "Parámetro Puppet"
 
 msgid "Puppetclass|Name"
 msgstr "Nombre"
-
-msgid "Remote action:"
-msgstr "Acción remota:"
 
 msgid "Remove"
 msgstr "Eliminar"
@@ -772,10 +761,10 @@ msgid "Successfully copied to clipboard!"
 msgstr ""
 
 msgid "Successfully overridden all parameters of Puppet class %s"
-msgstr "Se han sobrescrito correctamente todos los parámetros de la clase Puppet %s"
+msgstr "Se han sobrescrito con éxito todos los parámetros de clase Puppet %s"
 
 msgid "Successfully reset all parameters of Puppet class %s to their default values"
-msgstr "Restablecidos con éxito todos los parámetros de la clase Puppet %s a sus valores por defecto"
+msgstr "Se han restablecido con éxito todos los parámetros de la clase Puppet %s a sus valores predeterminados"
 
 msgid "Successfully updated environments and Puppet classes from the on-disk Puppet installation"
 msgstr "Se actualizaron los entornos y clases Puppet con éxito desde la instalación de Puppet en disco"
@@ -798,7 +787,7 @@ msgid "The class could not be saved because of an error in one of the class para
 msgstr "La clase no se pudo guardar debido a un error en uno de los parámetros de clase."
 
 msgid "The final entry, Operating System default, can be set by editing the %s page."
-msgstr "La última entrada, Sistema Operativo por defecto, puede configurarse editando la página %s."
+msgstr "La última entrada, sistema operativo predeterminado, puede configurarse al editar la página %s."
 
 msgid "The order in which values are resolved"
 msgstr "El orden en el cual se resuelven los valores"
@@ -816,10 +805,10 @@ msgid "This tab is still a work in progress"
 msgstr ""
 
 msgid "This will reset parameters of the class %s to their default values. Continue?"
-msgstr "Esto restablecerá los parámetros de la clase %s a sus valores por defecto. ¿Continuar?"
+msgstr "Esto restablecerá los parámetros de la clase %s a los valores predeterminados. ¿Continuar?"
 
 msgid "This will set all parameters of the class %s as overridden. Continue?"
-msgstr "Esto establecerá todos los parámetros de la clase %s como anulados. ¿Continuar?"
+msgstr "Se establecerán todos los parámetros de la clase %s. ¿Continuar?"
 
 msgid "To update the class signature, go to the Puppet Classes page and select \"Import\"."
 msgstr "Para actualizar la firma de clase, seleccione \"Importar\" en la página de clases Puppet."
@@ -915,4 +904,4 @@ msgid "must be true to edit the parameter"
 msgstr "Debe ser verdadero para modificar el parámetro"
 
 msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
-msgstr "con id %{object_id} no existe o no está asignado a la organización y/o ubicación adecuada"
+msgstr "con ID %{object_id} no existe o no está asignado a la organización o ubicación adecuada"

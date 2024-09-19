@@ -4,15 +4,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2022
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2023
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 5.0.0\n"
+"Project-Id-Version: foreman_puppet 8.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2022\n"
-"Language-Team: Catalan (https://www.transifex.com/foreman/teams/114/ca/)\n"
+"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2023\n"
+"Language-Team: Catalan (https://app.transifex.com/foreman/teams/114/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,9 +53,6 @@ msgid ""
 msgstr ""
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
-msgstr ""
-
-msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
@@ -388,16 +385,10 @@ msgstr ""
 msgid "Import"
 msgstr "Importa"
 
-msgid "Import Puppet classes"
-msgstr ""
-
 msgid "Import classes from %s"
 msgstr ""
 
 msgid "Import environments from %s"
-msgstr ""
-
-msgid "Import facts"
 msgstr ""
 
 msgid "Import puppet classes from puppet proxy"
@@ -641,7 +632,7 @@ msgid "Puppet YAML"
 msgstr ""
 
 msgid "Puppet classes"
-msgstr ""
+msgstr "Classes de Puppet"
 
 msgid "Puppet details"
 msgstr ""
@@ -669,9 +660,6 @@ msgstr "Paràmetre de Puppet"
 
 msgid "Puppetclass|Name"
 msgstr "Nom"
-
-msgid "Remote action:"
-msgstr ""
 
 msgid "Remove"
 msgstr "Suprimeix"
