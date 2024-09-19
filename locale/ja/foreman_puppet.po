@@ -4,19 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# 山田 修司 🍣 Shuji Yamada <uzy.exe@gmail.com>, 2021
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
-# Transifex Bot <>, 2022
-# 0868a4d1af5275b3f70b0a6dac4c99a4, 2022
+# Transifex Bot <>, 2021
 # Amit Upadhye <aupadhye@redhat.com>, 2022
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 5.0.0\n"
+"Project-Id-Version: foreman_puppet 8.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>, 2022\n"
-"Language-Team: Japanese (https://www.transifex.com/foreman/teams/114/ja/)\n"
+"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
+"n.nl>, 2024\n"
+"Language-Team: Japanese (https://app.transifex.com/foreman/teams/114/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +36,7 @@ msgstr "id '%{id}' の %{model} が見つかりませんでした"
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
-msgstr[0] "%{name} には ％{num_tag}クラスが含まれます"
+msgstr[0] "%{name} には ％{num_tag} クラスが含まれます"
 
 msgid "%{puppetclass} does not belong to the %{environment} environment"
 msgstr "%{puppetclass} は %{environment} 環境に所属していません"
@@ -54,16 +53,13 @@ msgid ""
 "        <b>Matcher:</b> %{matcher}<br/>\n"
 "        <b>Inherited value:</b> %{inherited_value}"
 msgstr ""
-"<b>説明:</b> %%{desc}<br/>\n"
-"     <b>タイプ:</b> %%{type}<br/>\n"
-"     <b>Matcher:</b> %%{matcher}<br/>\n"
+"<b>説明:</b> %{desc}<br/>\n"
+"     <b>タイプ:</b> %{type}<br/>\n"
+"     <b>Matcher:</b> %{matcher}<br/>\n"
 "     <b>継承値:</b> %{inherited_value}"
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "設定グループは、多くの Puppet クラスをホストまたはホストグループのいずれかに関連付けるワンステップの方法を提供します。通常、これは特定のアプリケーションプロファイルまたはスタックを 1 つのステップで追加するために使用されます。"
-
-msgid "Action with sub plans"
-msgstr "サブプランによるアクション"
 
 msgid "Actions"
 msgstr "アクション"
@@ -117,7 +113,7 @@ msgid "Change Puppet Master"
 msgstr "Puppet マスターの変更"
 
 msgid "Changed"
-msgstr ""
+msgstr "変更済み"
 
 msgid "Changed environments"
 msgstr "変更済みの環境"
@@ -156,10 +152,10 @@ msgid "Config Management"
 msgstr "設定管理"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "クリップボードへのコピー"
 
 msgid "Corrective Change"
-msgstr ""
+msgstr "修正変更"
 
 msgid "Couldn't find any ENC data for this host"
 msgstr "このホストの ENC データを見つけられませんでした"
@@ -276,7 +272,7 @@ msgid "Facts"
 msgstr "ファクト"
 
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "%{name} の %{klass} のインポートに失敗しました: データベースに存在しません - 無視します"
@@ -285,7 +281,7 @@ msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "%{host} に %{proxy_type} プロキシーを設定できませんでした。"
 
 msgid "Failed to start"
-msgstr ""
+msgstr "起動に失敗しました"
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "オンディスクの Puppet インストールからの環境と Puppet クラスの更新に失敗しました: %s"
@@ -375,7 +371,7 @@ msgid "If true, will raise an error if there is no default value and no matcher 
 msgstr "true の場合は、デフォルト値がなく、Matcher が値を提供しないときにエラーが発生します"
 
 msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer."
-msgstr ""
+msgstr "Foreman を外部ノードの分類子として使用予定の場合には、1 つまたは複数の環境に関する情報を指定する必要があります。{newLine}この情報は一般的に、{puppetClassesLinkToDocs} および環境インポーターを使用して、既存の Puppet 設定からインポートされます。"
 
 msgid "Ignored classes in the environments: %s"
 msgstr "環境内で無視されたクラス: %s"
@@ -395,17 +391,11 @@ msgstr "無視:"
 msgid "Import"
 msgstr "インポート"
 
-msgid "Import Puppet classes"
-msgstr "Puppet クラスのインポート"
-
 msgid "Import classes from %s"
 msgstr "%s からのクラスのインポート"
 
 msgid "Import environments from %s"
 msgstr "%s からの環境のインポート"
-
-msgid "Import facts"
-msgstr "ファクトのインポート"
 
 msgid "Import puppet classes from puppet proxy"
 msgstr "Puppet プロキシーから Puppet クラスをインポート"
@@ -429,7 +419,7 @@ msgid "Invalid proxy selected!"
 msgstr "無効なプロキシーが選択されました!"
 
 msgid "Last configuration status"
-msgstr ""
+msgstr "最後の設定ステータス"
 
 msgid "List all Puppet class IDs for host"
 msgstr "ホストのすべての Puppet クラス ID を一覧表示"
@@ -507,7 +497,7 @@ msgid "Name"
 msgstr "名前"
 
 msgid "Never"
-msgstr ""
+msgstr "なし"
 
 msgid "New"
 msgstr "新規"
@@ -516,7 +506,7 @@ msgid "No changes to your environments detected"
 msgstr "環境への変更が検出されませんでした"
 
 msgid "No configuration status available"
-msgstr ""
+msgstr "設定ステータスが利用できません"
 
 msgid "No environment selected!"
 msgstr "環境が選択されていません!"
@@ -582,7 +572,7 @@ msgid "Original value info"
 msgstr "元の値の情報"
 
 msgid "Out of sync"
-msgstr ""
+msgstr "非同期"
 
 msgid "Overridden"
 msgstr "上書き済み"
@@ -648,13 +638,13 @@ msgid "Puppet YAML"
 msgstr "Puppet YAML"
 
 msgid "Puppet classes"
-msgstr ""
+msgstr "Puppet クラス"
 
 msgid "Puppet details"
 msgstr "Puppet の詳細"
 
 msgid "Puppet env"
-msgstr ""
+msgstr "Puppet 環境"
 
 msgid "Puppet environment"
 msgstr "Puppet 環境"
@@ -669,16 +659,13 @@ msgid "Puppet interval"
 msgstr "Puppet の間隔"
 
 msgid "Puppet metrics"
-msgstr ""
+msgstr "Puppet メトリクス"
 
 msgid "Puppet parameter"
 msgstr "Puppet パラメーター"
 
 msgid "Puppetclass|Name"
 msgstr "名前"
-
-msgid "Remote action:"
-msgstr "リモートアクション:"
 
 msgid "Remove"
 msgstr "削除"
@@ -708,10 +695,10 @@ msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "値なしの必須パラメーターです。<br/><b>上書きしてください!</b><br/>"
 
 msgid "Restarted"
-msgstr ""
+msgstr "再起動"
 
 msgid "Scheduled"
-msgstr ""
+msgstr "スケジュール済み"
 
 msgid "Select environment"
 msgstr "環境の選択"
@@ -750,7 +737,7 @@ msgid "Show template combination"
 msgstr "テンプレートの組み合わせの表示"
 
 msgid "Skipped"
-msgstr ""
+msgstr "スキップ"
 
 msgid "Smart Class Parameter"
 msgstr "スマートクラスパラメーター"
@@ -765,7 +752,7 @@ msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr "選択した環境では、一部の Puppet クラスは利用できません"
 
 msgid "Successfully copied to clipboard!"
-msgstr ""
+msgstr "クリップボードにコピーされました!"
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "Puppet クラス %s のすべてのパラメーターが正常に上書きされました"
@@ -781,10 +768,10 @@ msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{ho
 msgstr[0] "ホスト: %{host_names} に %{proxy_type} プロキシーを設定できませんでした。"
 
 msgid "The %{proxy_type} proxy of the selected hosts was cleared."
-msgstr "選択したホストの %{proxy_type} プロキシーが消去されました。"
+msgstr "選択したホストの %{proxy_type} プロキシーが消去されました"
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
-msgstr "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました"
+msgstr "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました。"
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
 msgstr "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました。"
@@ -916,4 +903,4 @@ msgid "must be true to edit the parameter"
 msgstr "パラメーターを編集するには true に設定する必要があります"
 
 msgid "with id %{object_id} doesn't exist or is not assigned to proper organization and/or location"
-msgstr "id {object_id} が存在しないか、適切な組織またはロケーションに割り当てられていません"
+msgstr "id %{object_id} が存在しないか、適切な組織またはロケーションに割り当てられていません"

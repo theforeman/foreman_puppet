@@ -1,19 +1,21 @@
-# foreman_puppet
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_puppet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is distributed under the same license as foreman_puppet.
-#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 5.0.0\n"
+"Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2014-08-20 08:54+0100\n"
-"Last-Translator: Foreman Team <foreman-dev@googlegroups.com>\n"
-"Language-Team: Foreman Team <foreman-dev@googlegroups.com>\n"
+"PO-Revision-Date: 2024-09-19 13:06+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 msgid " Remove"
 msgstr ""
@@ -49,9 +51,6 @@ msgid ""
 msgstr ""
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
-msgstr ""
-
-msgid "Action with sub plans"
 msgstr ""
 
 msgid "Actions"
@@ -384,16 +383,10 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-msgid "Import Puppet classes"
-msgstr ""
-
 msgid "Import classes from %s"
 msgstr ""
 
 msgid "Import environments from %s"
-msgstr ""
-
-msgid "Import facts"
 msgstr ""
 
 msgid "Import puppet classes from puppet proxy"
@@ -664,9 +657,6 @@ msgid "Puppet parameter"
 msgstr ""
 
 msgid "Puppetclass|Name"
-msgstr ""
-
-msgid "Remote action:"
 msgstr ""
 
 msgid "Remove"

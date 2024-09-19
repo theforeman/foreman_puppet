@@ -4,15 +4,15 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 5.0.0\n"
+"Project-Id-Version: foreman_puppet 8.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022\n"
-"Language-Team: Georgian (https://www.transifex.com/foreman/teams/114/ka/)\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023\n"
+"Language-Team: Georgian (https://app.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,9 +58,6 @@ msgstr ""
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "კონფიგურაციის ჯგუფი უზრუნველყოფს ერთნაბიჯიან მეთოდს Puppet-ის ბევრი კლასის ჰოსტთან ან ჰოსტების ჯგუფთან ასოცირებისთვის. ჩვეულებრივ ეს კონკრეტული აპლიკაციის პროფილის ან სტეკის ერთი მოქმედებით დასამატებლად გამოიყენება."
-
-msgid "Action with sub plans"
-msgstr "ქმედება ქვე-გეგმებით"
 
 msgid "Actions"
 msgstr "ქმედებები"
@@ -153,7 +150,7 @@ msgid "Config Management"
 msgstr "კონფიგურაციის მართვა"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "ბუფერში კოპირება"
 
 msgid "Corrective Change"
 msgstr ""
@@ -372,7 +369,7 @@ msgid "If true, will raise an error if there is no default value and no matcher 
 msgstr "თუ მონიშნულია, წარმოიქმნება შეცდომა, თუ არ არის ნაგულისხმევი მნიშვნელობა და არცერთი დამთხვევა მნიშვნელობას არ იძლევა"
 
 msgid "If you are planning to use Foreman as an external node classifier you should provide information about one or more environments.{newLine}This information is commonly imported from a pre-existing Puppet configuration by the use of the {puppetClassesLinkToDocs} and environment importer."
-msgstr ""
+msgstr "თუ აპირებთ, Foreman გარე კვანძის კლასიფიკატორად გამოიყენოთ, ერთი ან მეტი გარემოს შესახებ ინფორმაციის მიწოდება აუცილებელია.{newLine} ეს ინფორმაცია {puppetClassesLinkToDocs}-ისა და გარემოს შემომტანის საშუალებით, ჩვეულებრივ Puppet-ის უკვე არსებული კონფიგურაციიდან ხდება."
 
 msgid "Ignored classes in the environments: %s"
 msgstr "გარემოების იგნორირებული კლასები: %s"
@@ -392,17 +389,11 @@ msgstr "იგნორი:"
 msgid "Import"
 msgstr "იმპორტი"
 
-msgid "Import Puppet classes"
-msgstr "Puppet-ის კლასების შემოტანა"
-
 msgid "Import classes from %s"
 msgstr "კლასების შემოტანა %s-დან"
 
 msgid "Import environments from %s"
 msgstr "გარემოს შემოტანა %s-დან"
-
-msgid "Import facts"
-msgstr "ფაქტების შემოტანა"
 
 msgid "Import puppet classes from puppet proxy"
 msgstr "კლასების შემოტანა Puppet-ის პროქსიდან"
@@ -645,13 +636,13 @@ msgid "Puppet YAML"
 msgstr "Puppet YAML"
 
 msgid "Puppet classes"
-msgstr ""
+msgstr "Puppet-ის კლასები"
 
 msgid "Puppet details"
 msgstr "Puppet -ის დეტალები"
 
 msgid "Puppet env"
-msgstr ""
+msgstr "Puppet-ის გარემო"
 
 msgid "Puppet environment"
 msgstr "Puppet-ის გარემო"
@@ -673,9 +664,6 @@ msgstr "Puppet-ის პარამეტრი"
 
 msgid "Puppetclass|Name"
 msgstr "Puppet-ის კლასი|სახელი"
-
-msgid "Remote action:"
-msgstr "დაშორებული ქმედება:"
 
 msgid "Remove"
 msgstr "წაშლა"
@@ -762,7 +750,7 @@ msgid "Some Puppet Classes are unavailable in the selected environment"
 msgstr "Puppet-ის ზოგიერთი კლასი მიუწვდომელია მითითებულ გარემოში"
 
 msgid "Successfully copied to clipboard!"
-msgstr ""
+msgstr "წარმატებით დაკოპირდა ბუფერში!"
 
 msgid "Successfully overridden all parameters of Puppet class %s"
 msgstr "Puppet-ის კლასის (%s) ყველა პარამეტრი წარმატებით გადაიფარა"

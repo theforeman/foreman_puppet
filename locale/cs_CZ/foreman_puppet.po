@@ -7,15 +7,15 @@
 # Ondřej Ezr <ezrik12@gmail.com>, 2021
 # Lukáš Zapletal, 2021
 # mhulan <mhulan@redhat.com>, 2022
-# Pavel Borecki <pavel.borecki@gmail.com>, 2022
+# Pavel Borecki <pavel.borecki@gmail.com>, 2023
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 5.0.0\n"
+"Project-Id-Version: foreman_puppet 8.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2022\n"
-"Language-Team: Czech (Czech Republic) (https://www.transifex.com/foreman/teams"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2023\n"
+"Language-Team: Czech (Czech Republic) (https://app.transifex.com/foreman/teams"
 "/114/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,9 +59,6 @@ msgstr ""
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr ""
-
-msgid "Action with sub plans"
-msgstr "Akce s dílčími plány"
 
 msgid "Actions"
 msgstr "Akce"
@@ -154,7 +151,7 @@ msgid "Config Management"
 msgstr "Správa nastavení"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Zkopírovat do schránky"
 
 msgid "Corrective Change"
 msgstr ""
@@ -393,17 +390,11 @@ msgstr "Ignorováno:"
 msgid "Import"
 msgstr "Import"
 
-msgid "Import Puppet classes"
-msgstr "Importovat Puppet třídy"
-
 msgid "Import classes from %s"
 msgstr "Importovat třídy z %s"
 
 msgid "Import environments from %s"
 msgstr ""
-
-msgid "Import facts"
-msgstr "Importovat fakta"
 
 msgid "Import puppet classes from puppet proxy"
 msgstr "Importovat puppet třídy z puppet proxy"
@@ -674,9 +665,6 @@ msgstr "Puppet parametr"
 
 msgid "Puppetclass|Name"
 msgstr "Puppetclass|Název"
-
-msgid "Remote action:"
-msgstr "Akce na protějšku:"
 
 msgid "Remove"
 msgstr "Odebrat"
