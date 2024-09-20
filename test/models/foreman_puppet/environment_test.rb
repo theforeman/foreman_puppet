@@ -34,7 +34,7 @@ module ForemanPuppet
       invalid_env_name_list.each do |name|
         env = FactoryBot.build(:environment, name: name)
         assert_not env.valid?, "Can create environment with invalid name #{name}"
-        assert_includes env.errors.keys, :name
+        assert_includes env.errors.attribute_names, :name
       end
     end
 
@@ -51,7 +51,7 @@ module ForemanPuppet
       invalid_env_name_list.each do |name|
         env.name = name
         assert_not env.valid?, "Can update environment with invalid name #{name}"
-        assert_includes env.errors.keys, :name
+        assert_includes env.errors.attribute_names, :name
       end
     end
 
