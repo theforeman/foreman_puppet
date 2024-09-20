@@ -7,6 +7,7 @@ module ForemanPuppet
 
     describe 'create new page' do
       test 'create new page' do
+        visit hostgroups_path
         environment
         assert_new_button(hostgroups_path, 'Create Host Group', new_hostgroup_path)
         fill_in 'hostgroup_name', with: 'staging'
