@@ -33,7 +33,8 @@ Some features will remain in core:
 
 |Foreman version|Plugin version|Notes                                     |
 |---------------|--------------|------------------------------------------|
-| >= 3.11       | ~> 7.0       | Required                                 |
+| >= 3.13       | ~> 8.0       | Required                                 |
+| ~> 3.11, 3.12 | ~> 7.0       | Required                                 |
 | ~> 3.7 - 3.10 | ~> 6.0       | Required                                 |
 | ~> 3.5, 3.6   | ~> 5.0       | Required                                 |
 | ~> 3.4        | ~> 4.1       | Required                                 |
