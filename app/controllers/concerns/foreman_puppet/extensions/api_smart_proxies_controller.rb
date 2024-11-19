@@ -140,7 +140,7 @@ module ForemanPuppet
       end
 
       def find_optional_environment
-        @environment = Environment.authorized(:view_environments).find(@env_id) if @env_id
+        @environment = resource_finder(Environment.authorized(:view_environments), @env_id) if @env_id
       rescue ActiveRecord::RecordNotFound => e
         Foreman::Logging.exception('Resource not found', e, level: :debug)
         nil
