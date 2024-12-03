@@ -20,7 +20,7 @@ module ForemanPuppet
       assert_equal [environment], tmplt.environments
     end
 
-    test 'should not save assoications if snippet' do
+    test 'should not save associations if snippet' do
       tmplt          = ProvisioningTemplate.new
       tmplt.name     = 'Default Kickstart'
       tmplt.template = 'Some kickstart goes here'
