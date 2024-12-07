@@ -229,7 +229,13 @@ module ForemanPuppet
     end
 
     def load_ignored_file
-      File.exist?(ignored_file_path) ? YAML.load_file(ignored_file_path) : {}
+      if Psych::VERSION < '4.0.0'
+        # NOTE: This could be dropped when this gem will require Ruby >=3.1 which is bundled with Psych 4.x
+        # https://www.ctrl.blog/entry/ruby-psych4.html
+        File.exist?(ignored_file_path) ? YAML.load_file(ignored_file_path) : {}
+      else
+        File.exist?(ignored_file_path) ? YAML.load_file(ignored_file_path, permitted_classes: [Symbol, Regexp]) : {}
+      end
     end
 
     def ignored_file
