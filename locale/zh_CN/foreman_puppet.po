@@ -9,15 +9,15 @@
 # tim123, 2023
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
 # Amit Upadhye <aupadhye@redhat.com>, 2024
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 8.0.0\n"
+"Project-Id-Version: foreman_puppet 8.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2024\n"
+"n.nl>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/foreman/teams/114/zh"
 "_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgid ""
 "        <b>Inherited value:</b> %{inherited_value}"
 msgstr ""
 "<b>描述：</b> %{desc}<br/>\n"
-"     <b>类型：</b> %{type}<br/>\n"
+"     <b>类型：</b>%{type}<br/>\n"
 "     <b>匹配器：</b> %{matcher}<br/>\n"
 "     <b>继承的值：</b> %{inherited_value}"
 
@@ -778,7 +778,7 @@ msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
 msgstr "所选主机的 %{proxy_type} 代理服务器被设置为 %{proxy_name}"
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
-msgstr "所选主机的 %{proxy_type} 代理服务器被设置为 %{proxy_name}。"
+msgstr "所选主机的 %{proxy_type} 代理被设置为 %{proxy_name}。"
 
 msgid "The class could not be saved because of an error in one of the class parameters."
 msgstr "此类无法保存，因为其中一个类参数含有错误。"

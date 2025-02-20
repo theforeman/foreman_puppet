@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 8.0.0",
+        "Project-Id-Version": "foreman_puppet 8.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -42,7 +42,7 @@
         "*从主机组继承*"
       ],
       "<b>Description:</b> %{desc}<br/>\\n        <b>Type:</b> %{type}<br/>\\n        <b>Matcher:</b> %{matcher}<br/>\\n        <b>Inherited value:</b> %{inherited_value}": [
-        "<b>描述：</b> %{desc}<br/>\\n     <b>类型：</b> %{type}<br/>\\n     <b>匹配器：</b> %{matcher}<br/>\\n     <b>继承的值：</b> %{inherited_value}"
+        "<b>描述：</b> %{desc}<br/>\\n     <b>类型：</b>%{type}<br/>\\n     <b>匹配器：</b> %{matcher}<br/>\\n     <b>继承的值：</b> %{inherited_value}"
       ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         "配置组提供了将多个 Puppet 类关联到一个主机或主机组的一步方法。此方法一般用于通过一个步骤添加特定的应用配置文件或堆栈。"
@@ -759,7 +759,7 @@
         "所选主机的 %{proxy_type} 代理服务器被设置为 %{proxy_name}"
       ],
       "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}.": [
-        "所选主机的 %{proxy_type} 代理服务器被设置为 %{proxy_name}。"
+        "所选主机的 %{proxy_type} 代理被设置为 %{proxy_name}。"
       ],
       "The class could not be saved because of an error in one of the class parameters.": [
         "此类无法保存，因为其中一个类参数含有错误。"

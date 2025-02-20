@@ -6,15 +6,15 @@
 # Translators:
 # Transifex Bot <>, 2021
 # Amit Upadhye <aupadhye@redhat.com>, 2022
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 8.0.0\n"
+"Project-Id-Version: foreman_puppet 8.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2024\n"
+"n.nl>, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/foreman/teams/114/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr "id '%{id}' の %{model} が見つかりませんでした"
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
-msgstr[0] "%{name} には ％{num_tag} クラスが含まれます"
+msgstr[0] "%{name} には ％%{num_tag} クラスが含まれます"
 
 msgid "%{puppetclass} does not belong to the %{environment} environment"
 msgstr "%{puppetclass} は %{environment} 環境に所属していません"
@@ -152,7 +152,7 @@ msgid "Config Management"
 msgstr "設定管理"
 
 msgid "Copy to clipboard"
-msgstr "クリップボードへのコピー"
+msgstr "クリップボードにコピー"
 
 msgid "Corrective Change"
 msgstr "修正変更"
@@ -587,7 +587,7 @@ msgid "Override this value"
 msgstr "この値の上書き"
 
 msgid "Override value, required if omit is false"
-msgstr "上書き値 (omit が false の場合に必要)"
+msgstr "上書き値 (--omit が false の場合に必要)"
 
 msgid "Parameter"
 msgstr "パラメーター"

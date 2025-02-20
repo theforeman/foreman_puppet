@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 20:07+0100\n"
-"PO-Revision-Date: 2024-03-05 20:07+0100\n"
+"POT-Creation-Date: 2025-02-20 11:36+0100\n"
+"PO-Revision-Date: 2025-02-20 11:36+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1246,7 +1246,7 @@ msgstr ""
 msgid "Puppet ENC"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:232
+#: ../lib/foreman_puppet/register.rb:232 ../webpack/global_index.js:19
 msgid "Puppet env"
 msgstr ""
 
@@ -1395,22 +1395,6 @@ msgstr ""
 
 #: ../webpack/src/foreman_puppet_host_form.js:105
 msgid "Some Puppet Classes are unavailable in the selected environment"
-msgstr ""
-
-#: action_names.rb:2
-msgid "Action with sub plans"
-msgstr ""
-
-#: action_names.rb:3
-msgid "Import facts"
-msgstr ""
-
-#: action_names.rb:4
-msgid "Import Puppet classes"
-msgstr ""
-
-#: action_names.rb:5
-msgid "Remote action:"
 msgstr ""
 
 #: gemspec.rb:2
