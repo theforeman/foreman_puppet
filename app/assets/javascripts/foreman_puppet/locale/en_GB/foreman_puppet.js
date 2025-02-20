@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 8.0.0",
+        "Project-Id-Version": "foreman_puppet 8.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
         "Last-Translator": "Andi Chandler <andi@gowling.com>, 2024",
@@ -244,7 +244,7 @@
         "Environment"
       ],
       "Environment only": [
-        ""
+        "Environment only"
       ],
       "Environments": [
         ""
@@ -307,10 +307,10 @@
         ""
       ],
       "Host group and Environment": [
-        ""
+        "Host group and Environment"
       ],
       "Host group only": [
-        ""
+        "Host group only"
       ],
       "Host groups": [
         ""
@@ -538,10 +538,10 @@
         ""
       ],
       "Operating System": [
-        ""
+        "Operating System"
       ],
       "Operating system default": [
-        ""
+        "Operating system default"
       ],
       "Operation": [
         ""
@@ -767,7 +767,7 @@
         ""
       ],
       "The final entry, Operating System default, can be set by editing the %s page.": [
-        ""
+        "The final entry, Operating System default, can be set by editing the %s page."
       ],
       "The order in which values are resolved": [
         ""

@@ -12,15 +12,15 @@
 # Amit Upadhye <aupadhye@redhat.com>, 2023
 # 21966816214bc546c1fc8a185e75ca1c, 2023
 # Bryan Kearney <bryan.kearney@gmail.com>, 2023
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 8.0.0\n"
+"Project-Id-Version: foreman_puppet 8.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2024\n"
+"n.nl>, 2025\n"
 "Language-Team: French (https://app.transifex.com/foreman/teams/114/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,7 @@ msgid "%s out of sync disabled"
 msgstr "Désynchronisation de %s désactivée"
 
 msgid "%{model} with id '%{id}' was not found"
-msgstr "%{model} aynat pour id '%{id}' n'a pas été trouvé"
+msgstr "%{model} ayant pour id '%{id}' n'a pas été trouvé"
 
 msgid "%{name} has %{num_tag} class"
 msgid_plural "%{name} has %{num_tag} classes"
@@ -779,7 +779,7 @@ msgstr[1] "Le proxy %{proxy_type} puppet ca n'a pas pu être défini pour les h�
 msgstr[2] "Le proxy %{proxy_type} puppet ca n'a pas pu être défini pour les hôtes : %{host_names}"
 
 msgid "The %{proxy_type} proxy of the selected hosts was cleared."
-msgstr "Le proxy % %{proxy_type} pour les hôtes sélectionnés a été effacé"
+msgstr "Le proxy %{proxy_type} pour les hôtes sélectionnés a été effacé"
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
 msgstr "Le proxy %{proxy_type} pour les hôtes sélectionnés a été défini à %{proxy_name}."

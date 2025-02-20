@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 8.0.0",
+        "Project-Id-Version": "foreman_puppet 8.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "French (https://app.transifex.com/foreman/teams/114/fr/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -27,7 +27,7 @@
         "Désynchronisation de %s désactivée"
       ],
       "%{model} with id '%{id}' was not found": [
-        "%{model} aynat pour id '%{id}' n'a pas été trouvé"
+        "%{model} ayant pour id '%{id}' n'a pas été trouvé"
       ],
       "%{name} has %{num_tag} class": [
         "%{name} a %{num_tag} classe",
@@ -757,7 +757,7 @@
         "Le proxy %{proxy_type} puppet ca n'a pas pu être défini pour les hôtes : %{host_names}"
       ],
       "The %{proxy_type} proxy of the selected hosts was cleared.": [
-        "Le proxy % %{proxy_type} pour les hôtes sélectionnés a été effacé"
+        "Le proxy %{proxy_type} pour les hôtes sélectionnés a été effacé"
       ],
       "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}": [
         "Le proxy %{proxy_type} pour les hôtes sélectionnés a été défini à %{proxy_name}."

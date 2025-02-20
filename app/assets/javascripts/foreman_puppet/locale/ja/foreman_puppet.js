@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 8.0.0",
+        "Project-Id-Version": "foreman_puppet 8.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2024",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "Japanese (https://app.transifex.com/foreman/teams/114/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -30,7 +30,7 @@
         "id '%{id}' の %{model} が見つかりませんでした"
       ],
       "%{name} has %{num_tag} class": [
-        "%{name} には ％{num_tag} クラスが含まれます"
+        "%{name} には ％%{num_tag} クラスが含まれます"
       ],
       "%{puppetclass} does not belong to the %{environment} environment": [
         "%{puppetclass} は %{environment} 環境に所属していません"
@@ -138,7 +138,7 @@
         "設定管理"
       ],
       "Copy to clipboard": [
-        "クリップボードへのコピー"
+        "クリップボードにコピー"
       ],
       "Corrective Change": [
         "修正変更"
@@ -573,7 +573,7 @@
         "この値の上書き"
       ],
       "Override value, required if omit is false": [
-        "上書き値 (omit が false の場合に必要)"
+        "上書き値 (--omit が false の場合に必要)"
       ],
       "Parameter": [
         "パラメーター"

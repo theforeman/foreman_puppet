@@ -9,7 +9,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 8.0.0\n"
+"Project-Id-Version: foreman_puppet 8.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>, 2024\n"
@@ -253,7 +253,7 @@ msgid "Environment"
 msgstr "Environment"
 
 msgid "Environment only"
-msgstr ""
+msgstr "Environment only"
 
 msgid "Environments"
 msgstr ""
@@ -316,10 +316,10 @@ msgid "Host Groups"
 msgstr ""
 
 msgid "Host group and Environment"
-msgstr ""
+msgstr "Host group and Environment"
 
 msgid "Host group only"
-msgstr ""
+msgstr "Host group only"
 
 msgid "Host groups"
 msgstr ""
@@ -547,10 +547,10 @@ msgid "Omit from classification output"
 msgstr ""
 
 msgid "Operating System"
-msgstr ""
+msgstr "Operating System"
 
 msgid "Operating system default"
-msgstr ""
+msgstr "Operating system default"
 
 msgid "Operation"
 msgstr ""
@@ -777,7 +777,7 @@ msgid "The class could not be saved because of an error in one of the class para
 msgstr ""
 
 msgid "The final entry, Operating System default, can be set by editing the %s page."
-msgstr ""
+msgstr "The final entry, Operating System default, can be set by editing the %s page."
 
 msgid "The order in which values are resolved"
 msgstr ""
