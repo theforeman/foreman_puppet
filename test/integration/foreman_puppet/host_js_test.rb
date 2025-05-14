@@ -23,7 +23,7 @@ module ForemanPuppet
         wait_for_ajax
         click_on_inherit('puppet_attributes_environment')
         select2(overridden_hostgroup.name, from: 'host_hostgroup_id')
-        assert page.find('#s2id_host_puppet_attributes_environment_id .select2-chosen').has_text? overridden_hostgroup.puppet.environment.name
+        assert page.select2_selector('host_puppet_attributes_environment_id').has_text? overridden_hostgroup.puppet.environment.name
       end
 
       test 'sets fields to "inherit" when hostgroup is selected' do
@@ -137,15 +137,15 @@ module ForemanPuppet
         visit edit_host_path(host)
         select2(original_hostgroup.name, from: 'host_hostgroup_id')
 
-        assert_equal original_hostgroup.puppet_proxy.name, find('#s2id_host_puppet_proxy_id .select2-chosen').text
+        assert select2_chosen_selector('host_puppet_proxy_id').has_text? original_hostgroup.puppet_proxy.name
 
         click_on_inherit('puppet_proxy')
         select2(overridden_hostgroup.name, from: 'host_hostgroup_id')
 
-        assert find('#s2id_host_puppet_attributes_environment_id .select2-chosen').has_text? original_hostgroup.puppet.environment.name
+        assert select2_chosen_selector('host_puppet_attributes_environment_id').has_text? original_hostgroup.puppet.environment.name
 
         # On host group change, the disabled select will be reset to an empty value - disabled select2 is invisible on chrome
-        assert find('#s2id_host_puppet_proxy_id .select2-chosen', visible: :all).has_text? ''
+        assert select2_chosen_selector('host_puppet_proxy_id', visible: :all).has_text? ''
       end
 
       context 'has inherited Puppetclasses' do
@@ -201,14 +201,14 @@ module ForemanPuppet
           switch_form_tab('Puppet ENC')
           assert puppetclass_params.has_selector?("a[data-tag='remove']", visible: :visible)
           assert puppetclass_params.has_selector?("a[data-tag='override']", visible: :hidden)
-          assert_equal('false', find("#s2id_host_lookup_values_attributes_#{lookup_key.id}_value .select2-chosen").text)
+          assert select2_chosen_selector("host_lookup_values_attributes_#{lookup_key.id}_value").has_text? 'false'
           select2 'true', from: "host_lookup_values_attributes_#{lookup_key.id}_value"
           click_button('Submit')
           find('h5', text: /#{host.name}/)
 
           visit edit_host_path(host)
           switch_form_tab('Puppet ENC')
-          assert_equal('true', find("#s2id_host_lookup_values_attributes_#{lookup_key.id}_value .select2-chosen").text)
+          assert select2_chosen_selector("host_lookup_values_attributes_#{lookup_key.id}_value").has_text? 'true'
         end
 
         test 'class parameters and overrides are displayed correctly for strings' do
