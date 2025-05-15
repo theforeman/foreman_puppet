@@ -23,7 +23,7 @@ module ForemanPuppet
         wait_for_ajax
         click_on_inherit('puppet_attributes_environment')
         select2(overridden_hostgroup.name, from: 'host_hostgroup_id')
-        assert page.select2_selector('host_puppet_attributes_environment_id').has_text? overridden_hostgroup.puppet.environment.name
+        assert page.find(select2_selector('host_puppet_attributes_environment_id')).has_text? overridden_hostgroup.puppet.environment.name
       end
 
       test 'sets fields to "inherit" when hostgroup is selected' do
@@ -40,11 +40,14 @@ module ForemanPuppet
         select2 'Location 1', from: 'host_location_id'
         wait_for_ajax
         select2 env1.name, from: 'host_puppet_attributes_environment_id'
+        wait_for_ajax
         select2 hg.name, from: 'host_hostgroup_id'
         wait_for_ajax
 
         click_link 'Operating System'
+        wait_for_ajax
         select2 os.architectures.first.name, from: 'host_architecture_id'
+        wait_for_ajax
         select2 os.title, from: 'host_operatingsystem_id'
         uncheck('host_build')
 
@@ -145,7 +148,7 @@ module ForemanPuppet
         assert select2_chosen_selector('host_puppet_attributes_environment_id').has_text? original_hostgroup.puppet.environment.name
 
         # On host group change, the disabled select will be reset to an empty value - disabled select2 is invisible on chrome
-        assert select2_chosen_selector('host_puppet_proxy_id', visible: :all).has_text? ''
+        assert find(select2_selector('host_puppet_proxy_id'), visible: :all).has_text? ''
       end
 
       context 'has inherited Puppetclasses' do
