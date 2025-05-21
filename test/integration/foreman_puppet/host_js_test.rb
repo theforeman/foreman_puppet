@@ -40,14 +40,11 @@ module ForemanPuppet
         select2 'Location 1', from: 'host_location_id'
         wait_for_ajax
         select2 env1.name, from: 'host_puppet_attributes_environment_id'
-        wait_for_ajax
         select2 hg.name, from: 'host_hostgroup_id'
         wait_for_ajax
 
         click_link 'Operating System'
-        wait_for_ajax
         select2 os.architectures.first.name, from: 'host_architecture_id'
-        wait_for_ajax
         select2 os.title, from: 'host_operatingsystem_id'
         uncheck('host_build')
 
