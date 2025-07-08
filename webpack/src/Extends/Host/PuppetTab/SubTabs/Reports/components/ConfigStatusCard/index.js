@@ -104,12 +104,12 @@ const createPuppetMetricsTable = (metrics = undefined) => (
     key="foreman-puppet-metrics-table"
   >
     <Tbody>
-      <Tr>
+      <Tr ouiaId="foreman-puppet-metrics-row-1">
         {createPuppetMetricsTableElement(__('Failed'), metrics.failed)}
         {createPuppetMetricsTableElement(__('Changed'), metrics.changed)}
         {createPuppetMetricsTableElement(__('Scheduled'), metrics.scheduled)}
       </Tr>
-      <Tr>
+      <Tr ouiaId="foreman-puppet-metrics-row-2">
         {createPuppetMetricsTableElement(
           __('Failed to start'),
           metrics.failed_to_start
@@ -120,7 +120,7 @@ const createPuppetMetricsTable = (metrics = undefined) => (
           metrics.corrective_change
         )}
       </Tr>
-      <Tr>
+      <Tr ouiaId="foreman-puppet-metrics-row-3">
         {createPuppetMetricsTableElement(__('Skipped'), metrics.skipped)}
         {createPuppetMetricsTableElement(
           __('Out of sync'),
