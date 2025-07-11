@@ -10,13 +10,7 @@ import {
   DescriptionListGroup,
   DescriptionListDescription,
 } from '@patternfly/react-core';
-import {
-  TableComposable,
-  TableText,
-  Tr,
-  Tbody,
-  Td,
-} from '@patternfly/react-table';
+import { Table, TableText, Tr, Tbody, Td } from '@patternfly/react-table';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAPIResponse } from 'foremanReact/redux/API/APISelectors';
 import CardTemplate from 'foremanReact/components/HostDetails/Templates/CardItem/CardTemplate';
@@ -96,7 +90,7 @@ const createPuppetMetricsTableElement = (name, value = '--') => (
 );
 
 const createPuppetMetricsTable = (metrics = undefined) => (
-  <TableComposable
+  <Table
     aria-label="foreman puppet metrics table"
     variant="compact"
     borders="compactBorderless"
@@ -129,7 +123,7 @@ const createPuppetMetricsTable = (metrics = undefined) => (
         {createPuppetMetricsTableElement(__('Total'), metrics.total)}
       </Tr>
     </Tbody>
-  </TableComposable>
+  </Table>
 );
 
 const ConfigStatusCard = ({ hostName, parentStatus }) => {
