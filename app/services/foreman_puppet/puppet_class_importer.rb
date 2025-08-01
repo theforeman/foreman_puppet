@@ -231,7 +231,7 @@ module ForemanPuppet
     def load_ignored_file
       if File.exist?(ignored_file_path)
         # Ruby 3+
-        if YAML.respond_to(:safe_load_file)
+        if YAML.respond_to?(:safe_load_file)
           YAML.safe_load_file(ignored_file_path, permitted_classes: [Symbol, Regexp])
         else
           # NOTE: Once we drop Ruby 2.7 support, you can drop the load_file call.
