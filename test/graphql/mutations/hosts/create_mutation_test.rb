@@ -11,7 +11,7 @@ module ForemanPuppet
         let(:organization_id) { Foreman::GlobalId.for(organization) }
         let(:domain) { FactoryBot.create(:domain) }
         let(:domain_id) { Foreman::GlobalId.for(domain) }
-        let(:operatingsystem) { FactoryBot.create(:operatingsystem, :with_grub, :with_associations) }
+        let(:operatingsystem) { FactoryBot.create(:operatingsystem, :with_grub2, :with_associations) }
         let(:operatingsystem_id) { Foreman::GlobalId.for(operatingsystem) }
         let(:ptable_id) { Foreman::GlobalId.for(operatingsystem.ptables.first) }
         let(:medium_id) { Foreman::GlobalId.for(operatingsystem.media.first) }
