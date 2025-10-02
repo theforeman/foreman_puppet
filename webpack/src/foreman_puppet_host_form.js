@@ -22,7 +22,7 @@ export function loadPuppetClassParameters(item) {
   if ($(`[id^="#puppetclass_${id}_params\\["]`).length > 0) return; // already loaded
   const url = $(item).data('url');
   let data = window.serializeForm().replace('method=patch', 'method=post');
-  if (url.match('hostgroups')) {
+  if (url?.match('hostgroups')) {
     data += `&hostgroup_id=${hostId}`;
   } else {
     data += `&host_id=${hostId}`;
