@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 8.1.0",
+        "Project-Id-Version": "foreman_puppet 9.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
         "Last-Translator": "johnny.westerlund <johnny.westerlund@gmail.com>, 2023",
