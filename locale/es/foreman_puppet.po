@@ -6,7 +6,6 @@
 # Translators:
 # Lukáš Zapletal, 2021
 # fe37ea014ea122db60df81cd86b163af_742ef71 <ba9f59c06b0be83ac3724b1834a4c14b_93939>, 2021
-# francis <hackgo@gmail.com>, 2021
 # Gustavo Varela <gustavo.varela@gmail.com>, 2021
 # Sergio Ocón-Cárdenas, 2021
 # elobato <elobatocs@gmail.com>, 2021
@@ -18,7 +17,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 8.1.0\n"
+"Project-Id-Version: foreman_puppet 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"

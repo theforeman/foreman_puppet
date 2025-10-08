@@ -7,7 +7,6 @@
 # Mickaël Canévet <mickael.canevet@camptocamp.com>, 2021
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2021
 # julien IPPOLITO <stuxboulot@gmail.com>, 2021
-# Baptiste Agasse <baptiste.agasse@gmail.com>, 2021
 # Claer <transiblu@claer.hammock.fr>, 2022
 # Amit Upadhye <aupadhye@redhat.com>, 2023
 # 21966816214bc546c1fc8a185e75ca1c, 2023
@@ -16,7 +15,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 8.1.0\n"
+"Project-Id-Version: foreman_puppet 9.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
