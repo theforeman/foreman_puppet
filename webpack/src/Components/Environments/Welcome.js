@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { translate as __ } from 'foremanReact/common/I18n';
 import EmptyState from 'foremanReact/components/common/EmptyState';
-import { foremanUrl, getManualURL } from 'foremanReact/common/helpers';
+import { foremanUrl, getDocsURL } from 'foremanReact/common/helpers';
 
 export const WelcomeEnv = ({ canCreate }) => {
   const action = canCreate && {
@@ -23,7 +23,10 @@ export const WelcomeEnv = ({ canCreate }) => {
           puppetClassesLinkToDocs: (
             <a
               target="_blank"
-              href={getManualURL('4.2.2Classes')}
+              href={getDocsURL(
+                'Managing_Configurations_Puppet',
+                'Importing_Puppet_Classes_and_Environments_managing-configurations-puppet'
+              )}
               rel="noreferrer"
             >
               {__('Puppet classes')}
@@ -39,7 +42,12 @@ export const WelcomeEnv = ({ canCreate }) => {
       iconType="fa"
       header={__('Puppet Environments')}
       description={description}
-      documentation={{ url: getManualURL('4.2.1Environments') }}
+      documentation={{
+        url: getDocsURL(
+          'Managing_Configurations_Puppet',
+          'Creating_a_Custom_Puppet_Environment_managing-configurations-puppet'
+        ),
+      }}
       action={action}
     />
   );
