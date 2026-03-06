@@ -24,8 +24,12 @@ module ForemanPuppet
       end
 
       test 'should show the list of environments visible as non-admin user' do
-        # Non-admin user only sees environments in a taxonomy at least
+        # Non-admin user only sees environments in the same taxonomies at least
         setup_user 'view', 'environments'
+        # The user is in the same location as the environment, but in a
+        # different org. The org mismatch would make the environment invisible
+        # to the user.
+        User.current.organizations << environment.organizations.first
         assert_equal [environment.name], ::User.current.visible_environments
       end
     end
