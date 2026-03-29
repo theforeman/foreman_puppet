@@ -3,8 +3,8 @@
     <% group.each do |list| %>
       <% next if list.nil? %>
 
-      <div class="panel-group paneless puppetclass_group" id="<%= list.first %>-avail-classes" style="margin-bottom: 1px;">
-        <div class="panel-heading" style="padding-top: 2px; padding-bottom: 2px;">
+      <div class="panel-group paneless puppetclass_group" id="<%= list.first %>-avail-classes">
+        <div class="panel-heading">
           <p class="panel-title">
             <a data-toggle="collapse" data-parent="#<%= list.first %>-avail-classes" href="#<%= list.first %>-avail-classes-list" class="collapsed">
               <%= h list.first %>
@@ -13,7 +13,7 @@
         </div>
         <div id="<%= list.first %>-avail-classes-list" class="panel-collapse collapse">
           <div class="panel-body">
-            <ul style="margin-bottom: 1px;">
+            <ul>
               <% for klass in list.last.sort %>
                 <% unless authorized_for(:controller => :host_editing, :action => :edit_classes) %>
                   <li data-original-title="<%= _('Not authorized to edit classes') %>" rel="twipsy">
