@@ -49,6 +49,7 @@ module ForemanPuppet
       ::ProvisioningTemplate.include ForemanPuppet::Extensions::ProvisioningTemplate
 
       ::HostCounter.prepend ForemanPuppet::Extensions::HostCounter
+      ::BulkHostsManager.include ForemanPuppet::Extensions::BulkHostsManager
 
       ::Api::V2::BaseController.include ForemanPuppet::Extensions::ApiBaseController
       ::Api::V2::HostsController.include ForemanPuppet::Extensions::ApiV2HostsController
