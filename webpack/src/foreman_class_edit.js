@@ -28,9 +28,18 @@ export function filterPuppetClasses(item) {
     classElems
       .hide()
       .has(`[data-class-name*="${term}"]`)
-      .show();
+      .show()
+      .filter('div')
+      .find('a.collapsed')
+      .attr('aria-expanded','true')
+      .click();
   } else {
-    classElems.show();
+    classElems
+      .show()
+      .has('.collapse')
+      .find('a[aria-expanded]')
+      .attr('aria-expanded','false')
+      .click();
   }
 }
 
