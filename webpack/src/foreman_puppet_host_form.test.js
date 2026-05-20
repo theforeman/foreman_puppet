@@ -4,6 +4,8 @@ import $ from 'jquery';
 
 import { checkForUnavailablePuppetclasses } from './foreman_puppet_host_form';
 
+const WARNING_RENDER_TIMEOUT = 100;
+
 jest.unmock('jquery');
 jest.unmock('./foreman_puppet_host_form');
 
@@ -59,6 +61,6 @@ describe('checkForUnavailablePuppetclasses', () => {
     checkForUnavailablePuppetclasses();
     setTimeout(() => {
       expect($('a .pficon')).toHaveLength(1);
-    }, 100);
+    }, WARNING_RENDER_TIMEOUT);
   });
 });

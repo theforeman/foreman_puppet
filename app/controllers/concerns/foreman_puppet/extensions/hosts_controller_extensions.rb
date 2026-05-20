@@ -126,7 +126,7 @@ module ForemanPuppet
 
       def get_environment_for(host, id)
         if id == 'inherit' && host.hostgroup.present?
-          host.hostgroup.environment
+          host.hostgroup.puppet&.environment
         else
           ForemanPuppet::Environment.find_by(id: id)
         end
