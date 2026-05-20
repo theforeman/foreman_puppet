@@ -3,7 +3,9 @@ module ForemanPuppet
     module V2
       class HostsBulkActionsController < ::ForemanPuppet::Api::V2::PuppetBaseController
         include ::Api::V2::BulkHostsExtension
-        before_action :find_editable_hosts, only: %i[change_puppet_proxy remove_puppet_proxy]
+        before_action :find_editable_hosts, only: %i[change_environment change_puppet_proxy remove_puppet_proxy]
+        before_action :find_environment, only: %i[change_environment]
+        before_action :validate_environment_taxonomies, only: %i[change_environment]
         before_action :find_smart_proxy, only: %i[change_puppet_proxy]
 
         def_param_group :bulk_params do
@@ -15,6 +17,27 @@ module ForemanPuppet
           param :excluded, Hash, required: true, action_aware: true do
             param :ids, Array, required: false, desc: N_('List of host ids to exclude and not run an action on')
           end
+        end
+
+        api :PUT, '/foreman_puppet/api/v2/hosts/bulk/change_environment', N_('Change Puppet environment')
+        param_group :bulk_params
+        param :environment_id, String, required: false, desc: N_('ID of the Puppet environment to set for the selected hosts')
+        def change_environment
+          error_hosts = ::BulkHostsManager.new(hosts: @hosts).change_puppet_environment(resolved_environment)
+
+          process_bulk_response(
+            error_hosts,
+            success_message: format(n_(
+              'Updated host: changed environment',
+              'Updated hosts: changed environment',
+              @hosts.count
+            )),
+            error_message: format(n_(
+              'Failed to change environment for %{count} host',
+              'Failed to change environment for %{count} hosts',
+              error_hosts.count
+            ), count: error_hosts.count)
+          )
         end
 
         api :PUT, '/hosts/bulk/change_puppet_proxy', N_('Change Puppet (CA) Proxy')
@@ -65,6 +88,14 @@ module ForemanPuppet
         end
 
         def process_bulk_puppet_proxy_response(error_hosts, success_message:, error_message:)
+          process_bulk_response(
+            error_hosts,
+            success_message: success_message,
+            error_message: error_message
+          )
+        end
+
+        def process_bulk_response(error_hosts, success_message:, error_message:)
           if error_hosts.empty?
             process_response(true, { message: success_message })
           else
@@ -91,6 +122,49 @@ module ForemanPuppet
 
         def ca_proxy?
           Foreman::Cast.to_bool(params[:ca_proxy])
+        end
+
+        def find_environment
+          return true if environment_value == 'inherit' || environment_value.blank?
+
+          @environment = ForemanPuppet::Environment.find_by(id: environment_value)
+          return true if @environment.present?
+
+          render json: {
+            error: {
+              message: format(_('A Puppet environment with id %{id} could not be found.'), id: environment_value),
+            },
+          }, status: :unprocessable_entity
+          false
+        end
+
+        def validate_environment_taxonomies
+          return true if resolved_environment.blank? || resolved_environment == 'inherit'
+
+          invalid_host_ids = @hosts.reject do |host|
+            ForemanPuppet::Environment.with_taxonomy_scope(host.organization, host.location)
+                                      .exists?(id: resolved_environment.id)
+          end.map(&:id)
+
+          return true if invalid_host_ids.empty?
+
+          render_error(:bulk_hosts_error, status: :unprocessable_entity,
+            locals: {
+              message: _('Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.'),
+              failed_host_ids: invalid_host_ids,
+            })
+          false
+        end
+
+        def environment_value
+          params[:environment_id]
+        end
+
+        def resolved_environment
+          return 'inherit' if environment_value == 'inherit'
+          return nil if environment_value.blank?
+
+          @environment
         end
 
         def proxy_type
