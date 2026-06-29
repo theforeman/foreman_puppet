@@ -1,6 +1,11 @@
 class MigrateEnvironmentIgnoreType < ActiveRecord::Migration[6.0]
   def up
-    taxonomies = Taxonomy.unscoped.where("ignore_types LIKE '%Environment%'")
+    column_type = connection.columns(:taxonomies).find { |c| c.name == 'ignore_types' }&.sql_type
+    taxonomies = if column_type == 'jsonb'
+                   Taxonomy.unscoped.where('ignore_types @> ?', ['Environment'].to_json)
+                 else
+                   Taxonomy.unscoped.where("ignore_types LIKE '%Environment%'")
+                 end
     environment_ids = ForemanPuppet::Environment.unscoped.pluck(:id)
 
     taxonomies.each do |tax|
