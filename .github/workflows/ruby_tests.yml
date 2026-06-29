@@ -22,3 +22,5 @@ jobs:
     uses: theforeman/actions/.github/workflows/foreman_plugin.yml@v0
     with:
       plugin: foreman_puppet
+      foreman_repository: adamruzicka/foreman
+      foreman_version: matchity-match
