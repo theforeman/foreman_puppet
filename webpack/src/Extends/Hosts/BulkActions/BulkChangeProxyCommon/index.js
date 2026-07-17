@@ -15,17 +15,11 @@ import {
 } from '@patternfly/react-core';
 import { addToast } from 'foremanReact/components/ToastsList/slice';
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
-import { foremanUrl } from 'foremanReact/common/helpers';
-import { APIActions } from 'foremanReact/redux/API';
 import { STATUS } from 'foremanReact/constants';
 import {
   selectAPIStatus,
   selectAPIResponse,
 } from 'foremanReact/redux/API/APISelectors';
-import {
-  HOSTS_API_PATH,
-  API_REQUEST_KEY,
-} from 'foremanReact/routes/Hosts/constants';
 import {
   fetchSmartProxies,
   SMART_PROXY_KEY,
@@ -47,6 +41,7 @@ const BulkChangeProxyCommon = ({
   allHostsMessage,
   someHostsMessage,
   isCAProxy,
+  onSuccess: onSuccessCallback,
 }) => {
   const dispatch = useDispatch();
   const [smartProxyId, setSmartProxyId] = useState('');
@@ -112,13 +107,11 @@ const BulkChangeProxyCommon = ({
         message: response.data.message,
       })
     );
-    dispatch(
-      APIActions.get({
-        key: API_REQUEST_KEY,
-        url: foremanUrl(HOSTS_API_PATH),
-      })
-    );
-    handleModalClose();
+    try {
+      if (onSuccessCallback) onSuccessCallback();
+    } finally {
+      handleModalClose();
+    }
   };
 
   const handleConfirm = () => {
@@ -242,11 +235,13 @@ BulkChangeProxyCommon.propTypes = {
   allHostsMessage: PropTypes.string.isRequired,
   someHostsMessage: PropTypes.string.isRequired,
   isCAProxy: PropTypes.bool.isRequired,
+  onSuccess: PropTypes.func,
 };
 
 BulkChangeProxyCommon.defaultProps = {
   isOpen: false,
   closeModal: () => {},
+  onSuccess: undefined,
 };
 
 export default BulkChangeProxyCommon;

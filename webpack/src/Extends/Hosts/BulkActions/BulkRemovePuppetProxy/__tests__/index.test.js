@@ -18,11 +18,13 @@ jest.mock('../../BulkRemoveProxyCommon', () => ({
 
 describe('BulkRemovePuppetProxyScene', () => {
   const fetchBulkParams = jest.fn();
+  const refreshTableData = jest.fn();
   const contextValue = {
     selectAllHostsMode: false,
     selectedCount: 2,
     selectedResults: [1, 2],
     fetchBulkParams,
+    refreshTableData,
   };
 
   beforeEach(() => {
@@ -51,6 +53,7 @@ describe('BulkRemovePuppetProxyScene', () => {
         fetchBulkParams,
         isOpen: true,
         closeModal: expect.any(Function),
+        onSuccess: refreshTableData,
         handleErrorMessage: 'Failed to remove Puppet Proxy',
         removeMessage: 'Remove Puppet Proxy',
       })

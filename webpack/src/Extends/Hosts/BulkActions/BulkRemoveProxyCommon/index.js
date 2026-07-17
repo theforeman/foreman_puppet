@@ -5,12 +5,6 @@ import { useDispatch } from 'react-redux';
 import { Modal, Button, TextContent, Text } from '@patternfly/react-core';
 import { addToast } from 'foremanReact/components/ToastsList/slice';
 import { translate as __ } from 'foremanReact/common/I18n';
-import { foremanUrl } from 'foremanReact/common/helpers';
-import { APIActions } from 'foremanReact/redux/API';
-import {
-  HOSTS_API_PATH,
-  API_REQUEST_KEY,
-} from 'foremanReact/routes/Hosts/constants';
 
 import {
   BULK_REMOVE_PUPPET_PROXY_KEY,
@@ -30,6 +24,7 @@ const BulkRemoveProxyCommon = ({
   removeMessage,
   allHostsMessage,
   someHostsMessage,
+  onSuccess: onSuccessCallback,
 }) => {
   const actionKey = isCAProxy
     ? BULK_REMOVE_PUPPET_CA_PROXY_KEY
@@ -57,13 +52,11 @@ const BulkRemoveProxyCommon = ({
         message: response.data.message,
       })
     );
-    dispatch(
-      APIActions.get({
-        key: API_REQUEST_KEY,
-        url: foremanUrl(HOSTS_API_PATH),
-      })
-    );
-    handleModalClose();
+    try {
+      if (onSuccessCallback) onSuccessCallback();
+    } finally {
+      handleModalClose();
+    }
   };
 
   const handleConfirm = () => {
@@ -153,12 +146,14 @@ BulkRemoveProxyCommon.propTypes = {
   removeMessage: PropTypes.string,
   allHostsMessage: PropTypes.string.isRequired,
   someHostsMessage: PropTypes.string.isRequired,
+  onSuccess: PropTypes.func,
 };
 
 BulkRemoveProxyCommon.defaultProps = {
   isOpen: false,
   closeModal: () => {},
   removeMessage: 'Remove Puppet (CA) Proxy',
+  onSuccess: undefined,
 };
 
 export default BulkRemoveProxyCommon;
