@@ -12,6 +12,8 @@ import BulkChangePuppetCAProxy from './src/Extends/Hosts/BulkActions/BulkChangeP
 import BulkRemovePuppetProxy from './src/Extends/Hosts/BulkActions/BulkRemovePuppetProxy';
 import BulkRemovePuppetCAProxy from './src/Extends/Hosts/BulkActions/BulkRemovePuppetCAProxy';
 
+const GLOBAL_FILL_PRIORITY = 100;
+
 // register reducers
 registerReducer('puppet', reducers);
 // add fills
@@ -40,35 +42,35 @@ addGlobalFill(
   'hosts-index-kebab',
   'puppet-hosts-index-kebab',
   <HostsIndexActionsBar key="puppet-hosts-index-kebab" />,
-  100
+  GLOBAL_FILL_PRIORITY
 );
 
 addGlobalFill(
   '_all-hosts-modals',
   'BulkChangePuppetProxy',
   <BulkChangePuppetProxy key="bulk-change-puppet-proxy" />,
-  100
+  GLOBAL_FILL_PRIORITY
 );
 
 addGlobalFill(
   '_all-hosts-modals',
   'BulkChangePuppetCAProxy',
   <BulkChangePuppetCAProxy key="bulk-change-puppet-ca-proxy" />,
-  100
+  GLOBAL_FILL_PRIORITY
 );
 
 addGlobalFill(
   '_all-hosts-modals',
   'BulkRemovePuppetCAProxy',
   <BulkRemovePuppetCAProxy key="bulk-remove-puppet-ca-proxy" />,
-  100
+  GLOBAL_FILL_PRIORITY
 );
 
 addGlobalFill(
   '_all-hosts-modals',
   'BulkRemovePuppetProxy',
   <BulkRemovePuppetProxy key="bulk-remove-puppet-proxy" />,
-  100
+  GLOBAL_FILL_PRIORITY
 );
 
 registerColumns(puppetHostsIndexColumns);
