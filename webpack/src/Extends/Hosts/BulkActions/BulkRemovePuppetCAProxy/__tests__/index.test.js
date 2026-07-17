@@ -18,11 +18,13 @@ jest.mock('../../BulkRemoveProxyCommon', () => ({
 
 describe('BulkRemovePuppetCAProxyScene', () => {
   const fetchBulkParams = jest.fn();
+  const refreshTableData = jest.fn();
   const contextValue = {
     selectAllHostsMode: false,
     selectedCount: 2,
     selectedResults: [1, 2],
     fetchBulkParams,
+    refreshTableData,
   };
 
   beforeEach(() => {
@@ -51,6 +53,7 @@ describe('BulkRemovePuppetCAProxyScene', () => {
         fetchBulkParams,
         isOpen: true,
         closeModal: expect.any(Function),
+        onSuccess: refreshTableData,
         handleErrorMessage: 'Failed to remove Puppet CA Proxy',
         allHostsMessage:
           'Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!',

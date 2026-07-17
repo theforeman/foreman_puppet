@@ -10,6 +10,7 @@ const BulkRemovePuppetCAProxyScene = () => {
     selectedCount,
     selectedResults,
     fetchBulkParams,
+    refreshTableData,
   } = useContext(ForemanActionsBarContext);
   const { isOpen, close: closeModal } = useBulkModalOpen(
     'bulk-remove-puppet-ca-proxy'
@@ -24,6 +25,7 @@ const BulkRemovePuppetCAProxyScene = () => {
       fetchBulkParams={fetchBulkParams}
       isOpen={isOpen}
       closeModal={closeModal}
+      onSuccess={refreshTableData}
       handleErrorMessage={__('Failed to remove Puppet CA Proxy')}
       allHostsMessage={__(
         'Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!'

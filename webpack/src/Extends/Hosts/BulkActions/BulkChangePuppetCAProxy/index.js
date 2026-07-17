@@ -11,6 +11,7 @@ const BulkChangePuppetCAProxyScene = () => {
     selectedCount,
     selectedResults,
     fetchBulkParams,
+    refreshTableData,
   } = useContext(ForemanActionsBarContext);
   const { isOpen, close: closeModal } = useBulkModalOpen(
     'bulk-change-puppet-ca-proxy'
@@ -24,6 +25,7 @@ const BulkChangePuppetCAProxyScene = () => {
       selectAllHostsMode={selectAllHostsMode}
       isOpen={isOpen}
       closeModal={closeModal}
+      onSuccess={refreshTableData}
       selectMessage={__('Select a Puppet CA Proxy')}
       handleErrorMessage={__('Failed to change Puppet CA Proxy')}
       changeMessage={__('Change Puppet CA Proxy')}

@@ -18,11 +18,13 @@ jest.mock('../../BulkChangeProxyCommon', () => ({
 
 describe('BulkChangePuppetCAProxyScene', () => {
   const fetchBulkParams = jest.fn();
+  const refreshTableData = jest.fn();
   const contextValue = {
     selectAllHostsMode: false,
     selectedCount: 2,
     selectedResults: [1, 2],
     fetchBulkParams,
+    refreshTableData,
   };
 
   beforeEach(() => {
@@ -51,6 +53,7 @@ describe('BulkChangePuppetCAProxyScene', () => {
         selectAllHostsMode: false,
         isOpen: true,
         closeModal: expect.any(Function),
+        onSuccess: refreshTableData,
         selectMessage: 'Select a Puppet CA Proxy',
         handleErrorMessage: 'Failed to change Puppet CA Proxy',
         changeMessage: 'Change Puppet CA Proxy',
