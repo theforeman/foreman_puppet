@@ -17,6 +17,8 @@
 import $ from 'jquery';
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 
+const HIGHLIGHT_DURATION = 5000;
+
 export function filterPuppetClasses(item) {
   const term = $(item)
     .val()
@@ -59,7 +61,7 @@ export function addPuppetClass(item) {
 
   $('#selected_classes').append(content);
 
-  $(`#selected_puppetclass_${id}`).show('highlight', 5000);
+  $(`#selected_puppetclass_${id}`).show('highlight', HIGHLIGHT_DURATION);
   $(`#puppetclass_${id}`)
     .addClass('selected-marker')
     .hide();
@@ -87,7 +89,7 @@ function addGroupPuppetClass(item) {
 
   $('#selected_classes').append(content);
 
-  $(`#selected_puppetclass_${id}`).show('highlight', 5000);
+  $(`#selected_puppetclass_${id}`).show('highlight', HIGHLIGHT_DURATION);
   $(`#puppetclass_${id}`)
     .addClass('selected-marker')
     .hide();
@@ -136,7 +138,7 @@ export function addConfigGroup(item) {
   content.append(
     `<input id='config_group_ids' name=${type}[config_group_ids][] type='hidden' value=${id}>`
   );
-  $(`#selected_config_group_${id}`).show('highlight', 5000);
+  $(`#selected_config_group_${id}`).show('highlight', HIGHLIGHT_DURATION);
   $(`#config_group_${id}`)
     .addClass('selected-marker')
     .hide();
@@ -149,7 +151,7 @@ export function addConfigGroup(item) {
   link.text(__(' Remove'));
 
   $('#selected_config_groups').append(content);
-  $(`#selected_config_group_${id}`).show('highlight', 5000);
+  $(`#selected_config_group_${id}`).show('highlight', HIGHLIGHT_DURATION);
   $(`#config_group_${id}`)
     .addClass('selected-marker')
     .hide();
