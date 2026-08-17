@@ -117,6 +117,72 @@ module ForemanPuppet
       end
     end
 
+    describe '#complete_for' do
+      let(:host) { FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass) }
+
+      test 'can complete Puppet class values' do
+        puppetclass = host.puppet.puppetclasses.first
+        completions = ::Host::Managed.complete_for("puppetclass = #{puppetclass.name}")
+
+        assert_includes completions, %(puppetclass =  "#{puppetclass.name}")
+      end
+
+      test 'can complete config group values' do
+        config_group = FactoryBot.create(:config_group)
+        host.puppet.config_groups << config_group
+        completions = ::Host::Managed.complete_for("config_group = #{config_group.name}")
+
+        assert_includes completions, %(config_group =  "#{config_group.name}")
+      end
+
+      test 'can complete Puppet class values inherited from a hostgroup' do
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_puppetclass)
+        FactoryBot.create(:host, hostgroup: hostgroup)
+        puppetclass = hostgroup.puppet.puppetclasses.first
+        completions = ::Host::Managed.complete_for("puppetclass = #{puppetclass.name}")
+
+        assert_includes completions, %(puppetclass =  "#{puppetclass.name}")
+      end
+
+      test 'can complete Puppet class values assigned through a config group' do
+        config_group = FactoryBot.create(:config_group, :with_puppetclass)
+        host.puppet.config_groups << config_group
+        puppetclass = config_group.puppetclasses.first
+        completions = ::Host::Managed.complete_for("puppetclass = #{puppetclass.name}")
+
+        assert_includes completions, %(puppetclass =  "#{puppetclass.name}")
+      end
+
+      test 'can complete config group values inherited from a hostgroup' do
+        hostgroup = FactoryBot.create(:hostgroup, :with_puppet_enc, :with_config_group)
+        FactoryBot.create(:host, hostgroup: hostgroup)
+        config_group = hostgroup.puppet.config_groups.first
+        completions = ::Host::Managed.complete_for("config_group = #{config_group.name}")
+
+        assert_includes completions, %(config_group =  "#{config_group.name}")
+      end
+
+      test 'does not complete unassigned Puppet class values' do
+        puppetclass = FactoryBot.create(:puppetclass)
+        completions = ::Host::Managed.complete_for("puppetclass = #{puppetclass.name}")
+
+        assert_not_includes completions, %(puppetclass =  "#{puppetclass.name}")
+      end
+
+      test 'does not complete unassigned config group values' do
+        config_group = FactoryBot.create(:config_group)
+        completions = ::Host::Managed.complete_for("config_group = #{config_group.name}")
+
+        assert_not_includes completions, %(config_group =  "#{config_group.name}")
+      end
+
+      test 'preserves core host value completions' do
+        completions = as_admin { ::Host::Managed.complete_for('user.login =') }
+
+        assert_includes completions, 'user.login = current_user'
+      end
+    end
+
     describe '#info puppet bits' do
       test 'ENC YAML omits environment if no puppet facet' do
         host = FactoryBot.build_stubbed(:host)

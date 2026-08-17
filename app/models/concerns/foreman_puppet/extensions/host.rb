@@ -13,9 +13,9 @@ module ForemanPuppet
         include_in_clone puppet: %i[config_groups host_config_groups host_classes]
 
         scoped_search relation: :environment, on: :name, complete_value: true, rename: :environment
-        scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :puppetclass, only_explicit: true, operators: ['= ', '~ '],
+        scoped_search relation: :search_puppetclasses, on: :name, complete_value: true, rename: :puppetclass, only_explicit: true, operators: ['= ', '~ '],
           ext_method: :search_by_puppetclass
-        scoped_search relation: :config_groups, on: :name, complete_value: true, rename: :config_group, only_explicit: true, operators: ['= ', '~ '],
+        scoped_search relation: :search_config_groups, on: :name, complete_value: true, rename: :config_group, only_explicit: true, operators: ['= ', '~ '],
           ext_method: :search_by_config_group
       end
 

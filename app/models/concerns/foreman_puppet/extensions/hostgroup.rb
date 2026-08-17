@@ -16,13 +16,13 @@ module ForemanPuppet
 
         # will need through relation to work properly
         scoped_search relation: :environment, on: :name, complete_value: true, rename: :environment, only_explicit: true
-        scoped_search relation: :puppetclasses, on: :name,
+        scoped_search relation: :search_puppetclasses, on: :name,
           complete_value: true,
           rename: :puppetclass,
           only_explicit: true,
           operators: ['= ', '~ '],
           ext_method: :search_by_puppetclass
-        scoped_search relation: :config_groups, on: :name,
+        scoped_search relation: :search_config_groups, on: :name,
           complete_value: true,
           rename: :config_group,
           only_explicit: true,
@@ -45,9 +45,16 @@ module ForemanPuppet
         def search_by_puppetclass(_key, operator, value)
           conditions = sanitize_sql_for_conditions(["puppetclasses.name #{operator} ?", value_to_sql(operator, value)])
           hostgroup_ids = ::Hostgroup.joins(puppet: :puppetclasses).where(conditions).map(&:subtree_ids)
+          config_group_ids = ForemanPuppet::ConfigGroup.joins(:puppetclasses).where(conditions).pluck(:id)
+          if config_group_ids.any?
+            hostgroup_cg_ids = ForemanPuppet::HostgroupPuppetFacet.joins(:host_config_groups)
+                                                                  .where(host_config_groups: { config_group_id: config_group_ids })
+                                                                  .pluck(:hostgroup_id)
+            hostgroup_ids += ::Hostgroup.where(id: hostgroup_cg_ids).map(&:subtree_ids)
+          end
 
           conds = []
-          conds << "hostgroups.id IN (#{hostgroup_ids.join(',')})" if hostgroup_ids.present?
+          conds << "hostgroups.id IN (#{hostgroup_ids.uniq.join(',')})" if hostgroup_ids.present?
 
           { conditions: conds.join(' OR ').presence || 'hostgroups.id < 0' }
         end

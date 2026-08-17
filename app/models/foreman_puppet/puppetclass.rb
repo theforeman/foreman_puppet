@@ -41,6 +41,16 @@ module ForemanPuppet
 
     default_scope -> { order(:name) }
 
+    scope :assigned_to_hosts, lambda {
+      direct = ForemanPuppet::HostClass.select(:puppetclass_id)
+      via_hostgroup = ForemanPuppet::HostgroupClass.select(:puppetclass_id)
+      via_config_group = ForemanPuppet::ConfigGroupClass
+                         .where(config_group_id: ForemanPuppet::HostConfigGroup.select(:config_group_id))
+                         .select(:puppetclass_id)
+
+      where(id: direct).or(where(id: via_hostgroup)).or(where(id: via_config_group))
+    }
+
     scoped_search on: :name, complete_value: true
     scoped_search relation: :environments, on: :name, complete_value: true, rename: 'environment'
     scoped_search relation: :organizations, on: :name, complete_value: true, rename: 'organization', only_explicit: true
@@ -141,6 +151,10 @@ module ForemanPuppet
 
       puppet_classes = (direct + indirect).uniq
       { conditions: "puppetclasses.id IN(#{puppet_classes.join(',')})" }
+    end
+
+    def self.completer_scope(options)
+      super.merge(assigned_to_hosts)
     end
   end
 end

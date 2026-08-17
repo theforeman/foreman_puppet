@@ -16,6 +16,8 @@ module ForemanPuppet
 
     validates :name, presence: true, uniqueness: true
 
+    scope :assigned_to_hosts, -> { where(id: ForemanPuppet::HostConfigGroup.select(:config_group_id)) }
+
     scoped_search on: :name, complete_value: true
     scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :puppetclass, only_explicit: true, operators: ['= ', '~ ']
 
@@ -40,6 +42,10 @@ module ForemanPuppet
 
     def hostgroups_count
       ::Hostgroup.authorized.search_for(%(config_group="#{name}")).size
+    end
+
+    def self.completer_scope(options)
+      super.merge(assigned_to_hosts)
     end
   end
 end
