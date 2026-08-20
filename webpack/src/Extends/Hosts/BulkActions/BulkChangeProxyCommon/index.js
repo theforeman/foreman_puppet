@@ -77,6 +77,7 @@ const BulkChangeProxyCommon = ({
 
   const toggle = toggleRef => (
     <MenuToggle
+      ouiaId="bulk-change-proxy-common-select-toggle"
       ref={toggleRef}
       onClick={onToggleClick}
       isExpanded={smartProxySelectOpen}
