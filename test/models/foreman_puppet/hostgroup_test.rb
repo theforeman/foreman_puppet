@@ -47,6 +47,23 @@ module ForemanPuppet
       assert_includes completions, %(puppetclass =  "#{puppetclass.name}")
     end
 
+    test 'can complete Puppet class values assigned through a config group' do
+      config_group = hostgroup.puppet.config_groups.first
+      puppetclass = FactoryBot.create(:puppetclass)
+      config_group.puppetclasses << puppetclass
+      completions = ::Hostgroup.complete_for("puppetclass = #{puppetclass.name}")
+
+      assert_includes completions, %(puppetclass =  "#{puppetclass.name}")
+    end
+
+    test 'does not complete Puppet class values assigned only to hosts' do
+      host = FactoryBot.create(:host, :with_puppet_enc, :with_puppetclass)
+      puppetclass = host.puppet.puppetclasses.first
+      completions = ::Hostgroup.complete_for("puppetclass = #{puppetclass.name}")
+
+      assert_not_includes completions, %(puppetclass =  "#{puppetclass.name}")
+    end
+
     test 'searches Puppet class values assigned through a config group' do
       config_group = hostgroup.puppet.config_groups.first
       puppetclass = FactoryBot.create(:puppetclass)
