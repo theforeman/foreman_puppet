@@ -16,7 +16,9 @@ module ForemanPuppet
 
     validates :name, presence: true, uniqueness: true
 
-    scope :assigned_to_hosts, -> { where(id: ForemanPuppet::HostConfigGroup.select(:config_group_id)) }
+    scope :assigned_to_hosts, lambda {
+      where(id: ForemanPuppet::HostConfigGroup.assigned_to_taxonomy.select(:config_group_id))
+    }
 
     scoped_search on: :name, complete_value: true
     scoped_search relation: :puppetclasses, on: :name, complete_value: true, rename: :puppetclass, only_explicit: true, operators: ['= ', '~ ']

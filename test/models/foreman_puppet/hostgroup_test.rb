@@ -47,6 +47,41 @@ module ForemanPuppet
       assert_includes completions, %(puppetclass =  "#{puppetclass.name}")
     end
 
+    test 'limits Puppet assignment completions to the current location' do
+      organization = taxonomies(:organization1)
+      location = taxonomies(:location1)
+      visible_hostgroup = FactoryBot.create(
+        :hostgroup,
+        :with_puppet_enc,
+        :with_puppetclass,
+        organizations: [organization],
+        locations: [location]
+      )
+      hidden_hostgroup = FactoryBot.create(
+        :hostgroup,
+        :with_puppet_enc,
+        :with_puppetclass,
+        organizations: [organization],
+        locations: [FactoryBot.create(:location)]
+      )
+      visible_config_group = visible_hostgroup.puppet.config_groups.first
+      hidden_config_group = hidden_hostgroup.puppet.config_groups.first
+      Organization.current = nil
+      Location.current = location
+
+      visible_puppetclass = visible_hostgroup.puppet.puppetclasses.first
+      hidden_puppetclass = hidden_hostgroup.puppet.puppetclasses.first
+      visible_puppetclasses = ::Hostgroup.complete_for("puppetclass = #{visible_puppetclass.name}")
+      hidden_puppetclasses = ::Hostgroup.complete_for("puppetclass = #{hidden_puppetclass.name}")
+      visible_config_groups = ::Hostgroup.complete_for("config_group = #{visible_config_group.name}")
+      hidden_config_groups = ::Hostgroup.complete_for("config_group = #{hidden_config_group.name}")
+
+      assert_includes visible_puppetclasses, %(puppetclass =  "#{visible_puppetclass.name}")
+      assert_not_includes hidden_puppetclasses, %(puppetclass =  "#{hidden_puppetclass.name}")
+      assert_includes visible_config_groups, %(config_group =  "#{visible_config_group.name}")
+      assert_not_includes hidden_config_groups, %(config_group =  "#{hidden_config_group.name}")
+    end
+
     test 'searches Puppet class values assigned through a config group' do
       config_group = hostgroup.puppet.config_groups.first
       puppetclass = FactoryBot.create(:puppetclass)

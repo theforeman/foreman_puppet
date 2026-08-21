@@ -176,6 +176,43 @@ module ForemanPuppet
         assert_not_includes completions, %(config_group =  "#{config_group.name}")
       end
 
+      test 'limits Puppet assignment completions to the current organization' do
+        organization = taxonomies(:organization1)
+        location = taxonomies(:location1)
+        visible_host = FactoryBot.create(
+          :host,
+          :with_puppet_enc,
+          :with_puppetclass,
+          organization: organization,
+          location: location
+        )
+        hidden_host = FactoryBot.create(
+          :host,
+          :with_puppet_enc,
+          :with_puppetclass,
+          organization: FactoryBot.create(:organization),
+          location: location
+        )
+        visible_config_group = FactoryBot.create(:config_group)
+        hidden_config_group = FactoryBot.create(:config_group)
+        visible_host.puppet.config_groups << visible_config_group
+        hidden_host.puppet.config_groups << hidden_config_group
+        Organization.current = organization
+        Location.current = nil
+
+        visible_puppetclass = visible_host.puppet.puppetclasses.first
+        hidden_puppetclass = hidden_host.puppet.puppetclasses.first
+        visible_puppetclasses = ::Host::Managed.complete_for("puppetclass = #{visible_puppetclass.name}")
+        hidden_puppetclasses = ::Host::Managed.complete_for("puppetclass = #{hidden_puppetclass.name}")
+        visible_config_groups = ::Host::Managed.complete_for("config_group = #{visible_config_group.name}")
+        hidden_config_groups = ::Host::Managed.complete_for("config_group = #{hidden_config_group.name}")
+
+        assert_includes visible_puppetclasses, %(puppetclass =  "#{visible_puppetclass.name}")
+        assert_not_includes hidden_puppetclasses, %(puppetclass =  "#{hidden_puppetclass.name}")
+        assert_includes visible_config_groups, %(config_group =  "#{visible_config_group.name}")
+        assert_not_includes hidden_config_groups, %(config_group =  "#{hidden_config_group.name}")
+      end
+
       test 'preserves core host value completions' do
         completions = as_admin { ::Host::Managed.complete_for('user.login =') }
 
