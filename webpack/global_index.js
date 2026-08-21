@@ -7,12 +7,15 @@ import reducers from './src/reducers';
 import { registerFills } from './src/Extends/Fills';
 import { registerLegacy } from './legacy';
 import HostsIndexActionsBar from './src/Extends/Hosts/ActionsBar';
+import BulkChangePuppetEnvironment from './src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment';
+import BulkRemovePuppetEnvironment from './src/Extends/Hosts/BulkActions/BulkRemovePuppetEnvironment';
 import BulkChangePuppetProxy from './src/Extends/Hosts/BulkActions/BulkChangePuppetProxy';
 import BulkChangePuppetCAProxy from './src/Extends/Hosts/BulkActions/BulkChangePuppetCAProxy';
 import BulkRemovePuppetProxy from './src/Extends/Hosts/BulkActions/BulkRemovePuppetProxy';
 import BulkRemovePuppetCAProxy from './src/Extends/Hosts/BulkActions/BulkRemovePuppetCAProxy';
 
 const GLOBAL_FILL_PRIORITY = 100;
+const PUPPET_ENV_COLUMN_WEIGHT = 2700;
 
 // register reducers
 registerReducer('puppet', reducers);
@@ -28,7 +31,7 @@ const puppetHostsIndexColumns = [
     title: __('Puppet env'),
     isSorted: true,
     wrapper: hostDetails => hostDetails.environment_name,
-    weight: 2700,
+    weight: PUPPET_ENV_COLUMN_WEIGHT,
   },
 ];
 
@@ -42,6 +45,20 @@ addGlobalFill(
   'hosts-index-kebab',
   'puppet-hosts-index-kebab',
   <HostsIndexActionsBar key="puppet-hosts-index-kebab" />,
+  GLOBAL_FILL_PRIORITY
+);
+
+addGlobalFill(
+  '_all-hosts-modals',
+  'BulkChangePuppetEnvironment',
+  <BulkChangePuppetEnvironment key="bulk-change-puppet-environment" />,
+  GLOBAL_FILL_PRIORITY
+);
+
+addGlobalFill(
+  '_all-hosts-modals',
+  'BulkRemovePuppetEnvironment',
+  <BulkRemovePuppetEnvironment key="bulk-remove-puppet-environment" />,
   GLOBAL_FILL_PRIORITY
 );
 

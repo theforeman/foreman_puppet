@@ -62,6 +62,7 @@ Foreman::Plugin.register :foreman_puppet do
       p.actions << 'hosts/update_multiple_environment'
       p.actions << 'hosts/select_multiple_puppet_proxy'
       p.actions << 'hosts/update_multiple_puppet_proxy'
+      p.actions << 'foreman_puppet/api/v2/hosts_bulk_actions/change_environment'
       p.actions << 'foreman_puppet/api/v2/hosts_bulk_actions/change_puppet_proxy'
       p.actions << 'foreman_puppet/api/v2/hosts_bulk_actions/remove_puppet_proxy'
     end

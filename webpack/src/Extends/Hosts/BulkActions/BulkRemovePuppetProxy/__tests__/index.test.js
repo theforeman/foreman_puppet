@@ -7,9 +7,13 @@ import { ForemanActionsBarContext } from 'foremanReact/components/HostDetails/Ac
 import BulkRemovePuppetProxyScene from '../index';
 import BulkRemoveProxyCommon from '../../BulkRemoveProxyCommon';
 
-jest.mock('foremanReact/components/HostDetails/ActionsBar', () => ({
-  ForemanActionsBarContext: jest.requireActual('react').createContext(),
-}));
+jest.mock(
+  'foremanReact/components/HostDetails/ActionsBar',
+  () => ({
+    ForemanActionsBarContext: jest.requireActual('react').createContext(),
+  }),
+  { virtual: true }
+);
 
 jest.mock('../../BulkRemoveProxyCommon', () => ({
   __esModule: true,
