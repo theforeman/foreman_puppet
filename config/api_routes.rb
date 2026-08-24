@@ -4,6 +4,15 @@ Foreman::Application.routes.draw do
       scope '(:apiv)', module: :v2, defaults: { apiv: 'v2' }, apiv: /v1|v2/, constraints: ApiConstraints.new(version: 2, default: true) do
         match 'hosts/bulk/change_puppet_proxy', to: 'hosts_bulk_actions#change_puppet_proxy', via: [:put]
         match 'hosts/bulk/remove_puppet_proxy', to: 'hosts_bulk_actions#remove_puppet_proxy', via: [:put]
+        post 'smart_proxies/:id/import_puppetclasses', to: '/api/v2/smart_proxies#import_puppetclasses'
+        post 'smart_proxies/:smart_proxy_id/environments/:id/import_puppetclasses', to: '/api/v2/smart_proxies#import_puppetclasses'
+        post 'environments/:environment_id/smart_proxies/:id/import_puppetclasses', to: '/api/v2/smart_proxies#import_puppetclasses'
+        resources :environments, only: [] do
+          resources :locations, only: %i[index show], controller: '/api/v2/locations'
+          resources :organizations, only: %i[index show], controller: '/api/v2/organizations'
+          resources :hosts, only: %i[index show], controller: '/api/v2/hosts'
+          resources :template_combinations, only: %i[index show create update], controller: '/api/v2/template_combinations'
+        end
       end
     end
   end
@@ -32,8 +41,6 @@ ForemanPuppet::Engine.routes.draw do
         end
 
         resources :environments, except: %i[new edit] do
-          resources :locations, only: %i[index show], controller: '/api/v2/locations'
-          resources :organizations, only: %i[index show], controller: '/api/v2/organizations'
           resources :smart_class_parameters, except: %i[new edit create] do
             resources :override_values, except: %i[new edit]
           end
@@ -42,8 +49,6 @@ ForemanPuppet::Engine.routes.draw do
               resources :override_values, except: %i[new edit destroy]
             end
           end
-          resources :hosts, only: %i[index show], controller: '/api/v2/hosts'
-          resources :template_combinations, only: %i[index show create update], controller: '/api/v2/template_combinations'
         end
 
         resources :puppetclasses, except: %i[new edit] do
