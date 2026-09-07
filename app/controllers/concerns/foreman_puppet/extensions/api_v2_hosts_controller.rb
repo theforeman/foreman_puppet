@@ -15,10 +15,6 @@ module ForemanPuppet
 
         apipie_update_methods(%i[create update]) do
           param :host, Hash do
-            param :environment_id, String, desc: N_('Deprecated in favor of host/puppet_attributes/environment_id')
-            param :puppetclass_ids, Array, desc: N_('Deprecated in favor of host/puppet_attributes/puppetclass_ids')
-            param :config_group_ids, Array, desc: N_('Deprecated in favor of host/puppet_attributes/config_group_ids')
-
             param :puppet_attributes, Hash do
               param :environment_id, String, desc: N_('ID of associated puppet Environment')
               param :puppetclass_ids, Array, desc: N_('IDs of associated Puppetclasses')
