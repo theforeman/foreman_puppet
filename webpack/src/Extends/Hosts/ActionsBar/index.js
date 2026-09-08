@@ -25,6 +25,26 @@ const HostActionsBar = () => {
           <MenuContent>
             <MenuList>
               <MenuItem
+                itemId="bulk-change-puppet-environment-menu-item"
+                key="bulk-change-puppet-environment-menu-item"
+                onClick={() =>
+                  handleOpenBulkModal('bulk-change-puppet-environment')
+                }
+                isDisabled={selectedCount === 0}
+              >
+                {__('Change Puppet environment')}
+              </MenuItem>
+              <MenuItem
+                itemId="bulk-remove-puppet-environment-menu-item"
+                key="bulk-remove-puppet-environment-menu-item"
+                onClick={() =>
+                  handleOpenBulkModal('bulk-remove-puppet-environment')
+                }
+                isDisabled={selectedCount === 0}
+              >
+                {__('Remove Puppet environment')}
+              </MenuItem>
+              <MenuItem
                 itemId="bulk-change-puppet-proxy-menu-item"
                 key="bulk-change-puppet-proxy-menu-item"
                 onClick={() => handleOpenBulkModal('bulk-change-puppet-proxy')}
