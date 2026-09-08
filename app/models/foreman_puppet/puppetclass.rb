@@ -51,6 +51,24 @@ module ForemanPuppet
       where(id: direct).or(where(id: via_hostgroup)).or(where(id: via_config_group))
     }
 
+    scope :assigned_to_hostgroups, lambda {
+      hostgroup_facets = ForemanPuppet::HostgroupPuppetFacet
+                         .where(hostgroup_id: ::Hostgroup.unscoped.with_taxonomy_scope.reorder(nil).select(:id))
+                         .select(:id)
+      direct = ForemanPuppet::HostgroupClass
+               .where(hostgroup_puppet_facet_id: hostgroup_facets)
+               .select(:puppetclass_id)
+      config_groups = ForemanPuppet::HostConfigGroup
+                      .where(
+                        host_type: ForemanPuppet::HostgroupPuppetFacet.polymorphic_name,
+                        host_id: hostgroup_facets
+                      )
+                      .select(:config_group_id)
+      via_config_group = ForemanPuppet::ConfigGroupClass.where(config_group_id: config_groups).select(:puppetclass_id)
+
+      where(id: direct).or(where(id: via_config_group))
+    }
+
     scoped_search on: :name, complete_value: true
     scoped_search relation: :environments, on: :name, complete_value: true, rename: 'environment'
     scoped_search relation: :organizations, on: :name, complete_value: true, rename: 'organization', only_explicit: true
@@ -154,7 +172,8 @@ module ForemanPuppet
     end
 
     def self.completer_scope(options)
-      super.merge(assigned_to_hosts)
+      assignment_scope = options[:autocomplete_resource] == ::Hostgroup ? assigned_to_hostgroups : assigned_to_hosts
+      super.merge(assignment_scope)
     end
   end
 end
