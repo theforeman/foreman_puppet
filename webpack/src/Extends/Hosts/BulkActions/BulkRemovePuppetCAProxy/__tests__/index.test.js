@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, within, waitFor } from '@testing-library/react';
+import { act, screen, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
@@ -11,27 +11,6 @@ import API from 'foremanReact/redux/API/API';
 
 import BulkRemovePuppetCAProxyScene from '../index';
 import { BULK_REMOVE_PUPPET_CA_PROXY_KEY } from '../../BulkRemoveProxyCommon/actions';
-
-jest.mock('foremanReact/components/HostDetails/ActionsBar', () => ({
-  ForemanActionsBarContext: jest.requireActual('react').createContext(),
-}));
-
-jest.mock('foremanReact/redux/API/API', () => ({
-  __esModule: true,
-  default: {
-    get: jest.fn(),
-    put: jest.fn(),
-    post: jest.fn(),
-    delete: jest.fn(),
-    patch: jest.fn(),
-  },
-}));
-
-jest.mock('foremanReact/redux/API', () => ({
-  APIActions: {
-    put: jest.fn(),
-  },
-}));
 
 const { renderWithStoreAndI18n } = rtlHelpers;
 
@@ -63,7 +42,6 @@ describe('BulkRemovePuppetCAProxyScene', () => {
 
   beforeEach(() => {
     openBulkModal('bulk-remove-puppet-ca-proxy', false);
-    API.put.mockImplementation(() => new Promise(() => {}));
     APIActions.put.mockImplementation(params => ({
       type: 'API_PUT',
       payload: params,
@@ -143,9 +121,11 @@ describe('BulkRemovePuppetCAProxyScene', () => {
     renderScene();
 
     await screen.findByRole('dialog', { name: 'Remove Puppet CA Proxy' });
-    await userEvent.click(
-      screen.getByRole('button', { name: 'Remove Puppet CA Proxy' })
-    );
+    await act(async () => {
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Remove Puppet CA Proxy' })
+      );
+    });
 
     expect(fetchBulkParams).toHaveBeenCalledTimes(1);
     expect(APIActions.put).toHaveBeenCalledWith(
@@ -162,14 +142,18 @@ describe('BulkRemovePuppetCAProxyScene', () => {
   });
 
   it('refreshes table data after successful removal', async () => {
-    API.put.mockResolvedValue({ data: { message: 'Removal started' } });
+    API.put.mockImplementation(() =>
+      Promise.resolve({ data: { message: 'Removal started' } })
+    );
 
     renderScene();
 
     await screen.findByRole('dialog', { name: 'Remove Puppet CA Proxy' });
-    await userEvent.click(
-      screen.getByRole('button', { name: 'Remove Puppet CA Proxy' })
-    );
+    await act(async () => {
+      await userEvent.click(
+        screen.getByRole('button', { name: 'Remove Puppet CA Proxy' })
+      );
+    });
 
     await waitFor(() => {
       expect(refreshTableData).toHaveBeenCalledTimes(1);

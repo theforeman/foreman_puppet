@@ -6,5 +6,13 @@ export const API = {
   patch: jest.fn(),
 };
 
+export const APIActions = {
+  get: jest.fn(),
+  post: jest.fn(),
+  put: jest.fn(),
+  patch: jest.fn(),
+  delete: jest.fn(),
+};
+
 export const get = data => ({ type: 'get-some-type', ...data });
 export const post = data => ({ type: 'post-some-type', ...data });

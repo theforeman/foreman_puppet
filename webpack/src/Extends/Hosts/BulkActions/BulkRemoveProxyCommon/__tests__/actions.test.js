@@ -7,12 +7,6 @@ import {
   BULK_REMOVE_PUPPET_CA_PROXY_KEY,
 } from '../actions';
 
-jest.mock('foremanReact/redux/API', () => ({
-  APIActions: {
-    put: jest.fn(),
-  },
-}));
-
 describe('BulkRemoveProxyCommon actions', () => {
   const url = foremanUrl('/api/v2/hosts/bulk/remove_puppet_proxy');
 
