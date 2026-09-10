@@ -9,13 +9,6 @@ import {
   BULK_CHANGE_PUPPET_PROXY_KEY,
 } from '../actions';
 
-jest.mock('foremanReact/redux/API', () => ({
-  APIActions: {
-    get: jest.fn(),
-    put: jest.fn(),
-  },
-}));
-
 describe('BulkChangeProxyCommon actions', () => {
   const smartProxiesUrl = foremanUrl('/api/smart_proxies');
   const bulkChangeUrl = foremanUrl('/api/v2/hosts/bulk/change_puppet_proxy');
