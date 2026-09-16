@@ -42,10 +42,21 @@ module ForemanPuppet
     default_scope -> { order(:name) }
 
     scope :assigned_to_hosts, lambda {
-      direct = ForemanPuppet::HostClass.select(:puppetclass_id)
-      via_hostgroup = ForemanPuppet::HostgroupClass.select(:puppetclass_id)
+      host_facets = ForemanPuppet::HostPuppetFacet
+                    .where(host_id: ::Host::Managed.reorder(nil).select(:id))
+                    .select(:id)
+      hostgroup_facets = ForemanPuppet::HostgroupPuppetFacet
+                         .where(hostgroup_id: ::Hostgroup.unscoped.with_taxonomy_scope.reorder(nil).select(:id))
+                         .select(:id)
+      direct = ForemanPuppet::HostClass
+               .where(host_puppet_facet_id: host_facets)
+               .select(:puppetclass_id)
+      via_hostgroup = ForemanPuppet::HostgroupClass
+                      .where(hostgroup_puppet_facet_id: hostgroup_facets)
+                      .select(:puppetclass_id)
+      config_group_ids = ForemanPuppet::HostConfigGroup.assigned_to_taxonomy.select(:config_group_id)
       via_config_group = ForemanPuppet::ConfigGroupClass
-                         .where(config_group_id: ForemanPuppet::HostConfigGroup.select(:config_group_id))
+                         .where(config_group_id: config_group_ids)
                          .select(:puppetclass_id)
 
       where(id: direct).or(where(id: via_hostgroup)).or(where(id: via_config_group))
