@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 9.0.0",
+        "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
@@ -44,6 +44,12 @@
       "<b>Description:</b> %{desc}<br/>\\n        <b>Type:</b> %{type}<br/>\\n        <b>Matcher:</b> %{matcher}<br/>\\n        <b>Inherited value:</b> %{inherited_value}": [
         "<b>描述：</b> %{desc}<br/>\\n     <b>类型：</b>%{type}<br/>\\n     <b>匹配器：</b> %{matcher}<br/>\\n     <b>继承的值：</b> %{inherited_value}"
       ],
+      "A Puppet environment with id %{id} could not be found.": [
+        ""
+      ],
+      "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found.": [
+        ""
+      ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         "配置组提供了将多个 Puppet 类关联到一个主机或主机组的一步方法。此方法一般用于通过一个步骤添加特定的应用配置文件或堆栈。"
       ],
@@ -67,6 +73,9 @@
       ],
       "Add:": [
         "添加："
+      ],
+      "All": [
+        ""
       ],
       "All environments - (not filtered)": [
         "所有环境 - （未过滤）"
@@ -95,14 +104,53 @@
       "Change Environment": [
         "改变环境"
       ],
+      "Change Puppet (CA) Proxy": [
+        ""
+      ],
+      "Change Puppet CA Proxy": [
+        ""
+      ],
+      "Change Puppet CA proxy": [
+        ""
+      ],
+      "Change Puppet Environment": [
+        ""
+      ],
       "Change Puppet Master": [
         "更改 Puppet 主服务器"
+      ],
+      "Change Puppet Proxy": [
+        ""
+      ],
+      "Change Puppet environment": [
+        ""
+      ],
+      "Change Puppet proxy": [
+        ""
       ],
       "Changed": [
         "已改变"
       ],
       "Changed environments": [
         "修改的环境"
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
       ],
       "Check/Uncheck all": [
         "選取/反選全部"
@@ -260,11 +308,47 @@
       "Failed": [
         "失败"
       ],
+      "Failed to change %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to change Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to change Puppet Environment": [
+        ""
+      ],
+      "Failed to change Puppet Proxy": [
+        ""
+      ],
+      "Failed to change environment for %{count} host": [
+        "",
+        ""
+      ],
       "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
         "为 %{name} 导入 %{klass} 失败：不存在于我们的数据库中 -- 忽略"
       ],
+      "Failed to remove %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to remove Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to remove Puppet Environment": [
+        ""
+      ],
+      "Failed to remove Puppet Proxy": [
+        ""
+      ],
       "Failed to set %{proxy_type} proxy for %{host}.": [
         "无法为 %{proxy_type} 设置 %{host} 代理服务器。"
+      ],
+      "Failed to set Puppet environment for %{host}.": [
+        ""
+      ],
+      "Failed to set proxy for %{host}.": [
+        ""
       ],
       "Failed to start": [
         "启动失败"
@@ -346,6 +430,15 @@
       ],
       "ID of puppet environment": [
         "puppet 环境的 ID"
+      ],
+      "ID of the Puppet environment to set for the selected hosts": [
+        ""
+      ],
+      "ID of the Puppet proxy to reassign the hosts to": [
+        ""
+      ],
+      "ID of the organization": [
+        ""
       ],
       "IDs of associated ConfigGroups": [
         "与 ConfigGroups 关联的 ID"
@@ -448,6 +541,12 @@
       ],
       "List of config groups": [
         "配置组列表"
+      ],
+      "List of host ids to exclude and not run an action on": [
+        ""
+      ],
+      "List of host ids to perform an action on": [
+        ""
       ],
       "List of override values for a specific smart class parameter": [
         "具体智能分类参数替代值列表"
@@ -596,6 +695,9 @@
       "Puppet CA Smart Proxy": [
         "Puppet CA 智能代理"
       ],
+      "Puppet CA proxy": [
+        ""
+      ],
       "Puppet Class": [
         "Puppet 类"
       ],
@@ -650,6 +752,9 @@
       "Puppet parameter": [
         "Puppet 参数"
       ],
+      "Puppet proxy": [
+        ""
+      ],
       "Puppetclass|Name": [
         "Puppetclass|名称"
       ],
@@ -658,6 +763,27 @@
       ],
       "Remove Combination": [
         "删除组合"
+      ],
+      "Remove Puppet (CA) Proxy": [
+        ""
+      ],
+      "Remove Puppet CA Proxy": [
+        ""
+      ],
+      "Remove Puppet CA proxy": [
+        ""
+      ],
+      "Remove Puppet Environment": [
+        ""
+      ],
+      "Remove Puppet Proxy": [
+        ""
+      ],
+      "Remove Puppet environment": [
+        ""
+      ],
+      "Remove Puppet proxy": [
+        ""
       ],
       "Remove a Puppet class from host": [
         "從主機移除一個 Puppet 類別"
@@ -674,6 +800,24 @@
       "Remove:": [
         "删除："
       ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
       "Reports": [
         "报表"
       ],
@@ -686,11 +830,26 @@
       "Scheduled": [
         "调度"
       ],
+      "Search string for hosts to perform an action on": [
+        ""
+      ],
+      "Select a Puppet CA Proxy": [
+        ""
+      ],
+      "Select a Puppet Proxy": [
+        ""
+      ],
+      "Select an Environment": [
+        ""
+      ],
       "Select environment": [
         "选择环境"
       ],
       "Select the changes you want to apply to Foreman": [
         "选择您要应用到 Foreman 的更改"
+      ],
+      "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.": [
+        ""
       ],
       "Set parameters to defaults": [
         "将参数设定为默认"
@@ -776,6 +935,9 @@
       "There are no puppet environments set up on this puppet master. Please check the puppet master configuration.": [
         "这台 puppet 主服务器中未设置任何 puppet 环境。请检查 puppet 主服务器配置。"
       ],
+      "There is no Smart Proxy with the feature '%s' available.": [
+        ""
+      ],
       "This Puppet class has no parameters in its signature.": [
         "这个 Puppet 类别在其签名中没有参数。"
       ],
@@ -796,6 +958,12 @@
       ],
       "Total": [
         "总计"
+      ],
+      "True, if Puppet CA proxy should be changed instead of the Puppet proxy": [
+        ""
+      ],
+      "True, if Puppet CA proxy should be removed instead of the Puppet proxy": [
+        ""
       ],
       "Types of validation values": [
         "验证值类型"
@@ -835,6 +1003,18 @@
       ],
       "Updated": [
         "已更新"
+      ],
+      "Updated host: changed %{proxy_type}": [
+        "",
+        ""
+      ],
+      "Updated host: changed environment": [
+        "",
+        ""
+      ],
+      "Updated host: removed %{proxy_type}": [
+        "",
+        ""
       ],
       "Updated hosts: changed environment": [
         "已更新主机：更改环境"

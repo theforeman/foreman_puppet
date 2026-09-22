@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 9.0.0",
+        "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
         "Last-Translator": "pdolinic, 2024",
@@ -45,6 +45,12 @@
       "<b>Description:</b> %{desc}<br/>\\n        <b>Type:</b> %{type}<br/>\\n        <b>Matcher:</b> %{matcher}<br/>\\n        <b>Inherited value:</b> %{inherited_value}": [
         "<b>Beschreibung:</b> %{desc}<br/>\\n     <b>Typ:</b> %{type}<br/>\\n     <b>Prüfwert:</b> %{matcher}<br/>\\n     <b>Vererbter Wert:</b> %{inherited_value}"
       ],
+      "A Puppet environment with id %{id} could not be found.": [
+        ""
+      ],
+      "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found.": [
+        ""
+      ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         "Eine Konfigurationsgruppe bietet eine Methode, mit der viele Puppet Klassen einem Host oder einer Hostgruppe zugewiesen werden können. Dadurch kann man typischerweise ein bestimmtes Applikationsprofil oder Stack in einem Schritt zuweisen."
       ],
@@ -68,6 +74,9 @@
       ],
       "Add:": [
         "Hinzufügen:"
+      ],
+      "All": [
+        ""
       ],
       "All environments - (not filtered)": [
         "Alle Umgebungen - (nicht gefiltert)"
@@ -96,14 +105,53 @@
       "Change Environment": [
         "Umgebung ändern"
       ],
+      "Change Puppet (CA) Proxy": [
+        ""
+      ],
+      "Change Puppet CA Proxy": [
+        ""
+      ],
+      "Change Puppet CA proxy": [
+        ""
+      ],
+      "Change Puppet Environment": [
+        ""
+      ],
       "Change Puppet Master": [
         "Puppet-Master ändern"
+      ],
+      "Change Puppet Proxy": [
+        ""
+      ],
+      "Change Puppet environment": [
+        ""
+      ],
+      "Change Puppet proxy": [
+        ""
       ],
       "Changed": [
         ""
       ],
       "Changed environments": [
         "Geänderte Umgebungen"
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
       ],
       "Check/Uncheck all": [
         "Alle auswählen/abwählen"
@@ -261,11 +309,47 @@
       "Failed": [
         ""
       ],
+      "Failed to change %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to change Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to change Puppet Environment": [
+        ""
+      ],
+      "Failed to change Puppet Proxy": [
+        ""
+      ],
+      "Failed to change environment for %{count} host": [
+        "",
+        ""
+      ],
       "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
         "Fehler beim Importieren der Klasse %{class} for %{name}: existiert nicht in der Datenbank - wird ignoriert"
       ],
+      "Failed to remove %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to remove Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to remove Puppet Environment": [
+        ""
+      ],
+      "Failed to remove Puppet Proxy": [
+        ""
+      ],
       "Failed to set %{proxy_type} proxy for %{host}.": [
         "Einstellung von %{proxy_type} Proxy für %{host} fehlgeschlagen."
+      ],
+      "Failed to set Puppet environment for %{host}.": [
+        ""
+      ],
+      "Failed to set proxy for %{host}.": [
+        ""
       ],
       "Failed to start": [
         ""
@@ -347,6 +431,15 @@
       ],
       "ID of puppet environment": [
         "Kennung der Puppet-Umgebung"
+      ],
+      "ID of the Puppet environment to set for the selected hosts": [
+        ""
+      ],
+      "ID of the Puppet proxy to reassign the hosts to": [
+        ""
+      ],
+      "ID of the organization": [
+        ""
       ],
       "IDs of associated ConfigGroups": [
         "IDs der zugehörigen ConfigGrouppen"
@@ -449,6 +542,12 @@
       ],
       "List of config groups": [
         "Alle Konfigurationsgruppen auflisten"
+      ],
+      "List of host ids to exclude and not run an action on": [
+        ""
+      ],
+      "List of host ids to perform an action on": [
+        ""
       ],
       "List of override values for a specific smart class parameter": [
         "Liste der Überschreibungswerte für einen bestimmten Smart-Klassenparameter"
@@ -597,6 +696,9 @@
       "Puppet CA Smart Proxy": [
         ""
       ],
+      "Puppet CA proxy": [
+        ""
+      ],
       "Puppet Class": [
         "Puppet-Klasse"
       ],
@@ -651,6 +753,9 @@
       "Puppet parameter": [
         "Puppet-Parameter"
       ],
+      "Puppet proxy": [
+        ""
+      ],
       "Puppetclass|Name": [
         "Name"
       ],
@@ -659,6 +764,27 @@
       ],
       "Remove Combination": [
         "Kombination entfernen"
+      ],
+      "Remove Puppet (CA) Proxy": [
+        ""
+      ],
+      "Remove Puppet CA Proxy": [
+        ""
+      ],
+      "Remove Puppet CA proxy": [
+        ""
+      ],
+      "Remove Puppet Environment": [
+        ""
+      ],
+      "Remove Puppet Proxy": [
+        ""
+      ],
+      "Remove Puppet environment": [
+        ""
+      ],
+      "Remove Puppet proxy": [
+        ""
       ],
       "Remove a Puppet class from host": [
         "Puppet-Klasse vom Host entfernen"
@@ -675,6 +801,24 @@
       "Remove:": [
         "Entferne:"
       ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
       "Reports": [
         "Berichte"
       ],
@@ -687,11 +831,26 @@
       "Scheduled": [
         ""
       ],
+      "Search string for hosts to perform an action on": [
+        ""
+      ],
+      "Select a Puppet CA Proxy": [
+        ""
+      ],
+      "Select a Puppet Proxy": [
+        ""
+      ],
+      "Select an Environment": [
+        ""
+      ],
       "Select environment": [
         "Umgebung auswählen"
       ],
       "Select the changes you want to apply to Foreman": [
         "Wählen Sie die Änderungen, die Sie in Foreman anwenden möchten"
+      ],
+      "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.": [
+        ""
       ],
       "Set parameters to defaults": [
         "Parameter auf Standardeinstellungen festlegen"
@@ -778,6 +937,9 @@
       "There are no puppet environments set up on this puppet master. Please check the puppet master configuration.": [
         "Auf diesem Puppet-Master sind keine Puppet-Umgebungen eingerichtet. Bitte überprüfen Sie die Konfiguration des Puppet-Master."
       ],
+      "There is no Smart Proxy with the feature '%s' available.": [
+        ""
+      ],
       "This Puppet class has no parameters in its signature.": [
         "Diese puppet Klasse hat keine Parameter in ihrer Signatur."
       ],
@@ -798,6 +960,12 @@
       ],
       "Total": [
         "Gesamt"
+      ],
+      "True, if Puppet CA proxy should be changed instead of the Puppet proxy": [
+        ""
+      ],
+      "True, if Puppet CA proxy should be removed instead of the Puppet proxy": [
+        ""
       ],
       "Types of validation values": [
         "Typen von Validierungswerten"
@@ -837,6 +1005,18 @@
       ],
       "Updated": [
         "Aktualisiert"
+      ],
+      "Updated host: changed %{proxy_type}": [
+        "",
+        ""
+      ],
+      "Updated host: changed environment": [
+        "",
+        ""
+      ],
+      "Updated host: removed %{proxy_type}": [
+        "",
+        ""
       ],
       "Updated hosts: changed environment": [
         "Hosts aktualisiert: Umgebung geändert"

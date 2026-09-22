@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 9.0.0",
+        "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023",
+        "Last-Translator": "Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026",
         "Language-Team": "Georgian (https://app.transifex.com/foreman/teams/114/ka/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -45,6 +45,12 @@
       "<b>Description:</b> %{desc}<br/>\\n        <b>Type:</b> %{type}<br/>\\n        <b>Matcher:</b> %{matcher}<br/>\\n        <b>Inherited value:</b> %{inherited_value}": [
         "<b>აღწერა:</b> %{desc}<br/>\\n        <b>ტიპი:</b> %{type}<br/>\\n        <b>დამთხვევა:</b> %{matcher}<br/>\\n        <b>მემკვიდრეობითი მნიშვნელობა:</b> %{inherited_value}"
       ],
+      "A Puppet environment with id %{id} could not be found.": [
+        ""
+      ],
+      "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found.": [
+        ""
+      ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         "კონფიგურაციის ჯგუფი უზრუნველყოფს ერთნაბიჯიან მეთოდს Puppet-ის ბევრი კლასის ჰოსტთან ან ჰოსტების ჯგუფთან ასოცირებისთვის. ჩვეულებრივ ეს კონკრეტული აპლიკაციის პროფილის ან სტეკის ერთი მოქმედებით დასამატებლად გამოიყენება."
       ],
@@ -68,6 +74,9 @@
       ],
       "Add:": [
         "დამატება:"
+      ],
+      "All": [
+        ""
       ],
       "All environments - (not filtered)": [
         "ყველა გარემოები - (ფილტრის გარეშე)"
@@ -96,14 +105,53 @@
       "Change Environment": [
         "გარემოს შეცვლა"
       ],
+      "Change Puppet (CA) Proxy": [
+        ""
+      ],
+      "Change Puppet CA Proxy": [
+        ""
+      ],
+      "Change Puppet CA proxy": [
+        ""
+      ],
+      "Change Puppet Environment": [
+        ""
+      ],
       "Change Puppet Master": [
         "Puppet-ის პირველადი სერვერის შეცვლა"
       ],
-      "Changed": [
+      "Change Puppet Proxy": [
         ""
+      ],
+      "Change Puppet environment": [
+        ""
+      ],
+      "Change Puppet proxy": [
+        ""
+      ],
+      "Changed": [
+        "შეცვლილია"
       ],
       "Changed environments": [
         "შეცვლილი გარემოები"
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
       ],
       "Check/Uncheck all": [
         "ყველას ჩართ/გამორთ"
@@ -142,7 +190,7 @@
         "ბუფერში კოპირება"
       ],
       "Corrective Change": [
-        ""
+        "მაკორექტირებელი ცვლილება"
       ],
       "Couldn't find any ENC data for this host": [
         "ამ ჰოსტისთვის ENC მონაცემების პოვნა შეუძლებელია"
@@ -259,16 +307,52 @@
         "ფაქტები"
       ],
       "Failed": [
+        "ჩავარდა"
+      ],
+      "Failed to change %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to change Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to change Puppet Environment": [
+        ""
+      ],
+      "Failed to change Puppet Proxy": [
+        ""
+      ],
+      "Failed to change environment for %{count} host": [
+        "",
         ""
       ],
       "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
         "%{name}-სთვის %{klass}-ის შემოტანის შეცდომა: ის ჩვენს ბაზაში არ არსებობს - იგნორი"
       ],
+      "Failed to remove %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to remove Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to remove Puppet Environment": [
+        ""
+      ],
+      "Failed to remove Puppet Proxy": [
+        ""
+      ],
       "Failed to set %{proxy_type} proxy for %{host}.": [
         "დაყენების შეცდომა: %{proxy_type} პროქსი %{host}-სთვის."
       ],
-      "Failed to start": [
+      "Failed to set Puppet environment for %{host}.": [
         ""
+      ],
+      "Failed to set proxy for %{host}.": [
+        ""
+      ],
+      "Failed to start": [
+        "გაშვების შეცდომა"
       ],
       "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s": [
         "დისკზე მყოფი Puppet-ის აგებაში გარემოებისა და კლასების განახლების შეცდომა: %s"
@@ -348,6 +432,15 @@
       "ID of puppet environment": [
         "Puppet-ის გარემოს ID"
       ],
+      "ID of the Puppet environment to set for the selected hosts": [
+        ""
+      ],
+      "ID of the Puppet proxy to reassign the hosts to": [
+        ""
+      ],
+      "ID of the organization": [
+        ""
+      ],
       "IDs of associated ConfigGroups": [
         "ასოცირებული ConfigGroups-ის ID"
       ],
@@ -406,7 +499,7 @@
         "არჩეული პროქსი არასწორია!"
       ],
       "Last configuration status": [
-        ""
+        "ბოლო კონფიგურაციის სტატუსი"
       ],
       "List all Puppet class IDs for host": [
         "ჰოსტისთვის Puppet-ის კლასის ყველა ID-ის ჩვენება"
@@ -450,6 +543,12 @@
       "List of config groups": [
         "კონფიგურაციის ჯგუფების სია"
       ],
+      "List of host ids to exclude and not run an action on": [
+        ""
+      ],
+      "List of host ids to perform an action on": [
+        ""
+      ],
       "List of override values for a specific smart class parameter": [
         "მითითებული ჭკვიანი კლასის პარამეტრის გადასაფარი მნიშვნელობების სია"
       ],
@@ -484,7 +583,7 @@
         "სახელი"
       ],
       "Never": [
-        ""
+        "არასდროს"
       ],
       "New": [
         "ახალი"
@@ -493,7 +592,7 @@
         "თქვენს გარემოებში ცვლილებები არაა"
       ],
       "No configuration status available": [
-        ""
+        "კონფიგურაციის სტატუსი ხელმისაწვდომი არაა"
       ],
       "No environment selected!": [
         "გარემო არჩეული არაა!"
@@ -559,7 +658,7 @@
         "ინფორმაცია საწყისი მნიშვნელობის შესახებ"
       ],
       "Out of sync": [
-        ""
+        "დაუსინქრონიზებელი"
       ],
       "Overridden": [
         "გადაფარული"
@@ -596,6 +695,9 @@
       ],
       "Puppet CA Smart Proxy": [
         "Puppet CA ჭკვიანი პროქსი"
+      ],
+      "Puppet CA proxy": [
+        ""
       ],
       "Puppet Class": [
         "Puppet-ის კლასი"
@@ -646,10 +748,13 @@
         "Puppet-ის ინტერვალი"
       ],
       "Puppet metrics": [
-        ""
+        "Puppet-ის მეტრიკები"
       ],
       "Puppet parameter": [
         "Puppet-ის პარამეტრი"
+      ],
+      "Puppet proxy": [
+        ""
       ],
       "Puppetclass|Name": [
         "Puppet-ის კლასი|სახელი"
@@ -659,6 +764,27 @@
       ],
       "Remove Combination": [
         "კომბინაციის წაშლა"
+      ],
+      "Remove Puppet (CA) Proxy": [
+        ""
+      ],
+      "Remove Puppet CA Proxy": [
+        ""
+      ],
+      "Remove Puppet CA proxy": [
+        ""
+      ],
+      "Remove Puppet Environment": [
+        ""
+      ],
+      "Remove Puppet Proxy": [
+        ""
+      ],
+      "Remove Puppet environment": [
+        ""
+      ],
+      "Remove Puppet proxy": [
+        ""
       ],
       "Remove a Puppet class from host": [
         "ჰოსტიდან Puppet-ის კლასის წაშლა"
@@ -675,6 +801,24 @@
       "Remove:": [
         "წაშლა:"
       ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
       "Reports": [
         "ანგარიშები"
       ],
@@ -682,9 +826,21 @@
         "აუცილებელი პარამეტრი მნიშვნელობის გარეშე.<br/><b>გადაფარეთ!</b><br/>"
       ],
       "Restarted": [
-        ""
+        "გადაიტვირთა"
       ],
       "Scheduled": [
+        "დაგეგმილია"
+      ],
+      "Search string for hosts to perform an action on": [
+        ""
+      ],
+      "Select a Puppet CA Proxy": [
+        ""
+      ],
+      "Select a Puppet Proxy": [
+        ""
+      ],
+      "Select an Environment": [
         ""
       ],
       "Select environment": [
@@ -692,6 +848,9 @@
       ],
       "Select the changes you want to apply to Foreman": [
         "აირჩიეთ ცვლილებები, რომლებიც გნებავთ Foreman-ს გადაატაროთ"
+      ],
+      "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.": [
+        ""
       ],
       "Set parameters to defaults": [
         "პარამეტრების ნაგულისხმები მნიშვნელობების დაყენება"
@@ -724,7 +883,7 @@
         "შაბლონის კომბინაციის ჩვენება"
       ],
       "Skipped": [
-        ""
+        "გამოტოვებულია"
       ],
       "Smart Class Parameter": [
         "ჭკვიანი კლასის პარამეტრი"
@@ -778,6 +937,9 @@
       "There are no puppet environments set up on this puppet master. Please check the puppet master configuration.": [
         "Puppet-ის ამ ძირითად სერვერზე Puppet-ის გარემო აწყობილი არაა. შეცვალეთ Puppet-ის ძირითადი სერვერის კონფიგურაცია."
       ],
+      "There is no Smart Proxy with the feature '%s' available.": [
+        ""
+      ],
       "This Puppet class has no parameters in its signature.": [
         "Puppet-ის კლასს მის ხელმოწერაში პარამეტრები არ გააჩნია."
       ],
@@ -798,6 +960,12 @@
       ],
       "Total": [
         "ჯამში"
+      ],
+      "True, if Puppet CA proxy should be changed instead of the Puppet proxy": [
+        ""
+      ],
+      "True, if Puppet CA proxy should be removed instead of the Puppet proxy": [
+        ""
       ],
       "Types of validation values": [
         "შემოწმების მნიშვნელობის ტიპები"
@@ -837,6 +1005,18 @@
       ],
       "Updated": [
         "განახლდა"
+      ],
+      "Updated host: changed %{proxy_type}": [
+        "",
+        ""
+      ],
+      "Updated host: changed environment": [
+        "",
+        ""
+      ],
+      "Updated host: removed %{proxy_type}": [
+        "",
+        ""
       ],
       "Updated hosts: changed environment": [
         "ჰოსტები განახლდა: გარემო შეიცვალა"

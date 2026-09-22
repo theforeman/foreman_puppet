@@ -13,7 +13,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 9.0.0\n"
+"Project-Id-Version: foreman_puppet 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -62,6 +62,12 @@ msgstr ""
 "     <b>匹配器：</b> %{matcher}<br/>\n"
 "     <b>继承的值：</b> %{inherited_value}"
 
+msgid "A Puppet environment with id %{id} could not be found."
+msgstr ""
+
+msgid "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found."
+msgstr ""
+
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "配置组提供了将多个 Puppet 类关联到一个主机或主机组的一步方法。此方法一般用于通过一个步骤添加特定的应用配置文件或堆栈。"
 
@@ -85,6 +91,9 @@ msgstr "添加模板组合"
 
 msgid "Add:"
 msgstr "添加："
+
+msgid "All"
+msgstr ""
 
 msgid "All environments - (not filtered)"
 msgstr "所有环境 - （未过滤）"
@@ -113,14 +122,53 @@ msgstr "取消"
 msgid "Change Environment"
 msgstr "改变环境"
 
+msgid "Change Puppet (CA) Proxy"
+msgstr ""
+
+msgid "Change Puppet CA Proxy"
+msgstr ""
+
+msgid "Change Puppet CA proxy"
+msgstr ""
+
+msgid "Change Puppet Environment"
+msgstr ""
+
 msgid "Change Puppet Master"
 msgstr "更改 Puppet 主服务器"
+
+msgid "Change Puppet Proxy"
+msgstr ""
+
+msgid "Change Puppet environment"
+msgstr ""
+
+msgid "Change Puppet proxy"
+msgstr ""
 
 msgid "Changed"
 msgstr "已改变"
 
 msgid "Changed environments"
 msgstr "修改的环境"
+
+msgid "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+msgid "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+msgid "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment."
+msgstr ""
+
+msgid "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment."
+msgstr ""
+
+msgid "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy."
+msgstr ""
+
+msgid "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy."
+msgstr ""
 
 msgid "Check/Uncheck all"
 msgstr "選取/反選全部"
@@ -278,11 +326,50 @@ msgstr "Facts"
 msgid "Failed"
 msgstr "失败"
 
+msgid "Failed to change %{proxy_type} for %{count} host"
+msgid_plural "Failed to change %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Failed to change Puppet CA Proxy"
+msgstr ""
+
+msgid "Failed to change Puppet Environment"
+msgstr ""
+
+msgid "Failed to change Puppet Proxy"
+msgstr ""
+
+msgid "Failed to change environment for %{count} host"
+msgid_plural "Failed to change environment for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "为 %{name} 导入 %{klass} 失败：不存在于我们的数据库中 -- 忽略"
 
+msgid "Failed to remove %{proxy_type} for %{count} host"
+msgid_plural "Failed to remove %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Failed to remove Puppet CA Proxy"
+msgstr ""
+
+msgid "Failed to remove Puppet Environment"
+msgstr ""
+
+msgid "Failed to remove Puppet Proxy"
+msgstr ""
+
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "无法为 %{proxy_type} 设置 %{host} 代理服务器。"
+
+msgid "Failed to set Puppet environment for %{host}."
+msgstr ""
+
+msgid "Failed to set proxy for %{host}."
+msgstr ""
 
 msgid "Failed to start"
 msgstr "启动失败"
@@ -364,6 +451,15 @@ msgstr "主机组 ID"
 
 msgid "ID of puppet environment"
 msgstr "puppet 环境的 ID"
+
+msgid "ID of the Puppet environment to set for the selected hosts"
+msgstr ""
+
+msgid "ID of the Puppet proxy to reassign the hosts to"
+msgstr ""
+
+msgid "ID of the organization"
+msgstr ""
 
 msgid "IDs of associated ConfigGroups"
 msgstr "与 ConfigGroups 关联的 ID"
@@ -466,6 +562,12 @@ msgstr "列出各个环境的主机"
 
 msgid "List of config groups"
 msgstr "配置组列表"
+
+msgid "List of host ids to exclude and not run an action on"
+msgstr ""
+
+msgid "List of host ids to perform an action on"
+msgstr ""
 
 msgid "List of override values for a specific smart class parameter"
 msgstr "具体智能分类参数替代值列表"
@@ -614,6 +716,9 @@ msgstr "Puppet CA"
 msgid "Puppet CA Smart Proxy"
 msgstr "Puppet CA 智能代理"
 
+msgid "Puppet CA proxy"
+msgstr ""
+
 msgid "Puppet Class"
 msgstr "Puppet 类"
 
@@ -668,6 +773,9 @@ msgstr "Puppet 指标"
 msgid "Puppet parameter"
 msgstr "Puppet 参数"
 
+msgid "Puppet proxy"
+msgstr ""
+
 msgid "Puppetclass|Name"
 msgstr "Puppetclass|名称"
 
@@ -676,6 +784,27 @@ msgstr "移除"
 
 msgid "Remove Combination"
 msgstr "删除组合"
+
+msgid "Remove Puppet (CA) Proxy"
+msgstr ""
+
+msgid "Remove Puppet CA Proxy"
+msgstr ""
+
+msgid "Remove Puppet CA proxy"
+msgstr ""
+
+msgid "Remove Puppet Environment"
+msgstr ""
+
+msgid "Remove Puppet Proxy"
+msgstr ""
+
+msgid "Remove Puppet environment"
+msgstr ""
+
+msgid "Remove Puppet proxy"
+msgstr ""
 
 msgid "Remove a Puppet class from host"
 msgstr "從主機移除一個 Puppet 類別"
@@ -692,6 +821,24 @@ msgstr "删除此覆盖"
 msgid "Remove:"
 msgstr "删除："
 
+msgid "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+msgid "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+msgid "Removing the Puppet environment will affect {boldCount} selected hosts."
+msgstr ""
+
+msgid "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
+msgstr ""
+
+msgid "Removing the Puppet proxy will affect {boldCount} selected hosts."
+msgstr ""
+
+msgid "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
+msgstr ""
+
 msgid "Reports"
 msgstr "报表"
 
@@ -704,11 +851,26 @@ msgstr "重启"
 msgid "Scheduled"
 msgstr "调度"
 
+msgid "Search string for hosts to perform an action on"
+msgstr ""
+
+msgid "Select a Puppet CA Proxy"
+msgstr ""
+
+msgid "Select a Puppet Proxy"
+msgstr ""
+
+msgid "Select an Environment"
+msgstr ""
+
 msgid "Select environment"
 msgstr "选择环境"
 
 msgid "Select the changes you want to apply to Foreman"
 msgstr "选择您要应用到 Foreman 的更改"
+
+msgid "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts."
+msgstr ""
 
 msgid "Set parameters to defaults"
 msgstr "将参数设定为默认"
@@ -795,6 +957,9 @@ msgstr "无法找到请求的环境。"
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
 msgstr "这台 puppet 主服务器中未设置任何 puppet 环境。请检查 puppet 主服务器配置。"
 
+msgid "There is no Smart Proxy with the feature '%s' available."
+msgstr ""
+
 msgid "This Puppet class has no parameters in its signature."
 msgstr "这个 Puppet 类别在其签名中没有参数。"
 
@@ -815,6 +980,12 @@ msgstr "切換"
 
 msgid "Total"
 msgstr "总计"
+
+msgid "True, if Puppet CA proxy should be changed instead of the Puppet proxy"
+msgstr ""
+
+msgid "True, if Puppet CA proxy should be removed instead of the Puppet proxy"
+msgstr ""
 
 msgid "Types of validation values"
 msgstr "验证值类型"
@@ -854,6 +1025,21 @@ msgstr "更新："
 
 msgid "Updated"
 msgstr "已更新"
+
+msgid "Updated host: changed %{proxy_type}"
+msgid_plural "Updated hosts: changed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Updated host: changed environment"
+msgid_plural "Updated hosts: changed environment"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Updated host: removed %{proxy_type}"
+msgid_plural "Updated hosts: removed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Updated hosts: changed environment"
 msgstr "已更新主机：更改环境"

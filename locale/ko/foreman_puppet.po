@@ -10,7 +10,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 9.0.0\n"
+"Project-Id-Version: foreman_puppet 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
@@ -58,6 +58,12 @@ msgstr ""
 "        <b>매처:</b> %{matcher}<br/>\n"
 "        <b>상속된 값:</b> %{inherited_value}"
 
+msgid "A Puppet environment with id %{id} could not be found."
+msgstr ""
+
+msgid "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found."
+msgstr ""
+
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "구성 그룹은 여러 Puppet 클래스를 호스트 또는 호스트 그룹에 연결하는 단일 단계 방법을 제공합니다. 일반적으로 이는 특정 애플리케이션 프로필 또는 스택을 한 단계로 추가하는 데 사용됩니다."
 
@@ -81,6 +87,9 @@ msgstr "템플릿 조합 추가 "
 
 msgid "Add:"
 msgstr "추가:"
+
+msgid "All"
+msgstr ""
 
 msgid "All environments - (not filtered)"
 msgstr "모든 환경 - (필터링되지 않음)"
@@ -109,14 +118,53 @@ msgstr "취소 "
 msgid "Change Environment"
 msgstr "환경 변경 "
 
+msgid "Change Puppet (CA) Proxy"
+msgstr ""
+
+msgid "Change Puppet CA Proxy"
+msgstr ""
+
+msgid "Change Puppet CA proxy"
+msgstr ""
+
+msgid "Change Puppet Environment"
+msgstr ""
+
 msgid "Change Puppet Master"
 msgstr "Puppet 마스터 변경"
+
+msgid "Change Puppet Proxy"
+msgstr ""
+
+msgid "Change Puppet environment"
+msgstr ""
+
+msgid "Change Puppet proxy"
+msgstr ""
 
 msgid "Changed"
 msgstr "변경됨"
 
 msgid "Changed environments"
 msgstr "변경된 환경 "
+
+msgid "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+msgid "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+msgid "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment."
+msgstr ""
+
+msgid "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment."
+msgstr ""
+
+msgid "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy."
+msgstr ""
+
+msgid "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy."
+msgstr ""
 
 msgid "Check/Uncheck all"
 msgstr "모두 선택/선택 해제 "
@@ -274,11 +322,50 @@ msgstr "팩트 "
 msgid "Failed"
 msgstr "실패 "
 
+msgid "Failed to change %{proxy_type} for %{count} host"
+msgid_plural "Failed to change %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Failed to change Puppet CA Proxy"
+msgstr ""
+
+msgid "Failed to change Puppet Environment"
+msgstr ""
+
+msgid "Failed to change Puppet Proxy"
+msgstr ""
+
+msgid "Failed to change environment for %{count} host"
+msgid_plural "Failed to change environment for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "%{name}의 %{klass} 가져오기에 실패했습니다: 데이터베이스에 존재하지 않습니다 - 무시합니다 "
 
+msgid "Failed to remove %{proxy_type} for %{count} host"
+msgid_plural "Failed to remove %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Failed to remove Puppet CA Proxy"
+msgstr ""
+
+msgid "Failed to remove Puppet Environment"
+msgstr ""
+
+msgid "Failed to remove Puppet Proxy"
+msgstr ""
+
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "%{host}의 %{proxy_type} 프록시를 설정하지 못했습니다."
+
+msgid "Failed to set Puppet environment for %{host}."
+msgstr ""
+
+msgid "Failed to set proxy for %{host}."
+msgstr ""
 
 msgid "Failed to start"
 msgstr "시작에 실패했습니다"
@@ -360,6 +447,15 @@ msgstr "호스트 그룹 ID "
 
 msgid "ID of puppet environment"
 msgstr "Puppet 환경의 ID"
+
+msgid "ID of the Puppet environment to set for the selected hosts"
+msgstr ""
+
+msgid "ID of the Puppet proxy to reassign the hosts to"
+msgstr ""
+
+msgid "ID of the organization"
+msgstr ""
 
 msgid "IDs of associated ConfigGroups"
 msgstr "연관된 ConfigGroups의 ID"
@@ -462,6 +558,12 @@ msgstr "환경 별 호스트 나열 "
 
 msgid "List of config groups"
 msgstr "설정 그룹 목록"
+
+msgid "List of host ids to exclude and not run an action on"
+msgstr ""
+
+msgid "List of host ids to perform an action on"
+msgstr ""
 
 msgid "List of override values for a specific smart class parameter"
 msgstr "특정 스마트 클래스 매개 변수의 덮어쓰기 값 목록 "
@@ -610,6 +712,9 @@ msgstr "Puppet CA"
 msgid "Puppet CA Smart Proxy"
 msgstr "Puppet CA 스마트 프록시"
 
+msgid "Puppet CA proxy"
+msgstr ""
+
 msgid "Puppet Class"
 msgstr "Puppet 클래스 "
 
@@ -664,6 +769,9 @@ msgstr "Puppet 메트릭"
 msgid "Puppet parameter"
 msgstr "Puppet 매개 변수"
 
+msgid "Puppet proxy"
+msgstr ""
+
 msgid "Puppetclass|Name"
 msgstr "이름 "
 
@@ -672,6 +780,27 @@ msgstr "삭제 "
 
 msgid "Remove Combination"
 msgstr "조합 제거"
+
+msgid "Remove Puppet (CA) Proxy"
+msgstr ""
+
+msgid "Remove Puppet CA Proxy"
+msgstr ""
+
+msgid "Remove Puppet CA proxy"
+msgstr ""
+
+msgid "Remove Puppet Environment"
+msgstr ""
+
+msgid "Remove Puppet Proxy"
+msgstr ""
+
+msgid "Remove Puppet environment"
+msgstr ""
+
+msgid "Remove Puppet proxy"
+msgstr ""
 
 msgid "Remove a Puppet class from host"
 msgstr "호스트에 Puppet 클래스 삭제 "
@@ -688,6 +817,24 @@ msgstr "이 덮어쓰기 삭제"
 msgid "Remove:"
 msgstr "삭제: "
 
+msgid "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+msgid "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+msgid "Removing the Puppet environment will affect {boldCount} selected hosts."
+msgstr ""
+
+msgid "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
+msgstr ""
+
+msgid "Removing the Puppet proxy will affect {boldCount} selected hosts."
+msgstr ""
+
+msgid "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
+msgstr ""
+
 msgid "Reports"
 msgstr "보고서 "
 
@@ -700,11 +847,26 @@ msgstr "다시 시작됨"
 msgid "Scheduled"
 msgstr "예정됨"
 
+msgid "Search string for hosts to perform an action on"
+msgstr ""
+
+msgid "Select a Puppet CA Proxy"
+msgstr ""
+
+msgid "Select a Puppet Proxy"
+msgstr ""
+
+msgid "Select an Environment"
+msgstr ""
+
 msgid "Select environment"
 msgstr "환경 선택 "
 
 msgid "Select the changes you want to apply to Foreman"
 msgstr "Foreman에 적용하려는 변경 사항을 선택하세요"
+
+msgid "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts."
+msgstr ""
 
 msgid "Set parameters to defaults"
 msgstr "매개 변수를 기본값으로 설정 "
@@ -791,6 +953,9 @@ msgstr "요청하신 환경을 찾을 수 없습니다."
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
 msgstr "이 Puppet 마스터에 설정된 Puppet 환경이 없습니다. Puppet 마스터 구성을 확인하십시오."
 
+msgid "There is no Smart Proxy with the feature '%s' available."
+msgstr ""
+
 msgid "This Puppet class has no parameters in its signature."
 msgstr "Puppet 클래스 서명에는 매개 변수가 없습니다."
 
@@ -811,6 +976,12 @@ msgstr "토글 "
 
 msgid "Total"
 msgstr "전체"
+
+msgid "True, if Puppet CA proxy should be changed instead of the Puppet proxy"
+msgstr ""
+
+msgid "True, if Puppet CA proxy should be removed instead of the Puppet proxy"
+msgstr ""
 
 msgid "Types of validation values"
 msgstr "검증 값의 유형"
@@ -850,6 +1021,21 @@ msgstr "업데이트: "
 
 msgid "Updated"
 msgstr "업데이트 일시 "
+
+msgid "Updated host: changed %{proxy_type}"
+msgid_plural "Updated hosts: changed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Updated host: changed environment"
+msgid_plural "Updated hosts: changed environment"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Updated host: removed %{proxy_type}"
+msgid_plural "Updated hosts: removed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Updated hosts: changed environment"
 msgstr "업데이트된 호스트: 변경된 환경 "

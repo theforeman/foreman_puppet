@@ -4,14 +4,14 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 9.0.0\n"
+"Project-Id-Version: foreman_puppet 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026\n"
 "Language-Team: Georgian (https://app.transifex.com/foreman/teams/114/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,6 +56,12 @@ msgstr ""
 "        <b>დამთხვევა:</b> %{matcher}<br/>\n"
 "        <b>მემკვიდრეობითი მნიშვნელობა:</b> %{inherited_value}"
 
+msgid "A Puppet environment with id %{id} could not be found."
+msgstr ""
+
+msgid "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found."
+msgstr ""
+
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "კონფიგურაციის ჯგუფი უზრუნველყოფს ერთნაბიჯიან მეთოდს Puppet-ის ბევრი კლასის ჰოსტთან ან ჰოსტების ჯგუფთან ასოცირებისთვის. ჩვეულებრივ ეს კონკრეტული აპლიკაციის პროფილის ან სტეკის ერთი მოქმედებით დასამატებლად გამოიყენება."
 
@@ -79,6 +85,9 @@ msgstr "შაბლონის კომბინაციის დამა�
 
 msgid "Add:"
 msgstr "დამატება:"
+
+msgid "All"
+msgstr ""
 
 msgid "All environments - (not filtered)"
 msgstr "ყველა გარემოები - (ფილტრის გარეშე)"
@@ -107,14 +116,53 @@ msgstr "გაუქმება"
 msgid "Change Environment"
 msgstr "გარემოს შეცვლა"
 
+msgid "Change Puppet (CA) Proxy"
+msgstr ""
+
+msgid "Change Puppet CA Proxy"
+msgstr ""
+
+msgid "Change Puppet CA proxy"
+msgstr ""
+
+msgid "Change Puppet Environment"
+msgstr ""
+
 msgid "Change Puppet Master"
 msgstr "Puppet-ის პირველადი სერვერის შეცვლა"
 
-msgid "Changed"
+msgid "Change Puppet Proxy"
 msgstr ""
+
+msgid "Change Puppet environment"
+msgstr ""
+
+msgid "Change Puppet proxy"
+msgstr ""
+
+msgid "Changed"
+msgstr "შეცვლილია"
 
 msgid "Changed environments"
 msgstr "შეცვლილი გარემოები"
+
+msgid "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+msgid "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+msgid "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment."
+msgstr ""
+
+msgid "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment."
+msgstr ""
+
+msgid "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy."
+msgstr ""
+
+msgid "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy."
+msgstr ""
 
 msgid "Check/Uncheck all"
 msgstr "ყველას ჩართ/გამორთ"
@@ -153,7 +201,7 @@ msgid "Copy to clipboard"
 msgstr "ბუფერში კოპირება"
 
 msgid "Corrective Change"
-msgstr ""
+msgstr "მაკორექტირებელი ცვლილება"
 
 msgid "Couldn't find any ENC data for this host"
 msgstr "ამ ჰოსტისთვის ENC მონაცემების პოვნა შეუძლებელია"
@@ -270,16 +318,55 @@ msgid "Facts"
 msgstr "ფაქტები"
 
 msgid "Failed"
+msgstr "ჩავარდა"
+
+msgid "Failed to change %{proxy_type} for %{count} host"
+msgid_plural "Failed to change %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Failed to change Puppet CA Proxy"
 msgstr ""
+
+msgid "Failed to change Puppet Environment"
+msgstr ""
+
+msgid "Failed to change Puppet Proxy"
+msgstr ""
+
+msgid "Failed to change environment for %{count} host"
+msgid_plural "Failed to change environment for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "%{name}-სთვის %{klass}-ის შემოტანის შეცდომა: ის ჩვენს ბაზაში არ არსებობს - იგნორი"
 
+msgid "Failed to remove %{proxy_type} for %{count} host"
+msgid_plural "Failed to remove %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Failed to remove Puppet CA Proxy"
+msgstr ""
+
+msgid "Failed to remove Puppet Environment"
+msgstr ""
+
+msgid "Failed to remove Puppet Proxy"
+msgstr ""
+
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "დაყენების შეცდომა: %{proxy_type} პროქსი %{host}-სთვის."
 
-msgid "Failed to start"
+msgid "Failed to set Puppet environment for %{host}."
 msgstr ""
+
+msgid "Failed to set proxy for %{host}."
+msgstr ""
+
+msgid "Failed to start"
+msgstr "გაშვების შეცდომა"
 
 msgid "Failed to update environments and Puppet classes from the on-disk Puppet installation: %s"
 msgstr "დისკზე მყოფი Puppet-ის აგებაში გარემოებისა და კლასების განახლების შეცდომა: %s"
@@ -359,6 +446,15 @@ msgstr "ჰოსტების ჯგუფის ID"
 msgid "ID of puppet environment"
 msgstr "Puppet-ის გარემოს ID"
 
+msgid "ID of the Puppet environment to set for the selected hosts"
+msgstr ""
+
+msgid "ID of the Puppet proxy to reassign the hosts to"
+msgstr ""
+
+msgid "ID of the organization"
+msgstr ""
+
 msgid "IDs of associated ConfigGroups"
 msgstr "ასოცირებული ConfigGroups-ის ID"
 
@@ -417,7 +513,7 @@ msgid "Invalid proxy selected!"
 msgstr "არჩეული პროქსი არასწორია!"
 
 msgid "Last configuration status"
-msgstr ""
+msgstr "ბოლო კონფიგურაციის სტატუსი"
 
 msgid "List all Puppet class IDs for host"
 msgstr "ჰოსტისთვის Puppet-ის კლასის ყველა ID-ის ჩვენება"
@@ -461,6 +557,12 @@ msgstr "ჰოსტების სია თითოეული გარე
 msgid "List of config groups"
 msgstr "კონფიგურაციის ჯგუფების სია"
 
+msgid "List of host ids to exclude and not run an action on"
+msgstr ""
+
+msgid "List of host ids to perform an action on"
+msgstr ""
+
 msgid "List of override values for a specific smart class parameter"
 msgstr "მითითებული ჭკვიანი კლასის პარამეტრის გადასაფარი მნიშვნელობების სია"
 
@@ -495,7 +597,7 @@ msgid "Name"
 msgstr "სახელი"
 
 msgid "Never"
-msgstr ""
+msgstr "არასდროს"
 
 msgid "New"
 msgstr "ახალი"
@@ -504,7 +606,7 @@ msgid "No changes to your environments detected"
 msgstr "თქვენს გარემოებში ცვლილებები არაა"
 
 msgid "No configuration status available"
-msgstr ""
+msgstr "კონფიგურაციის სტატუსი ხელმისაწვდომი არაა"
 
 msgid "No environment selected!"
 msgstr "გარემო არჩეული არაა!"
@@ -570,7 +672,7 @@ msgid "Original value info"
 msgstr "ინფორმაცია საწყისი მნიშვნელობის შესახებ"
 
 msgid "Out of sync"
-msgstr ""
+msgstr "დაუსინქრონიზებელი"
 
 msgid "Overridden"
 msgstr "გადაფარული"
@@ -607,6 +709,9 @@ msgstr "Puppet CA"
 
 msgid "Puppet CA Smart Proxy"
 msgstr "Puppet CA ჭკვიანი პროქსი"
+
+msgid "Puppet CA proxy"
+msgstr ""
 
 msgid "Puppet Class"
 msgstr "Puppet-ის კლასი"
@@ -657,10 +762,13 @@ msgid "Puppet interval"
 msgstr "Puppet-ის ინტერვალი"
 
 msgid "Puppet metrics"
-msgstr ""
+msgstr "Puppet-ის მეტრიკები"
 
 msgid "Puppet parameter"
 msgstr "Puppet-ის პარამეტრი"
+
+msgid "Puppet proxy"
+msgstr ""
 
 msgid "Puppetclass|Name"
 msgstr "Puppet-ის კლასი|სახელი"
@@ -670,6 +778,27 @@ msgstr "წაშლა"
 
 msgid "Remove Combination"
 msgstr "კომბინაციის წაშლა"
+
+msgid "Remove Puppet (CA) Proxy"
+msgstr ""
+
+msgid "Remove Puppet CA Proxy"
+msgstr ""
+
+msgid "Remove Puppet CA proxy"
+msgstr ""
+
+msgid "Remove Puppet Environment"
+msgstr ""
+
+msgid "Remove Puppet Proxy"
+msgstr ""
+
+msgid "Remove Puppet environment"
+msgstr ""
+
+msgid "Remove Puppet proxy"
+msgstr ""
 
 msgid "Remove a Puppet class from host"
 msgstr "ჰოსტიდან Puppet-ის კლასის წაშლა"
@@ -686,6 +815,24 @@ msgstr "გადაფარვის მოცილება"
 msgid "Remove:"
 msgstr "წაშლა:"
 
+msgid "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+msgid "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+msgid "Removing the Puppet environment will affect {boldCount} selected hosts."
+msgstr ""
+
+msgid "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
+msgstr ""
+
+msgid "Removing the Puppet proxy will affect {boldCount} selected hosts."
+msgstr ""
+
+msgid "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
+msgstr ""
+
 msgid "Reports"
 msgstr "ანგარიშები"
 
@@ -693,9 +840,21 @@ msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
 msgstr "აუცილებელი პარამეტრი მნიშვნელობის გარეშე.<br/><b>გადაფარეთ!</b><br/>"
 
 msgid "Restarted"
-msgstr ""
+msgstr "გადაიტვირთა"
 
 msgid "Scheduled"
+msgstr "დაგეგმილია"
+
+msgid "Search string for hosts to perform an action on"
+msgstr ""
+
+msgid "Select a Puppet CA Proxy"
+msgstr ""
+
+msgid "Select a Puppet Proxy"
+msgstr ""
+
+msgid "Select an Environment"
 msgstr ""
 
 msgid "Select environment"
@@ -703,6 +862,9 @@ msgstr "აირჩიეთ გარემო"
 
 msgid "Select the changes you want to apply to Foreman"
 msgstr "აირჩიეთ ცვლილებები, რომლებიც გნებავთ Foreman-ს გადაატაროთ"
+
+msgid "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts."
+msgstr ""
 
 msgid "Set parameters to defaults"
 msgstr "პარამეტრების ნაგულისხმები მნიშვნელობების დაყენება"
@@ -735,7 +897,7 @@ msgid "Show template combination"
 msgstr "შაბლონის კომბინაციის ჩვენება"
 
 msgid "Skipped"
-msgstr ""
+msgstr "გამოტოვებულია"
 
 msgid "Smart Class Parameter"
 msgstr "ჭკვიანი კლასის პარამეტრი"
@@ -790,6 +952,9 @@ msgstr "მითითებული გარემო ნაპოვნი 
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
 msgstr "Puppet-ის ამ ძირითად სერვერზე Puppet-ის გარემო აწყობილი არაა. შეცვალეთ Puppet-ის ძირითადი სერვერის კონფიგურაცია."
 
+msgid "There is no Smart Proxy with the feature '%s' available."
+msgstr ""
+
 msgid "This Puppet class has no parameters in its signature."
 msgstr "Puppet-ის კლასს მის ხელმოწერაში პარამეტრები არ გააჩნია."
 
@@ -810,6 +975,12 @@ msgstr "გადართვა"
 
 msgid "Total"
 msgstr "ჯამში"
+
+msgid "True, if Puppet CA proxy should be changed instead of the Puppet proxy"
+msgstr ""
+
+msgid "True, if Puppet CA proxy should be removed instead of the Puppet proxy"
+msgstr ""
 
 msgid "Types of validation values"
 msgstr "შემოწმების მნიშვნელობის ტიპები"
@@ -849,6 +1020,21 @@ msgstr "განახლება:"
 
 msgid "Updated"
 msgstr "განახლდა"
+
+msgid "Updated host: changed %{proxy_type}"
+msgid_plural "Updated hosts: changed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Updated host: changed environment"
+msgid_plural "Updated hosts: changed environment"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Updated host: removed %{proxy_type}"
+msgid_plural "Updated hosts: removed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Updated hosts: changed environment"
 msgstr "ჰოსტები განახლდა: გარემო შეიცვალა"

@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 9.0.0",
+        "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
         "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2024",
@@ -45,6 +45,12 @@
       "<b>Description:</b> %{desc}<br/>\\n        <b>Type:</b> %{type}<br/>\\n        <b>Matcher:</b> %{matcher}<br/>\\n        <b>Inherited value:</b> %{inherited_value}": [
         ""
       ],
+      "A Puppet environment with id %{id} could not be found.": [
+        ""
+      ],
+      "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found.": [
+        ""
+      ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         ""
       ],
@@ -68,6 +74,9 @@
       ],
       "Add:": [
         "Добавить:"
+      ],
+      "All": [
+        ""
       ],
       "All environments - (not filtered)": [
         "Все окружения (без фильтра)"
@@ -96,14 +105,53 @@
       "Change Environment": [
         "Изменить окружение"
       ],
+      "Change Puppet (CA) Proxy": [
+        ""
+      ],
+      "Change Puppet CA Proxy": [
+        ""
+      ],
+      "Change Puppet CA proxy": [
+        ""
+      ],
+      "Change Puppet Environment": [
+        ""
+      ],
       "Change Puppet Master": [
         "Изменить мастер-сервер Puppet"
+      ],
+      "Change Puppet Proxy": [
+        ""
+      ],
+      "Change Puppet environment": [
+        ""
+      ],
+      "Change Puppet proxy": [
+        ""
       ],
       "Changed": [
         ""
       ],
       "Changed environments": [
         "Изменение окружений"
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
       ],
       "Check/Uncheck all": [
         "Выбрать все/Отменить выбор"
@@ -261,11 +309,47 @@
       "Failed": [
         "Сбой"
       ],
+      "Failed to change %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to change Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to change Puppet Environment": [
+        ""
+      ],
+      "Failed to change Puppet Proxy": [
+        ""
+      ],
+      "Failed to change environment for %{count} host": [
+        "",
+        ""
+      ],
       "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
         "Не удалось импортировать %{klass} для %{name}: не найден в нашей базе данных. Игнорируется..."
       ],
+      "Failed to remove %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to remove Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to remove Puppet Environment": [
+        ""
+      ],
+      "Failed to remove Puppet Proxy": [
+        ""
+      ],
       "Failed to set %{proxy_type} proxy for %{host}.": [
         "Не удалось настроить %{proxy_type} в качестве прокси для %{host}."
+      ],
+      "Failed to set Puppet environment for %{host}.": [
+        ""
+      ],
+      "Failed to set proxy for %{host}.": [
+        ""
       ],
       "Failed to start": [
         ""
@@ -346,6 +430,15 @@
         "Код группы узлов"
       ],
       "ID of puppet environment": [
+        ""
+      ],
+      "ID of the Puppet environment to set for the selected hosts": [
+        ""
+      ],
+      "ID of the Puppet proxy to reassign the hosts to": [
+        ""
+      ],
+      "ID of the organization": [
         ""
       ],
       "IDs of associated ConfigGroups": [
@@ -449,6 +542,12 @@
       ],
       "List of config groups": [
         "Список групп конфигурации"
+      ],
+      "List of host ids to exclude and not run an action on": [
+        ""
+      ],
+      "List of host ids to perform an action on": [
+        ""
       ],
       "List of override values for a specific smart class parameter": [
         "Список заменяемых значений для определенного смарт-параметра"
@@ -597,6 +696,9 @@
       "Puppet CA Smart Proxy": [
         ""
       ],
+      "Puppet CA proxy": [
+        ""
+      ],
       "Puppet Class": [
         "Класс Puppet"
       ],
@@ -651,6 +753,9 @@
       "Puppet parameter": [
         "Параметр Puppet"
       ],
+      "Puppet proxy": [
+        ""
+      ],
       "Puppetclass|Name": [
         "Имя"
       ],
@@ -658,6 +763,27 @@
         "Удалить"
       ],
       "Remove Combination": [
+        ""
+      ],
+      "Remove Puppet (CA) Proxy": [
+        ""
+      ],
+      "Remove Puppet CA Proxy": [
+        ""
+      ],
+      "Remove Puppet CA proxy": [
+        ""
+      ],
+      "Remove Puppet Environment": [
+        ""
+      ],
+      "Remove Puppet Proxy": [
+        ""
+      ],
+      "Remove Puppet environment": [
+        ""
+      ],
+      "Remove Puppet proxy": [
         ""
       ],
       "Remove a Puppet class from host": [
@@ -675,6 +801,24 @@
       "Remove:": [
         "Удалить:"
       ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
       "Reports": [
         "Отчеты"
       ],
@@ -687,10 +831,25 @@
       "Scheduled": [
         ""
       ],
+      "Search string for hosts to perform an action on": [
+        ""
+      ],
+      "Select a Puppet CA Proxy": [
+        ""
+      ],
+      "Select a Puppet Proxy": [
+        ""
+      ],
+      "Select an Environment": [
+        ""
+      ],
       "Select environment": [
         "Выберите окружение"
       ],
       "Select the changes you want to apply to Foreman": [
+        ""
+      ],
+      "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.": [
         ""
       ],
       "Set parameters to defaults": [
@@ -778,6 +937,9 @@
       "There are no puppet environments set up on this puppet master. Please check the puppet master configuration.": [
         "На этом мастер-сервере Puppet не настроено ни одного окружения Puppet. Проверьте настройки мастер-сервера."
       ],
+      "There is no Smart Proxy with the feature '%s' available.": [
+        ""
+      ],
       "This Puppet class has no parameters in its signature.": [
         "Подпись класса Puppet не содержит параметров."
       ],
@@ -798,6 +960,12 @@
       ],
       "Total": [
         "Всего"
+      ],
+      "True, if Puppet CA proxy should be changed instead of the Puppet proxy": [
+        ""
+      ],
+      "True, if Puppet CA proxy should be removed instead of the Puppet proxy": [
+        ""
       ],
       "Types of validation values": [
         "Типы значений проверок"
@@ -837,6 +1005,18 @@
       ],
       "Updated": [
         "Обновлено"
+      ],
+      "Updated host: changed %{proxy_type}": [
+        "",
+        ""
+      ],
+      "Updated host: changed environment": [
+        "",
+        ""
+      ],
+      "Updated host: removed %{proxy_type}": [
+        "",
+        ""
       ],
       "Updated hosts: changed environment": [
         "Обновление узлов: окружение изменено"
