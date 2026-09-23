@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_puppet": {
       "": {
-        "Project-Id-Version": "foreman_puppet 9.0.0",
+        "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
         "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
@@ -44,6 +44,12 @@
       "<b>Description:</b> %{desc}<br/>\\n        <b>Type:</b> %{type}<br/>\\n        <b>Matcher:</b> %{matcher}<br/>\\n        <b>Inherited value:</b> %{inherited_value}": [
         "<b>설명:</b> %{desc}<br/>\\n        <b>유형:</b> %{type}<br/>\\n        <b>매처:</b> %{matcher}<br/>\\n        <b>상속된 값:</b> %{inherited_value}"
       ],
+      "A Puppet environment with id %{id} could not be found.": [
+        ""
+      ],
+      "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found.": [
+        ""
+      ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         "구성 그룹은 여러 Puppet 클래스를 호스트 또는 호스트 그룹에 연결하는 단일 단계 방법을 제공합니다. 일반적으로 이는 특정 애플리케이션 프로필 또는 스택을 한 단계로 추가하는 데 사용됩니다."
       ],
@@ -67,6 +73,9 @@
       ],
       "Add:": [
         "추가:"
+      ],
+      "All": [
+        ""
       ],
       "All environments - (not filtered)": [
         "모든 환경 - (필터링되지 않음)"
@@ -95,14 +104,53 @@
       "Change Environment": [
         "환경 변경 "
       ],
+      "Change Puppet (CA) Proxy": [
+        ""
+      ],
+      "Change Puppet CA Proxy": [
+        ""
+      ],
+      "Change Puppet CA proxy": [
+        ""
+      ],
+      "Change Puppet Environment": [
+        ""
+      ],
       "Change Puppet Master": [
         "Puppet 마스터 변경"
+      ],
+      "Change Puppet Proxy": [
+        ""
+      ],
+      "Change Puppet environment": [
+        ""
+      ],
+      "Change Puppet proxy": [
+        ""
       ],
       "Changed": [
         "변경됨"
       ],
       "Changed environments": [
         "변경된 환경 "
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
+      ],
+      "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy.": [
+        ""
       ],
       "Check/Uncheck all": [
         "모두 선택/선택 해제 "
@@ -260,11 +308,47 @@
       "Failed": [
         "실패 "
       ],
+      "Failed to change %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to change Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to change Puppet Environment": [
+        ""
+      ],
+      "Failed to change Puppet Proxy": [
+        ""
+      ],
+      "Failed to change environment for %{count} host": [
+        "",
+        ""
+      ],
       "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
         "%{name}의 %{klass} 가져오기에 실패했습니다: 데이터베이스에 존재하지 않습니다 - 무시합니다 "
       ],
+      "Failed to remove %{proxy_type} for %{count} host": [
+        "",
+        ""
+      ],
+      "Failed to remove Puppet CA Proxy": [
+        ""
+      ],
+      "Failed to remove Puppet Environment": [
+        ""
+      ],
+      "Failed to remove Puppet Proxy": [
+        ""
+      ],
       "Failed to set %{proxy_type} proxy for %{host}.": [
         "%{host}의 %{proxy_type} 프록시를 설정하지 못했습니다."
+      ],
+      "Failed to set Puppet environment for %{host}.": [
+        ""
+      ],
+      "Failed to set proxy for %{host}.": [
+        ""
       ],
       "Failed to start": [
         "시작에 실패했습니다"
@@ -346,6 +430,15 @@
       ],
       "ID of puppet environment": [
         "Puppet 환경의 ID"
+      ],
+      "ID of the Puppet environment to set for the selected hosts": [
+        ""
+      ],
+      "ID of the Puppet proxy to reassign the hosts to": [
+        ""
+      ],
+      "ID of the organization": [
+        ""
       ],
       "IDs of associated ConfigGroups": [
         "연관된 ConfigGroups의 ID"
@@ -448,6 +541,12 @@
       ],
       "List of config groups": [
         "설정 그룹 목록"
+      ],
+      "List of host ids to exclude and not run an action on": [
+        ""
+      ],
+      "List of host ids to perform an action on": [
+        ""
       ],
       "List of override values for a specific smart class parameter": [
         "특정 스마트 클래스 매개 변수의 덮어쓰기 값 목록 "
@@ -596,6 +695,9 @@
       "Puppet CA Smart Proxy": [
         "Puppet CA 스마트 프록시"
       ],
+      "Puppet CA proxy": [
+        ""
+      ],
       "Puppet Class": [
         "Puppet 클래스 "
       ],
@@ -650,6 +752,9 @@
       "Puppet parameter": [
         "Puppet 매개 변수"
       ],
+      "Puppet proxy": [
+        ""
+      ],
       "Puppetclass|Name": [
         "이름 "
       ],
@@ -658,6 +763,27 @@
       ],
       "Remove Combination": [
         "조합 제거"
+      ],
+      "Remove Puppet (CA) Proxy": [
+        ""
+      ],
+      "Remove Puppet CA Proxy": [
+        ""
+      ],
+      "Remove Puppet CA proxy": [
+        ""
+      ],
+      "Remove Puppet Environment": [
+        ""
+      ],
+      "Remove Puppet Proxy": [
+        ""
+      ],
+      "Remove Puppet environment": [
+        ""
+      ],
+      "Remove Puppet proxy": [
+        ""
       ],
       "Remove a Puppet class from host": [
         "호스트에 Puppet 클래스 삭제 "
@@ -674,6 +800,24 @@
       "Remove:": [
         "삭제: "
       ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected hosts.": [
+        ""
+      ],
+      "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
+        ""
+      ],
       "Reports": [
         "보고서 "
       ],
@@ -686,11 +830,26 @@
       "Scheduled": [
         "예정됨"
       ],
+      "Search string for hosts to perform an action on": [
+        ""
+      ],
+      "Select a Puppet CA Proxy": [
+        ""
+      ],
+      "Select a Puppet Proxy": [
+        ""
+      ],
+      "Select an Environment": [
+        ""
+      ],
       "Select environment": [
         "환경 선택 "
       ],
       "Select the changes you want to apply to Foreman": [
         "Foreman에 적용하려는 변경 사항을 선택하세요"
+      ],
+      "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.": [
+        ""
       ],
       "Set parameters to defaults": [
         "매개 변수를 기본값으로 설정 "
@@ -776,6 +935,9 @@
       "There are no puppet environments set up on this puppet master. Please check the puppet master configuration.": [
         "이 Puppet 마스터에 설정된 Puppet 환경이 없습니다. Puppet 마스터 구성을 확인하십시오."
       ],
+      "There is no Smart Proxy with the feature '%s' available.": [
+        ""
+      ],
       "This Puppet class has no parameters in its signature.": [
         "Puppet 클래스 서명에는 매개 변수가 없습니다."
       ],
@@ -796,6 +958,12 @@
       ],
       "Total": [
         "전체"
+      ],
+      "True, if Puppet CA proxy should be changed instead of the Puppet proxy": [
+        ""
+      ],
+      "True, if Puppet CA proxy should be removed instead of the Puppet proxy": [
+        ""
       ],
       "Types of validation values": [
         "검증 값의 유형"
@@ -835,6 +1003,18 @@
       ],
       "Updated": [
         "업데이트 일시 "
+      ],
+      "Updated host: changed %{proxy_type}": [
+        "",
+        ""
+      ],
+      "Updated host: changed environment": [
+        "",
+        ""
+      ],
+      "Updated host: removed %{proxy_type}": [
+        "",
+        ""
       ],
       "Updated hosts: changed environment": [
         "업데이트된 호스트: 변경된 환경 "

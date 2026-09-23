@@ -8,7 +8,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_puppet 9.0.0\n"
+"Project-Id-Version: foreman_puppet 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
 "Last-Translator: Carmela Rubiños <carmela.rubinos@gmail.com>, 2023\n"
@@ -52,6 +52,12 @@ msgid ""
 "        <b>Inherited value:</b> %{inherited_value}"
 msgstr ""
 
+msgid "A Puppet environment with id %{id} could not be found."
+msgstr ""
+
+msgid "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found."
+msgstr ""
+
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr ""
 
@@ -75,6 +81,9 @@ msgstr ""
 
 msgid "Add:"
 msgstr "Engadir:"
+
+msgid "All"
+msgstr ""
 
 msgid "All environments - (not filtered)"
 msgstr ""
@@ -103,13 +112,52 @@ msgstr "Cancelar"
 msgid "Change Environment"
 msgstr "Cambiar Entorno"
 
+msgid "Change Puppet (CA) Proxy"
+msgstr ""
+
+msgid "Change Puppet CA Proxy"
+msgstr ""
+
+msgid "Change Puppet CA proxy"
+msgstr ""
+
+msgid "Change Puppet Environment"
+msgstr ""
+
 msgid "Change Puppet Master"
+msgstr ""
+
+msgid "Change Puppet Proxy"
+msgstr ""
+
+msgid "Change Puppet environment"
+msgstr ""
+
+msgid "Change Puppet proxy"
 msgstr ""
 
 msgid "Changed"
 msgstr ""
 
 msgid "Changed environments"
+msgstr ""
+
+msgid "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+msgid "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+msgid "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment."
+msgstr ""
+
+msgid "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment."
+msgstr ""
+
+msgid "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy."
+msgstr ""
+
+msgid "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy."
 msgstr ""
 
 msgid "Check/Uncheck all"
@@ -268,10 +316,49 @@ msgstr "Datos"
 msgid "Failed"
 msgstr ""
 
+msgid "Failed to change %{proxy_type} for %{count} host"
+msgid_plural "Failed to change %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Failed to change Puppet CA Proxy"
+msgstr ""
+
+msgid "Failed to change Puppet Environment"
+msgstr ""
+
+msgid "Failed to change Puppet Proxy"
+msgstr ""
+
+msgid "Failed to change environment for %{count} host"
+msgid_plural "Failed to change environment for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "Fallo ao importar %{klass} para %{name}: non existe na base de datos - ignorando"
 
+msgid "Failed to remove %{proxy_type} for %{count} host"
+msgid_plural "Failed to remove %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Failed to remove Puppet CA Proxy"
+msgstr ""
+
+msgid "Failed to remove Puppet Environment"
+msgstr ""
+
+msgid "Failed to remove Puppet Proxy"
+msgstr ""
+
 msgid "Failed to set %{proxy_type} proxy for %{host}."
+msgstr ""
+
+msgid "Failed to set Puppet environment for %{host}."
+msgstr ""
+
+msgid "Failed to set proxy for %{host}."
 msgstr ""
 
 msgid "Failed to start"
@@ -353,6 +440,15 @@ msgid "ID of host group"
 msgstr ""
 
 msgid "ID of puppet environment"
+msgstr ""
+
+msgid "ID of the Puppet environment to set for the selected hosts"
+msgstr ""
+
+msgid "ID of the Puppet proxy to reassign the hosts to"
+msgstr ""
+
+msgid "ID of the organization"
 msgstr ""
 
 msgid "IDs of associated ConfigGroups"
@@ -455,6 +551,12 @@ msgid "List hosts per environment"
 msgstr ""
 
 msgid "List of config groups"
+msgstr ""
+
+msgid "List of host ids to exclude and not run an action on"
+msgstr ""
+
+msgid "List of host ids to perform an action on"
 msgstr ""
 
 msgid "List of override values for a specific smart class parameter"
@@ -604,6 +706,9 @@ msgstr "CA Puppet"
 msgid "Puppet CA Smart Proxy"
 msgstr ""
 
+msgid "Puppet CA proxy"
+msgstr ""
+
 msgid "Puppet Class"
 msgstr "Clase de Puppet"
 
@@ -658,6 +763,9 @@ msgstr ""
 msgid "Puppet parameter"
 msgstr ""
 
+msgid "Puppet proxy"
+msgstr ""
+
 msgid "Puppetclass|Name"
 msgstr "Nome"
 
@@ -665,6 +773,27 @@ msgid "Remove"
 msgstr ""
 
 msgid "Remove Combination"
+msgstr ""
+
+msgid "Remove Puppet (CA) Proxy"
+msgstr ""
+
+msgid "Remove Puppet CA Proxy"
+msgstr ""
+
+msgid "Remove Puppet CA proxy"
+msgstr ""
+
+msgid "Remove Puppet Environment"
+msgstr ""
+
+msgid "Remove Puppet Proxy"
+msgstr ""
+
+msgid "Remove Puppet environment"
+msgstr ""
+
+msgid "Remove Puppet proxy"
 msgstr ""
 
 msgid "Remove a Puppet class from host"
@@ -682,6 +811,24 @@ msgstr ""
 msgid "Remove:"
 msgstr "Eliminar:"
 
+msgid "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+msgid "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+msgid "Removing the Puppet environment will affect {boldCount} selected hosts."
+msgstr ""
+
+msgid "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
+msgstr ""
+
+msgid "Removing the Puppet proxy will affect {boldCount} selected hosts."
+msgstr ""
+
+msgid "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
+msgstr ""
+
 msgid "Reports"
 msgstr "Informes"
 
@@ -694,10 +841,25 @@ msgstr ""
 msgid "Scheduled"
 msgstr ""
 
+msgid "Search string for hosts to perform an action on"
+msgstr ""
+
+msgid "Select a Puppet CA Proxy"
+msgstr ""
+
+msgid "Select a Puppet Proxy"
+msgstr ""
+
+msgid "Select an Environment"
+msgstr ""
+
 msgid "Select environment"
 msgstr "Seleccionar entorno"
 
 msgid "Select the changes you want to apply to Foreman"
+msgstr ""
+
+msgid "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts."
 msgstr ""
 
 msgid "Set parameters to defaults"
@@ -786,6 +948,9 @@ msgstr ""
 msgid "There are no puppet environments set up on this puppet master. Please check the puppet master configuration."
 msgstr ""
 
+msgid "There is no Smart Proxy with the feature '%s' available."
+msgstr ""
+
 msgid "This Puppet class has no parameters in its signature."
 msgstr "Esta clase de Puppet non ten parámetros na súa firma."
 
@@ -806,6 +971,12 @@ msgstr ""
 
 msgid "Total"
 msgstr "Total"
+
+msgid "True, if Puppet CA proxy should be changed instead of the Puppet proxy"
+msgstr ""
+
+msgid "True, if Puppet CA proxy should be removed instead of the Puppet proxy"
+msgstr ""
 
 msgid "Types of validation values"
 msgstr ""
@@ -845,6 +1016,21 @@ msgstr "Actualizar:"
 
 msgid "Updated"
 msgstr ""
+
+msgid "Updated host: changed %{proxy_type}"
+msgid_plural "Updated hosts: changed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Updated host: changed environment"
+msgid_plural "Updated hosts: changed environment"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Updated host: removed %{proxy_type}"
+msgid_plural "Updated hosts: removed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Updated hosts: changed environment"
 msgstr "Equipos actualizados: cambiado o entorno"

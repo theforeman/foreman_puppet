@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 11:40+0000\n"
-"PO-Revision-Date: 2025-10-08 11:40+0000\n"
+"POT-Creation-Date: 2026-09-22 17:27+0000\n"
+"PO-Revision-Date: 2026-09-22 17:27+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -255,8 +255,9 @@ msgstr ""
 
 #:
 #: ../app/controllers/concerns/foreman_puppet/extensions/hosts_controller_extensions.rb:204
-#: ../lib/foreman_puppet/register.rb:231
+#: ../lib/foreman_puppet/register.rb:234
 #: ../webpack/src/Extends/Fills/index.js:12
+#: ../webpack/src/Extends/Hosts/ActionsBar/index.js:88
 msgid "Puppet"
 msgstr ""
 
@@ -362,6 +363,114 @@ msgstr ""
 
 #: ../app/controllers/foreman_puppet/api/v2/hostgroup_classes_controller.rb:26
 msgid "Remove a Puppet class from host group"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:12
+msgid "ID of the organization"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:14
+msgid "Search string for hosts to perform an action on"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:15
+msgid "List of host ids to perform an action on"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:18
+msgid "List of host ids to exclude and not run an action on"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:22
+#: ../webpack/src/Extends/Hosts/ActionsBar/index.js:35
+msgid "Change Puppet environment"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:24
+msgid "ID of the Puppet environment to set for the selected hosts"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:30
+msgid "Updated host: changed environment"
+msgid_plural "Updated hosts: changed environment"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:35
+msgid "Failed to change environment for %{count} host"
+msgid_plural "Failed to change environment for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:43
+msgid "Change Puppet (CA) Proxy"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:45
+msgid "ID of the Puppet proxy to reassign the hosts to"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:46
+msgid "True, if Puppet CA proxy should be changed instead of the Puppet proxy"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:51
+msgid "Updated host: changed %{proxy_type}"
+msgid_plural "Updated hosts: changed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:56
+msgid "Failed to change %{proxy_type} for %{count} host"
+msgid_plural "Failed to change %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:64
+msgid "Remove Puppet (CA) Proxy"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:66
+msgid "True, if Puppet CA proxy should be removed instead of the Puppet proxy"
+msgstr ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:71
+msgid "Updated host: removed %{proxy_type}"
+msgid_plural "Updated hosts: removed %{proxy_type}"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:76
+msgid "Failed to remove %{proxy_type} for %{count} host"
+msgid_plural "Failed to remove %{proxy_type} for %{count} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:114
+msgid "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found."
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:135
+msgid "A Puppet environment with id %{id} could not be found."
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:153
+msgid ""
+"Selected Puppet environment is not assigned to the proper organization and/or "
+"location for all hosts."
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:171
+msgid "Puppet CA proxy"
+msgstr ""
+
+#:
+#: ../app/controllers/foreman_puppet/api/v2/hosts_bulk_actions_controller.rb:171
+msgid "Puppet proxy"
 msgstr ""
 
 #: ../app/controllers/foreman_puppet/api/v2/override_values_controller.rb:19
@@ -681,7 +790,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../app/helpers/foreman_puppet/puppetclasses_helper.rb:33
-#: ../webpack/src/foreman_class_edit.js:55
+#: ../webpack/src/foreman_class_edit.js:57
 msgid "Click to remove %s"
 msgstr ""
 
@@ -756,6 +865,14 @@ msgstr ""
 
 #: ../app/models/foreman_puppet/puppetclass_lookup_key.rb:51
 msgid "must be true to edit the parameter"
+msgstr ""
+
+#: ../app/services/concerns/foreman_puppet/extensions/bulk_hosts_manager.rb:17
+msgid "Failed to set Puppet environment for %{host}."
+msgstr ""
+
+#: ../app/services/concerns/foreman_puppet/extensions/bulk_hosts_manager.rb:34
+msgid "Failed to set proxy for %{host}."
 msgstr ""
 
 #: ../app/services/foreman_puppet/input_type/puppet_parameter_input.rb:24
@@ -870,6 +987,10 @@ msgstr ""
 
 #:
 #: ../app/views/foreman_puppet/common/_puppetclasses_or_envs_changed.html.erb:64
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangeProxyCommon/index.js:149
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:151
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemoveProxyCommon/index.js:95
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetEnvironment/BulkRemovePuppetEnvironmentModal.js:86
 msgid "Cancel"
 msgstr ""
 
@@ -914,7 +1035,7 @@ msgstr ""
 #: ../app/views/foreman_puppet/config_groups/index.html.erb:3
 #: ../app/views/foreman_puppet/config_groups/welcome.html.erb:1
 #: ../app/views/foreman_puppet/config_groups/welcome.html.erb:9
-#: ../lib/foreman_puppet/register.rb:174
+#: ../lib/foreman_puppet/register.rb:177
 msgid "Config Groups"
 msgstr ""
 
@@ -971,7 +1092,7 @@ msgid "Environment|Name"
 msgstr ""
 
 #: ../app/views/foreman_puppet/environments/index.html.erb:22
-#: ../lib/foreman_puppet/register.rb:171
+#: ../lib/foreman_puppet/register.rb:174
 msgid "Classes"
 msgstr ""
 
@@ -1006,7 +1127,7 @@ msgstr ""
 #: ../app/views/foreman_puppet/puppetclass_lookup_keys/index.html.erb:1
 #: ../app/views/foreman_puppet/puppetclass_lookup_keys/welcome.html.erb:1
 #: ../app/views/foreman_puppet/puppetclass_lookup_keys/welcome.html.erb:8
-#: ../lib/foreman_puppet/register.rb:177
+#: ../lib/foreman_puppet/register.rb:180
 msgid "Smart Class Parameters"
 msgstr ""
 
@@ -1053,7 +1174,7 @@ msgid "Filter classes"
 msgstr ""
 
 #: ../app/views/foreman_puppet/puppetclasses/_classes_in_groups.html.erb:2
-#: ../webpack/src/foreman_class_edit.js:84
+#: ../webpack/src/foreman_class_edit.js:86
 msgid "belongs to config group"
 msgstr ""
 
@@ -1115,7 +1236,7 @@ msgstr ""
 
 #: ../app/views/foreman_puppet/puppetclasses/index.html.erb:10
 #: ../app/views/smart_proxies/plugins/_puppet.html.erb:3
-#: ../lib/foreman_puppet/register.rb:168
+#: ../lib/foreman_puppet/register.rb:171
 msgid "Environments"
 msgstr ""
 
@@ -1160,6 +1281,8 @@ msgid "*Clear environment*"
 msgstr ""
 
 #: ../app/views/hosts/select_multiple_environment.html.erb:6
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:66
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:207
 msgid "*Inherit from host group*"
 msgstr ""
 
@@ -1242,11 +1365,11 @@ msgstr ""
 msgid "%s out of sync disabled"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:165 ../lib/foreman_puppet/register.rb:218
+#: ../lib/foreman_puppet/register.rb:168 ../lib/foreman_puppet/register.rb:221
 msgid "Puppet ENC"
 msgstr ""
 
-#: ../lib/foreman_puppet/register.rb:232 ../webpack/global_index.js:19
+#: ../lib/foreman_puppet/register.rb:235 ../webpack/global_index.js:31
 msgid "Puppet env"
 msgstr ""
 
@@ -1381,11 +1504,187 @@ msgstr ""
 msgid "ENC Preview"
 msgstr ""
 
-#: ../webpack/src/foreman_class_edit.js:146
+#: ../webpack/src/Extends/Hosts/ActionsBar/index.js:45
+msgid "Remove Puppet environment"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/ActionsBar/index.js:53
+msgid "Change Puppet proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/ActionsBar/index.js:61
+msgid "Remove Puppet proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/ActionsBar/index.js:71
+msgid "Change Puppet CA proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/ActionsBar/index.js:81
+msgid "Remove Puppet CA proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangeProxyCommon/index.js:174
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:177
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemoveProxyCommon/index.js:119
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetEnvironment/BulkRemovePuppetEnvironmentModal.js:112
+msgid "All"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangeProxyCommon/index.js:218
+msgid "There is no Smart Proxy with the feature '%s' available."
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetCAProxy/index.js:29
+msgid "Select a Puppet CA Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetCAProxy/index.js:30
+msgid "Failed to change Puppet CA Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetCAProxy/index.js:31
+msgid "Change Puppet CA Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetCAProxy/index.js:32
+msgid ""
+"Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some host"
+"s may already have been associated with the selected Puppet CA proxy."
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetCAProxy/index.js:35
+msgid ""
+"Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, "
+"one {host} other {hosts}}. Some hosts may already have been associated with th"
+"e selected Puppet CA proxy."
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:71
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:84
+msgid "Select an Environment"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:99
+msgid "Failed to change Puppet Environment"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:143
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:160
+msgid "Change Puppet Environment"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:173
+msgid ""
+"Changing the Puppet environment will affect {boldCount} selected hosts. Some h"
+"osts may already have been associated with the selected environment."
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetEnvironment/BulkChangePuppetEnvironmentModal.js:183
+msgid ""
+"Changing the Puppet environment will affect {boldCount} selected {count, plura"
+"l, one {host} other {hosts}}. Some hosts may already have been associated with"
+" the selected environment."
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetProxy/index.js:29
+msgid "Select a Puppet Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetProxy/index.js:30
+msgid "Failed to change Puppet Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetProxy/index.js:31
+msgid "Change Puppet Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetProxy/index.js:32
+msgid ""
+"Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts m"
+"ay already have been associated with the selected Puppet proxy."
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkChangePuppetProxy/index.js:35
+msgid ""
+"Changing the Puppet proxy will affect {boldCount} selected {count, plural, one"
+" {host} other {hosts}}. Some hosts may already have been associated with the s"
+"elected Puppet proxy."
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetCAProxy/index.js:29
+msgid "Failed to remove Puppet CA Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetCAProxy/index.js:30
+msgid ""
+"Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: "
+"If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that val"
+"ue after removal!"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetCAProxy/index.js:33
+msgid ""
+"Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, "
+"one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet"
+" CA Proxy will fall back to that value after removal!"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetCAProxy/index.js:36
+msgid "Remove Puppet CA Proxy"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetEnvironment/BulkRemovePuppetEnvironmentModal.js:36
+msgid "Failed to remove Puppet Environment"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetEnvironment/BulkRemovePuppetEnvironmentModal.js:78
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetEnvironment/BulkRemovePuppetEnvironmentModal.js:95
+msgid "Remove Puppet Environment"
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetEnvironment/BulkRemovePuppetEnvironmentModal.js:108
+msgid "Removing the Puppet environment will affect {boldCount} selected hosts."
+msgstr ""
+
+#:
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetEnvironment/BulkRemovePuppetEnvironmentModal.js:118
+msgid ""
+"Removing the Puppet environment will affect {boldCount} selected {count, plura"
+"l, one {host} other {hosts}}."
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetProxy/index.js:29
+msgid "Failed to remove Puppet Proxy"
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetProxy/index.js:30
+msgid "Removing the Puppet proxy will affect {boldCount} selected hosts."
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetProxy/index.js:33
+msgid ""
+"Removing the Puppet proxy will affect {boldCount} selected {count, plural, one"
+" {host} other {hosts}}."
+msgstr ""
+
+#: ../webpack/src/Extends/Hosts/BulkActions/BulkRemovePuppetProxy/index.js:36
+msgid "Remove Puppet Proxy"
+msgstr ""
+
+#: ../webpack/src/foreman_class_edit.js:148
 msgid "Click to remove config group"
 msgstr ""
 
-#: ../webpack/src/foreman_class_edit.js:149
+#: ../webpack/src/foreman_class_edit.js:151
 msgid " Remove"
 msgstr ""
 
