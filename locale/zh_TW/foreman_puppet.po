@@ -5,15 +5,15 @@
 #
 # Translators:
 # ChrisLee <chris_lee@hiiir.com>, 2021
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # 0868a4d1af5275b3f70b0a6dac4c99a4, 2023
+# Bryan Kearney <bryan.kearney@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: 0868a4d1af5275b3f70b0a6dac4c99a4, 2023\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/foreman/teams/114/z"
 "h_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -452,7 +452,7 @@ msgid "ID of the Puppet proxy to reassign the hosts to"
 msgstr ""
 
 msgid "ID of the organization"
-msgstr ""
+msgstr "組織的 ID"
 
 msgid "IDs of associated ConfigGroups"
 msgstr ""
@@ -557,10 +557,10 @@ msgid "List of config groups"
 msgstr "配置群組清單"
 
 msgid "List of host ids to exclude and not run an action on"
-msgstr ""
+msgstr "欲排除並且不執行任何動作的主機 ID 清單"
 
 msgid "List of host ids to perform an action on"
-msgstr ""
+msgstr "欲在其上執行動作的主機 ID 清單"
 
 msgid "List of override values for a specific smart class parameter"
 msgstr "特定智慧型類別參數的置換值之清單"

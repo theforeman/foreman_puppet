@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "0868a4d1af5275b3f70b0a6dac4c99a4, 2023",
+        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2026",
         "Language-Team": "Chinese (Taiwan) (https://app.transifex.com/foreman/teams/114/zh_TW/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -439,7 +439,7 @@
         ""
       ],
       "ID of the organization": [
-        ""
+        "組織的 ID"
       ],
       "IDs of associated ConfigGroups": [
         ""
@@ -544,10 +544,10 @@
         "配置群組清單"
       ],
       "List of host ids to exclude and not run an action on": [
-        ""
+        "欲排除並且不執行任何動作的主機 ID 清單"
       ],
       "List of host ids to perform an action on": [
-        ""
+        "欲在其上執行動作的主機 ID 清單"
       ],
       "List of override values for a specific smart class parameter": [
         "特定智慧型類別參數的置換值之清單"

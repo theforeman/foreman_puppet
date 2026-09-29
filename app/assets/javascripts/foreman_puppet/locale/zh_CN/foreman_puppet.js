@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Chinese (China) (https://app.transifex.com/foreman/teams/114/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -45,10 +45,10 @@
         "<b>描述：</b> %{desc}<br/>\\n     <b>类型：</b>%{type}<br/>\\n     <b>匹配器：</b> %{matcher}<br/>\\n     <b>继承的值：</b> %{inherited_value}"
       ],
       "A Puppet environment with id %{id} could not be found.": [
-        ""
+        "无法找到 ID 为 %{id} 的 Puppet 环境。"
       ],
       "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found.": [
-        ""
+        "无法找到 id 为%{id} 的智能代理和 %{proxy_type} 功能。"
       ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         "配置组提供了将多个 Puppet 类关联到一个主机或主机组的一步方法。此方法一般用于通过一个步骤添加特定的应用配置文件或堆栈。"
@@ -75,7 +75,7 @@
         "添加："
       ],
       "All": [
-        ""
+        "全部"
       ],
       "All environments - (not filtered)": [
         "所有环境 - （未过滤）"
@@ -105,28 +105,28 @@
         "改变环境"
       ],
       "Change Puppet (CA) Proxy": [
-        ""
+        "更改 Puppet (CA)代理"
       ],
       "Change Puppet CA Proxy": [
-        ""
+        "更改 Puppet CA 代理"
       ],
       "Change Puppet CA proxy": [
-        ""
+        "更改 Puppet CA 代理"
       ],
       "Change Puppet Environment": [
-        ""
+        "更改 Puppet 环境"
       ],
       "Change Puppet Master": [
         "更改 Puppet 主服务器"
       ],
       "Change Puppet Proxy": [
-        ""
+        "更改 Puppet 代理"
       ],
       "Change Puppet environment": [
-        ""
+        "更改 Puppet 环境"
       ],
       "Change Puppet proxy": [
-        ""
+        "更改 Puppet 代理"
       ],
       "Changed": [
         "已改变"
@@ -135,22 +135,22 @@
         "修改的环境"
       ],
       "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy.": [
-        ""
+        "更改 Puppet CA 代理将影响 {boldCount} 个选定的主机。有些主机可能已经与选定的 Puppet CA 代理关联。"
       ],
       "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy.": [
-        ""
+        "更改 Puppet CA 代理将影响 {boldCount} 个选定的 {count, plural, one {host} 和其他 {hosts}。有些主机可能已经与选定的 Puppet CA 代理关联。"
       ],
       "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.": [
-        ""
+        "更改 Puppet 环境将影响 {boldCount} 个选定的主机。一些主机可能已经与所选环境关联。"
       ],
       "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.": [
-        ""
+        "更改 Puppet 环境将影响 {boldCount} 个选定的 {count, plural, one {host} 和其他 {hosts}}。一些主机可能已经与所选环境关联。"
       ],
       "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy.": [
-        ""
+        "更改 Puppet 代理将影响 {boldCount} 个选定的主机。有些主机可能已经与选定的 Puppet 代理关联。"
       ],
       "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy.": [
-        ""
+        "更改 Puppet 代理将影响 {boldCount} 选定的 {count, plural, one {host} 和其他 {hosts}}。一些主机可能已经与选定的 Puppet 代理关联。"
       ],
       "Check/Uncheck all": [
         "選取/反選全部"
@@ -309,46 +309,43 @@
         "失败"
       ],
       "Failed to change %{proxy_type} for %{count} host": [
-        "",
-        ""
+        "为 %{count} 主机更改 %{proxy_type} 失败"
       ],
       "Failed to change Puppet CA Proxy": [
-        ""
+        "更改 Puppet CA 代理失败"
       ],
       "Failed to change Puppet Environment": [
-        ""
+        "更改 Puppet 环境失败"
       ],
       "Failed to change Puppet Proxy": [
-        ""
+        "更改 Puppet 代理失败"
       ],
       "Failed to change environment for %{count} host": [
-        "",
-        ""
+        "更改 %{count} 主机环境失败"
       ],
       "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
         "为 %{name} 导入 %{klass} 失败：不存在于我们的数据库中 -- 忽略"
       ],
       "Failed to remove %{proxy_type} for %{count} host": [
-        "",
-        ""
+        "为 %{count} 主机删除 %{proxy_type} 失败"
       ],
       "Failed to remove Puppet CA Proxy": [
-        ""
+        "删除 Puppet CA 代理失败"
       ],
       "Failed to remove Puppet Environment": [
-        ""
+        "删除 Puppet 环境失败"
       ],
       "Failed to remove Puppet Proxy": [
-        ""
+        "删除 Puppet 代理失败"
       ],
       "Failed to set %{proxy_type} proxy for %{host}.": [
         "无法为 %{proxy_type} 设置 %{host} 代理服务器。"
       ],
       "Failed to set Puppet environment for %{host}.": [
-        ""
+        "为 %{host} 设置 Puppet 环境失败。"
       ],
       "Failed to set proxy for %{host}.": [
-        ""
+        "无法为 %{host} 设置代理。"
       ],
       "Failed to start": [
         "启动失败"
@@ -432,13 +429,13 @@
         "puppet 环境的 ID"
       ],
       "ID of the Puppet environment to set for the selected hosts": [
-        ""
+        "为所选主机设置的 Puppet 环境的 ID"
       ],
       "ID of the Puppet proxy to reassign the hosts to": [
-        ""
+        "要重新分配主机的 Puppet 代理的 ID"
       ],
       "ID of the organization": [
-        ""
+        "机构 ID"
       ],
       "IDs of associated ConfigGroups": [
         "与 ConfigGroups 关联的 ID"
@@ -543,10 +540,10 @@
         "配置组列表"
       ],
       "List of host ids to exclude and not run an action on": [
-        ""
+        "要排除且不在其上执行操作的主机 ID 列表"
       ],
       "List of host ids to perform an action on": [
-        ""
+        "要对其执行操作的主机 ID 列表"
       ],
       "List of override values for a specific smart class parameter": [
         "具体智能分类参数替代值列表"
@@ -696,7 +693,7 @@
         "Puppet CA 智能代理"
       ],
       "Puppet CA proxy": [
-        ""
+        "Puppet CA 代理"
       ],
       "Puppet Class": [
         "Puppet 类"
@@ -753,7 +750,7 @@
         "Puppet 参数"
       ],
       "Puppet proxy": [
-        ""
+        "Puppet 代理"
       ],
       "Puppetclass|Name": [
         "Puppetclass|名称"
@@ -765,25 +762,25 @@
         "删除组合"
       ],
       "Remove Puppet (CA) Proxy": [
-        ""
+        "删除 Puppet (CA)代理"
       ],
       "Remove Puppet CA Proxy": [
-        ""
+        "删除 Puppet CA 代理"
       ],
       "Remove Puppet CA proxy": [
-        ""
+        "删除 Puppet CA 代理"
       ],
       "Remove Puppet Environment": [
-        ""
+        "删除 Puppet 环境"
       ],
       "Remove Puppet Proxy": [
-        ""
+        "删除 Puppet 代理"
       ],
       "Remove Puppet environment": [
-        ""
+        "删除 Puppet 环境"
       ],
       "Remove Puppet proxy": [
-        ""
+        "删除 Puppet 代理"
       ],
       "Remove a Puppet class from host": [
         "從主機移除一個 Puppet 類別"
@@ -801,22 +798,22 @@
         "删除："
       ],
       "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
-        ""
+        "删除 Puppet CA 代理将影响 {boldCount} 个选定的主机。警告：如果仍然设置了 Puppet 代理，则 Puppet CA 代理将在删除后回退到该值！"
       ],
       "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
-        ""
+        "删除 Puppet CA 代理将影响 {boldCount} 个选定的 {count, plural, one {host} 和其他的 {hosts}}。警告：如果 Puppet 代理仍然被设置，则 Puppet CA 代理将在删除后回退到该值！"
       ],
       "Removing the Puppet environment will affect {boldCount} selected hosts.": [
-        ""
+        "删除 Puppet 环境将影响 {boldCount} 个选定的主机。"
       ],
       "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
-        ""
+        "删除 Puppet 环境将影响 {boldCount} 选定的 {count, plural, one {host} 和其他 {hosts}}。"
       ],
       "Removing the Puppet proxy will affect {boldCount} selected hosts.": [
-        ""
+        "删除 Puppet 代理将影响 {boldCount} 个选定的主机。"
       ],
       "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
-        ""
+        "删除 Puppet 代理将影响 {boldCount} 个选定的 {count, plural, one {host} 和其他 {hosts}}。"
       ],
       "Reports": [
         "报表"
@@ -831,16 +828,16 @@
         "调度"
       ],
       "Search string for hosts to perform an action on": [
-        ""
+        "在其中执行操纵的主机的搜索字符串"
       ],
       "Select a Puppet CA Proxy": [
-        ""
+        "选择 Puppet CA 代理"
       ],
       "Select a Puppet Proxy": [
-        ""
+        "选择 Puppet 代理"
       ],
       "Select an Environment": [
-        ""
+        "选择一个环境"
       ],
       "Select environment": [
         "选择环境"
@@ -849,7 +846,7 @@
         "选择您要应用到 Foreman 的更改"
       ],
       "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.": [
-        ""
+        "选定的 Puppet 环境没有分配到所有主机的正确组织和/或位置。"
       ],
       "Set parameters to defaults": [
         "将参数设定为默认"
@@ -936,7 +933,7 @@
         "这台 puppet 主服务器中未设置任何 puppet 环境。请检查 puppet 主服务器配置。"
       ],
       "There is no Smart Proxy with the feature '%s' available.": [
-        ""
+        "没有带有可用 '%s' 功能的智能代理。"
       ],
       "This Puppet class has no parameters in its signature.": [
         "这个 Puppet 类别在其签名中没有参数。"
@@ -960,10 +957,10 @@
         "总计"
       ],
       "True, if Puppet CA proxy should be changed instead of the Puppet proxy": [
-        ""
+        "True，是否应当更改 Puppet CA 代理而不是 Puppet 代理"
       ],
       "True, if Puppet CA proxy should be removed instead of the Puppet proxy": [
-        ""
+        "True，是否应当删除 Puppet CA 代理而不是 Puppet 代理"
       ],
       "Types of validation values": [
         "验证值类型"
@@ -1005,16 +1002,13 @@
         "已更新"
       ],
       "Updated host: changed %{proxy_type}": [
-        "",
-        ""
+        "更新的主机：已更改 %{proxy_type}"
       ],
       "Updated host: changed environment": [
-        "",
-        ""
+        "更新的主机：更改的环境"
       ],
       "Updated host: removed %{proxy_type}": [
-        "",
-        ""
+        "更新的主机：已删除 %{proxy_type}"
       ],
       "Updated hosts: changed environment": [
         "已更新主机：更改环境"

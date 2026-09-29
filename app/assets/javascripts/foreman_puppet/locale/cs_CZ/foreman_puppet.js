@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Pavel Borecki <pavel.borecki@gmail.com>, 2023",
+        "Last-Translator": "Pavel Borecki <pavel.borecki@gmail.com>, 2026",
         "Language-Team": "Czech (Czech Republic) (https://app.transifex.com/foreman/teams/114/cs_CZ/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -439,7 +439,7 @@
         ""
       ],
       "ID of the organization": [
-        ""
+        "Identifikátor organizace"
       ],
       "IDs of associated ConfigGroups": [
         ""
@@ -547,7 +547,7 @@
         ""
       ],
       "List of host ids to perform an action on": [
-        ""
+        "Vypsat identifikátorů strojů na kterých provést akci"
       ],
       "List of override values for a specific smart class parameter": [
         ""

@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "Japanese (https://app.transifex.com/foreman/teams/114/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -45,10 +45,10 @@
         "<b>説明:</b> %{desc}<br/>\\n     <b>タイプ:</b> %{type}<br/>\\n     <b>Matcher:</b> %{matcher}<br/>\\n     <b>継承値:</b> %{inherited_value}"
       ],
       "A Puppet environment with id %{id} could not be found.": [
-        ""
+        "ID が %{id} の Puppet 環境が見つかりませんでした。"
       ],
       "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found.": [
-        ""
+        "ID が %{id} で機能が %{proxy_type} の Smart Proxy が見つかりませんでした。"
       ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         "設定グループは、多くの Puppet クラスをホストまたはホストグループのいずれかに関連付けるワンステップの方法を提供します。通常、これは特定のアプリケーションプロファイルまたはスタックを 1 つのステップで追加するために使用されます。"
@@ -75,7 +75,7 @@
         "追加:"
       ],
       "All": [
-        ""
+        "すべて"
       ],
       "All environments - (not filtered)": [
         "すべての環境 - (フィルターなし)"
@@ -105,28 +105,28 @@
         "環境の変更"
       ],
       "Change Puppet (CA) Proxy": [
-        ""
+        "Puppet (CA) プロキシーを変更する"
       ],
       "Change Puppet CA Proxy": [
-        ""
+        "Puppet CA プロキシーを変更する"
       ],
       "Change Puppet CA proxy": [
-        ""
+        "Puppet CA プロキシーを変更する"
       ],
       "Change Puppet Environment": [
-        ""
+        "Puppet 環境を変更する"
       ],
       "Change Puppet Master": [
         "Puppet マスターの変更"
       ],
       "Change Puppet Proxy": [
-        ""
+        "Puppet プロキシーを変更する"
       ],
       "Change Puppet environment": [
-        ""
+        "Puppet 環境を変更する"
       ],
       "Change Puppet proxy": [
-        ""
+        "Puppet プロキシーを変更する"
       ],
       "Changed": [
         "変更済み"
@@ -135,22 +135,22 @@
         "変更済みの環境"
       ],
       "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy.": [
-        ""
+        "Puppet CA プロキシーを変更すると、選択した {boldCount} 台のホストに影響します。一部のホストは、選択された Puppet CA プロキシーにすでに関連付けられている可能性があります。"
       ],
       "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy.": [
-        ""
+        "Puppet CA プロキシーを変更すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。一部のホストは、選択された Puppet CA プロキシーにすでに関連付けられている可能性があります。"
       ],
       "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.": [
-        ""
+        "Puppet 環境を変更すると、選択した {boldCount} 台のホストに影響します。一部のホストは、選択された環境にすでに関連付けられている可能性があります。"
       ],
       "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.": [
-        ""
+        "Puppet 環境を変更すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。一部のホストは、選択された環境にすでに関連付けられている可能性があります。"
       ],
       "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy.": [
-        ""
+        "Puppet プロキシーを変更すると、選択した {boldCount} 台のホストに影響します。一部のホストは、選択された Puppet プロキシーにすでに関連付けられている可能性があります。"
       ],
       "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy.": [
-        ""
+        "Puppet プロキシーを変更すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。一部のホストは、選択された Puppet プロキシーにすでに関連付けられている可能性があります。"
       ],
       "Check/Uncheck all": [
         "すべて選択/選択解除"
@@ -213,7 +213,7 @@
         "環境の作成"
       ],
       "Create an override value for a specific smart class parameter": [
-        "特定スマートクラスパラメーターの上書き値を作成"
+        "特定スマートクラスパラメーターのオーバーライド値を作成"
       ],
       "Default Puppet environment": [
         "デフォルトの Puppet 環境"
@@ -234,7 +234,7 @@
         "環境の削除"
       ],
       "Delete an override value for a specific smart class parameter": [
-        "特定スマートクラスパラメーターの上書き値を削除"
+        "特定スマートクラスパラメーターのオーバーライド値を削除"
       ],
       "Deleted environment": [
         "削除済みの環境"
@@ -309,46 +309,43 @@
         "失敗"
       ],
       "Failed to change %{proxy_type} for %{count} host": [
-        "",
-        ""
+        "%{count} 台のホストの %{proxy_type} の変更に失敗しました"
       ],
       "Failed to change Puppet CA Proxy": [
-        ""
+        "Puppet CA プロキシーの変更に失敗しました"
       ],
       "Failed to change Puppet Environment": [
-        ""
+        "Puppet 環境の変更に失敗しました"
       ],
       "Failed to change Puppet Proxy": [
-        ""
+        "Puppet プロキシーの変更に失敗しました"
       ],
       "Failed to change environment for %{count} host": [
-        "",
-        ""
+        "%{count} ホストの環境変更に失敗しました"
       ],
       "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
         "%{name} の %{klass} のインポートに失敗しました: データベースに存在しません - 無視します"
       ],
       "Failed to remove %{proxy_type} for %{count} host": [
-        "",
-        ""
+        "%{count} 台のホストの %{proxy_type} の削除に失敗しました"
       ],
       "Failed to remove Puppet CA Proxy": [
-        ""
+        "Puppet CA プロキシーの削除に失敗しました"
       ],
       "Failed to remove Puppet Environment": [
-        ""
+        "Puppet 環境の削除に失敗しました"
       ],
       "Failed to remove Puppet Proxy": [
-        ""
+        "Puppet プロキシーの削除に失敗しました"
       ],
       "Failed to set %{proxy_type} proxy for %{host}.": [
         "%{host} に %{proxy_type} プロキシーを設定できませんでした。"
       ],
       "Failed to set Puppet environment for %{host}.": [
-        ""
+        "%{host} の Puppet 環境の設定に失敗しました。"
       ],
       "Failed to set proxy for %{host}.": [
-        ""
+        "%{host} のプロキシーの設定に失敗しました。"
       ],
       "Failed to start": [
         "起動に失敗しました"
@@ -372,7 +369,7 @@
         "Foreman は ENC YAML 出力で puppet 環境を明示的に設定します。これにより、puppet.conf の環境と Foreman で設定される環境間の競合を避けられます"
       ],
       "Foreman will not send this parameter in classification output": [
-        "Foreman では、このパラメーターは分類出力で送信されません。"
+        "Foreman では、このパラメーターは分類出力で送信されません"
       ],
       "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter": [
         "Foreman はこのパラメーターを分類出力で送信しません。Puppet はこのパラメーターについて Puppet マニフェストで定義された値を使用します"
@@ -432,13 +429,13 @@
         "Puppet 環境の ID"
       ],
       "ID of the Puppet environment to set for the selected hosts": [
-        ""
+        "選択したホストに設定する Puppet 環境の ID"
       ],
       "ID of the Puppet proxy to reassign the hosts to": [
-        ""
+        "ホストを再割り当てする Puppet プロキシーの ID"
       ],
       "ID of the organization": [
-        ""
+        "組織の ID"
       ],
       "IDs of associated ConfigGroups": [
         "関連付けられた設定グループの ID"
@@ -543,13 +540,13 @@
         "設定グループの一覧"
       ],
       "List of host ids to exclude and not run an action on": [
-        ""
+        "除外してアクションを実行しないホスト ID の一覧"
       ],
       "List of host ids to perform an action on": [
-        ""
+        "アクションを実行するホスト ID の一覧"
       ],
       "List of override values for a specific smart class parameter": [
-        "特定スマートクラスパラメーターの上書き値の一覧"
+        "特定スマートクラスパラメーターのオーバーライド値の一覧"
       ],
       "List of smart class parameters for a specific Puppet class": [
         "特定 Puppet クラスのスマートクラスパラメーターの一覧"
@@ -600,7 +597,7 @@
         "環境が見つかりません"
       ],
       "No parameters to override for Puppet class %s": [
-        "Puppet クラス %s で上書きするパラメーターはありません"
+        "Puppet クラス %s でオーバーライドするパラメーターはありません"
       ],
       "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled.": [
         "クラスのインポート元となるプロキシーが見つかりません。Smart Proxy で Puppet 機能が有効であることを確認してください。"
@@ -621,7 +618,7 @@
         "注意"
       ],
       "Number of Overrides": [
-        "上書き数"
+        "オーバーライド数"
       ],
       "Number of classes": [
         "クラスの数"
@@ -660,19 +657,19 @@
         "非同期"
       ],
       "Overridden": [
-        "上書き済み"
+        "オーバーライド済み"
       ],
       "Override all parameters": [
-        "すべてのパラメーターの上書き"
+        "すべてのパラメーターのオーバーライド"
       ],
       "Override match": [
-        "一致候補の上書き"
+        "オーバーライドの一致"
       ],
       "Override this value": [
-        "この値の上書き"
+        "この値をオーバーライドします"
       ],
       "Override value, required if omit is false": [
-        "上書き値 (--omit が false の場合に必要)"
+        "オーバーライド値 (omit が false の場合に必要)"
       ],
       "Parameter": [
         "パラメーター"
@@ -696,7 +693,7 @@
         "Puppet CA Smart Proxy"
       ],
       "Puppet CA proxy": [
-        ""
+        "Puppet CA プロキシー"
       ],
       "Puppet Class": [
         "Puppet クラス"
@@ -753,7 +750,7 @@
         "Puppet パラメーター"
       ],
       "Puppet proxy": [
-        ""
+        "Puppet プロキシー"
       ],
       "Puppetclass|Name": [
         "名前"
@@ -765,25 +762,25 @@
         "組み合わせの削除"
       ],
       "Remove Puppet (CA) Proxy": [
-        ""
+        "Puppet (CA) プロキシーを削除する"
       ],
       "Remove Puppet CA Proxy": [
-        ""
+        "Puppet CA プロキシーを削除する"
       ],
       "Remove Puppet CA proxy": [
-        ""
+        "Puppet CA プロキシーを削除する"
       ],
       "Remove Puppet Environment": [
-        ""
+        "Puppet 環境を削除する"
       ],
       "Remove Puppet Proxy": [
-        ""
+        "Puppet プロキシーを削除する"
       ],
       "Remove Puppet environment": [
-        ""
+        "Puppet 環境を削除する"
       ],
       "Remove Puppet proxy": [
-        ""
+        "Puppet プロキシーを削除する"
       ],
       "Remove a Puppet class from host": [
         "ホストから Puppet クラスを削除"
@@ -795,34 +792,34 @@
         "重複する値の削除 (配列タイプのみ)"
       ],
       "Remove this override": [
-        "この上書きの削除"
+        "このオーバーライドを削除する"
       ],
       "Remove:": [
         "削除:"
       ],
       "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
-        ""
+        "Puppet CA プロキシーを削除すると、選択した {boldCount} 台の ホストに影響します。警告: Puppet プロキシーが引き続き設定されている場合、Puppet CA プロキシーは削除後にその値にフォールバックします。"
       ],
       "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
-        ""
+        "Puppet CA プロキシーを削除すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。警告: Puppet プロキシーが引き続き設定されている場合、Puppet CA プロキシーは削除後にその値にフォールバックします。"
       ],
       "Removing the Puppet environment will affect {boldCount} selected hosts.": [
-        ""
+        "Puppet 環境を削除すると、選択した {boldCount} 台のホストに影響します。"
       ],
       "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
-        ""
+        "Puppet 環境を削除すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。"
       ],
       "Removing the Puppet proxy will affect {boldCount} selected hosts.": [
-        ""
+        "Puppet プロキシーを削除すると、選択した {boldCount} 台のホストに影響します。"
       ],
       "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
-        ""
+        "Puppet プロキシーを削除すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。"
       ],
       "Reports": [
         "レポート"
       ],
       "Required parameter without value.<br/><b>Please override!</b><br/>": [
-        "値なしの必須パラメーターです。<br/><b>上書きしてください!</b><br/>"
+        "値なしの必須パラメーターです。<br/><b>オーバーライドしてください!</b><br/>"
       ],
       "Restarted": [
         "再起動"
@@ -831,16 +828,16 @@
         "スケジュール済み"
       ],
       "Search string for hosts to perform an action on": [
-        ""
+        "アクションを実行するホストの検索文字列"
       ],
       "Select a Puppet CA Proxy": [
-        ""
+        "Puppet CA プロキシーを選択する"
       ],
       "Select a Puppet Proxy": [
-        ""
+        "Puppet プロキシーを選択する"
       ],
       "Select an Environment": [
-        ""
+        "環境を選択する"
       ],
       "Select environment": [
         "環境の選択"
@@ -849,7 +846,7 @@
         "Foreman に適用する変更を選択してください"
       ],
       "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.": [
-        ""
+        "選択された Puppet 環境は、すべてのホストに対して適切な組織や場所に割り当てられていません。"
       ],
       "Set parameters to defaults": [
         "パラメーターをデフォルトに設定"
@@ -876,7 +873,7 @@
         "環境の表示"
       ],
       "Show an override value for a specific smart class parameter": [
-        "特定スマートクラスパラメーターの上書き値を表示"
+        "特定スマートクラスパラメーターのオーバーライド値を表示"
       ],
       "Show template combination": [
         "テンプレートの組み合わせの表示"
@@ -900,7 +897,7 @@
         "クリップボードにコピーされました!"
       ],
       "Successfully overridden all parameters of Puppet class %s": [
-        "Puppet クラス %s のすべてのパラメーターが正常に上書きされました"
+        "Puppet クラス %s のすべてのパラメーターが正常にオーバーライドされました"
       ],
       "Successfully reset all parameters of Puppet class %s to their default values": [
         "Puppet クラス %s の全パラメーターをデフォルト値に正常にリセットしました"
@@ -912,10 +909,10 @@
         "ホスト: %{host_names} に %{proxy_type} プロキシーを設定できませんでした。"
       ],
       "The %{proxy_type} proxy of the selected hosts was cleared.": [
-        "選択したホストの %{proxy_type} プロキシーが消去されました"
+        "選択したホストの %{proxy_type} プロキシーが消去されました。"
       ],
       "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}": [
-        "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました。"
+        "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました"
       ],
       "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}.": [
         "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました。"
@@ -936,7 +933,7 @@
         "この puppet マスターには puppet 環境がセットアップされていません。puppet マスター設定を確認してください。"
       ],
       "There is no Smart Proxy with the feature '%s' available.": [
-        ""
+        "機能 '%s' を備えた利用可能な Smart Proxy がありません。"
       ],
       "This Puppet class has no parameters in its signature.": [
         "この Puppet クラスの署名にはパラメーターがありません。"
@@ -948,7 +945,7 @@
         "この操作ではクラス %s のパラメーターをデフォルト値にリセットします。続行しますか?"
       ],
       "This will set all parameters of the class %s as overridden. Continue?": [
-        "これは、クラス %s のすべてのパラメーターを上書き済みとして設定します。続行しますか?"
+        "これは、クラス %s のすべてのパラメーターをオーバーライド済みとして設定します。続行しますか?"
       ],
       "To update the class signature, go to the Puppet Classes page and select \\\"Import\\\".": [
         "クラス署名を更新するには「Puppet クラス」ページに移動して「インポート」を選択します。"
@@ -960,10 +957,10 @@
         "合計"
       ],
       "True, if Puppet CA proxy should be changed instead of the Puppet proxy": [
-        ""
+        "Puppet プロキシーではなく Puppet CA プロキシーを変更する必要がある場合は True"
       ],
       "True, if Puppet CA proxy should be removed instead of the Puppet proxy": [
-        ""
+        "Puppet プロキシーではなく Puppet CA プロキシーを削除する必要がある場合は True"
       ],
       "Types of validation values": [
         "検証値のタイプ"
@@ -990,7 +987,7 @@
         "環境の更新"
       ],
       "Update an override value for a specific smart class parameter": [
-        "特定スマートクラスパラメーターの上書き値を更新"
+        "特定スマートクラスパラメーターのオーバーライド値を更新"
       ],
       "Update environment from facts": [
         "ファクトから環境を更新"
@@ -1005,16 +1002,13 @@
         "更新済み"
       ],
       "Updated host: changed %{proxy_type}": [
-        "",
-        ""
+        "ホストを更新しました: %{proxy_type} を変更しました"
       ],
       "Updated host: changed environment": [
-        "",
-        ""
+        "ホストを更新しました: 環境を変更しました"
       ],
       "Updated host: removed %{proxy_type}": [
-        "",
-        ""
+        "ホストを更新しました: %{proxy_type} を削除しました"
       ],
       "Updated hosts: changed environment": [
         "更新済みホスト: 変更済み環境"

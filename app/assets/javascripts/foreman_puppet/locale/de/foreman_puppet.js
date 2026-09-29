@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "pdolinic, 2024",
+        "Last-Translator": "Bryan Kearney <bryan.kearney@gmail.com>, 2026",
         "Language-Team": "German (https://app.transifex.com/foreman/teams/114/de/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -439,7 +439,7 @@
         ""
       ],
       "ID of the organization": [
-        ""
+        "ID der Organisation"
       ],
       "IDs of associated ConfigGroups": [
         "IDs der zugehörigen ConfigGrouppen"
@@ -544,10 +544,10 @@
         "Alle Konfigurationsgruppen auflisten"
       ],
       "List of host ids to exclude and not run an action on": [
-        ""
+        "Liste der Host-IDs, die ausgeschlossen werden sollen und für die keine Aktion ausgeführt werden soll"
       ],
       "List of host ids to perform an action on": [
-        ""
+        "Liste der Host-IDs, auf denen eine Aktion ausgeführt werden soll"
       ],
       "List of override values for a specific smart class parameter": [
         "Liste der Überschreibungswerte für einen bestimmten Smart-Klassenparameter"
@@ -832,7 +832,7 @@
         ""
       ],
       "Search string for hosts to perform an action on": [
-        ""
+        "Suchzeichenfolge für Hosts, auf denen eine Aktion ausgeführt werden soll"
       ],
       "Select a Puppet CA Proxy": [
         ""
