@@ -34,7 +34,8 @@ module ForemanPuppet
         def completer_scope(field)
           return super unless ASSIGNMENT_RELATIONS.include?(field.relation)
 
-          field.klass.completer_scope(@options).reorder(Arel.sql(field.quoted_field))
+          options = @options.merge(autocomplete_resource: definition.klass)
+          field.klass.completer_scope(options).reorder(Arel.sql(field.quoted_field))
         end
       end
 
