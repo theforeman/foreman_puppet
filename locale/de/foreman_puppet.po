@@ -17,18 +17,18 @@
 # Christina Gurski <Gurski_christina@yahoo.de>, 2021
 # Mathias Reichardt, 2022
 # Martin Zimmermann <martin.zimmermann@gmx.com>, 2022
-# Bryan Kearney <bryan.kearney@gmail.com>, 2022
 # abf90805572190d649c59f7a021d76cb, 2022
 # simon11 <transifex@stieger.co>, 2023
 # Alexander Stoll <Alexander.Stoll@netways.de>, 2023
-# pdolinic, 2024
+# pdolinic, 2026
+# Bryan Kearney <bryan.kearney@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: pdolinic, 2024\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>, 2026\n"
 "Language-Team: German (https://app.transifex.com/foreman/teams/114/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -470,7 +470,7 @@ msgid "ID of the Puppet proxy to reassign the hosts to"
 msgstr ""
 
 msgid "ID of the organization"
-msgstr ""
+msgstr "ID der Organisation"
 
 msgid "IDs of associated ConfigGroups"
 msgstr "IDs der zugehörigen ConfigGrouppen"
@@ -575,10 +575,10 @@ msgid "List of config groups"
 msgstr "Alle Konfigurationsgruppen auflisten"
 
 msgid "List of host ids to exclude and not run an action on"
-msgstr ""
+msgstr "Liste der Host-IDs, die ausgeschlossen werden sollen und für die keine Aktion ausgeführt werden soll"
 
 msgid "List of host ids to perform an action on"
-msgstr ""
+msgstr "Liste der Host-IDs, auf denen eine Aktion ausgeführt werden soll"
 
 msgid "List of override values for a specific smart class parameter"
 msgstr "Liste der Überschreibungswerte für einen bestimmten Smart-Klassenparameter"
@@ -863,7 +863,7 @@ msgid "Scheduled"
 msgstr ""
 
 msgid "Search string for hosts to perform an action on"
-msgstr ""
+msgstr "Suchzeichenfolge für Hosts, auf denen eine Aktion ausgeführt werden soll"
 
 msgid "Select a Puppet CA Proxy"
 msgstr ""

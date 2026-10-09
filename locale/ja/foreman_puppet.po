@@ -6,15 +6,15 @@
 # Translators:
 # Transifex Bot <>, 2021
 # Amit Upadhye <aupadhye@redhat.com>, 2022
-# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025
+# Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2026
+# Ondřej Gajdušek, 2026
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarde"
-"n.nl>, 2025\n"
+"Last-Translator: Ondřej Gajdušek, 2026\n"
 "Language-Team: Japanese (https://app.transifex.com/foreman/teams/114/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,10 +59,10 @@ msgstr ""
 "     <b>継承値:</b> %{inherited_value}"
 
 msgid "A Puppet environment with id %{id} could not be found."
-msgstr ""
+msgstr "ID が %{id} の Puppet 環境が見つかりませんでした。"
 
 msgid "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found."
-msgstr ""
+msgstr "ID が %{id} で機能が %{proxy_type} の Smart Proxy が見つかりませんでした。"
 
 msgid "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step."
 msgstr "設定グループは、多くの Puppet クラスをホストまたはホストグループのいずれかに関連付けるワンステップの方法を提供します。通常、これは特定のアプリケーションプロファイルまたはスタックを 1 つのステップで追加するために使用されます。"
@@ -89,7 +89,7 @@ msgid "Add:"
 msgstr "追加:"
 
 msgid "All"
-msgstr ""
+msgstr "すべて"
 
 msgid "All environments - (not filtered)"
 msgstr "すべての環境 - (フィルターなし)"
@@ -119,28 +119,28 @@ msgid "Change Environment"
 msgstr "環境の変更"
 
 msgid "Change Puppet (CA) Proxy"
-msgstr ""
+msgstr "Puppet (CA) プロキシーを変更する"
 
 msgid "Change Puppet CA Proxy"
-msgstr ""
+msgstr "Puppet CA プロキシーを変更する"
 
 msgid "Change Puppet CA proxy"
-msgstr ""
+msgstr "Puppet CA プロキシーを変更する"
 
 msgid "Change Puppet Environment"
-msgstr ""
+msgstr "Puppet 環境を変更する"
 
 msgid "Change Puppet Master"
 msgstr "Puppet マスターの変更"
 
 msgid "Change Puppet Proxy"
-msgstr ""
+msgstr "Puppet プロキシーを変更する"
 
 msgid "Change Puppet environment"
-msgstr ""
+msgstr "Puppet 環境を変更する"
 
 msgid "Change Puppet proxy"
-msgstr ""
+msgstr "Puppet プロキシーを変更する"
 
 msgid "Changed"
 msgstr "変更済み"
@@ -149,22 +149,22 @@ msgid "Changed environments"
 msgstr "変更済みの環境"
 
 msgid "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy."
-msgstr ""
+msgstr "Puppet CA プロキシーを変更すると、選択した {boldCount} 台のホストに影響します。一部のホストは、選択された Puppet CA プロキシーにすでに関連付けられている可能性があります。"
 
 msgid "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy."
-msgstr ""
+msgstr "Puppet CA プロキシーを変更すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。一部のホストは、選択された Puppet CA プロキシーにすでに関連付けられている可能性があります。"
 
 msgid "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment."
-msgstr ""
+msgstr "Puppet 環境を変更すると、選択した {boldCount} 台のホストに影響します。一部のホストは、選択された環境にすでに関連付けられている可能性があります。"
 
 msgid "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment."
-msgstr ""
+msgstr "Puppet 環境を変更すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。一部のホストは、選択された環境にすでに関連付けられている可能性があります。"
 
 msgid "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy."
-msgstr ""
+msgstr "Puppet プロキシーを変更すると、選択した {boldCount} 台のホストに影響します。一部のホストは、選択された Puppet プロキシーにすでに関連付けられている可能性があります。"
 
 msgid "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy."
-msgstr ""
+msgstr "Puppet プロキシーを変更すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。一部のホストは、選択された Puppet プロキシーにすでに関連付けられている可能性があります。"
 
 msgid "Check/Uncheck all"
 msgstr "すべて選択/選択解除"
@@ -227,7 +227,7 @@ msgid "Create an environment"
 msgstr "環境の作成"
 
 msgid "Create an override value for a specific smart class parameter"
-msgstr "特定スマートクラスパラメーターの上書き値を作成"
+msgstr "特定スマートクラスパラメーターのオーバーライド値を作成"
 
 msgid "Default Puppet environment"
 msgstr "デフォルトの Puppet 環境"
@@ -248,7 +248,7 @@ msgid "Delete an environment"
 msgstr "環境の削除"
 
 msgid "Delete an override value for a specific smart class parameter"
-msgstr "特定スマートクラスパラメーターの上書き値を削除"
+msgstr "特定スマートクラスパラメーターのオーバーライド値を削除"
 
 msgid "Deleted environment"
 msgstr "削除済みの環境"
@@ -324,48 +324,45 @@ msgstr "失敗"
 
 msgid "Failed to change %{proxy_type} for %{count} host"
 msgid_plural "Failed to change %{proxy_type} for %{count} hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} 台のホストの %{proxy_type} の変更に失敗しました"
 
 msgid "Failed to change Puppet CA Proxy"
-msgstr ""
+msgstr "Puppet CA プロキシーの変更に失敗しました"
 
 msgid "Failed to change Puppet Environment"
-msgstr ""
+msgstr "Puppet 環境の変更に失敗しました"
 
 msgid "Failed to change Puppet Proxy"
-msgstr ""
+msgstr "Puppet プロキシーの変更に失敗しました"
 
 msgid "Failed to change environment for %{count} host"
 msgid_plural "Failed to change environment for %{count} hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} ホストの環境変更に失敗しました"
 
 msgid "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring"
 msgstr "%{name} の %{klass} のインポートに失敗しました: データベースに存在しません - 無視します"
 
 msgid "Failed to remove %{proxy_type} for %{count} host"
 msgid_plural "Failed to remove %{proxy_type} for %{count} hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} 台のホストの %{proxy_type} の削除に失敗しました"
 
 msgid "Failed to remove Puppet CA Proxy"
-msgstr ""
+msgstr "Puppet CA プロキシーの削除に失敗しました"
 
 msgid "Failed to remove Puppet Environment"
-msgstr ""
+msgstr "Puppet 環境の削除に失敗しました"
 
 msgid "Failed to remove Puppet Proxy"
-msgstr ""
+msgstr "Puppet プロキシーの削除に失敗しました"
 
 msgid "Failed to set %{proxy_type} proxy for %{host}."
 msgstr "%{host} に %{proxy_type} プロキシーを設定できませんでした。"
 
 msgid "Failed to set Puppet environment for %{host}."
-msgstr ""
+msgstr "%{host} の Puppet 環境の設定に失敗しました。"
 
 msgid "Failed to set proxy for %{host}."
-msgstr ""
+msgstr "%{host} のプロキシーの設定に失敗しました。"
 
 msgid "Failed to start"
 msgstr "起動に失敗しました"
@@ -389,7 +386,7 @@ msgid "Foreman will explicitly set the puppet environment in the ENC yaml output
 msgstr "Foreman は ENC YAML 出力で puppet 環境を明示的に設定します。これにより、puppet.conf の環境と Foreman で設定される環境間の競合を避けられます"
 
 msgid "Foreman will not send this parameter in classification output"
-msgstr "Foreman では、このパラメーターは分類出力で送信されません。"
+msgstr "Foreman では、このパラメーターは分類出力で送信されません"
 
 msgid "Foreman will not send this parameter in classification output.Puppet will use the value defined in the Puppet manifest for this parameter"
 msgstr "Foreman はこのパラメーターを分類出力で送信しません。Puppet はこのパラメーターについて Puppet マニフェストで定義された値を使用します"
@@ -449,13 +446,13 @@ msgid "ID of puppet environment"
 msgstr "Puppet 環境の ID"
 
 msgid "ID of the Puppet environment to set for the selected hosts"
-msgstr ""
+msgstr "選択したホストに設定する Puppet 環境の ID"
 
 msgid "ID of the Puppet proxy to reassign the hosts to"
-msgstr ""
+msgstr "ホストを再割り当てする Puppet プロキシーの ID"
 
 msgid "ID of the organization"
-msgstr ""
+msgstr "組織の ID"
 
 msgid "IDs of associated ConfigGroups"
 msgstr "関連付けられた設定グループの ID"
@@ -560,13 +557,13 @@ msgid "List of config groups"
 msgstr "設定グループの一覧"
 
 msgid "List of host ids to exclude and not run an action on"
-msgstr ""
+msgstr "除外してアクションを実行しないホスト ID の一覧"
 
 msgid "List of host ids to perform an action on"
-msgstr ""
+msgstr "アクションを実行するホスト ID の一覧"
 
 msgid "List of override values for a specific smart class parameter"
-msgstr "特定スマートクラスパラメーターの上書き値の一覧"
+msgstr "特定スマートクラスパラメーターのオーバーライド値の一覧"
 
 msgid "List of smart class parameters for a specific Puppet class"
 msgstr "特定 Puppet クラスのスマートクラスパラメーターの一覧"
@@ -617,7 +614,7 @@ msgid "No environments found"
 msgstr "環境が見つかりません"
 
 msgid "No parameters to override for Puppet class %s"
-msgstr "Puppet クラス %s で上書きするパラメーターはありません"
+msgstr "Puppet クラス %s でオーバーライドするパラメーターはありません"
 
 msgid "No proxy found to import classes from, ensure that the smart proxy has the Puppet feature enabled."
 msgstr "クラスのインポート元となるプロキシーが見つかりません。Smart Proxy で Puppet 機能が有効であることを確認してください。"
@@ -638,7 +635,7 @@ msgid "Notice"
 msgstr "注意"
 
 msgid "Number of Overrides"
-msgstr "上書き数"
+msgstr "オーバーライド数"
 
 msgid "Number of classes"
 msgstr "クラスの数"
@@ -677,19 +674,19 @@ msgid "Out of sync"
 msgstr "非同期"
 
 msgid "Overridden"
-msgstr "上書き済み"
+msgstr "オーバーライド済み"
 
 msgid "Override all parameters"
-msgstr "すべてのパラメーターの上書き"
+msgstr "すべてのパラメーターのオーバーライド"
 
 msgid "Override match"
-msgstr "一致候補の上書き"
+msgstr "オーバーライドの一致"
 
 msgid "Override this value"
-msgstr "この値の上書き"
+msgstr "この値をオーバーライドします"
 
 msgid "Override value, required if omit is false"
-msgstr "上書き値 (--omit が false の場合に必要)"
+msgstr "オーバーライド値 (omit が false の場合に必要)"
 
 msgid "Parameter"
 msgstr "パラメーター"
@@ -713,7 +710,7 @@ msgid "Puppet CA Smart Proxy"
 msgstr "Puppet CA Smart Proxy"
 
 msgid "Puppet CA proxy"
-msgstr ""
+msgstr "Puppet CA プロキシー"
 
 msgid "Puppet Class"
 msgstr "Puppet クラス"
@@ -770,7 +767,7 @@ msgid "Puppet parameter"
 msgstr "Puppet パラメーター"
 
 msgid "Puppet proxy"
-msgstr ""
+msgstr "Puppet プロキシー"
 
 msgid "Puppetclass|Name"
 msgstr "名前"
@@ -782,25 +779,25 @@ msgid "Remove Combination"
 msgstr "組み合わせの削除"
 
 msgid "Remove Puppet (CA) Proxy"
-msgstr ""
+msgstr "Puppet (CA) プロキシーを削除する"
 
 msgid "Remove Puppet CA Proxy"
-msgstr ""
+msgstr "Puppet CA プロキシーを削除する"
 
 msgid "Remove Puppet CA proxy"
-msgstr ""
+msgstr "Puppet CA プロキシーを削除する"
 
 msgid "Remove Puppet Environment"
-msgstr ""
+msgstr "Puppet 環境を削除する"
 
 msgid "Remove Puppet Proxy"
-msgstr ""
+msgstr "Puppet プロキシーを削除する"
 
 msgid "Remove Puppet environment"
-msgstr ""
+msgstr "Puppet 環境を削除する"
 
 msgid "Remove Puppet proxy"
-msgstr ""
+msgstr "Puppet プロキシーを削除する"
 
 msgid "Remove a Puppet class from host"
 msgstr "ホストから Puppet クラスを削除"
@@ -812,34 +809,34 @@ msgid "Remove duplicate values (only array type)"
 msgstr "重複する値の削除 (配列タイプのみ)"
 
 msgid "Remove this override"
-msgstr "この上書きの削除"
+msgstr "このオーバーライドを削除する"
 
 msgid "Remove:"
 msgstr "削除:"
 
 msgid "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
-msgstr ""
+msgstr "Puppet CA プロキシーを削除すると、選択した {boldCount} 台の ホストに影響します。警告: Puppet プロキシーが引き続き設定されている場合、Puppet CA プロキシーは削除後にその値にフォールバックします。"
 
 msgid "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!"
-msgstr ""
+msgstr "Puppet CA プロキシーを削除すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。警告: Puppet プロキシーが引き続き設定されている場合、Puppet CA プロキシーは削除後にその値にフォールバックします。"
 
 msgid "Removing the Puppet environment will affect {boldCount} selected hosts."
-msgstr ""
+msgstr "Puppet 環境を削除すると、選択した {boldCount} 台のホストに影響します。"
 
 msgid "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
-msgstr ""
+msgstr "Puppet 環境を削除すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。"
 
 msgid "Removing the Puppet proxy will affect {boldCount} selected hosts."
-msgstr ""
+msgstr "Puppet プロキシーを削除すると、選択した {boldCount} 台のホストに影響します。"
 
 msgid "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}."
-msgstr ""
+msgstr "Puppet プロキシーを削除すると、選択した {boldCount} 台の {count, plural, one {host} other {hosts}} に影響します。"
 
 msgid "Reports"
 msgstr "レポート"
 
 msgid "Required parameter without value.<br/><b>Please override!</b><br/>"
-msgstr "値なしの必須パラメーターです。<br/><b>上書きしてください!</b><br/>"
+msgstr "値なしの必須パラメーターです。<br/><b>オーバーライドしてください!</b><br/>"
 
 msgid "Restarted"
 msgstr "再起動"
@@ -848,16 +845,16 @@ msgid "Scheduled"
 msgstr "スケジュール済み"
 
 msgid "Search string for hosts to perform an action on"
-msgstr ""
+msgstr "アクションを実行するホストの検索文字列"
 
 msgid "Select a Puppet CA Proxy"
-msgstr ""
+msgstr "Puppet CA プロキシーを選択する"
 
 msgid "Select a Puppet Proxy"
-msgstr ""
+msgstr "Puppet プロキシーを選択する"
 
 msgid "Select an Environment"
-msgstr ""
+msgstr "環境を選択する"
 
 msgid "Select environment"
 msgstr "環境の選択"
@@ -866,7 +863,7 @@ msgid "Select the changes you want to apply to Foreman"
 msgstr "Foreman に適用する変更を選択してください"
 
 msgid "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts."
-msgstr ""
+msgstr "選択された Puppet 環境は、すべてのホストに対して適切な組織や場所に割り当てられていません。"
 
 msgid "Set parameters to defaults"
 msgstr "パラメーターをデフォルトに設定"
@@ -893,7 +890,7 @@ msgid "Show an environment"
 msgstr "環境の表示"
 
 msgid "Show an override value for a specific smart class parameter"
-msgstr "特定スマートクラスパラメーターの上書き値を表示"
+msgstr "特定スマートクラスパラメーターのオーバーライド値を表示"
 
 msgid "Show template combination"
 msgstr "テンプレートの組み合わせの表示"
@@ -917,7 +914,7 @@ msgid "Successfully copied to clipboard!"
 msgstr "クリップボードにコピーされました!"
 
 msgid "Successfully overridden all parameters of Puppet class %s"
-msgstr "Puppet クラス %s のすべてのパラメーターが正常に上書きされました"
+msgstr "Puppet クラス %s のすべてのパラメーターが正常にオーバーライドされました"
 
 msgid "Successfully reset all parameters of Puppet class %s to their default values"
 msgstr "Puppet クラス %s の全パラメーターをデフォルト値に正常にリセットしました"
@@ -930,10 +927,10 @@ msgid_plural "The %{proxy_type} puppet ca proxy could not be set for hosts: %{ho
 msgstr[0] "ホスト: %{host_names} に %{proxy_type} プロキシーを設定できませんでした。"
 
 msgid "The %{proxy_type} proxy of the selected hosts was cleared."
-msgstr "選択したホストの %{proxy_type} プロキシーが消去されました"
+msgstr "選択したホストの %{proxy_type} プロキシーが消去されました。"
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}"
-msgstr "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました。"
+msgstr "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました"
 
 msgid "The %{proxy_type} proxy of the selected hosts was set to %{proxy_name}."
 msgstr "選択したホストの %{proxy_type} プロキシーが %{proxy_name} に設定されました。"
@@ -954,7 +951,7 @@ msgid "There are no puppet environments set up on this puppet master. Please che
 msgstr "この puppet マスターには puppet 環境がセットアップされていません。puppet マスター設定を確認してください。"
 
 msgid "There is no Smart Proxy with the feature '%s' available."
-msgstr ""
+msgstr "機能 '%s' を備えた利用可能な Smart Proxy がありません。"
 
 msgid "This Puppet class has no parameters in its signature."
 msgstr "この Puppet クラスの署名にはパラメーターがありません。"
@@ -966,7 +963,7 @@ msgid "This will reset parameters of the class %s to their default values. Conti
 msgstr "この操作ではクラス %s のパラメーターをデフォルト値にリセットします。続行しますか?"
 
 msgid "This will set all parameters of the class %s as overridden. Continue?"
-msgstr "これは、クラス %s のすべてのパラメーターを上書き済みとして設定します。続行しますか?"
+msgstr "これは、クラス %s のすべてのパラメーターをオーバーライド済みとして設定します。続行しますか?"
 
 msgid "To update the class signature, go to the Puppet Classes page and select \"Import\"."
 msgstr "クラス署名を更新するには「Puppet クラス」ページに移動して「インポート」を選択します。"
@@ -978,10 +975,10 @@ msgid "Total"
 msgstr "合計"
 
 msgid "True, if Puppet CA proxy should be changed instead of the Puppet proxy"
-msgstr ""
+msgstr "Puppet プロキシーではなく Puppet CA プロキシーを変更する必要がある場合は True"
 
 msgid "True, if Puppet CA proxy should be removed instead of the Puppet proxy"
-msgstr ""
+msgstr "Puppet プロキシーではなく Puppet CA プロキシーを削除する必要がある場合は True"
 
 msgid "Types of validation values"
 msgstr "検証値のタイプ"
@@ -1008,7 +1005,7 @@ msgid "Update an environment"
 msgstr "環境の更新"
 
 msgid "Update an override value for a specific smart class parameter"
-msgstr "特定スマートクラスパラメーターの上書き値を更新"
+msgstr "特定スマートクラスパラメーターのオーバーライド値を更新"
 
 msgid "Update environment from facts"
 msgstr "ファクトから環境を更新"
@@ -1024,18 +1021,15 @@ msgstr "更新済み"
 
 msgid "Updated host: changed %{proxy_type}"
 msgid_plural "Updated hosts: changed %{proxy_type}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ホストを更新しました: %{proxy_type} を変更しました"
 
 msgid "Updated host: changed environment"
 msgid_plural "Updated hosts: changed environment"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ホストを更新しました: 環境を変更しました"
 
 msgid "Updated host: removed %{proxy_type}"
 msgid_plural "Updated hosts: removed %{proxy_type}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ホストを更新しました: %{proxy_type} を削除しました"
 
 msgid "Updated hosts: changed environment"
 msgstr "更新済みホスト: 変更済み環境"

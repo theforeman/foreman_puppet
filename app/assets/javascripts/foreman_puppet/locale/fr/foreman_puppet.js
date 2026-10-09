@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
+        "Last-Translator": "Ondřej Gajdušek, 2026",
         "Language-Team": "French (https://app.transifex.com/foreman/teams/114/fr/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -47,10 +47,10 @@
         "<b>Description :</b> %{desc}<br/>\\n     <b>Type :</b> %{type}<br/>\\n     <b>Correspondant :</b> %{matcher}<br/>\\n     <b>Valeur héritée :</b> %{inherited_value}"
       ],
       "A Puppet environment with id %{id} could not be found.": [
-        ""
+        "Un environnement Puppet avec un identifiant %{id} introuvable."
       ],
       "A Smart Proxy with id %{id} and the %{proxy_type} feature could not be found.": [
-        ""
+        "Un proxy intelligent avec identifiant %{id} et le %{proxy_type} Cette fonctionnalité est introuvable."
       ],
       "A config group provides a one-step method of associating many Puppet classes to either a host or host group. Typically this would be used to add a particular application profile or stack in one step.": [
         "Un groupe de configuration fournit une méthode en une seule étape pour associer de nombreuses classes Puppet à un hôte ou à un groupe d'hôtes. Typiquement, ceci serait utilisé pour ajouter un profil d'application particulier ou une pile en une seule étape."
@@ -77,7 +77,7 @@
         "Ajouter :"
       ],
       "All": [
-        ""
+        "Tout"
       ],
       "All environments - (not filtered)": [
         "Tous les environnements - (non filtrés)"
@@ -107,28 +107,28 @@
         "Changer l'environnement"
       ],
       "Change Puppet (CA) Proxy": [
-        ""
+        "Proxy Change Puppet (CA)"
       ],
       "Change Puppet CA Proxy": [
-        ""
+        "Changer le proxy CA fantoche"
       ],
       "Change Puppet CA proxy": [
-        ""
+        "Changer le proxy d'autorité de certification Puppet"
       ],
       "Change Puppet Environment": [
-        ""
+        "Changer l'environnement de marionnettes"
       ],
       "Change Puppet Master": [
         "Changer le Puppet Master"
       ],
       "Change Puppet Proxy": [
-        ""
+        "Changer le proxy Puppet"
       ],
       "Change Puppet environment": [
-        ""
+        "Modifier l'environnement Puppet"
       ],
       "Change Puppet proxy": [
-        ""
+        "Changer le proxy Puppet"
       ],
       "Changed": [
         "Modifié"
@@ -137,22 +137,22 @@
         "Environnements modifiés"
       ],
       "Changing the Puppet CA proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet CA proxy.": [
-        ""
+        "Modifier le proxy de l'autorité de certification Puppet affectera {boldCount} hôtes sélectionnés. Certains hôtes peuvent déjà être associés au proxy d'autorité de certification Puppet sélectionné."
       ],
       "Changing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet CA proxy.": [
-        ""
+        "Modifier le proxy de l'autorité de certification Puppet affectera {boldCount} choisi {count, plural, one {host} autre{hosts}}. Certains hôtes peuvent déjà être associés au proxy d'autorité de certification Puppet sélectionné."
       ],
       "Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.": [
-        ""
+        "Modifier l'environnement Puppet aura un impact {boldCount} Hôtes sélectionnés. Certains hôtes peuvent déjà être associés à l'environnement sélectionné."
       ],
       "Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.": [
-        ""
+        "Modifier l'environnement Puppet aura un impact {boldCount} choisi {count, plural, one {host} autre {hosts} Certains hôtes peuvent déjà être associés à l'environnement sélectionné."
       ],
       "Changing the Puppet proxy will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected Puppet proxy.": [
-        ""
+        "Modifier le proxy Puppet aura des conséquences {boldCount} Hôtes sélectionnés. Certains hôtes peuvent déjà être associés au proxy Puppet sélectionné."
       ],
       "Changing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected Puppet proxy.": [
-        ""
+        "Modifier le proxy Puppet aura des conséquences {boldCount} choisi {count, plural, one {host} autre {hosts} Certains hôtes peuvent déjà être associés au proxy Puppet sélectionné."
       ],
       "Check/Uncheck all": [
         "Cocher / Tout décocher"
@@ -311,46 +311,49 @@
         "Échec"
       ],
       "Failed to change %{proxy_type} for %{count} host": [
-        "",
-        ""
+        "Échec du changement %{proxy_type} pour %{count} hôte",
+        "Échec du changement %{proxy_type} pour %{count} hôtes",
+        "Échec du changement %{proxy_type} pour %{count} hôtes"
       ],
       "Failed to change Puppet CA Proxy": [
-        ""
+        "Échec de la modification du proxy d'autorité de certification Puppet"
       ],
       "Failed to change Puppet Environment": [
-        ""
+        "Impossible de modifier l'environnement Puppet"
       ],
       "Failed to change Puppet Proxy": [
-        ""
+        "Impossible de modifier le proxy Puppet"
       ],
       "Failed to change environment for %{count} host": [
-        "",
-        ""
+        "Échec du changement d'environnement pour %{count} hôte",
+        "Échec du changement d'environnement pour %{count} hôtes",
+        "Échec du changement d'environnement pour %{count} hôtes"
       ],
       "Failed to import %{klass} for %{name}: doesn't exists in our database - ignoring": [
         "Échec lors de l'importation de %{klass} pour %{name} : l'entrée n'existe pas dans la base de donnée - ignore"
       ],
       "Failed to remove %{proxy_type} for %{count} host": [
-        "",
-        ""
+        "Échec de la suppression %{proxy_type} pour %{count} hôte",
+        "Échec de la suppression %{proxy_type} pour %{count} hôtes",
+        "Échec de la suppression %{proxy_type} pour %{count} hôtes"
       ],
       "Failed to remove Puppet CA Proxy": [
-        ""
+        "Échec de la suppression du proxy d'autorité de certification Puppet"
       ],
       "Failed to remove Puppet Environment": [
-        ""
+        "Échec de la suppression de l'environnement Puppet"
       ],
       "Failed to remove Puppet Proxy": [
-        ""
+        "Échec de la suppression du proxy Puppet"
       ],
       "Failed to set %{proxy_type} proxy for %{host}.": [
         "N’a pas pu définir le proxy %{proxy_type} pour %{host}."
       ],
       "Failed to set Puppet environment for %{host}.": [
-        ""
+        "Échec de la configuration de l'environnement Puppet pour %{host} ."
       ],
       "Failed to set proxy for %{host}.": [
-        ""
+        "N’a pas pu définir le proxy pour %{host}."
       ],
       "Failed to start": [
         "Impossible de démarrer"
@@ -434,13 +437,13 @@
         "ID environnement Puppet"
       ],
       "ID of the Puppet environment to set for the selected hosts": [
-        ""
+        "ID de l'environnement Puppet à définir pour les hôtes sélectionnés"
       ],
       "ID of the Puppet proxy to reassign the hosts to": [
-        ""
+        "ID du proxy Puppet auquel réaffecter les hôtes"
       ],
       "ID of the organization": [
-        ""
+        "ID de l'organisation"
       ],
       "IDs of associated ConfigGroups": [
         "ID des groupes de configuration associés"
@@ -545,10 +548,10 @@
         "Liste des groupes de configuration"
       ],
       "List of host ids to exclude and not run an action on": [
-        ""
+        "Liste d'id d’hôtes à exclure et sur lesquels ne pas effectuer d'action"
       ],
       "List of host ids to perform an action on": [
-        ""
+        "Liste d'id d’hôtes sur lesquels effectuer une action"
       ],
       "List of override values for a specific smart class parameter": [
         "Liste des valeurs de substitution pour un paramètre smart class"
@@ -698,7 +701,7 @@
         "Proxy Smart CA Puppet"
       ],
       "Puppet CA proxy": [
-        ""
+        "Proxy Puppet CA"
       ],
       "Puppet Class": [
         "Classe Puppet"
@@ -755,7 +758,7 @@
         "Paramètre Puppet"
       ],
       "Puppet proxy": [
-        ""
+        "Proxy Puppet"
       ],
       "Puppetclass|Name": [
         "Nom"
@@ -767,25 +770,25 @@
         "Supprimer la combinaison"
       ],
       "Remove Puppet (CA) Proxy": [
-        ""
+        "Supprimer le proxy Puppet (CA)"
       ],
       "Remove Puppet CA Proxy": [
-        ""
+        "Supprimer le proxy CA Puppet"
       ],
       "Remove Puppet CA proxy": [
-        ""
+        "Supprimer le proxy d'autorité de certification Puppet"
       ],
       "Remove Puppet Environment": [
-        ""
+        "Supprimer l'environnement Puppet"
       ],
       "Remove Puppet Proxy": [
-        ""
+        "Supprimer le proxy Puppet"
       ],
       "Remove Puppet environment": [
-        ""
+        "Supprimer l'environnement Puppet"
       ],
       "Remove Puppet proxy": [
-        ""
+        "Supprimer le proxy Puppet"
       ],
       "Remove a Puppet class from host": [
         "Supprimer une classe Puppet d'un hôte"
@@ -803,22 +806,22 @@
         "Suppression:"
       ],
       "Removing the Puppet CA proxy will affect {boldCount} selected hosts. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
-        ""
+        "La suppression du proxy d'autorité de certification Puppet affectera {boldCount} hôtes sélectionnés. Attention : si un proxy Puppet est toujours configuré, le proxy d’autorité de certification Puppet utilisera cette valeur par défaut après sa suppression !"
       ],
       "Removing the Puppet CA proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Warning: If a Puppet Proxy is still set, the Puppet CA Proxy will fall back to that value after removal!": [
-        ""
+        "La suppression du proxy d'autorité de certification Puppet affectera {boldCount} choisi {count, plural, one {host} autre {hosts}}. Avertissement : si un proxy Puppet est toujours configuré, le proxy d’autorité de certification Puppet reprendra cette valeur après sa suppression !"
       ],
       "Removing the Puppet environment will affect {boldCount} selected hosts.": [
-        ""
+        "La suppression de l'environnement Puppet aura des conséquences {boldCount} hôtes sélectionnés."
       ],
       "Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
-        ""
+        "La suppression de l'environnement Puppet affectera {boldCount} choisi {count, plural, one {host} autre{hosts} ."
       ],
       "Removing the Puppet proxy will affect {boldCount} selected hosts.": [
-        ""
+        "La suppression du proxy Puppet affectera {boldCount} hôtes sélectionnés."
       ],
       "Removing the Puppet proxy will affect {boldCount} selected {count, plural, one {host} other {hosts}}.": [
-        ""
+        "La suppression du proxy Puppet affectera {boldCount} sélectionné {count, plural, one {host} autre{hosts}}."
       ],
       "Reports": [
         "Rapports"
@@ -833,16 +836,16 @@
         "Programmé"
       ],
       "Search string for hosts to perform an action on": [
-        ""
+        "Rechercher une chaîne pour que les hôtes puissent effectuer une action dessus"
       ],
       "Select a Puppet CA Proxy": [
-        ""
+        "Sélectionnez un proxy d'autorité de certification fantoche"
       ],
       "Select a Puppet Proxy": [
-        ""
+        "Sélectionnez un mandataire fantoche"
       ],
       "Select an Environment": [
-        ""
+        "Sélectionnez un environnement"
       ],
       "Select environment": [
         "Choisir l'environnement"
@@ -851,7 +854,7 @@
         "Sélectionner les changements que vous souhaitez appliquer à Foreman"
       ],
       "Selected Puppet environment is not assigned to the proper organization and/or location for all hosts.": [
-        ""
+        "L'environnement Puppet sélectionné n'est pas attribué à l'organisation et/ou à l'emplacement appropriés pour tous les hôtes."
       ],
       "Set parameters to defaults": [
         "Positionner les paramètres aux valeurs par défaut"
@@ -940,7 +943,7 @@
         "Il n'y a aucun environnement Puppet défini pour ce Puppet Master. Veuillez vérifier la configuration de votre Puppet Master."
       ],
       "There is no Smart Proxy with the feature '%s' available.": [
-        ""
+        "Il n'existe pas de proxy intelligent doté de la fonctionnalité ’%s ' disponible."
       ],
       "This Puppet class has no parameters in its signature.": [
         "Cette classe Puppet n'a pas de paramètre dans sa signature."
@@ -964,10 +967,10 @@
         "Total"
       ],
       "True, if Puppet CA proxy should be changed instead of the Puppet proxy": [
-        ""
+        "C'est vrai, si le proxy CA de Puppet doit être modifié au lieu du proxy Puppet"
       ],
       "True, if Puppet CA proxy should be removed instead of the Puppet proxy": [
-        ""
+        "C'est vrai, si le proxy Puppet CA doit être supprimé à la place du proxy Puppet."
       ],
       "Types of validation values": [
         "Types des valeurs pour la validation"
@@ -1009,16 +1012,19 @@
         "Mis à jour"
       ],
       "Updated host: changed %{proxy_type}": [
-        "",
-        ""
+        "Hôte mis à jour : modifié %{proxy_type}",
+        "Hôtes mis à jour : modifiés %{proxy_type}",
+        "Hôtes mis à jour : modifiés %{proxy_type}"
       ],
       "Updated host: changed environment": [
-        "",
-        ""
+        "Hôte mis à jour : environnement modifié",
+        "Mise à jour des hôtes : l'environnement a changé",
+        "Mise à jour des hôtes : l'environnement a changé"
       ],
       "Updated host: removed %{proxy_type}": [
-        "",
-        ""
+        "Hôte mis à jour : supprimé %{proxy_type}",
+        "Hôtes mis à jour : supprimés %{proxy_type}",
+        "Hôtes mis à jour : supprimés %{proxy_type}"
       ],
       "Updated hosts: changed environment": [
         "Mise à jour des hôtes : l'environnement a changé"

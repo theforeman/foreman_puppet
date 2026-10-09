@@ -6,7 +6,7 @@
         "Project-Id-Version": "foreman_puppet 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2021-02-03 16:30+0000",
-        "Last-Translator": "Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2023",
+        "Last-Translator": "Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2026",
         "Language-Team": "Catalan (https://app.transifex.com/foreman/teams/114/ca/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -439,7 +439,7 @@
         ""
       ],
       "ID of the organization": [
-        ""
+        "ID de l'organització"
       ],
       "IDs of associated ConfigGroups": [
         ""

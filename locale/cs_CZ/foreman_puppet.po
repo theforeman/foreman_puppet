@@ -7,14 +7,14 @@
 # Ondřej Ezr <ezrik12@gmail.com>, 2021
 # Lukáš Zapletal, 2021
 # mhulan <mhulan@redhat.com>, 2022
-# Pavel Borecki <pavel.borecki@gmail.com>, 2023
+# Pavel Borecki <pavel.borecki@gmail.com>, 2026
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: foreman_puppet 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2021-02-03 16:30+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2023\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2026\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/foreman/teams"
 "/114/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -454,7 +454,7 @@ msgid "ID of the Puppet proxy to reassign the hosts to"
 msgstr ""
 
 msgid "ID of the organization"
-msgstr ""
+msgstr "Identifikátor organizace"
 
 msgid "IDs of associated ConfigGroups"
 msgstr ""
@@ -562,7 +562,7 @@ msgid "List of host ids to exclude and not run an action on"
 msgstr ""
 
 msgid "List of host ids to perform an action on"
-msgstr ""
+msgstr "Vypsat identifikátorů strojů na kterých provést akci"
 
 msgid "List of override values for a specific smart class parameter"
 msgstr ""

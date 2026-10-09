@@ -87,7 +87,7 @@ msgid "Add:"
 msgstr "დამატება:"
 
 msgid "All"
-msgstr ""
+msgstr "ყველა"
 
 msgid "All environments - (not filtered)"
 msgstr "ყველა გარემოები - (ფილტრის გარეშე)"
@@ -453,7 +453,7 @@ msgid "ID of the Puppet proxy to reassign the hosts to"
 msgstr ""
 
 msgid "ID of the organization"
-msgstr ""
+msgstr "ორგანიზაციის ID"
 
 msgid "IDs of associated ConfigGroups"
 msgstr "ასოცირებული ConfigGroups-ის ID"
@@ -558,10 +558,10 @@ msgid "List of config groups"
 msgstr "კონფიგურაციის ჯგუფების სია"
 
 msgid "List of host ids to exclude and not run an action on"
-msgstr ""
+msgstr "ქმედების თავიდან ასაცილებელი და არ გადასატარებელი ჰოსტების ID-ების სია"
 
 msgid "List of host ids to perform an action on"
-msgstr ""
+msgstr "ქმედების გადასატარებელი ჰოსტების ID-ების სია"
 
 msgid "List of override values for a specific smart class parameter"
 msgstr "მითითებული ჭკვიანი კლასის პარამეტრის გადასაფარი მნიშვნელობების სია"
@@ -846,7 +846,7 @@ msgid "Scheduled"
 msgstr "დაგეგმილია"
 
 msgid "Search string for hosts to perform an action on"
-msgstr ""
+msgstr "ქმედების გადასატარებელი ჰოსტების მოსაძებნი სტრიქონი"
 
 msgid "Select a Puppet CA Proxy"
 msgstr ""

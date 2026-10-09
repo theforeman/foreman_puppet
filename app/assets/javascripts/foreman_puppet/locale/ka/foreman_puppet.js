@@ -76,7 +76,7 @@
         "დამატება:"
       ],
       "All": [
-        ""
+        "ყველა"
       ],
       "All environments - (not filtered)": [
         "ყველა გარემოები - (ფილტრის გარეშე)"
@@ -439,7 +439,7 @@
         ""
       ],
       "ID of the organization": [
-        ""
+        "ორგანიზაციის ID"
       ],
       "IDs of associated ConfigGroups": [
         "ასოცირებული ConfigGroups-ის ID"
@@ -544,10 +544,10 @@
         "კონფიგურაციის ჯგუფების სია"
       ],
       "List of host ids to exclude and not run an action on": [
-        ""
+        "ქმედების თავიდან ასაცილებელი და არ გადასატარებელი ჰოსტების ID-ების სია"
       ],
       "List of host ids to perform an action on": [
-        ""
+        "ქმედების გადასატარებელი ჰოსტების ID-ების სია"
       ],
       "List of override values for a specific smart class parameter": [
         "მითითებული ჭკვიანი კლასის პარამეტრის გადასაფარი მნიშვნელობების სია"
@@ -832,7 +832,7 @@
         "დაგეგმილია"
       ],
       "Search string for hosts to perform an action on": [
-        ""
+        "ქმედების გადასატარებელი ჰოსტების მოსაძებნი სტრიქონი"
       ],
       "Select a Puppet CA Proxy": [
         ""
