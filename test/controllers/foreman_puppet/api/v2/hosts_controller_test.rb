@@ -62,7 +62,10 @@ module ForemanPuppet
 
         describe '#create' do
           test 'should create with puppet proxy and environment' do
-            host_params = FactoryBot.attributes_for(:host, managed: false).merge(environment_id: environment.id, puppet_proxy_id: puppet_proxy.to_param)
+            host_params = FactoryBot.attributes_for(:host, managed: false).merge(
+              puppet_attributes: { environment_id: environment.id },
+              puppet_proxy_id: puppet_proxy.to_param
+            )
             post :create, params: { host: host_params }
             assert_response :created
             assert_equal environment.name, JSON.parse(@response.body)['environment_name'], "Can't create host environment #{environment}"
@@ -79,8 +82,7 @@ module ForemanPuppet
 
           test 'should update with puppet class' do
             puppetclass = environment.puppetclasses.first
-            # uses the deprecated version of params passing without namespace, to test it works :)
-            put :update, params: { id: host.id, host: { environment_id: environment.id, puppetclass_ids: [puppetclass.id] } }
+            put :update, params: { id: host.id, host: { puppet_attributes: { environment_id: environment.id, puppetclass_ids: [puppetclass.id] } } }
             assert_response :success
             response = JSON.parse(@response.body)
             assert_equal environment.id, response['environment_id'], "Can't update host with environment #{environment}"
