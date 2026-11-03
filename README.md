@@ -78,6 +78,20 @@ if you encounter any bugs/issues using this plugin.
 
 Fork and send a Pull Request. Thanks!
 
+### JavaScript lint and tests
+
+Plugin JavaScript is linted and tested through [Foreman](https://github.com/theforeman/foreman) core (not `tfm-test` / `tfm-lint` in this repository).
+
+From the Foreman application directory (with this plugin linked, e.g. via `bundler.d/foreman_puppet.local.rb`):
+
+```bash
+cd /path/to/foreman
+npm run lint:plugins foreman_puppet
+npm run test:plugins foreman_puppet
+npm run test:plugins foreman_puppet -- --watchAll
+npm run test:plugins foreman_puppet -- path/to/test.js
+```
+
 ## Copyright
 
 Copyright (c) *2020-2024* *The Foreman developers*
