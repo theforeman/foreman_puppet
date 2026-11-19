@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, act } from '@testing-library/react';
+import { screen, act, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
@@ -103,9 +103,11 @@ describe('BulkRemovePuppetProxyScene', () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    expect(
-      screen.queryByRole('dialog', { name: 'Remove Puppet Proxy' })
-    ).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.queryByRole('dialog', { name: 'Remove Puppet Proxy' })
+      ).not.toBeInTheDocument();
+    });
   });
 
   it('dispatches the bulk remove puppet proxy action when confirmed', async () => {
@@ -146,8 +148,10 @@ describe('BulkRemovePuppetProxyScene', () => {
     });
 
     expect(refreshTableData).toHaveBeenCalledTimes(1);
-    expect(
-      screen.queryByRole('dialog', { name: 'Remove Puppet Proxy' })
-    ).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.queryByRole('dialog', { name: 'Remove Puppet Proxy' })
+      ).not.toBeInTheDocument();
+    });
   });
 });

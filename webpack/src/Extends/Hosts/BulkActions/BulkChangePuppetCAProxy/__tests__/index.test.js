@@ -58,10 +58,17 @@ const renderScene = ({ contextValue = defaultContextValue } = {}) =>
 
 const selectPuppetCAProxy = async () => {
   await act(async () => {
-    await userEvent.click(await screen.findByText('Select a Puppet CA Proxy'));
+    await userEvent.click(
+      await screen.findByRole('button', { name: 'Select a Puppet CA Proxy' })
+    );
   });
   await act(async () => {
-    await userEvent.click(screen.getByText('ca-proxy1.example.com'));
+    await userEvent.click(
+      screen.getByRole('option', {
+        name: 'ca-proxy1.example.com',
+        hidden: true,
+      })
+    );
   });
 };
 
@@ -95,7 +102,7 @@ describe('BulkChangePuppetCAProxyScene', () => {
     ).toBeInTheDocument();
     expect(screen.getByText('2')).toBeInTheDocument();
     expect(
-      await screen.findByText('Select a Puppet CA Proxy')
+      await screen.findByRole('button', { name: 'Select a Puppet CA Proxy' })
     ).toBeInTheDocument();
     expect(screen.queryByText('Select a Puppet Proxy')).not.toBeInTheDocument();
     expect(screen.queryByText('Change Puppet Proxy')).not.toBeInTheDocument();
@@ -175,8 +182,10 @@ describe('BulkChangePuppetCAProxyScene', () => {
     });
 
     expect(refreshTableData).toHaveBeenCalledTimes(1);
-    expect(
-      screen.queryByRole('dialog', { name: 'Change Puppet CA Proxy' })
-    ).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.queryByRole('dialog', { name: 'Change Puppet CA Proxy' })
+      ).not.toBeInTheDocument();
+    });
   });
 });

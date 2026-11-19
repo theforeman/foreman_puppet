@@ -18,7 +18,7 @@ const PuppetTab = ({ response, status, location: { pathname } }) => {
         ouiaId="foreman-puppet-host-details-tab"
         className="foreman-puppet-host-details-tab"
         onSelect={(evt, subTab) => hashHistory.push(subTab)}
-        isSecondary
+        isSubtab
         activeKey={activeTab(pathname)}
       >
         {SECONDARY_TABS.map(({ key, title }) => (
