@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
-import { Modal, Button, TextContent, Text } from '@patternfly/react-core';
+import {
+  Button,
+  Content,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+} from '@patternfly/react-core';
 import { addToast } from 'foremanReact/components/ToastsList/slice';
 import { translate as __ } from 'foremanReact/common/I18n';
 
@@ -96,41 +103,45 @@ const BulkRemoveProxyCommon = ({
     </Button>,
   ];
 
+  const modalTitleId = 'bulk-remove-proxy-common-title';
+
   return (
     <Modal
       isOpen={isOpen}
       onClose={handleModalClose}
       onEscapePress={handleModalClose}
-      title={removeMessage}
       width="50%"
       position="top"
-      actions={modalActions}
       id="bulk-remove-proxy-common"
-      key="bulk-remove-proxy-common"
       ouiaId="bulk-remove-proxy-common"
+      aria-labelledby={modalTitleId}
     >
-      <TextContent>
-        <Text ouiaId="bulk-remove-proxy-common-options">
-          {selectAllHostsMode ? (
-            <FormattedMessage
-              id="bulk-remove-proxy-common-warning-message-all"
-              defaultMessage={allHostsMessage}
-              values={{
-                boldCount: <strong>{__('All')}</strong>,
-              }}
-            />
-          ) : (
-            <FormattedMessage
-              id="bulk-remove-proxy-common-warning-message"
-              defaultMessage={someHostsMessage}
-              values={{
-                count: selectedCount,
-                boldCount: <strong>{selectedCount}</strong>,
-              }}
-            />
-          )}
-        </Text>
-      </TextContent>
+      <ModalHeader title={removeMessage} labelId={modalTitleId} />
+      <ModalBody>
+        <Content>
+          <Content component="p" ouiaId="bulk-remove-proxy-common-options">
+            {selectAllHostsMode ? (
+              <FormattedMessage
+                id="bulk-remove-proxy-common-warning-message-all"
+                defaultMessage={allHostsMessage}
+                values={{
+                  boldCount: <strong>{__('All')}</strong>,
+                }}
+              />
+            ) : (
+              <FormattedMessage
+                id="bulk-remove-proxy-common-warning-message"
+                defaultMessage={someHostsMessage}
+                values={{
+                  count: selectedCount,
+                  boldCount: <strong>{selectedCount}</strong>,
+                }}
+              />
+            )}
+          </Content>
+        </Content>
+      </ModalBody>
+      <ModalFooter>{modalActions}</ModalFooter>
     </Modal>
   );
 };

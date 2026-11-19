@@ -112,9 +112,11 @@ describe('BulkRemovePuppetCAProxyScene', () => {
     await screen.findByRole('dialog', { name: 'Remove Puppet CA Proxy' });
     await userEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
-    expect(
-      screen.queryByRole('dialog', { name: 'Remove Puppet CA Proxy' })
-    ).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.queryByRole('dialog', { name: 'Remove Puppet CA Proxy' })
+      ).not.toBeInTheDocument();
+    });
   });
 
   it('submits CA proxy removal request when confirm is clicked', async () => {
@@ -158,8 +160,10 @@ describe('BulkRemovePuppetCAProxyScene', () => {
     await waitFor(() => {
       expect(refreshTableData).toHaveBeenCalledTimes(1);
     });
-    expect(
-      screen.queryByRole('dialog', { name: 'Remove Puppet CA Proxy' })
-    ).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(
+        screen.queryByRole('dialog', { name: 'Remove Puppet CA Proxy' })
+      ).not.toBeInTheDocument();
+    });
   });
 });

@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Modal,
   Button,
-  TextContent,
-  Text,
+  Content,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
   Select,
   SelectOption,
   SelectList,
@@ -152,71 +154,78 @@ const BulkChangePuppetEnvironmentModal = ({
     </Button>,
   ];
 
+  const modalTitle = __('Change Puppet Environment');
+  const modalTitleId = 'bulk-change-puppet-environment-title';
+
   return (
     <Modal
       isOpen={isOpen}
       onClose={handleModalClose}
       onEscapePress={handleModalClose}
-      title={__('Change Puppet Environment')}
       width="50%"
       position="top"
-      actions={modalActions}
       id="bulk-change-puppet-environment"
-      key="bulk-change-puppet-environment"
       ouiaId="bulk-change-puppet-environment"
+      aria-labelledby={modalTitleId}
     >
-      <TextContent>
-        <Text ouiaId="bulk-change-puppet-environment-options">
-          {selectAllHostsMode ? (
-            <FormattedMessage
-              id="bulk-change-puppet-environment-warning-message-all"
-              defaultMessage={__(
-                'Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.'
-              )}
-              values={{
-                boldCount: <strong>{__('All')}</strong>,
-              }}
-            />
-          ) : (
-            <FormattedMessage
-              id="bulk-change-puppet-environment-warning-message"
-              defaultMessage={__(
-                'Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.'
-              )}
-              values={{
-                count: selectedCount,
-                boldCount: <strong>{selectedCount}</strong>,
-              }}
-            />
-          )}
-        </Text>
-      </TextContent>
-      {environmentsStatus === STATUS.RESOLVED && (
-        <Select
-          id="bulk-change-puppet-environment-select"
-          isOpen={environmentSelectOpen}
-          selected={environmentId}
-          onSelect={handleEnvironmentSelect}
-          onOpenChange={isSelectOpen => setEnvironmentSelectOpen(isSelectOpen)}
-          toggle={toggle}
-          shouldFocusToggleOnSelect
-          ouiaId="bulk-change-puppet-environment-select"
-        >
-          <SelectList>
-            <SelectOption value={INHERIT_ENVIRONMENT}>
-              {__('*Inherit from host group*')}
-            </SelectOption>
-            {environments?.results?.map(environment => (
-              <SelectOption
-                key={`${environment.id}`}
-                value={`${environment.id}`}
-              >
-                {environment.name}
+      <ModalHeader title={modalTitle} labelId={modalTitleId} />
+      <ModalBody>
+        <Content>
+          <Content component="p" ouiaId="bulk-change-puppet-environment-options">
+            {selectAllHostsMode ? (
+              <FormattedMessage
+                id="bulk-change-puppet-environment-warning-message-all"
+                defaultMessage={__(
+                  'Changing the Puppet environment will affect {boldCount} selected hosts. Some hosts may already have been associated with the selected environment.'
+                )}
+                values={{
+                  boldCount: <strong>{__('All')}</strong>,
+                }}
+              />
+            ) : (
+              <FormattedMessage
+                id="bulk-change-puppet-environment-warning-message"
+                defaultMessage={__(
+                  'Changing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}. Some hosts may already have been associated with the selected environment.'
+                )}
+                values={{
+                  count: selectedCount,
+                  boldCount: <strong>{selectedCount}</strong>,
+                }}
+              />
+            )}
+          </Content>
+        </Content>
+        {environmentsStatus === STATUS.RESOLVED && (
+          <Select
+            id="bulk-change-puppet-environment-select"
+            isOpen={environmentSelectOpen}
+            selected={environmentId}
+            onSelect={handleEnvironmentSelect}
+            onOpenChange={isSelectOpen =>
+              setEnvironmentSelectOpen(isSelectOpen)
+            }
+            toggle={toggle}
+            shouldFocusToggleOnSelect
+            ouiaId="bulk-change-puppet-environment-select"
+          >
+            <SelectList>
+              <SelectOption value={INHERIT_ENVIRONMENT}>
+                {__('*Inherit from host group*')}
               </SelectOption>
-            ))}
-          </SelectList>
-        </Select>
-      )}
+              {environments?.results?.map(environment => (
+                <SelectOption
+                  key={`${environment.id}`}
+                  value={`${environment.id}`}
+                >
+                  {environment.name}
+                </SelectOption>
+              ))}
+            </SelectList>
+          </Select>
+        )}
+      </ModalBody>
+      <ModalFooter>{modalActions}</ModalFooter>
     </Modal>
   );
 };

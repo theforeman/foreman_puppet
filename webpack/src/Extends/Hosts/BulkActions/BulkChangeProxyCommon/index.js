@@ -4,10 +4,12 @@ import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Alert,
-  Modal,
   Button,
-  TextContent,
-  Text,
+  Content,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
   Select,
   SelectOption,
   SelectList,
@@ -150,76 +152,80 @@ const BulkChangeProxyCommon = ({
     </Button>,
   ];
 
+  const modalTitleId = 'bulk-change-proxy-common-title';
+
   return (
     <Modal
       isOpen={isOpen}
       onClose={handleModalClose}
       onEscapePress={handleModalClose}
-      title={changeMessage}
       width="50%"
       position="top"
-      actions={modalActions}
       id="bulk-change-proxy-common"
-      key="bulk-change-proxy-common"
       ouiaId="bulk-change-proxy-common"
+      aria-labelledby={modalTitleId}
     >
-      {(smartProxyStatus !== STATUS.RESOLVED || hasSmartProxies) && (
-        <TextContent>
-          <Text ouiaId="bulk-change-proxy-common-options">
-            {selectAllHostsMode ? (
-              <FormattedMessage
-                id="bulk-change-proxy-common-warning-message-all"
-                defaultMessage={allHostsMessage}
-                values={{
-                  boldCount: <strong>{__('All')}</strong>,
-                }}
-              />
-            ) : (
-              <FormattedMessage
-                id="bulk-change-proxy-common-warning-message"
-                defaultMessage={someHostsMessage}
-                values={{
-                  count: selectedCount,
-                  boldCount: <strong>{selectedCount}</strong>,
-                }}
-              />
+      <ModalHeader title={changeMessage} labelId={modalTitleId} />
+      <ModalBody>
+        {(smartProxyStatus !== STATUS.RESOLVED || hasSmartProxies) && (
+          <Content>
+            <Content component="p" ouiaId="bulk-change-proxy-common-options">
+              {selectAllHostsMode ? (
+                <FormattedMessage
+                  id="bulk-change-proxy-common-warning-message-all"
+                  defaultMessage={allHostsMessage}
+                  values={{
+                    boldCount: <strong>{__('All')}</strong>,
+                  }}
+                />
+              ) : (
+                <FormattedMessage
+                  id="bulk-change-proxy-common-warning-message"
+                  defaultMessage={someHostsMessage}
+                  values={{
+                    count: selectedCount,
+                    boldCount: <strong>{selectedCount}</strong>,
+                  }}
+                />
+              )}
+            </Content>
+          </Content>
+        )}
+        {smartProxyStatus === STATUS.RESOLVED && hasSmartProxies && (
+          <Select
+            id="single-grouped-select"
+            isOpen={smartProxySelectOpen}
+            selected={smartProxyId}
+            onSelect={handleSmartProxySelect}
+            onOpenChange={isSelectOpen => setSmartProxySelectOpen(isSelectOpen)}
+            toggle={toggle}
+            shouldFocusToggleOnSelect
+            ouiaId="bulk-change-proxy-common-select"
+          >
+            {smartProxies && (
+              <SelectList>
+                {smartProxies.results?.map(sp => (
+                  <SelectOption key={`${sp.id}`} value={`${sp.id}-${sp.name}`}>
+                    {sp.name}
+                  </SelectOption>
+                ))}
+              </SelectList>
             )}
-          </Text>
-        </TextContent>
-      )}
-      {smartProxyStatus === STATUS.RESOLVED && hasSmartProxies && (
-        <Select
-          id="single-grouped-select"
-          isOpen={smartProxySelectOpen}
-          selected={smartProxyId}
-          onSelect={handleSmartProxySelect}
-          onOpenChange={isSelectOpen => setSmartProxySelectOpen(isSelectOpen)}
-          toggle={toggle}
-          shouldFocusToggleOnSelect
-          ouiaId="bulk-change-proxy-common-select"
-        >
-          {smartProxies && (
-            <SelectList>
-              {smartProxies.results?.map(sp => (
-                <SelectOption key={`${sp.id}`} value={`${sp.id}-${sp.name}`}>
-                  {sp.name}
-                </SelectOption>
-              ))}
-            </SelectList>
-          )}
-        </Select>
-      )}
-      {smartProxyStatus === STATUS.RESOLVED && !hasSmartProxies && (
-        <Alert
-          ouiaId="foreman-puppet-no-proxy-alert"
-          isInline
-          variant="warning"
-          title={sprintf(
-            __("There is no Smart Proxy with the feature '%s' available."),
-            smartProxyFeature
-          )}
-        />
-      )}
+          </Select>
+        )}
+        {smartProxyStatus === STATUS.RESOLVED && !hasSmartProxies && (
+          <Alert
+            ouiaId="foreman-puppet-no-proxy-alert"
+            isInline
+            variant="warning"
+            title={sprintf(
+              __("There is no Smart Proxy with the feature '%s' available."),
+              smartProxyFeature
+            )}
+          />
+        )}
+      </ModalBody>
+      <ModalFooter>{modalActions}</ModalFooter>
     </Modal>
   );
 };

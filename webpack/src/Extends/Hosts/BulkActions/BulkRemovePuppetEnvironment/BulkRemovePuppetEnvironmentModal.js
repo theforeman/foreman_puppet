@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
-import { Modal, Button, TextContent, Text } from '@patternfly/react-core';
+import {
+  Button,
+  Content,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+} from '@patternfly/react-core';
 import { translate as __ } from 'foremanReact/common/I18n';
 import { addToast } from 'foremanReact/components/ToastsList/slice';
 import { useForemanOrganization } from 'foremanReact/Root/Context/ForemanContext';
@@ -87,45 +94,50 @@ const BulkRemovePuppetEnvironmentModal = ({
     </Button>,
   ];
 
+  const modalTitle = __('Remove Puppet Environment');
+  const modalTitleId = 'bulk-remove-puppet-environment-title';
+
   return (
     <Modal
       isOpen={isOpen}
       onClose={handleModalClose}
       onEscapePress={handleModalClose}
-      title={__('Remove Puppet Environment')}
       width="50%"
       position="top"
-      actions={modalActions}
       id="bulk-remove-puppet-environment"
-      key="bulk-remove-puppet-environment"
       ouiaId="bulk-remove-puppet-environment"
+      aria-labelledby={modalTitleId}
     >
-      <TextContent>
-        <Text ouiaId="bulk-remove-puppet-environment-options">
-          {selectAllHostsMode ? (
-            <FormattedMessage
-              id="bulk-remove-puppet-environment-warning-message-all"
-              defaultMessage={__(
-                'Removing the Puppet environment will affect {boldCount} selected hosts.'
-              )}
-              values={{
-                boldCount: <strong>{__('All')}</strong>,
-              }}
-            />
-          ) : (
-            <FormattedMessage
-              id="bulk-remove-puppet-environment-warning-message"
-              defaultMessage={__(
-                'Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.'
-              )}
-              values={{
-                count: selectedCount,
-                boldCount: <strong>{selectedCount}</strong>,
-              }}
-            />
-          )}
-        </Text>
-      </TextContent>
+      <ModalHeader title={modalTitle} labelId={modalTitleId} />
+      <ModalBody>
+        <Content>
+          <Content component="p" ouiaId="bulk-remove-puppet-environment-options">
+            {selectAllHostsMode ? (
+              <FormattedMessage
+                id="bulk-remove-puppet-environment-warning-message-all"
+                defaultMessage={__(
+                  'Removing the Puppet environment will affect {boldCount} selected hosts.'
+                )}
+                values={{
+                  boldCount: <strong>{__('All')}</strong>,
+                }}
+              />
+            ) : (
+              <FormattedMessage
+                id="bulk-remove-puppet-environment-warning-message"
+                defaultMessage={__(
+                  'Removing the Puppet environment will affect {boldCount} selected {count, plural, one {host} other {hosts}}.'
+                )}
+                values={{
+                  count: selectedCount,
+                  boldCount: <strong>{selectedCount}</strong>,
+                }}
+              />
+            )}
+          </Content>
+        </Content>
+      </ModalBody>
+      <ModalFooter>{modalActions}</ModalFooter>
     </Modal>
   );
 };
