@@ -22,6 +22,10 @@ module ForemanPuppet
 
     private
 
+    def controller_permission
+      'smart_proxies'
+    end
+
     def find_status
       @proxy_status = @smart_proxy.statuses
     end
