@@ -17,3 +17,4 @@ jobs:
     uses: theforeman/actions/.github/workflows/foreman_plugin_js.yml@v1
     with:
       plugin: foreman_puppet
+      foreman_version: refs/pull/11415/head
